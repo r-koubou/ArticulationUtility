@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <AssemblyName>Spreadsheet2Expressionmap.Converter</AssemblyName>
+        <RootNamespace>Spreadsheet2Expressionmap.Converter</RootNamespace>
+        <Company>R-Koubou</Company>
+        <Product>Spreadsheet2Expressionmap</Product>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="ExcelDataReader" Version="3.6.0" />
+      <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
+    </ItemGroup>
+
+</Project>
