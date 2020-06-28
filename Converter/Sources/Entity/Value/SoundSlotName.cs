@@ -5,11 +5,11 @@ namespace Spreadsheet2Expressionmap.Converter.Entity.Value
     /// <summary>
     /// A Slot name
     /// </summary>
-    public class SlotName : IEquatable<SlotName>
+    public class SoundSlotName : IEquatable<SoundSlotName>
     {
         private string Name { get; }
 
-        public SlotName( string name )
+        public SoundSlotName( string name )
         {
             if( string.IsNullOrEmpty( name ) || name.Trim().Length == 0 )
             {
@@ -18,7 +18,7 @@ namespace Spreadsheet2Expressionmap.Converter.Entity.Value
             Name = name;
         }
 
-        public bool Equals( SlotName other )
+        public bool Equals( SoundSlotName other )
         {
             if( other == null )
             {

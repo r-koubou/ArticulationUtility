@@ -13,7 +13,7 @@ namespace Spreadsheet2Expressionmap.Converter.Testing.Entity
     {
         public void ValueTest()
         {
-            var slot = new SoundSlot( new SlotName( "Name" ), new SoundSlotColorIndex( 0 ) );
+            var slot = new SoundSlot( new SoundSlotName( "Name" ), new SoundSlotColorIndex( 0 ) );
             slot.Articulations.Add(
                 new Articulation(
                     new ArticulationName( "Name" ),
@@ -50,13 +50,13 @@ namespace Spreadsheet2Expressionmap.Converter.Testing.Entity
 
     public class SoundSlot
     {
-        public SlotName Name { get; }
+        public SoundSlotName Name { get; }
         public SoundSlotColorIndex ColorIndex { get; }
         public List<Articulation> Articulations { get; } = new List<Articulation>();
 
         public List<OutputMapping> OutputMappings { get; } = new List<OutputMapping>();
 
-        public SoundSlot( SlotName name, SoundSlotColorIndex colorIndex )
+        public SoundSlot( SoundSlotName name, SoundSlotColorIndex colorIndex )
         {
             Name       = name ?? throw new ArgumentNullException( $"{nameof( name )}" );
             ColorIndex = colorIndex ?? throw new ArgumentNullException( $"{nameof( colorIndex )}" );
