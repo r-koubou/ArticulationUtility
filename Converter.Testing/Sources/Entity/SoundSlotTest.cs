@@ -11,6 +11,7 @@ namespace Spreadsheet2Expressionmap.Converter.Testing.Entity
     [TestFixture]
     public class SoundSlotTest
     {
+        [Test]
         public void ValueTest()
         {
             var slot = new SoundSlot( new SoundSlotName( "Name" ), new SoundSlotColorIndex( 0 ) );
@@ -22,7 +23,7 @@ namespace Spreadsheet2Expressionmap.Converter.Testing.Entity
                 )
             );
             slot.OutputMappings.Add(
-                new OutputMapping(
+                new OutputMapping().AddMidiEvent(
                     new MidiNoteOn(
                         new MidiNoteNumber( 1 ),
                         new MidiVelocity( 100 )
@@ -30,7 +31,7 @@ namespace Spreadsheet2Expressionmap.Converter.Testing.Entity
                 )
             );
             slot.OutputMappings.Add(
-                new OutputMapping(
+                new OutputMapping().AddMidiEvent(
                     new MidiControlChange(
                         new MidiControlNumber( 0 ),
                         new MidiControlValue( 0 )
@@ -38,8 +39,8 @@ namespace Spreadsheet2Expressionmap.Converter.Testing.Entity
                 )
             );
             slot.OutputMappings.Add(
-                new OutputMapping(
-                    new MidiProgramChangeByte(
+                new OutputMapping().AddMidiEvent(
+                    new MidiProgramChange(
                         new MidiLeastSignificantByte( 1 ),
                         new MidiMostSignificantByte( 2 )
                     )
@@ -48,6 +49,9 @@ namespace Spreadsheet2Expressionmap.Converter.Testing.Entity
         }
     }
 
+    /// <summary>
+    /// Represents the sound slot in the expression map.
+    /// </summary>
     public class SoundSlot
     {
         public SoundSlotName Name { get; }

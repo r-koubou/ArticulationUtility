@@ -2,7 +2,7 @@ using System;
 
 namespace Spreadsheet2Expressionmap.Converter.Entity.Value
 {
-    public class MidiControlValue : IEquatable<MidiControlValue>
+    public class MidiControlValue : IMidiEventData, IEquatable<MidiControlValue>
     {
         public const int MinValue = 0x00;
         public const int MaxValue = 0x7f;

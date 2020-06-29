@@ -2,7 +2,7 @@ using System;
 
 namespace Spreadsheet2Expressionmap.Converter.Entity.Value
 {
-    public class MidiNoteNumber : IEquatable<MidiNoteNumber>
+    public class MidiNoteNumber : IMidiEventData, IEquatable<MidiNoteNumber>
     {
         public const int MinValue = 0x00;
         public const int MaxValue = 0x7f;
