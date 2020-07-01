@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 using NUnit.Framework;
 
@@ -11,6 +10,12 @@ namespace Spreadsheet2Expressionmap.Converter.Testing.Entity
     [TestFixture]
     public class SoundSlotTest
     {
+        [Test]
+        public void NullTest()
+        {
+            Assert.Throws<ArgumentNullException>( () => new SoundSlot( null ) );
+        }
+
         [Test]
         public void ValueTest()
         {
@@ -46,24 +51,6 @@ namespace Spreadsheet2Expressionmap.Converter.Testing.Entity
                     )
                 )
             );
-        }
-    }
-
-    /// <summary>
-    /// Represents the sound slot in the expression map.
-    /// </summary>
-    public class SoundSlot
-    {
-        public SoundSlotName Name { get; }
-        public SoundSlotColorIndex ColorIndex { get; }
-        public List<Articulation> Articulations { get; } = new List<Articulation>();
-
-        public List<OutputMapping> OutputMappings { get; } = new List<OutputMapping>();
-
-        public SoundSlot( SoundSlotName name, SoundSlotColorIndex colorIndex )
-        {
-            Name       = name ?? throw new ArgumentNullException( $"{nameof( name )}" );
-            ColorIndex = colorIndex ?? throw new ArgumentNullException( $"{nameof( colorIndex )}" );
         }
     }
 }
