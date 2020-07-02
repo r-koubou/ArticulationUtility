@@ -1,6 +1,7 @@
 using NUnit.Framework;
 
 using Spreadsheet2Expressionmap.Converter.Entity.Helper;
+using Spreadsheet2Expressionmap.Converter.Entity.Value;
 
 namespace Spreadsheet2Expressionmap.Converter.Testing.Entity.Helper
 {
@@ -10,6 +11,9 @@ namespace Spreadsheet2Expressionmap.Converter.Testing.Entity.Helper
         [Test]
         public void NullTest()
         {
+            Assert.Throws<MidiNoteNotFoundException>( () => MidiNoteHelper.FromNoteName( null ) );
+            Assert.Throws<MidiNoteNotFoundException>( () => MidiNoteHelper.FromNoteName( "" ) );
+            Assert.Throws<MidiNoteNotFoundException>( () => MidiNoteHelper.ToNoteName( null ) );
         }
 
 

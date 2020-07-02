@@ -184,7 +184,11 @@ namespace Spreadsheet2Expressionmap.Converter.Entity.Helper
         /// <returns>A generated instance.</returns>
         public static MidiNoteNumber FromNoteName( string noteName )
         {
-            if( !NoteNameToNoteNumberMapper.ContainsKey( noteName ) )
+            if( string.IsNullOrEmpty( noteName ) )
+            {
+                throw new MidiNoteNotFoundException( $"{nameof(noteName)} is null or empty." );
+            }
+            else if( !NoteNameToNoteNumberMapper.ContainsKey( noteName ) )
             {
                 throw new MidiNoteNotFoundException( noteName );
             }
@@ -200,6 +204,10 @@ namespace Spreadsheet2Expressionmap.Converter.Entity.Helper
         /// </returns>
         public static string ToNoteName( MidiNoteNumber note )
         {
+            if( note == null )
+            {
+                throw new MidiNoteNotFoundException( $"{nameof(note)} is null" );
+            }
             return NoteNameList[ note.Value ];
         }
 
