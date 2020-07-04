@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converter.Testing", "Converter.Testing\Converter.Testing.csproj", "{D5273790-603C-493A-B0F2-537060B2B0AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Testing", "Core.Testing\Core.Testing.csproj", "{D5273790-603C-493A-B0F2-537060B2B0AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converter", "Converter\Converter.csproj", "{899418AD-7A88-496B-BD4C-984166160962}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{899418AD-7A88-496B-BD4C-984166160962}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
