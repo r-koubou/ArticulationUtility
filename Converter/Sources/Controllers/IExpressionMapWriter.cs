@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 using Spreadsheet2Expressionmap.Converter.Entities.ExpressionMaps;
 
-namespace Spreadsheet2Expressionmap.Converter.Gateways
+namespace Spreadsheet2Expressionmap.Converter.Controllers
 {
     public interface IExpressionMapWriter
     {
