@@ -5,9 +5,9 @@
 
         <IsPackable>false</IsPackable>
 
-        <AssemblyName>Spreadsheet2Expressionmap.Converter.Testing</AssemblyName>
+        <AssemblyName>VSTExpressionMap.Core.Testing</AssemblyName>
 
-        <RootNamespace>Spreadsheet2Expressionmap.Converter.Testing</RootNamespace>
+        <RootNamespace>VSTExpressionMap.Core.Testing</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

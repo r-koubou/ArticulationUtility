@@ -1,8 +1,8 @@
 using NUnit.Framework;
 
-using Spreadsheet2Expressionmap.Converter.Entities.MidiEvents.Value;
+using VSTExpressionMap.Core.Entities.MidiEvents.Value;
 
-namespace Spreadsheet2Expressionmap.Converter.Testing.Entities.MidiEvents.Value
+namespace VSTExpressionMap.Core.Testing.Entities.MidiEvents.Value
 {
     [TestFixture]
     public class MidiControlValueTest

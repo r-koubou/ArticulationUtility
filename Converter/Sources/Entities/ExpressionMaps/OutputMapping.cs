@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-using Spreadsheet2Expressionmap.Converter.Entities.MidiEvents;
+using VSTExpressionMap.Core.Entities.MidiEvents;
 
-namespace Spreadsheet2Expressionmap.Converter.Entities.ExpressionMaps
+namespace VSTExpressionMap.Core.Entities.ExpressionMaps
 {
     /// <summary>
     /// Represents the Output Mapping of the Expression Map.

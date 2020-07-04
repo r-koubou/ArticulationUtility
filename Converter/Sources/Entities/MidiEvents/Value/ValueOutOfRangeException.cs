@@ -1,4 +1,4 @@
-namespace Spreadsheet2Expressionmap.Converter.Entities.MidiEvents.Value
+namespace VSTExpressionMap.Core.Entities.MidiEvents.Value
 {
     public sealed class ValueOutOfRangeException : System.Exception
     {

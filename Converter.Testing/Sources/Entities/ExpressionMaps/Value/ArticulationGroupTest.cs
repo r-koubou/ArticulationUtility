@@ -1,9 +1,9 @@
 using NUnit.Framework;
 
-using Spreadsheet2Expressionmap.Converter.Entities.ExpressionMaps.Value;
-using Spreadsheet2Expressionmap.Converter.Entities.MidiEvents.Value;
+using VSTExpressionMap.Core.Entities.ExpressionMaps.Value;
+using VSTExpressionMap.Core.Entities.MidiEvents.Value;
 
-namespace Spreadsheet2Expressionmap.Converter.Testing.Entities.ExpressionMaps.Value
+namespace VSTExpressionMap.Core.Testing.Entities.ExpressionMaps.Value
 {
     [TestFixture]
     public class ArticulationGroupTest

@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-using Spreadsheet2Expressionmap.Converter.Entities.ExpressionMaps;
+using VSTExpressionMap.Core.Entities.ExpressionMaps;
 
-namespace Spreadsheet2Expressionmap.Converter.Controllers
+namespace VSTExpressionMap.Core.Presenters
 {
     public interface IExpressionMapWriter
     {

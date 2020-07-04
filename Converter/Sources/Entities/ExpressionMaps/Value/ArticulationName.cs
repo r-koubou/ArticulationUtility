@@ -1,6 +1,6 @@
 using System;
 
-namespace Spreadsheet2Expressionmap.Converter.Entities.ExpressionMaps.Value
+namespace VSTExpressionMap.Core.Entities.ExpressionMaps.Value
 {
     /// <summary>
     /// An Articulation name

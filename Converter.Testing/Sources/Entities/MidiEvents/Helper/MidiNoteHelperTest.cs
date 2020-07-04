@@ -1,8 +1,8 @@
 using NUnit.Framework;
 
-using Spreadsheet2Expressionmap.Converter.Entities.MidiEvents.Helper;
+using VSTExpressionMap.Core.Entities.MidiEvents.Helper;
 
-namespace Spreadsheet2Expressionmap.Converter.Testing.Entities.MidiEvents.Helper
+namespace VSTExpressionMap.Core.Testing.Entities.MidiEvents.Helper
 {
     [TestFixture]
     public class MidiNoteHelperTest

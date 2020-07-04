@@ -1,6 +1,6 @@
 using System;
 
-namespace Spreadsheet2Expressionmap.Converter.Entities.MidiEvents.Helper
+namespace VSTExpressionMap.Core.Entities.MidiEvents.Helper
 {
     public class MidiNoteNotFoundException : Exception
     {

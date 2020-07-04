@@ -1,8 +1,8 @@
 using System;
 
-using Spreadsheet2Expressionmap.Converter.Entities.MidiEvents.Value;
+using VSTExpressionMap.Core.Entities.MidiEvents.Value;
 
-namespace Spreadsheet2Expressionmap.Converter.Entities.MidiEvents
+namespace VSTExpressionMap.Core.Entities.MidiEvents
 {
     /// <summary>
     /// Represents a MIDI control change.

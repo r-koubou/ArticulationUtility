@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-using Spreadsheet2Expressionmap.Converter.Entities.ExpressionMaps.Value;
+using VSTExpressionMap.Core.Entities.ExpressionMaps.Value;
 
-namespace Spreadsheet2Expressionmap.Converter.Entities.ExpressionMaps
+namespace VSTExpressionMap.Core.Entities.ExpressionMaps
 {
     /// <summary>
     /// Represents the sound slot in the expression map.

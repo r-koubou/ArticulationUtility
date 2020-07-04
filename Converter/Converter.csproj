@@ -2,8 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <AssemblyName>Spreadsheet2Expressionmap.Converter</AssemblyName>
-        <RootNamespace>Spreadsheet2Expressionmap.Converter</RootNamespace>
+        <AssemblyName>VSTExpressionMap.Core</AssemblyName>
+        <RootNamespace>VSTExpressionMap.Core</RootNamespace>
         <Company>R-Koubou</Company>
         <Product>Spreadsheet2Expressionmap</Product>
     </PropertyGroup>

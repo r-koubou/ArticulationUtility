@@ -1,4 +1,4 @@
-namespace Spreadsheet2Expressionmap.Converter.Entities.ExpressionMaps.Value
+namespace VSTExpressionMap.Core.Entities.ExpressionMaps.Value
 {
     public enum ArticulationType
     {

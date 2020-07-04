@@ -1,6 +1,6 @@
 using System;
 
-namespace Spreadsheet2Expressionmap.Converter.Entities.MidiEvents.Value
+namespace VSTExpressionMap.Core.Entities.MidiEvents.Value
 {
     public class MidiMostSignificantByte : IMidiEventData, IEquatable<MidiMostSignificantByte>
     {

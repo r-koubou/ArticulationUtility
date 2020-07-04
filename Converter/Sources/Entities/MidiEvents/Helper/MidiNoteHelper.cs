@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-using Spreadsheet2Expressionmap.Converter.Entities.MidiEvents.Value;
+using VSTExpressionMap.Core.Entities.MidiEvents.Value;
 
-namespace Spreadsheet2Expressionmap.Converter.Entities.MidiEvents.Helper
+namespace VSTExpressionMap.Core.Entities.MidiEvents.Helper
 {
     /// <summary>
     /// Helper class for <seealso cref="MidiNoteNumber"/>

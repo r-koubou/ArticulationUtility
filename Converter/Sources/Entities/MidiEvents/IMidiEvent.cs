@@ -1,4 +1,4 @@
-namespace Spreadsheet2Expressionmap.Converter.Entities.MidiEvents
+namespace VSTExpressionMap.Core.Entities.MidiEvents
 {
     /// <summary>
     /// MIDI event aggregation that makes up the sound slot.

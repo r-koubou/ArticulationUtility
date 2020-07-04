@@ -1,8 +1,8 @@
 using System;
 
-using Spreadsheet2Expressionmap.Converter.Entities.ExpressionMaps.Value;
+using VSTExpressionMap.Core.Entities.ExpressionMaps.Value;
 
-namespace Spreadsheet2Expressionmap.Converter.Entities.ExpressionMaps
+namespace VSTExpressionMap.Core.Entities.ExpressionMaps
 {
     public class Articulation
     {
