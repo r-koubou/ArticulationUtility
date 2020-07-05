@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <AssemblyName>VSTExpressionMapTools.Frameworks</AssemblyName>
+        <RootNamespace>VSTExpressionMapTools.Frameworks</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Domain\Domain.csproj" />
+      <ProjectReference Include="..\UseCases\UseCases.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Application" />
+      <Folder Include="ExpressionMap" />
+      <Folder Include="Spreadsheet" />
+    </ItemGroup>
+
+</Project>

@@ -2,8 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <AssemblyName>VSTExpressionMapTools.Application</AssemblyName>
-        <RootNamespace>VSTExpressionMapTools.Application</RootNamespace>
+        <AssemblyName>VSTExpressionMapTools.UseCases</AssemblyName>
+        <RootNamespace>VSTExpressionMapTools.UseCases</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
