@@ -1,8 +1,8 @@
+using ArticulationUtility.Domain.MidiEvents.Helper;
+
 using NUnit.Framework;
 
-using VSTExpressionMapTools.Domain.MidiEvents.Helper;
-
-namespace VSTExpressionMap.Core.Testing.MidiEvents.Helper
+namespace ArticulationUtility.Domain.Testing.MidiEvents.Helper
 {
     [TestFixture]
     public class MidiNoteHelperTest

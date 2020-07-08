@@ -1,4 +1,4 @@
-namespace VSTExpressionMapTools.Domain.VSTExpressionMap.Value
+namespace ArticulationUtility.Domain.VSTExpressionMap.Value
 {
     public enum ArticulationType
     {

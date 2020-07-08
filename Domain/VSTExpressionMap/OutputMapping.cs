@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-using VSTExpressionMapTools.Domain.MidiEvents;
+using ArticulationUtility.Domain.MidiEvents;
 
-namespace VSTExpressionMapTools.Domain.VSTExpressionMap
+namespace ArticulationUtility.Domain.VSTExpressionMap
 {
     /// <summary>
     /// Represents the Output Mapping of the Expression Map.

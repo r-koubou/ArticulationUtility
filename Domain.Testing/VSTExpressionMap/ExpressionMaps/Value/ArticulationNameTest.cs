@@ -1,10 +1,10 @@
 using System;
 
+using ArticulationUtility.Domain.VSTExpressionMap.Value;
+
 using NUnit.Framework;
 
-using VSTExpressionMapTools.Domain.VSTExpressionMap.Value;
-
-namespace VSTExpressionMap.Core.Testing.VSTExpressionMap.ExpressionMaps.Value
+namespace ArticulationUtility.Domain.Testing.VSTExpressionMap.ExpressionMaps.Value
 {
     [TestFixture]
     public class ArticulationNameTest

@@ -1,4 +1,4 @@
-namespace VSTExpressionMapTools.Domain.MidiEvents.Value
+namespace ArticulationUtility.Domain.MidiEvents.Value
 {
     public sealed class ValueOutOfRangeException : System.Exception
     {

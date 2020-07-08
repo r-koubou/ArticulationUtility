@@ -1,13 +1,13 @@
 using System;
 
+using ArticulationUtility.Domain.MidiEvents;
+using ArticulationUtility.Domain.MidiEvents.Value;
+using ArticulationUtility.Domain.VSTExpressionMap;
+using ArticulationUtility.Domain.VSTExpressionMap.Value;
+
 using NUnit.Framework;
 
-using VSTExpressionMapTools.Domain.MidiEvents;
-using VSTExpressionMapTools.Domain.MidiEvents.Value;
-using VSTExpressionMapTools.Domain.VSTExpressionMap;
-using VSTExpressionMapTools.Domain.VSTExpressionMap.Value;
-
-namespace VSTExpressionMap.Core.Testing.VSTExpressionMap.ExpressionMaps
+namespace ArticulationUtility.Domain.Testing.VSTExpressionMap.ExpressionMaps
 {
     [TestFixture]
     public class SoundSlotTest

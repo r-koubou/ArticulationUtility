@@ -2,8 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <AssemblyName>VSTExpressionMapTools.Domain</AssemblyName>
-        <RootNamespace>VSTExpressionMapTools.Domain</RootNamespace>
+        <AssemblyName>ArticulationUtility.Domain</AssemblyName>
+        <RootNamespace>ArticulationUtility.Domain</RootNamespace>
         <Company>R-Koubou</Company>
         <Product>Spreadsheet2Expressionmap</Product>
     </PropertyGroup>

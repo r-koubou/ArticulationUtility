@@ -1,4 +1,4 @@
-namespace VSTExpressionMapTools.Domain.MidiEvents
+namespace ArticulationUtility.Domain.MidiEvents
 {
     /// <summary>
     /// An interface for MIDI Event data byte

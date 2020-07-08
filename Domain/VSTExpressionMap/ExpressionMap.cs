@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-using VSTExpressionMapTools.Domain.VSTExpressionMap.Value;
+using ArticulationUtility.Domain.VSTExpressionMap.Value;
 
-namespace VSTExpressionMapTools.Domain.VSTExpressionMap
+namespace ArticulationUtility.Domain.VSTExpressionMap
 {
     /// <summary>
     /// Representing ExpressionMap aggregates

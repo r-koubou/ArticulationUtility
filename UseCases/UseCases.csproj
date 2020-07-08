@@ -2,8 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <AssemblyName>VSTExpressionMapTools.UseCases</AssemblyName>
-        <RootNamespace>VSTExpressionMapTools.UseCases</RootNamespace>
+        <AssemblyName>ArticulationUtility.UseCases</AssemblyName>
+        <RootNamespace>ArticulationUtility.UseCases</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

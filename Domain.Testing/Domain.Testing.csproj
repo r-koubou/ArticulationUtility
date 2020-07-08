@@ -5,9 +5,9 @@
 
         <IsPackable>false</IsPackable>
 
-        <AssemblyName>VSTExpressionMap.Core.Testing</AssemblyName>
+        <AssemblyName>ArticulationUtility.Domain.Testing</AssemblyName>
 
-        <RootNamespace>VSTExpressionMap.Core.Testing</RootNamespace>
+        <RootNamespace>ArticulationUtility.Domain.Testing</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

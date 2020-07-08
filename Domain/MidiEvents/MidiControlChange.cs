@@ -1,8 +1,8 @@
 using System;
 
-using VSTExpressionMapTools.Domain.MidiEvents.Value;
+using ArticulationUtility.Domain.MidiEvents.Value;
 
-namespace VSTExpressionMapTools.Domain.MidiEvents
+namespace ArticulationUtility.Domain.MidiEvents
 {
     /// <summary>
     /// Represents a MIDI control change.

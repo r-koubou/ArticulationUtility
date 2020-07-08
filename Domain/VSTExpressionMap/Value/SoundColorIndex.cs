@@ -1,8 +1,8 @@
 using System;
 
-using VSTExpressionMapTools.Domain.MidiEvents.Value;
+using ArticulationUtility.Domain.MidiEvents.Value;
 
-namespace VSTExpressionMapTools.Domain.VSTExpressionMap.Value
+namespace ArticulationUtility.Domain.VSTExpressionMap.Value
 {
     public class SoundSlotColorIndex : IEquatable<SoundSlotColorIndex>
     {

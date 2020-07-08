@@ -1,6 +1,6 @@
 using System;
 
-namespace VSTExpressionMapTools.Domain.MidiEvents.Helper
+namespace ArticulationUtility.Domain.MidiEvents.Helper
 {
     public class MidiNoteNotFoundException : Exception
     {

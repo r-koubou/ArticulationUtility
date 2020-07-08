@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-using VSTExpressionMapTools.Domain.VSTExpressionMap;
+using ArticulationUtility.Domain.VSTExpressionMap;
 
-namespace VSTExpressionMapTools.Adapters.Gateways
+namespace ArticulationUtility.Adapters.Gateways
 {
     public interface IExpressionMapWriterRepository
     {

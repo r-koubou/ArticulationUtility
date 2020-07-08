@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-using VSTExpressionMapTools.Domain.MidiEvents.Value;
+using ArticulationUtility.Domain.MidiEvents.Value;
 
-namespace VSTExpressionMapTools.Domain.MidiEvents.Helper
+namespace ArticulationUtility.Domain.MidiEvents.Helper
 {
     /// <summary>
     /// Helper class for <seealso cref="MidiNoteNumber"/>

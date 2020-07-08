@@ -1,6 +1,6 @@
 using System;
 
-namespace VSTExpressionMapTools.Domain.VSTExpressionMap.Value
+namespace ArticulationUtility.Domain.VSTExpressionMap.Value
 {
     /// <summary>
     /// A ExpressionMap name

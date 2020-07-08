@@ -2,8 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <RootNamespace>VSTExpressionMapTools.Adapters</RootNamespace>
-        <AssemblyName>VSTExpressionMapTools.Adapters</AssemblyName>
+        <RootNamespace>ArticulationUtility.Adapters</RootNamespace>
+        <AssemblyName>ArticulationUtility.Adapters</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>

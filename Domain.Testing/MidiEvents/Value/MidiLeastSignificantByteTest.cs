@@ -1,8 +1,8 @@
+using ArticulationUtility.Domain.MidiEvents.Value;
+
 using NUnit.Framework;
 
-using VSTExpressionMapTools.Domain.MidiEvents.Value;
-
-namespace VSTExpressionMap.Core.Testing.MidiEvents.Value
+namespace ArticulationUtility.Domain.Testing.MidiEvents.Value
 {
     [TestFixture]
     public class MidiLeastSignificantByteTest

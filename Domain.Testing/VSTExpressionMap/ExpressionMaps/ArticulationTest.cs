@@ -1,11 +1,11 @@
 using System;
 
+using ArticulationUtility.Domain.VSTExpressionMap;
+using ArticulationUtility.Domain.VSTExpressionMap.Value;
+
 using NUnit.Framework;
 
-using VSTExpressionMapTools.Domain.VSTExpressionMap;
-using VSTExpressionMapTools.Domain.VSTExpressionMap.Value;
-
-namespace VSTExpressionMap.Core.Testing.VSTExpressionMap.ExpressionMaps
+namespace ArticulationUtility.Domain.Testing.VSTExpressionMap.ExpressionMaps
 {
     [TestFixture]
     public class ArticulationTest

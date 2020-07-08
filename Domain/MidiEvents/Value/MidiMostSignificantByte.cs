@@ -1,6 +1,6 @@
 using System;
 
-namespace VSTExpressionMapTools.Domain.MidiEvents.Value
+namespace ArticulationUtility.Domain.MidiEvents.Value
 {
     public class MidiMostSignificantByte : IMidiEventData, IEquatable<MidiMostSignificantByte>
     {

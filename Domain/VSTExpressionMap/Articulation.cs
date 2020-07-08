@@ -1,8 +1,8 @@
 using System;
 
-using VSTExpressionMapTools.Domain.VSTExpressionMap.Value;
+using ArticulationUtility.Domain.VSTExpressionMap.Value;
 
-namespace VSTExpressionMapTools.Domain.VSTExpressionMap
+namespace ArticulationUtility.Domain.VSTExpressionMap
 {
     public class Articulation
     {

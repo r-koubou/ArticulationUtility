@@ -1,4 +1,4 @@
-namespace VSTExpressionMapTools.Domain.MidiEvents
+namespace ArticulationUtility.Domain.MidiEvents
 {
     /// <summary>
     /// MIDI event aggregation that makes up the sound slot.
