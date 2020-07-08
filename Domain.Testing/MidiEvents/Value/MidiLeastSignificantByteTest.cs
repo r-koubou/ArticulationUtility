@@ -1,3 +1,4 @@
+using ArticulationUtility.Domain.Helper;
 using ArticulationUtility.Domain.MidiEvents.Value;
 
 using NUnit.Framework;

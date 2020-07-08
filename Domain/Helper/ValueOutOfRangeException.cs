@@ -1,4 +1,4 @@
-namespace ArticulationUtility.Domain.MidiEvents.Value
+namespace ArticulationUtility.Domain.Helper
 {
     public sealed class ValueOutOfRangeException : System.Exception
     {

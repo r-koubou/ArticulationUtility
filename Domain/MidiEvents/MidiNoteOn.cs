@@ -7,10 +7,10 @@ namespace ArticulationUtility.Domain.MidiEvents
     /// <summary>
     /// Representing a MIDI note on.
     /// </summary>
-    public class MidiNoteOn : IMidiEvent<MidiNoteNumber, MidiVelocity>
+    public class MidiNoteOn : IMidiEvent
     {
-        public MidiNoteNumber DataByte1 { get; }
-        public MidiVelocity DataByte2 { get; }
+        public IMidiEventData DataByte1 { get; }
+        public IMidiEventData DataByte2 { get; }
 
         public MidiNoteOn( MidiNoteNumber noteNumber, MidiVelocity velocity )
         {

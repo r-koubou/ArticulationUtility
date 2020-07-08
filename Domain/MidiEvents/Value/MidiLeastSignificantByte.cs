@@ -1,5 +1,7 @@
 using System;
 
+using ArticulationUtility.Domain.Helper;
+
 namespace ArticulationUtility.Domain.MidiEvents.Value
 {
     public class MidiLeastSignificantByte : IMidiEventData, IEquatable<MidiLeastSignificantByte>
@@ -11,10 +13,7 @@ namespace ArticulationUtility.Domain.MidiEvents.Value
 
         public MidiLeastSignificantByte( int value )
         {
-            if( value < MinValue || value > MaxValue )
-            {
-                throw new ValueOutOfRangeException( nameof(value), value, MinValue, MaxValue );
-            }
+            ValueRangeValidateHelper.ValidateIntRange( value, MinValue, MaxValue );
             Value = value;
         }
 

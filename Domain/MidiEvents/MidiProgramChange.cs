@@ -7,10 +7,10 @@ namespace ArticulationUtility.Domain.MidiEvents
     /// <summary>
     /// Represents a MIDI program change.
     /// </summary>
-    public class MidiProgramChange : IMidiEvent<MidiLeastSignificantByte, MidiMostSignificantByte>
+    public class MidiProgramChange : IMidiEvent
     {
-        public MidiLeastSignificantByte DataByte1 { get; }
-        public MidiMostSignificantByte DataByte2 { get; }
+        public IMidiEventData DataByte1 { get; }
+        public IMidiEventData DataByte2 { get; }
 
         public MidiProgramChange( MidiLeastSignificantByte lsb, MidiMostSignificantByte msb )
         {

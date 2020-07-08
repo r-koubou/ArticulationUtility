@@ -7,10 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="VSTExpressionMap" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\UseCases\UseCases.csproj" />
     </ItemGroup>
 

@@ -1,5 +1,7 @@
 using System;
 
+using ArticulationUtility.Domain.Helper;
+
 namespace ArticulationUtility.Domain.MidiEvents.Value
 {
     public class MidiNoteNumber : IMidiEventData, IEquatable<MidiNoteNumber>
@@ -11,10 +13,7 @@ namespace ArticulationUtility.Domain.MidiEvents.Value
 
         public MidiNoteNumber( int noteNumber )
         {
-            if( noteNumber < MinValue || noteNumber > MaxValue )
-            {
-                throw new ValueOutOfRangeException( nameof(noteNumber), noteNumber, MinValue, MaxValue );
-            }
+            ValueRangeValidateHelper.ValidateIntRange( noteNumber, MinValue, MaxValue );
             Value = noteNumber;
         }
 

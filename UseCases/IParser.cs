@@ -2,8 +2,8 @@ using System.Collections.Generic;
 
 namespace ArticulationUtility.UseCases
 {
-    public interface IConverter<TTarget>
+    public interface IParser
     {
-        public List<TTarget> Convert();
+        public void Parse();
     }
 }

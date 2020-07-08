@@ -1,5 +1,7 @@
 using System;
 
+using ArticulationUtility.Domain.Helper;
+
 namespace ArticulationUtility.Domain.VSTExpressionMap.Value
 {
     /// <summary>
@@ -11,9 +13,9 @@ namespace ArticulationUtility.Domain.VSTExpressionMap.Value
 
         public ExpressionMapName( string name )
         {
-            if( string.IsNullOrEmpty( name ) || name.Trim().Length == 0 )
+            if( StringHelper.IsNullOrTrimEmpty( name ) )
             {
-                throw new System.ArgumentException( $"{nameof(name)} is null or empty" );
+                throw new InvalidNameException( nameof( name ) );
             }
             Name = name;
         }

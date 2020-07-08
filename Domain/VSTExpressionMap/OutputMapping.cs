@@ -10,8 +10,7 @@ namespace ArticulationUtility.Domain.VSTExpressionMap
     /// </summary>
     public class OutputMapping
     {
-        protected List<IMidiEvent<IMidiEventData, IMidiEventData>> EventList { get; }
-            = new List<IMidiEvent<IMidiEventData, IMidiEventData>>();
+        protected List<IMidiEvent> EventList { get; } = new List<IMidiEvent>();
 
         public OutputMapping()
         {
@@ -21,7 +20,7 @@ namespace ArticulationUtility.Domain.VSTExpressionMap
         /// Add a MIDI event for mapping
         /// </summary>
         /// <param name="midiEvent">A MIDI event</param>
-        public OutputMapping AddMidiEvent( IMidiEvent<IMidiEventData, IMidiEventData> midiEvent )
+        public OutputMapping AddMidiEvent( IMidiEvent midiEvent )
         {
             if( midiEvent == null )
             {
@@ -44,9 +43,9 @@ namespace ArticulationUtility.Domain.VSTExpressionMap
         /// Get a list of all mapped MIDI events.
         /// </summary>
         /// <returns></returns>
-        public List<IMidiEvent<IMidiEventData, IMidiEventData>> GetEventList()
+        public List<IMidiEvent> GetEventList()
         {
-            return new List<IMidiEvent<IMidiEventData, IMidiEventData>>( EventList );
+            return new List<IMidiEvent>( EventList );
         }
     }
 }

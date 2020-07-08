@@ -1,5 +1,6 @@
 using System;
 
+using ArticulationUtility.Domain.Helper;
 using ArticulationUtility.Domain.VSTExpressionMap.Value;
 
 using NUnit.Framework;
@@ -12,9 +13,9 @@ namespace ArticulationUtility.Domain.Testing.VSTExpressionMap.ExpressionMaps.Val
         [Test]
         public void NullOrEmptyNameTest()
         {
-            Assert.Throws<ArgumentException>( () =>  new ExpressionMapName( "" ) );
-            Assert.Throws<ArgumentException>( () =>  new ExpressionMapName( "  " ) );
-            Assert.Throws<ArgumentException>( () =>  new ExpressionMapName( null ) );
+            Assert.Throws<InvalidNameException>( () =>  new ExpressionMapName( "" ) );
+            Assert.Throws<InvalidNameException>( () =>  new ExpressionMapName( "  " ) );
+            Assert.Throws<InvalidNameException>( () =>  new ExpressionMapName( null ) );
             new ExpressionMapName( "Hoge" );
         }
 

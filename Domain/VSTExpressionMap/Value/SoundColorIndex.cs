@@ -1,5 +1,6 @@
 using System;
 
+using ArticulationUtility.Domain.Helper;
 using ArticulationUtility.Domain.MidiEvents.Value;
 
 namespace ArticulationUtility.Domain.VSTExpressionMap.Value
@@ -12,10 +13,7 @@ namespace ArticulationUtility.Domain.VSTExpressionMap.Value
 
         public SoundSlotColorIndex( int groupValue )
         {
-            if( groupValue < MinValue || groupValue > MaxValue )
-            {
-                throw new ValueOutOfRangeException( nameof(groupValue), groupValue, MinValue, MaxValue );
-            }
+            ValueRangeValidateHelper.ValidateIntRange( groupValue, MinValue, MaxValue );
             Value = groupValue;
         }
 

@@ -7,10 +7,10 @@ namespace ArticulationUtility.Domain.MidiEvents
     /// <summary>
     /// Represents a MIDI control change.
     /// </summary>
-    public class MidiControlChange : IMidiEvent<MidiControlNumber, MidiControlValue>
+    public class MidiControlChange : IMidiEvent
     {
-        public MidiControlNumber DataByte1 { get; }
-        public MidiControlValue DataByte2 { get; }
+        public IMidiEventData DataByte1 { get; }
+        public IMidiEventData DataByte2 { get; }
 
         public MidiControlChange( MidiControlNumber controlNumber, MidiControlValue controlValue )
         {
