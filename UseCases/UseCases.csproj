@@ -10,9 +10,4 @@
       <ProjectReference Include="..\Domain\Domain.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Deconverts" />
-      <Folder Include="Converts" />
-    </ItemGroup>
-
 </Project>
