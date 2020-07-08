@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <AssemblyName>ArticulationUtility.Interactors</AssemblyName>
+        <RootNamespace>ArticulationUtility.Interactors</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="VSTExpressionMap" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\UseCases\UseCases.csproj" />
+    </ItemGroup>
+
+</Project>
