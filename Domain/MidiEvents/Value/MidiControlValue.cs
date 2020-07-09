@@ -13,7 +13,7 @@ namespace ArticulationUtility.Domain.MidiEvents.Value
 
         public MidiControlValue( int value )
         {
-            ValueRangeValidateHelper.ValidateIntRange( value, MinValue, MaxValue );
+            RangeValidateHelper.ValidateIntRange( value, MinValue, MaxValue );
             Value  = value;
         }
 

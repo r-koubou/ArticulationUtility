@@ -13,7 +13,7 @@ namespace ArticulationUtility.Domain.VSTExpressionMap.Value
 
         public SoundSlotColorIndex( int groupValue )
         {
-            ValueRangeValidateHelper.ValidateIntRange( groupValue, MinValue, MaxValue );
+            RangeValidateHelper.ValidateIntRange( groupValue, MinValue, MaxValue );
             Value = groupValue;
         }
 

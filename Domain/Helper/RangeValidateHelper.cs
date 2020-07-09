@@ -1,6 +1,6 @@
 namespace ArticulationUtility.Domain.Helper
 {
-    public static class ValueRangeValidateHelper
+    public static class RangeValidateHelper
     {
         public static void ValidateIntRange( int value, int min, int max )
         {
@@ -23,6 +23,5 @@ namespace ArticulationUtility.Domain.Helper
                 throw new ValueOutOfRangeException( value );
             }
         }
-
     }
 }

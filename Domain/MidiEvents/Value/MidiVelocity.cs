@@ -13,7 +13,7 @@ namespace ArticulationUtility.Domain.MidiEvents.Value
 
         public MidiVelocity( int velocity )
         {
-            ValueRangeValidateHelper.ValidateIntRange( velocity, MinValue, MaxValue );
+            RangeValidateHelper.ValidateIntRange( velocity, MinValue, MaxValue );
             Value = velocity;
         }
 

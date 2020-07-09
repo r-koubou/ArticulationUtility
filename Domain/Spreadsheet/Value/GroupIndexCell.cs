@@ -4,17 +4,20 @@ using ArticulationUtility.Domain.Helper;
 
 namespace ArticulationUtility.Domain.Spreadsheet.Value
 {
-    public class ColorIndexCell : IEquatable<ColorIndexCell>
+    public class GroupIndexCell : IEquatable<GroupIndexCell>
     {
+        public const int MinValue = 1;
+        public const int MaxValue = 16;
+
         public int Value { get; }
 
-        public ColorIndexCell( int index )
+        public GroupIndexCell( int index )
         {
-            RangeValidateHelper.ValidateIntMinValue( index, 0 );
+            RangeValidateHelper.ValidateIntRange( index, MinValue, MaxValue );
             Value = index;
         }
 
-        public bool Equals( ColorIndexCell other )
+        public bool Equals( GroupIndexCell other )
         {
             if( other == null )
             {
