@@ -16,7 +16,7 @@ namespace ArticulationUtility.Domain.VSTExpressionMap
 
         public List<OutputMapping> OutputMappings { get; } = new List<OutputMapping>();
 
-        public SoundSlot( SoundSlotName name, SoundSlotColorIndex colorIndex = null )
+        public SoundSlot( SoundSlotName name, SoundSlotColorIndex colorIndex )
         {
             Name       = name ?? throw new ArgumentNullException( $"{nameof( name )}" );
             ColorIndex = colorIndex ?? new SoundSlotColorIndex( SoundSlotColorIndex.MinValue );
