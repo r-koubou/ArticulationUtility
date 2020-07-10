@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "External", "External\Extern
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interactors", "Interactors\Interactors.csproj", "{8A6A9CFB-B817-4AC9-B224-47EAEB4BBACC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interactors.Tests", "Interactors.Tests\Interactors.Tests.csproj", "{3E41BF04-41F7-4828-8745-D2195D083F72}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interactors.Testing", "Interactors.Testing\Interactors.Testing.csproj", "{3E41BF04-41F7-4828-8745-D2195D083F72}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "External.Testing", "External.Testing\External.Testing.csproj", "{135CDFE3-6DDA-4BE6-AD03-33C06D6D2673}"
 EndProject

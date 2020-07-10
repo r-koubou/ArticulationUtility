@@ -5,9 +5,9 @@
 
         <IsPackable>false</IsPackable>
 
-        <AssemblyName>ArticulationUtility.Interactors.Test</AssemblyName>
+        <AssemblyName>ArticulationUtility.Interactors.Testing</AssemblyName>
 
-        <RootNamespace>ArticulationUtility.Interactors.Test</RootNamespace>
+        <RootNamespace>ArticulationUtility.Interactors.Testing</RootNamespace>
 
         <Nullable>enable</Nullable>
     </PropertyGroup>
