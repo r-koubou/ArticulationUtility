@@ -7,35 +7,33 @@ namespace ArticulationUtility.Domain.Spreadsheet
 {
     public class SpreadsheetRow
     {
-        public class MidiControlChange
+        public struct MidiNote
+        {
+            public MidiNoteNumberCell Note { get; set; }
+            public MidiNoteVelocityCell Velocity { get; set; }
+        }
+
+        public struct MidiControlChange
         {
             public MidiControlChangeNumberCell CcNumber { get; set; }
             public MidiControlChangeNumberCell CcValue { get; set; }
         }
 
         public ArticulationNameCell ArticulationName { get; }
+        public ArticulationTypeCell ArticulationType { get; }
         public ColorIndexCell ColorIndex { get; }
-        public MidiNoteNumberCell MidiNoteNumber { get; }
-        public MidiNoteVelocityCell MidiNoteVelocity { get; }
+        public List<MidiNoteNumberCell> MidiNoteList { get; } = new List<MidiNoteNumberCell>();
         public List<MidiControlChange> MidiControlChangeList { get; } = new List<MidiControlChange>();
 
         public SpreadsheetRow(
             ArticulationNameCell name,
-            ColorIndexCell colorIndex,
-            MidiNoteNumberCell noteNumber,
-            MidiNoteVelocityCell velocity,
-            List<MidiControlChange> controlChangeList = null
+            ArticulationTypeCell type,
+            ColorIndexCell colorIndex
         )
         {
             ArticulationName = name ?? throw new ArgumentNullException( nameof( name ) );
+            ArticulationType = type;
             ColorIndex       = colorIndex ?? throw new ArgumentNullException( nameof( colorIndex ) );
-            MidiNoteNumber   = noteNumber;
-            MidiNoteVelocity = velocity;
-
-            if( controlChangeList != null )
-            {
-                MidiControlChangeList.AddRange( controlChangeList );
-            }
         }
     }
 }
