@@ -1,18 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Testing", "Domain.Testing\Domain.Testing.csproj", "{D5273790-603C-493A-B0F2-537060B2B0AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities.Testing", "Entities.Testing\Entities.Testing.csproj", "{D5273790-603C-493A-B0F2-537060B2B0AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{899418AD-7A88-496B-BD4C-984166160962}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{899418AD-7A88-496B-BD4C-984166160962}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCases", "UseCases\UseCases.csproj", "{A40DF0FD-D153-47F0-ACFF-19B7D336EDC4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frameworks", "Frameworks\Frameworks.csproj", "{6C6BC19E-4501-4FC0-8DCB-C16E1846AE5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapters", "Adapters\Adapters.csproj", "{F2C6A4C2-9501-4545-B62C-C7B2FC40FFAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterdaceAdapters", "InterdaceAdapters\InterdaceAdapters.csproj", "{F2C6A4C2-9501-4545-B62C-C7B2FC40FFAD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interactors", "Interactors\Interactors.csproj", "{8A6A9CFB-B817-4AC9-B224-47EAEB4BBACC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interactors.Test", "Interactors.Test\Interactors.Test.csproj", "{3E41BF04-41F7-4828-8745-D2195D083F72}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interactors.Tests", "Interactors.Tests\Interactors.Tests.csproj", "{3E41BF04-41F7-4828-8745-D2195D083F72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frameworks.Testing", "Frameworks.Testing\Frameworks.Testing.csproj", "{135CDFE3-6DDA-4BE6-AD03-33C06D6D2673}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateways", "Gateways\Gateways.csproj", "{137E9FB7-7B59-43A8-A468-642B764A8F0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,5 +52,13 @@ Global
 		{3E41BF04-41F7-4828-8745-D2195D083F72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E41BF04-41F7-4828-8745-D2195D083F72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E41BF04-41F7-4828-8745-D2195D083F72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{135CDFE3-6DDA-4BE6-AD03-33C06D6D2673}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{135CDFE3-6DDA-4BE6-AD03-33C06D6D2673}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{135CDFE3-6DDA-4BE6-AD03-33C06D6D2673}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{135CDFE3-6DDA-4BE6-AD03-33C06D6D2673}.Release|Any CPU.Build.0 = Release|Any CPU
+		{137E9FB7-7B59-43A8-A468-642B764A8F0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{137E9FB7-7B59-43A8-A468-642B764A8F0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{137E9FB7-7B59-43A8-A468-642B764A8F0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{137E9FB7-7B59-43A8-A468-642B764A8F0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

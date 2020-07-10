@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <AssemblyName>ArticulationUtility.Entities</AssemblyName>
+        <RootNamespace>ArticulationUtility.Entities</RootNamespace>
+        <Company>R-Koubou</Company>
+        <Product>Spreadsheet2Expressionmap</Product>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="ExcelDataReader" Version="3.6.0" />
+      <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
+    </ItemGroup>
+
+</Project>

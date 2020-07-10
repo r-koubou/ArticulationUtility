@@ -2,8 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <AssemblyName>ArticulationUtility.UseCases</AssemblyName>
-        <RootNamespace>ArticulationUtility.UseCases</RootNamespace>
+        <RootNamespace>ArticulationUtility.Adapters</RootNamespace>
+        <AssemblyName>ArticulationUtility.Adapters</AssemblyName>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
