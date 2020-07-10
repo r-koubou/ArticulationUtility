@@ -6,15 +6,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entiti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCases", "UseCases\UseCases.csproj", "{A40DF0FD-D153-47F0-ACFF-19B7D336EDC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frameworks", "Frameworks\Frameworks.csproj", "{6C6BC19E-4501-4FC0-8DCB-C16E1846AE5B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterdaceAdapters", "InterdaceAdapters\InterdaceAdapters.csproj", "{F2C6A4C2-9501-4545-B62C-C7B2FC40FFAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "External", "External\External.csproj", "{6C6BC19E-4501-4FC0-8DCB-C16E1846AE5B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interactors", "Interactors\Interactors.csproj", "{8A6A9CFB-B817-4AC9-B224-47EAEB4BBACC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interactors.Tests", "Interactors.Tests\Interactors.Tests.csproj", "{3E41BF04-41F7-4828-8745-D2195D083F72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frameworks.Testing", "Frameworks.Testing\Frameworks.Testing.csproj", "{135CDFE3-6DDA-4BE6-AD03-33C06D6D2673}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "External.Testing", "External.Testing\External.Testing.csproj", "{135CDFE3-6DDA-4BE6-AD03-33C06D6D2673}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateways", "Gateways\Gateways.csproj", "{137E9FB7-7B59-43A8-A468-642B764A8F0F}"
 EndProject
@@ -40,10 +38,6 @@ Global
 		{6C6BC19E-4501-4FC0-8DCB-C16E1846AE5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C6BC19E-4501-4FC0-8DCB-C16E1846AE5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C6BC19E-4501-4FC0-8DCB-C16E1846AE5B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F2C6A4C2-9501-4545-B62C-C7B2FC40FFAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F2C6A4C2-9501-4545-B62C-C7B2FC40FFAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F2C6A4C2-9501-4545-B62C-C7B2FC40FFAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F2C6A4C2-9501-4545-B62C-C7B2FC40FFAD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8A6A9CFB-B817-4AC9-B224-47EAEB4BBACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8A6A9CFB-B817-4AC9-B224-47EAEB4BBACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A6A9CFB-B817-4AC9-B224-47EAEB4BBACC}.Release|Any CPU.ActiveCfg = Release|Any CPU

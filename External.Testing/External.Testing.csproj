@@ -4,6 +4,10 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
 
         <IsPackable>false</IsPackable>
+
+        <RootNamespace>ArticulationUtility.External.Testing</RootNamespace>
+
+        <AssemblyName>ArticulationUtility.External.Testing</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>
@@ -13,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Frameworks\Frameworks.csproj" />
+      <ProjectReference Include="..\External\External.csproj" />
     </ItemGroup>
 
 </Project>

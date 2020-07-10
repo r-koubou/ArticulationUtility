@@ -2,8 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <AssemblyName>ArticulationUtility.Frameworks</AssemblyName>
-        <RootNamespace>ArticulationUtility.Frameworks</RootNamespace>
+        <AssemblyName>ArticulationUtility.External</AssemblyName>
+        <RootNamespace>ArticulationUtility.External</RootNamespace>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
