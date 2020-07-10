@@ -15,31 +15,5 @@ namespace ArticulationUtility.Domain.Testing.VSTExpressionMap.ExpressionMaps
         {
             var articulation = new Articulation( new ArticulationName( "Name" ), ArticulationType.Direction, new ArticulationGroup( 1 ) );
         }
-
-        [Test]
-        public void NullTest()
-        {
-            Assert.Throws<ArgumentNullException>(
-                () => new Articulation(
-                    null,
-                    ArticulationType.Direction,
-                    new ArticulationGroup( 1 )
-                )
-            );
-            Assert.Throws<ArgumentNullException>(
-                () => new Articulation(
-                    new ArticulationName( "Name" ),
-                    ArticulationType.Direction,
-                    null
-                )
-            );
-            Assert.Throws<ArgumentNullException>(
-                () => new Articulation(
-                    null,
-                    ArticulationType.Direction,
-                    null
-                )
-            );
-        }
     }
 }

@@ -11,11 +11,10 @@ namespace ArticulationUtility.Domain.Testing.VSTExpressionMap.ExpressionMaps.Val
     public class ExpressionMapNameTest
     {
         [Test]
-        public void NullOrEmptyNameTest()
+        public void mptyNameTest()
         {
             Assert.Throws<InvalidNameException>( () =>  new ExpressionMapName( "" ) );
             Assert.Throws<InvalidNameException>( () =>  new ExpressionMapName( "  " ) );
-            Assert.Throws<InvalidNameException>( () =>  new ExpressionMapName( null ) );
             new ExpressionMapName( "Hoge" );
         }
 

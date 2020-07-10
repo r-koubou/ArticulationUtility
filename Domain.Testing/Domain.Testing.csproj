@@ -8,6 +8,8 @@
         <AssemblyName>ArticulationUtility.Domain.Testing</AssemblyName>
 
         <RootNamespace>ArticulationUtility.Domain.Testing</RootNamespace>
+
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>

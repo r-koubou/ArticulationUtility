@@ -23,7 +23,6 @@ namespace ArticulationUtility.Domain.Testing.MidiEvents.Value
             var cc2 = new MidiControlValue( 2 );
             Assert.IsTrue( cc1.Equals( new MidiControlValue( 1 ) ) );
             Assert.IsFalse( cc1.Equals( cc2 ) );
-            Assert.IsFalse( cc1.Equals( null ) );
         }
 
         [Test]

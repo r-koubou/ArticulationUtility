@@ -22,7 +22,6 @@ namespace ArticulationUtility.Domain.Testing.MidiEvents.Value
             var byte2 = new MidiLeastSignificantByte( 2 );
             Assert.IsTrue( byte1.Equals( new MidiLeastSignificantByte( 1 ) ) );
             Assert.IsFalse( byte1.Equals( byte2 ) );
-            Assert.IsFalse( byte1.Equals( null ) );
         }
 
         [Test]

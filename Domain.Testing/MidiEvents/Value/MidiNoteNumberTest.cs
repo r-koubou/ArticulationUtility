@@ -22,7 +22,6 @@ namespace ArticulationUtility.Domain.Testing.MidiEvents.Value
             var note2 = new MidiNoteNumber( 2 );
             Assert.IsTrue( note1.Equals( new MidiNoteNumber( 1 ) ) );
             Assert.IsFalse( note1.Equals( note2 ) );
-            Assert.IsFalse( note1.Equals( null ) );
         }
 
         [Test]

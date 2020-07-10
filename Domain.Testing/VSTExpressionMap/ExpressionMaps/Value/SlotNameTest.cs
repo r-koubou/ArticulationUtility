@@ -11,11 +11,10 @@ namespace ArticulationUtility.Domain.Testing.VSTExpressionMap.ExpressionMaps.Val
     public class SlotNameTest
     {
         [Test]
-        public void NullOrEmptyNameTest()
+        public void EmptyNameTest()
         {
             Assert.Throws<InvalidNameException>( () =>  new SoundSlotName( "" ) );
             Assert.Throws<InvalidNameException>( () =>  new SoundSlotName( "  " ) );
-            Assert.Throws<InvalidNameException>( () =>  new SoundSlotName( null ) );
             new SoundSlotName( "Hoge" );
         }
 

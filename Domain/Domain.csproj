@@ -6,6 +6,7 @@
         <RootNamespace>ArticulationUtility.Domain</RootNamespace>
         <Company>R-Koubou</Company>
         <Product>Spreadsheet2Expressionmap</Product>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>

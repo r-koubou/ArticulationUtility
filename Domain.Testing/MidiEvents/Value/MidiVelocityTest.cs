@@ -22,7 +22,6 @@ namespace ArticulationUtility.Domain.Testing.MidiEvents.Value
             var vel2 = new MidiVelocity( 20 );
             Assert.IsTrue( vel1.Equals( new MidiVelocity( 10 ) ) );
             Assert.IsFalse( vel1.Equals( vel2 ) );
-            Assert.IsFalse( vel1.Equals( null ) );
         }
 
         [Test]

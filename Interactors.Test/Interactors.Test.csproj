@@ -8,6 +8,8 @@
         <AssemblyName>ArticulationUtility.Interactors.Test</AssemblyName>
 
         <RootNamespace>ArticulationUtility.Interactors.Test</RootNamespace>
+
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>

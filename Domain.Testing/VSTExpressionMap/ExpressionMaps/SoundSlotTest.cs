@@ -12,11 +12,6 @@ namespace ArticulationUtility.Domain.Testing.VSTExpressionMap.ExpressionMaps
     [TestFixture]
     public class SoundSlotTest
     {
-        [Test]
-        public void NullTest()
-        {
-            Assert.Throws<ArgumentNullException>( () => new SoundSlot( null ) );
-        }
 
         [Test]
         public void ValueTest()
