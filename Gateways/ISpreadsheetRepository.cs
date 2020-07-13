@@ -4,9 +4,9 @@ using ArticulationUtility.Entities.Spreadsheet;
 
 namespace ArticulationUtility.Gateways
 {
-    public interface ISpreadsheetRepository
+    public interface ISpreadsheetRepository :
+        IDataLoader<Workbook>,
+        IDataSaver<Workbook>
     {
-        public IReadOnlyList<Row> Load();
-        public void Save( IReadOnlyList<Row> rows );
     }
 }
