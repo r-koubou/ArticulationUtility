@@ -6,6 +6,6 @@ namespace ArticulationUtility.UseCases.Spreadsheet
 {
     public interface ISpreadsheetParseUseCase
     {
-        public IReadOnlyList<SpreadsheetRow> Parse();
+        public IReadOnlyList<Row> Parse();
     }
 }

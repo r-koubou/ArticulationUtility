@@ -30,7 +30,7 @@ namespace ArticulationUtility.Interactors.Testing.Spreadsheet
         {
             Repository = repository ?? throw new ArgumentNullException( nameof( repository ) );
         }
-        public IReadOnlyList<SpreadsheetRow> Parse()
+        public IReadOnlyList<Row> Parse()
         {
             return Repository.Load();
         }

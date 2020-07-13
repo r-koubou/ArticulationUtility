@@ -6,7 +6,7 @@ namespace ArticulationUtility.Gateways
 {
     public interface ISpreadsheetRepository
     {
-        public IReadOnlyList<SpreadsheetRow> Load();
-        public void Save( IReadOnlyList<SpreadsheetRow> rows );
+        public IReadOnlyList<Row> Load();
+        public void Save( IReadOnlyList<Row> rows );
     }
 }

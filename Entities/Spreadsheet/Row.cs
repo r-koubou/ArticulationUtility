@@ -5,7 +5,7 @@ using ArticulationUtility.Entities.Spreadsheet.Value;
 
 namespace ArticulationUtility.Entities.Spreadsheet
 {
-    public class SpreadsheetRow
+    public class Row
     {
         public struct MidiNote
         {
@@ -25,7 +25,7 @@ namespace ArticulationUtility.Entities.Spreadsheet
         public List<MidiNoteNumberCell> MidiNoteList { get; } = new List<MidiNoteNumberCell>();
         public List<MidiControlChange> MidiControlChangeList { get; } = new List<MidiControlChange>();
 
-        public SpreadsheetRow(
+        public Row(
             ArticulationNameCell name,
             ArticulationTypeCell type,
             ColorIndexCell colorIndex
