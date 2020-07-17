@@ -8,6 +8,26 @@ namespace ArticulationUtility.Entities.Spreadsheet.Value
         public static readonly ArticulationTypeCell Attribute = new ArticulationTypeCell( "Attribute" );
         public string Value { get; }
 
+        public static ArticulationTypeCell Parse( string value )
+        {
+            if( value == null )
+            {
+                throw new ArgumentNullException( nameof( value ) );
+            }
+
+            if( value == Direction.Value )
+            {
+                return Direction;
+            }
+
+            if( value == Attribute.Value )
+            {
+                return Attribute;
+            }
+
+            throw new ArgumentException( nameof( value ) );
+        }
+
         private ArticulationTypeCell( string name )
         {
             Value = name;

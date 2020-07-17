@@ -4,9 +4,7 @@ using ArticulationUtility.Entities.Spreadsheet;
 
 namespace ArticulationUtility.Gateways
 {
-    public interface ISpreadsheetRepository :
-        IDataLoader<Workbook>,
-        IDataSaver<Workbook>
+    public interface ISpreadsheetRepository : IDataLoader<Workbook>
     {
     }
 }
