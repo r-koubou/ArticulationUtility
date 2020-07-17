@@ -4,11 +4,15 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <AssemblyName>ArticulationUtility.Gateways</AssemblyName>
         <RootNamespace>ArticulationUtility.Gateways</RootNamespace>
-        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Entities\Entities.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="ExcelDataReader" Version="3.6.0" />
+      <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
     </ItemGroup>
 
 </Project>

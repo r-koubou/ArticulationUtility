@@ -4,7 +4,6 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <RootNamespace>ArticulationUtility.Adapters</RootNamespace>
         <AssemblyName>ArticulationUtility.Adapters</AssemblyName>
-        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>

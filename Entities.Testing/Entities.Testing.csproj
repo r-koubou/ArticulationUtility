@@ -9,7 +9,6 @@
 
         <RootNamespace>ArticulationUtility.Entities.Testing</RootNamespace>
 
-        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>

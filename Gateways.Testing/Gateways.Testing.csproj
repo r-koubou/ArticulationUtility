@@ -5,9 +5,9 @@
 
         <IsPackable>false</IsPackable>
 
-        <AssemblyName>ArticulationUtility.Interactors.Testing</AssemblyName>
+        <AssemblyName>ArticulationUtility.Gateways.Testing</AssemblyName>
 
-        <RootNamespace>ArticulationUtility.Interactors.Testing</RootNamespace>
+        <RootNamespace>ArticulationUtility.Gateways.Testing</RootNamespace>
 
     </PropertyGroup>
 
@@ -18,8 +18,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Interactors\Interactors.csproj" />
-      <ProjectReference Include="..\Presenters\Presenters.csproj" />
+      <ProjectReference Include="..\Gateways\Gateways.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Helper" />
     </ItemGroup>
 
 </Project>

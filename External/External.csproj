@@ -4,7 +4,6 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <AssemblyName>ArticulationUtility.External</AssemblyName>
         <RootNamespace>ArticulationUtility.External</RootNamespace>
-        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
@@ -16,11 +15,6 @@
       <Folder Include="Application" />
       <Folder Include="ExpressionMap" />
       <Folder Include="Spreadsheet" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="ExcelDataReader" Version="3.6.0" />
-      <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
     </ItemGroup>
 
 </Project>
