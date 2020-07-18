@@ -6,8 +6,8 @@ namespace ArticulationUtility.Entities.MidiEvents.Value
 {
     public class MidiNoteNumber : IMidiEventData, IEquatable<MidiNoteNumber>
     {
-        public static readonly int MinValue = 0x00;
-        public static readonly int MaxValue = 0x7f;
+        public const int MinValue = 0x00;
+        public const int MaxValue = 0x7f;
 
         public int Value { get; }
 

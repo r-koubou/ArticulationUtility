@@ -6,8 +6,8 @@ namespace ArticulationUtility.Entities.MidiEvents.Value
 {
     public class MidiMostSignificantByte : IMidiEventData, IEquatable<MidiMostSignificantByte>
     {
-        public static readonly int MinValue = 0x00;
-        public static readonly int MaxValue = 0x7f;
+        public const int MinValue = 0x00;
+        public const int MaxValue = 0x7f;
 
         public int Value { get; }
 
