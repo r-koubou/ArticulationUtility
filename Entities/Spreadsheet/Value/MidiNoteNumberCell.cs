@@ -12,13 +12,18 @@ namespace ArticulationUtility.Entities.Spreadsheet.Value
         /// A list containing the index and scale name of the list in sequential form.
         /// These values is used as selectable at a Spreadsheet editor.
         /// </summary>
-        public static readonly List<string> NoteNameList;
+        private static readonly List<string> NoteNameList;
 
         /// <summary>
         /// A list containing the index number as string format in sequential form.
         /// These values is used as selectable at s Spreadsheet editor.
         /// </summary>
-        public static readonly List<string> NoteNumberList;
+        private static readonly List<string> NoteNumberList;
+
+        /// <summary>
+        /// A list containing the <see cref="NoteNameList"/> and <see cref="NoteNumberList"/> which order by Spreadsheet list.
+        /// </summary>
+        private static readonly List<string> NoteList;
 
         static MidiNoteNumberCell()
         {
@@ -160,12 +165,16 @@ namespace ArticulationUtility.Entities.Spreadsheet.Value
             {
                 NoteNumberList.Add( i.ToString() );
             }
+
+            NoteList = new List<string>();
+            NoteList.AddRange( NoteNameList );
+            NoteList.AddRange( NoteNumberList );
             #endregion
         }
 
         public string Value { get; }
 
-        private MidiNoteNumberCell( string noteName )
+        public MidiNoteNumberCell( string noteName )
         {
             var found1 = NoteNameList.Contains( noteName );
             var found2 = NoteNumberList.Contains( noteName );
@@ -186,6 +195,30 @@ namespace ArticulationUtility.Entities.Spreadsheet.Value
             }
 
             return other.Value == Value;
+        }
+
+        /// <summary>
+        /// Calculate the index value of the MIDI note list in the spreadsheet.
+        /// </summary>
+        public static int ListIndexOf( MidiNoteNumberCell cell )
+        {
+            return NoteList.IndexOf( cell.Value );
+        }
+
+        /// <summary>
+        /// Calculate the index value of the MIDI note list in the spreadsheet.
+        /// </summary>
+        public static int ToMidiNoteNumber( MidiNoteNumberCell cell )
+        {
+            var noteNumber = int.Parse( cell.Value );
+            var index = ListIndexOf( cell );
+            if( index >= 0 )
+            {
+                noteNumber = index % 128; // to MIDI note number format (0-127).
+                //   0-127: Note Name format
+                // 128-255: number format
+            }
+            return noteNumber;
         }
 
         public override string ToString() => Value.ToString();
