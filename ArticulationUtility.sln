@@ -20,6 +20,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presenters", "Presenters\Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateways.Testing", "Gateways.Testing\Gateways.Testing.csproj", "{9704DFD1-9E91-48D3-8C37-7F041774D4B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapters", "Adapters\Adapters.csproj", "{F24FD885-F26D-4289-BCE3-1B6F4580212B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapters.Testing", "Adapters.Testing\Adapters.Testing.csproj", "{ED341339-2B00-41F1-A2AB-70B659C2D54B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,5 +70,13 @@ Global
 		{9704DFD1-9E91-48D3-8C37-7F041774D4B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9704DFD1-9E91-48D3-8C37-7F041774D4B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9704DFD1-9E91-48D3-8C37-7F041774D4B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F24FD885-F26D-4289-BCE3-1B6F4580212B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F24FD885-F26D-4289-BCE3-1B6F4580212B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F24FD885-F26D-4289-BCE3-1B6F4580212B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F24FD885-F26D-4289-BCE3-1B6F4580212B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED341339-2B00-41F1-A2AB-70B659C2D54B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED341339-2B00-41F1-A2AB-70B659C2D54B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED341339-2B00-41F1-A2AB-70B659C2D54B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED341339-2B00-41F1-A2AB-70B659C2D54B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
