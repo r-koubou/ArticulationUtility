@@ -5,17 +5,14 @@ using System.Text;
 
 using ArticulationUtility.Entities.Spreadsheet;
 using ArticulationUtility.Entities.Spreadsheet.Value;
-using ArticulationUtility.Gateways.Spreadsheet;
 
 using ExcelDataReader;
 
 using SourceSheet   = System.Data.DataTable;
 using SourceRows    = System.Data.DataRowCollection;
 using SourceRow     = System.Data.DataRow;
-using SourceColumns = System.Data.DataColumnCollection;
-using SourceColumn  = System.Data.DataColumn;
 
-namespace ArticulationUtility.Gateways.Testing.Spreadsheet
+namespace ArticulationUtility.Gateways.Spreadsheet.Ver_0_7
 {
     public class SpreadsheetRepository : ISpreadsheetRepository
     {

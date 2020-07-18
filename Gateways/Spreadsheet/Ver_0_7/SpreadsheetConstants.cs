@@ -1,4 +1,4 @@
-namespace ArticulationUtility.Gateways.Testing.Spreadsheet
+namespace ArticulationUtility.Gateways.Spreadsheet.Ver_0_7
 {
     public static  class SpreadsheetConstants
     {

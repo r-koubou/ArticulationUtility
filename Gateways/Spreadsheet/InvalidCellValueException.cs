@@ -1,4 +1,4 @@
-namespace ArticulationUtility.Gateways.Testing.Spreadsheet
+namespace ArticulationUtility.Gateways.Spreadsheet
 {
     public class InvalidCellValueException : System.Exception
     {
