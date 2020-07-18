@@ -7,13 +7,13 @@ namespace ArticulationUtility.Entities.Spreadsheet
 {
     public class Row
     {
-        public struct MidiNote
+        public class MidiNote
         {
             public MidiNoteNumberCell Note { get; set; }
             public MidiNoteVelocityCell Velocity { get; set; }
         }
 
-        public struct MidiControlChange
+        public class MidiControlChange
         {
             public MidiControlChangeNumberCell CcNumber { get; set; }
             public MidiControlChangeNumberCell CcValue { get; set; }
