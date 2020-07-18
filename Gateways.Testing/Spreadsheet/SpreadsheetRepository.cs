@@ -5,6 +5,7 @@ using System.Text;
 
 using ArticulationUtility.Entities.Spreadsheet;
 using ArticulationUtility.Entities.Spreadsheet.Value;
+using ArticulationUtility.Gateways.Spreadsheet;
 
 using ExcelDataReader;
 
@@ -169,6 +170,8 @@ namespace ArticulationUtility.Gateways.Testing.Spreadsheet
             return notes;
         }
 
+        #region Core Parsers
+
         private static void ParseSheet( CellContext context, string columnName, out string result )
         {
             if( !TryParseSheet( context.Sheet, context.RowIndex, columnName, out result ) )
@@ -210,6 +213,7 @@ namespace ArticulationUtility.Gateways.Testing.Spreadsheet
             return false;
         }
 
+        #endregion
 
     }
 }

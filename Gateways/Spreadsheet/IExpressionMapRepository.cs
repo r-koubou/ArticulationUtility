@@ -1,7 +1,6 @@
 using ArticulationUtility.Entities.VSTExpressionMap;
-using ArticulationUtility.Entities.VSTExpressionMap.Value;
 
-namespace ArticulationUtility.Gateways
+namespace ArticulationUtility.Gateways.Spreadsheet
 {
     public interface IExpressionMapRepository : IDataLoader<ExpressionMap>
     {

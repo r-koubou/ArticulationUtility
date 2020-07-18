@@ -1,4 +1,4 @@
-namespace ArticulationUtility.Gateways
+namespace ArticulationUtility.Gateways.Spreadsheet
 {
     public interface IDataLoader<T>
     {

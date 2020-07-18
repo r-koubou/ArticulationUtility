@@ -4,6 +4,7 @@ using System.IO;
 using ArticulationUtility.Entities.Spreadsheet;
 using ArticulationUtility.Entities.VSTExpressionMap;
 using ArticulationUtility.Gateways;
+using ArticulationUtility.Gateways.Spreadsheet;
 using ArticulationUtility.Gateways.Testing.Spreadsheet;
 using ArticulationUtility.Presenters;
 using ArticulationUtility.UseCases.Converting;

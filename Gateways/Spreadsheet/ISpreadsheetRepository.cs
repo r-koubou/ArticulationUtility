@@ -1,8 +1,6 @@
-using System.Collections.Generic;
-
 using ArticulationUtility.Entities.Spreadsheet;
 
-namespace ArticulationUtility.Gateways
+namespace ArticulationUtility.Gateways.Spreadsheet
 {
     public interface ISpreadsheetRepository : IDataLoader<Workbook>
     {
