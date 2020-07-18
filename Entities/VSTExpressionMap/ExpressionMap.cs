@@ -10,7 +10,7 @@ namespace ArticulationUtility.Entities.VSTExpressionMap
     /// </summary>
     public class ExpressionMap
     {
-        public ExpressionMapName Name { get; }
+        public ExpressionMapName Name { get; set; }
         public List<Articulation> Articulations { get; } = new List<Articulation>();
 
         public ExpressionMap( ExpressionMapName name )

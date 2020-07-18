@@ -1,11 +1,11 @@
 using System;
 using System.IO;
 
+using ArticulationUtility.Adapters.VSTExpressionMap;
 using ArticulationUtility.Entities.Spreadsheet;
 using ArticulationUtility.Entities.VSTExpressionMap;
-using ArticulationUtility.Gateways;
 using ArticulationUtility.Gateways.Spreadsheet;
-using ArticulationUtility.Gateways.Testing.Spreadsheet;
+using ArticulationUtility.Gateways.Spreadsheet.Ver_0_7;
 using ArticulationUtility.Presenters;
 using ArticulationUtility.UseCases.Converting;
 
@@ -21,7 +21,7 @@ namespace ArticulationUtility.Interactors.Testing.Spreadsheet
         public void ConvertingTest()
         {
             var workbook = new Workbook();
-            var expressionMapRepository = new SpreadsheetRepository( "a.xlsx" );
+            var expressionMapRepository = new SpreadsheetRepository( "/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp/Template.xlsx" );
             var presenter = new ConsolePresenter( Console.Out );
             var interactor = new SpreadsheetConvertingInteractor(
                 expressionMapRepository,
@@ -62,12 +62,14 @@ namespace ArticulationUtility.Interactors.Testing.Spreadsheet
             IExpressionMapPresenter presenter )
         {
             SpreadsheetRepository = expressionMapRepository ?? throw new ArgumentNullException( nameof( expressionMapRepository ) );
-            Presenter               = presenter ?? throw new ArgumentNullException( nameof( presenter ) );
+            Presenter             = presenter ?? throw new ArgumentNullException( nameof( presenter ) );
         }
 
         public void Convert()
         {
             var book = SpreadsheetRepository.Load();
+            var adapter = new WorkbookAdapter( book );
+            var expressionMap = adapter.Convert();
         }
     }
 }

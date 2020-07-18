@@ -19,7 +19,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Interactors\Interactors.csproj" />
-      <ProjectReference Include="..\Presenters\Presenters.csproj" />
     </ItemGroup>
 
 </Project>

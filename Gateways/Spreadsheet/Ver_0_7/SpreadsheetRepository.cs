@@ -76,7 +76,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.Ver_0_7
         {
             SourceRows rows = sheet.Rows;
 
-            Worksheet worksheet = new Worksheet();
+            Worksheet worksheet = new Worksheet( sheet.TableName );
             for( int rowIndex = SpreadsheetConstants.StartRowIndex; rowIndex < rows.Count; rowIndex++ )
             {
                 var context = new CellContext()
@@ -88,6 +88,11 @@ namespace ArticulationUtility.Gateways.Spreadsheet.Ver_0_7
                 var row = ParseRow( context );
                 worksheet.Rows.Add( row );
             }
+
+            var outputName = rows[ SpreadsheetConstants.RowOutputIndex ]
+                            .ItemArray[ SpreadsheetConstants.ColumnOutputNameIndex ].ToString();
+
+            worksheet.OutputNameCell = new OutputNameCell( outputName );
 
             return worksheet;
         }
@@ -115,10 +120,6 @@ namespace ArticulationUtility.Gateways.Spreadsheet.Ver_0_7
         private ArticulationCellGroup ParseArticulation( CellContext context )
         {
             var articulationCellGroup = new ArticulationCellGroup();
-
-            var sourceSheet = context.Sheet;
-            var sourceRow = context.Row;
-            var rowIndex = context.RowIndex;
 
             ParseSheet( context, SpreadsheetConstants.ColumnName, out var cellValue );
             articulationCellGroup.NameCell = new ArticulationNameCell( cellValue );
@@ -246,6 +247,14 @@ namespace ArticulationUtility.Gateways.Spreadsheet.Ver_0_7
             if( !TryParseSheet( context.Sheet, context.RowIndex, columnName, out result ) )
             {
                 throw new InvalidCellValueException( context.RowIndex, columnName );
+            }
+        }
+
+        private static void ParseSheet( SourceSheet sheet, int rowIndex, string columnName, out string result )
+        {
+            if( !TryParseSheet( sheet, rowIndex, columnName, out result ) )
+            {
+                throw new InvalidCellValueException( rowIndex, columnName );
             }
         }
 
