@@ -6,11 +6,13 @@ namespace ArticulationUtility.Entities.Spreadsheet.Value
 {
     public class ColorIndexCell : IEquatable<ColorIndexCell>
     {
+        public const int MinValue = 0;
+        public const int MaxValue = int.MaxValue;
         public int Value { get; }
 
         public ColorIndexCell( int index )
         {
-            RangeValidateHelper.ValidateIntMinValue( index, 0 );
+            RangeValidateHelper.ValidateIntRange( index, MinValue, MaxValue );
             Value = index;
         }
 
