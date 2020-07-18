@@ -62,7 +62,7 @@ namespace ArticulationUtility.Gateways.Testing.Spreadsheet
                 foreach( SourceSheet s in book )
                 {
                     // Ignore sheet
-                    if( s.TableName == SpreadsheetConstants.LIST_DEFINITION_SHEETNAME )
+                    if( s.TableName == SpreadsheetConstants.DefinitionSheetName )
                     {
                         continue;
                     }
@@ -80,7 +80,7 @@ namespace ArticulationUtility.Gateways.Testing.Spreadsheet
             SourceRows rows = sheet.Rows;
 
             Worksheet worksheet = new Worksheet();
-            for( int rowIndex = SpreadsheetConstants.START_ROW_INDEX; rowIndex < rows.Count; rowIndex++ )
+            for( int rowIndex = SpreadsheetConstants.StartRowIndex; rowIndex < rows.Count; rowIndex++ )
             {
                 var context = new CellContext()
                 {
@@ -123,13 +123,13 @@ namespace ArticulationUtility.Gateways.Testing.Spreadsheet
             var sourceRow = context.Row;
             var rowIndex = context.RowIndex;
 
-            ParseSheet( context, SpreadsheetConstants.COLUMN_NAME, out var cellValue );
+            ParseSheet( context, SpreadsheetConstants.ColumnName, out var cellValue );
             articulationCellGroup.NameCell = new ArticulationNameCell( cellValue );
 
-            ParseSheet( context, SpreadsheetConstants.COLUMN_ARTICULATION_TYPE, out cellValue );
+            ParseSheet( context, SpreadsheetConstants.ColumnArticulationType, out cellValue );
             articulationCellGroup.TypeCell = ArticulationTypeCell.Parse( cellValue );
 
-            ParseSheet( context, SpreadsheetConstants.COLUMN_COLOR, out cellValue );
+            ParseSheet( context, SpreadsheetConstants.ColumnColor, out cellValue );
             articulationCellGroup.ColorIndexCell = new ColorIndexCell( int.Parse( cellValue ) );
 
             return articulationCellGroup;
@@ -148,12 +148,12 @@ namespace ArticulationUtility.Gateways.Testing.Spreadsheet
 
             for( int i = 1; i < int.MaxValue; i++ )
             {
-                if( !TryParseSheet( context, SpreadsheetConstants.COLUMN_MIDI_NOTE + i, out var noteNumberCell ) )
+                if( !TryParseSheet( context, SpreadsheetConstants.ColumnMidiNote + i, out var noteNumberCell ) )
                 {
                     break;
                 }
 
-                ParseSheet( context, SpreadsheetConstants.COLUMN_MIDI_VELOCITY + i, out var velocityCell );
+                ParseSheet( context, SpreadsheetConstants.ColumnMidiVelocity + i, out var velocityCell );
 
                 if( !int.TryParse( velocityCell, out var velocityValue ) )
                 {
@@ -186,11 +186,11 @@ namespace ArticulationUtility.Gateways.Testing.Spreadsheet
             for( int i = 1; i < int.MaxValue; i++ )
             {
 
-                if( !TryParseSheet( context, SpreadsheetConstants.COLUMN_MIDI_CC + i, out var ccNumberCell ) )
+                if( !TryParseSheet( context, SpreadsheetConstants.ColumnMidiCc + i, out var ccNumberCell ) )
                 {
                     break;
                 }
-                if( !TryParseSheet( context, SpreadsheetConstants.COLUMN_MIDI_CC_VALUE + i, out var ccValueCell ) )
+                if( !TryParseSheet( context, SpreadsheetConstants.ColumnMidiCcValue + i, out var ccValueCell ) )
                 {
                     break;
                 }
@@ -221,11 +221,11 @@ namespace ArticulationUtility.Gateways.Testing.Spreadsheet
             for( int i = 1; i < int.MaxValue; i++ )
             {
 
-                if( !TryParseSheet( context, SpreadsheetConstants.COLUMN_MIDI_PC_LSB + i, out var pcLsbCell ) )
+                if( !TryParseSheet( context, SpreadsheetConstants.ColumnMidiPcLsb + i, out var pcLsbCell ) )
                 {
                     break;
                 }
-                if( !TryParseSheet( context, SpreadsheetConstants.COLUMN_MIDI_PC_MSB + i, out var pcMsbCell ) )
+                if( !TryParseSheet( context, SpreadsheetConstants.ColumnMidiPcMsb + i, out var pcMsbCell ) )
                 {
                     pcMsbCell = "0";
                 }
@@ -265,7 +265,7 @@ namespace ArticulationUtility.Gateways.Testing.Spreadsheet
             int i = 0;
             result = null;
 
-            foreach( var name in rows[ SpreadsheetConstants.HEADER_ROW_INDEX ].ItemArray )
+            foreach( var name in rows[ SpreadsheetConstants.HeaderRowIndex ].ItemArray )
             {
                 if( name != null && name.ToString() == columnName )
                 {
