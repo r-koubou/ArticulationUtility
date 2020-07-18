@@ -6,8 +6,8 @@ namespace ArticulationUtility.Entities.MidiEvents.Value
 {
     public class MidiVelocity : IMidiEventData, IEquatable<MidiVelocity>
     {
-        public const int MinValue = 0x00;
-        public const int MaxValue = 0x7f;
+        public static readonly int MinValue = 0x00;
+        public static readonly int MaxValue = 0x7f;
 
         public int Value { get; }
 

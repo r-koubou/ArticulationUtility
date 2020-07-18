@@ -6,8 +6,8 @@ namespace ArticulationUtility.Entities.Spreadsheet.Value
 {
     public class MidiControlChangeValueCell : IEquatable<MidiControlChangeValueCell>
     {
-        public const int MinValue = 0x00;
-        public const int MaxValue = 0x7f;
+        public static readonly int MinValue = 0x00;
+        public static readonly int MaxValue = 0x7f;
 
         public int Value { get; }
 

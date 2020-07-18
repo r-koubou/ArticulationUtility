@@ -6,8 +6,8 @@ namespace ArticulationUtility.Entities.Spreadsheet.Value
 {
     public class GroupIndexCell : IEquatable<GroupIndexCell>
     {
-        public const int MinValue = 1;
-        public const int MaxValue = 16;
+        public static readonly int MinValue = 1;
+        public static readonly int MaxValue = 16;
 
         public int Value { get; }
 

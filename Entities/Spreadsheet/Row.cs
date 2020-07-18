@@ -22,18 +22,22 @@ namespace ArticulationUtility.Entities.Spreadsheet
         public ArticulationNameCell ArticulationName { get; }
         public ArticulationTypeCell ArticulationType { get; }
         public ColorIndexCell ColorIndex { get; }
+        public GroupIndexCell GroupIndex { get; }
+
         public List<MidiNoteNumberCell> MidiNoteList { get; } = new List<MidiNoteNumberCell>();
         public List<MidiControlChange> MidiControlChangeList { get; } = new List<MidiControlChange>();
 
         public Row(
             ArticulationNameCell name,
             ArticulationTypeCell type,
-            ColorIndexCell colorIndex
+            ColorIndexCell colorIndex,
+            GroupIndexCell groupIndex
         )
         {
             ArticulationName = name ?? throw new ArgumentNullException( nameof( name ) );
             ArticulationType = type;
-            ColorIndex       = colorIndex ?? throw new ArgumentNullException( nameof( colorIndex ) );
+            ColorIndex       = colorIndex ?? new ColorIndexCell( ColorIndexCell.MinValue );
+            GroupIndex       = groupIndex ?? new GroupIndexCell( GroupIndexCell.MinValue );
         }
     }
 }
