@@ -18,17 +18,15 @@ namespace ArticulationUtility.Gateways.Testing.Spreadsheet
     public class SpreadsheetRepository : ISpreadsheetRepository
     {
         public string InputFilePath { get; }
-        public Encoding Encoding { get; }
 
         public SpreadsheetRepository( string inputFilePath, Encoding encoding = null )
         {
             InputFilePath = inputFilePath ?? throw new ArgumentNullException( nameof( inputFilePath ) );
-            Encoding      = encoding ?? Encoding.UTF8;
         }
 
         public Workbook Load()
         {
-            var result = new Workbook();
+            var result = new Workbook( InputFilePath );
 
             // Workaround
             // "System.NotSupportedException: No data is available for encoding 1252"
