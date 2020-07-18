@@ -16,7 +16,13 @@ namespace ArticulationUtility.Entities.Spreadsheet
         public class MidiControlChange
         {
             public MidiControlChangeNumberCell CcNumber { get; set; }
-            public MidiControlChangeNumberCell CcValue { get; set; }
+            public MidiControlChangeValueCell CcValue { get; set; }
+        }
+
+        public class MidiProgramChange
+        {
+            public MidiProgramChangeLsbCell Lsb { get; set; }
+            public MidiProgramChangeMsbCell Msb { get; set; }
         }
 
         public ArticulationNameCell ArticulationName { get; }
@@ -24,8 +30,9 @@ namespace ArticulationUtility.Entities.Spreadsheet
         public ColorIndexCell ColorIndex { get; }
         public GroupIndexCell GroupIndex { get; }
 
-        public List<MidiNoteNumberCell> MidiNoteList { get; } = new List<MidiNoteNumberCell>();
+        public List<MidiNote> MidiNoteList { get; } = new List<MidiNote>();
         public List<MidiControlChange> MidiControlChangeList { get; } = new List<MidiControlChange>();
+        public List<MidiProgramChange> MidiProgramChangeList { get; } = new List<MidiProgramChange>();
 
         public Row(
             ArticulationNameCell name,

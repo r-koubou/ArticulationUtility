@@ -108,6 +108,10 @@ namespace ArticulationUtility.Gateways.Testing.Spreadsheet
                 articulationCellGroup.GroupIndexCell
             );
 
+            row.MidiNoteList.AddRange( ParseMidiNotes( context ) );
+            row.MidiControlChangeList.AddRange( ParseMidiControlChanges( context ) );
+            row.MidiProgramChangeList.AddRange( ParseMidiProgramChanges( context ) );
+
             return row;
         }
 
@@ -119,9 +123,7 @@ namespace ArticulationUtility.Gateways.Testing.Spreadsheet
             var sourceRow = context.Row;
             var rowIndex = context.RowIndex;
 
-            string cellValue;
-
-            ParseSheet( context, SpreadsheetConstants.COLUMN_NAME, out cellValue );
+            ParseSheet( context, SpreadsheetConstants.COLUMN_NAME, out var cellValue );
             articulationCellGroup.NameCell = new ArticulationNameCell( cellValue );
 
             ParseSheet( context, SpreadsheetConstants.COLUMN_ARTICULATION_TYPE, out cellValue );
@@ -136,7 +138,7 @@ namespace ArticulationUtility.Gateways.Testing.Spreadsheet
         private List<Row.MidiNote> ParseMidiNotes( CellContext context )
         {
             //----------------------------------------------------------------------
-            // Append MIDI Notes
+            // MIDI Notes
             // * Multiple MIDI Note Supported
             // * Column name format:
             // MIDI Note1 ... MIDI Note1+n
@@ -168,6 +170,76 @@ namespace ArticulationUtility.Gateways.Testing.Spreadsheet
             }
 
             return notes;
+        }
+
+        private List<Row.MidiControlChange> ParseMidiControlChanges( CellContext context )
+        {
+            //----------------------------------------------------------------------
+            // MIDI CC
+            // * Multiple MIDI CC Supported
+            // * Column name format:
+            //   CC No1 ... CC No1+n
+            //   CC Value1 ... CC Value1+n
+            //----------------------------------------------------------------------
+            var controlChanges = new List<Row.MidiControlChange>();
+
+            for( int i = 1; i < int.MaxValue; i++ )
+            {
+
+                if( !TryParseSheet( context, SpreadsheetConstants.COLUMN_MIDI_CC + i, out var ccNumberCell ) )
+                {
+                    break;
+                }
+                if( !TryParseSheet( context, SpreadsheetConstants.COLUMN_MIDI_CC_VALUE + i, out var ccValueCell ) )
+                {
+                    break;
+                }
+
+                var obj = new Row.MidiControlChange()
+                {
+                    CcNumber = new MidiControlChangeNumberCell( int.Parse( ccNumberCell ) ),
+                    CcValue  = new MidiControlChangeValueCell( int.Parse( ccValueCell ) )
+                };
+
+                controlChanges.Add( obj );
+            }
+
+            return controlChanges;
+        }
+
+        private List<Row.MidiProgramChange> ParseMidiProgramChanges( CellContext context )
+        {
+            //----------------------------------------------------------------------
+            // MIDI PC
+            // * Multiple MIDI Program Change Supported
+            // * Column name format:
+            //   PC LSB1 ... PC LSB1+n
+            //   PC MSB1 ... PC MSB1+n (MSB not exist, MSB value will be 0 )
+            //----------------------------------------------------------------------
+            var programChanges = new List<Row.MidiProgramChange>();
+
+            for( int i = 1; i < int.MaxValue; i++ )
+            {
+
+                if( !TryParseSheet( context, SpreadsheetConstants.COLUMN_MIDI_PC_LSB + i, out var pcLsbCell ) )
+                {
+                    break;
+                }
+                if( !TryParseSheet( context, SpreadsheetConstants.COLUMN_MIDI_PC_MSB + i, out var pcMsbCell ) )
+                {
+                    pcMsbCell = "0";
+                }
+
+                var obj = new Row.MidiProgramChange()
+                {
+                    Lsb = new MidiProgramChangeLsbCell( int.Parse( pcLsbCell ) ),
+                    Msb = new MidiProgramChangeMsbCell( int.Parse( pcMsbCell ) )
+                };
+
+                programChanges.Add( obj );
+            }
+
+            return programChanges;
         }
 
         #region Core Parsers
@@ -206,7 +278,8 @@ namespace ArticulationUtility.Gateways.Testing.Spreadsheet
 
                     result = cell.ToString();
 
-                    return true;
+                    return result != null &&
+                           !string.IsNullOrEmpty( result.Trim() );
                 }
                 i++;
             }

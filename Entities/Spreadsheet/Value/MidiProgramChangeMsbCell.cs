@@ -4,20 +4,20 @@ using ArticulationUtility.Entities.Helper;
 
 namespace ArticulationUtility.Entities.Spreadsheet.Value
 {
-    public class MidiControlChangeValueCell : IEquatable<MidiControlChangeValueCell>
+    public class MidiProgramChangeMsbCell : IEquatable<MidiProgramChangeMsbCell>
     {
         public const int MinValue = 0x00;
         public const int MaxValue = 0x7f;
 
         public int Value { get; }
 
-        public MidiControlChangeValueCell( int ccValue )
+        public MidiProgramChangeMsbCell( int lsb )
         {
-            RangeValidateHelper.ValidateIntRange( ccValue, MinValue, MaxValue );
-            Value = ccValue;
+            RangeValidateHelper.ValidateIntRange( lsb, MinValue, MaxValue );
+            Value = lsb;
         }
 
-        public bool Equals( MidiControlChangeValueCell other )
+        public bool Equals( MidiProgramChangeMsbCell other )
         {
             if( other == null )
             {
