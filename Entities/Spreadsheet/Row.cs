@@ -36,7 +36,7 @@ namespace ArticulationUtility.Entities.Spreadsheet
         {
             ArticulationName = name ?? throw new ArgumentNullException( nameof( name ) );
             ArticulationType = type;
-            ColorIndex       = colorIndex ?? new ColorIndexCell( 0 );
+            ColorIndex       = colorIndex ?? new ColorIndexCell( ColorIndexCell.MinValue );
             GroupIndex       = groupIndex ?? new GroupIndexCell( GroupIndexCell.MinValue );
         }
     }
