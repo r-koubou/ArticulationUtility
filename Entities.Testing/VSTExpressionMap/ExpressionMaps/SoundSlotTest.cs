@@ -23,27 +23,21 @@ namespace ArticulationUtility.Entities.Testing.VSTExpressionMap.ExpressionMaps
                 )
             );
             slot.OutputMappings.Add(
-                new OutputMapping().AddMidiEvent(
-                    new MidiNoteOn(
-                        new MidiNoteNumber( 1 ),
-                        new MidiVelocity( 100 )
-                    )
+                new MidiNoteOn(
+                    new MidiNoteNumber( 1 ),
+                    new MidiVelocity( 100 )
                 )
             );
             slot.OutputMappings.Add(
-                new OutputMapping().AddMidiEvent(
-                    new MidiControlChange(
-                        new MidiControlNumber( 0 ),
-                        new MidiControlValue( 0 )
-                    )
+                new MidiControlChange(
+                    new MidiControlNumber( 0 ),
+                    new MidiControlValue( 0 )
                 )
             );
             slot.OutputMappings.Add(
-                new OutputMapping().AddMidiEvent(
-                    new MidiProgramChange(
-                        new MidiLeastSignificantByte( 1 ),
-                        new MidiMostSignificantByte( 2 )
-                    )
+                new MidiProgramChange(
+                    new MidiLeastSignificantByte( 1 ),
+                    new MidiMostSignificantByte( 2 )
                 )
             );
         }

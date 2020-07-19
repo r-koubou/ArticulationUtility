@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 
 using ArticulationUtility.Entities.Helper;
+using ArticulationUtility.Entities.MidiEvents;
+using ArticulationUtility.Entities.MidiEvents.Value;
 using ArticulationUtility.Entities.Spreadsheet;
 using ArticulationUtility.Entities.VSTExpressionMap;
 using ArticulationUtility.Entities.VSTExpressionMap.Value;
@@ -46,9 +48,10 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.Compat.Ver_0_7
                 var slotColor = new SoundSlotColorIndex( row.ColorIndex.Value );
                 var soundSlot = new SoundSlot( slotName, slotColor );
 
-                ConvertOutputMappings( row, soundSlot.OutputMappings );
                 // 1 articulation per SoundSlot in this convert.
                 soundSlot.Articulations.Add( articulation );
+
+                ConvertOutputMappings( row, soundSlot.OutputMappings );
 
                 expressionMap.SoundSlots.Add( soundSlot );
 
@@ -56,12 +59,17 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.Compat.Ver_0_7
             }
         }
 
-        private void ConvertOutputArticulations( Row row, List<Articulation> target )
-        {}
-
-
-        private void ConvertOutputMappings( Row row, List<OutputMapping> target )
-        {}
+        private void ConvertOutputMappings( Row row, List<IMidiEvent> target )
+        {
+            foreach( var midiNote in row.MidiNoteList )
+            {
+                target.Add(
+                    new MidiNoteOn(
+                        MidiNoteNumber( midiNote.Note.Value ),
+                        )
+                    );
+            }
+        }
 
     }
 }

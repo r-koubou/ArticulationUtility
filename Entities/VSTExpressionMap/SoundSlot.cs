@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 
+using ArticulationUtility.Entities.MidiEvents;
 using ArticulationUtility.Entities.VSTExpressionMap.Value;
 
 namespace ArticulationUtility.Entities.VSTExpressionMap
@@ -14,7 +15,7 @@ namespace ArticulationUtility.Entities.VSTExpressionMap
         public SoundSlotColorIndex ColorIndex { get; set; }
         public List<Articulation> Articulations { get; } = new List<Articulation>();
 
-        public List<OutputMapping> OutputMappings { get; } = new List<OutputMapping>();
+        public List<IMidiEvent> OutputMappings { get; } = new List<IMidiEvent>();
 
         public SoundSlot( SoundSlotName name, SoundSlotColorIndex colorIndex )
         {
