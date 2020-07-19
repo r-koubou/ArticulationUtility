@@ -10,12 +10,13 @@ namespace ArticulationUtility.Entities.VSTExpressionMap
     /// </summary>
     public class ExpressionMap
     {
-        public ExpressionMapName Name { get; set; }
+        public ExpressionMapName Name { get; }
         public List<Articulation> Articulations { get; } = new List<Articulation>();
+        public List<SoundSlot> SoundSlots { get; } = new List<SoundSlot>();
 
-        public ExpressionMap( ExpressionMapName name )
+        public ExpressionMap( ExpressionMapName name = null )
         {
-            Name = name ?? throw new ArgumentNullException( $"{nameof( name )}" );
+            Name = name ?? new ExpressionMapName( "default.out" );
         }
     }
 }

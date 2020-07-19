@@ -1,4 +1,4 @@
-using ArticulationUtility.Gateways.Spreadsheet.Ver_0_7;
+using ArticulationUtility.Gateways.Spreadsheet.Compat.Ver_0_7;
 
 using NUnit.Framework;
 

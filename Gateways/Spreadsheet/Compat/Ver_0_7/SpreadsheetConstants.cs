@@ -1,4 +1,4 @@
-namespace ArticulationUtility.Gateways.Spreadsheet.Ver_0_7
+namespace ArticulationUtility.Gateways.Spreadsheet.Compat.Ver_0_7
 {
     public static  class SpreadsheetConstants
     {

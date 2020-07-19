@@ -12,7 +12,7 @@ using SourceSheet   = System.Data.DataTable;
 using SourceRows    = System.Data.DataRowCollection;
 using SourceRow     = System.Data.DataRow;
 
-namespace ArticulationUtility.Gateways.Spreadsheet.Ver_0_7
+namespace ArticulationUtility.Gateways.Spreadsheet.Compat.Ver_0_7
 {
     public class SpreadsheetRepository : ISpreadsheetRepository
     {
