@@ -4,11 +4,11 @@ using ArticulationUtility.Entities.Spreadsheet.Value;
 namespace ArticulationUtility.Adapters.MidiEvent
 {
     public class MidiControlChangeValueCellToControlValue
-        : IMidiEventAdapter<MidiControlChangeValueCell, MidiControlValue>
+        : IMidiEventAdapter<MidiControlChangeValueCell, MidiControlChangeValue>
     {
-        public MidiControlValue Convert( MidiControlChangeValueCell source )
+        public MidiControlChangeValue Convert( MidiControlChangeValueCell source )
         {
-            return new MidiControlValue( source.Value );
+            return new MidiControlChangeValue( source.Value );
         }
     }
 }

@@ -30,8 +30,8 @@ namespace ArticulationUtility.Entities.Testing.VSTExpressionMap.ExpressionMaps
             );
             slot.OutputMappings.Add(
                 new MidiControlChange(
-                    new MidiControlNumber( 0 ),
-                    new MidiControlValue( 0 )
+                    new MidiControlChangeNumber( 0 ),
+                    new MidiControlChangeValue( 0 )
                 )
             );
             slot.OutputMappings.Add(

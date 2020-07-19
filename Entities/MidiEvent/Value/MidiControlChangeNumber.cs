@@ -4,20 +4,20 @@ using ArticulationUtility.Utilities;
 
 namespace ArticulationUtility.Entities.MidiEvent.Value
 {
-    public class MidiControlValue : IMidiEventData, IEquatable<MidiControlValue>
+    public class MidiControlChangeNumber : IMidiEventData, IEquatable<MidiControlChangeNumber>
     {
         public const int MinValue = 0x00;
         public const int MaxValue = 0x7f;
 
         public int Value { get; }
 
-        public MidiControlValue( int value )
+        public MidiControlChangeNumber( int value )
         {
             RangeValidateHelper.ValidateIntRange( value, MinValue, MaxValue );
-            Value  = value;
+            Value = value;
         }
 
-        public bool Equals( MidiControlValue other )
+        public bool Equals( MidiControlChangeNumber other )
         {
             if( other == null )
             {
@@ -28,6 +28,5 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
         }
 
         public override string ToString() => Value.ToString();
-
     }
 }

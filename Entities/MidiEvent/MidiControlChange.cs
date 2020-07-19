@@ -12,10 +12,10 @@ namespace ArticulationUtility.Entities.MidiEvent
         public IMidiEventData DataByte1 { get; }
         public IMidiEventData DataByte2 { get; }
 
-        public MidiControlChange( MidiControlNumber controlNumber, MidiControlValue controlValue )
+        public MidiControlChange( MidiControlChangeNumber controlChangeNumber, MidiControlChangeValue controlChangeValue )
         {
-            DataByte1 = controlNumber ?? throw new ArgumentNullException( $"{nameof( controlNumber )}" );
-            DataByte2 = controlValue ?? throw new ArgumentNullException( $"{nameof( controlValue )}" );
+            DataByte1 = controlChangeNumber ?? throw new ArgumentNullException( $"{nameof( controlChangeNumber )}" );
+            DataByte2 = controlChangeValue ?? throw new ArgumentNullException( $"{nameof( controlChangeValue )}" );
         }
     }
 }
