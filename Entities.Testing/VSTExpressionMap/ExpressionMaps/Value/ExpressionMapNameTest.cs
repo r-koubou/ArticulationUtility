@@ -8,7 +8,7 @@ namespace ArticulationUtility.Entities.Testing.VSTExpressionMap.ExpressionMaps.V
     public class ExpressionMapNameTest
     {
         [Test]
-        public void mptyNameTest()
+        public void EmptyNameTest()
         {
             Assert.Throws<InvalidNameException>( () =>  new ExpressionMapName( "" ) );
             Assert.Throws<InvalidNameException>( () =>  new ExpressionMapName( "  " ) );

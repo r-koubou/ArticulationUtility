@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 using ArticulationUtility.Entities.VSTExpressionMap.Value;

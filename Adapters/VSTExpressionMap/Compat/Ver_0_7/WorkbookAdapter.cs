@@ -85,7 +85,6 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.Compat.Ver_0_7
         {
             var ccNumberAdapter = new MidiControlChangeNumberCellToControlNumber();
             var ccValueAdapter = new MidiControlChangeValueCellToControlValue();
-            ;
 
             foreach( var cc in row.MidiControlChangeList )
             {

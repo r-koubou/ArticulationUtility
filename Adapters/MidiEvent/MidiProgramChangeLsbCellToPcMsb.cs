@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 using ArticulationUtility.Entities.MidiEvent.Value;
 using ArticulationUtility.Entities.Spreadsheet.Value;
 
