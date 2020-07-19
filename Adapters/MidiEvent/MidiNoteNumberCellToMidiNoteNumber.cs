@@ -5,12 +5,12 @@ using ArticulationUtility.Entities.Spreadsheet.Value;
 
 namespace ArticulationUtility.Adapters.MidiEvent
 {
-    public class MidiNoteNumberAdapter : IMidiEventAdapter<MidiNoteNumberCell, MidiNoteNumber>
+    public class MidiNoteNumberCellToMidiNoteNumber : IMidiEventAdapter<MidiNoteNumberCell, MidiNoteNumber>
     {
         private static readonly List<string> NoteNameList;
         private static readonly List<string> NoteNumberList;
 
-        static MidiNoteNumberAdapter()
+        static MidiNoteNumberCellToMidiNoteNumber()
         {
             NoteNameList   = MidiNoteNumberCell.GetNoteNameList();
             NoteNumberList = MidiNoteNumberCell.GetNoteNumberList();

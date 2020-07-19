@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 
+using ArticulationUtility.Adapters.MidiEvent;
 using ArticulationUtility.Entities.MidiEvent;
+using ArticulationUtility.Entities.MidiEvent.Value;
 using ArticulationUtility.Entities.Spreadsheet;
 using ArticulationUtility.Entities.VSTExpressionMap;
 using ArticulationUtility.Entities.VSTExpressionMap.Value;
@@ -60,13 +62,30 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.Compat.Ver_0_7
 
         private void ConvertOutputMappings( Row row, List<IMidiEvent> target )
         {
+            var noteNumberAdapter   = new MidiNoteNumberCellToMidiNoteNumber();
+            var noteVelocityAdapter = new MidiNoteVelocityCellToVelocity();
+
             foreach( var midiNote in row.MidiNoteList )
             {
                 target.Add(
                     new MidiNoteOn(
-                        MidiNoteNumber( midiNote.Note.Value ),
-                        )
-                    );
+                        noteNumberAdapter.Convert( midiNote.Note ),
+                        noteVelocityAdapter.Convert( midiNote.Velocity )
+                    )
+                );
+            }
+
+            var ccNumberAdapter = new MidiControlChangeNumberCellToControlNumber();
+            var ccValueAdapter  = new MidiControlChangeValueCellToControlValue();;
+
+            foreach( var cc in row.MidiControlChangeList )
+            {
+                target.Add(
+                    new MidiControlChange(
+                        ccNumberAdapter.Convert( cc.CcNumber ),
+                        ccValueAdapter.Convert( cc.CcValue )
+                    )
+                );
             }
         }
 
