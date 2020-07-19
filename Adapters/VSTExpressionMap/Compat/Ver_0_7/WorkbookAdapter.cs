@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 using ArticulationUtility.Adapters.MidiEvent;
 using ArticulationUtility.Entities.MidiEvent;
-using ArticulationUtility.Entities.MidiEvent.Value;
 using ArticulationUtility.Entities.Spreadsheet;
 using ArticulationUtility.Entities.VSTExpressionMap;
 using ArticulationUtility.Entities.VSTExpressionMap.Value;
@@ -49,20 +48,26 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.Compat.Ver_0_7
                 var slotColor = new SoundSlotColorIndex( row.ColorIndex.Value );
                 var soundSlot = new SoundSlot( slotName, slotColor );
 
-                // 1 articulation per SoundSlot in this convert.
+                // One articulation per SoundSlot in this convert.
                 soundSlot.Articulations.Add( articulation );
 
+                // To Midi note, CC, PC
                 ConvertOutputMappings( row, soundSlot.OutputMappings );
 
                 expressionMap.SoundSlots.Add( soundSlot );
-
-
             }
         }
 
         private void ConvertOutputMappings( Row row, List<IMidiEvent> target )
         {
-            var noteNumberAdapter   = new MidiNoteNumberCellToMidiNoteNumber();
+            ConvertMidiNoteMapping( row, target );
+            ConvertControlChangeMapping( row, target );
+            ConvertProgramChangeMapping( row, target );
+        }
+
+        private void ConvertMidiNoteMapping( Row row, List<IMidiEvent> target )
+        {
+            var noteNumberAdapter = new MidiNoteNumberCellToMidiNoteNumber();
             var noteVelocityAdapter = new MidiNoteVelocityCellToVelocity();
 
             foreach( var midiNote in row.MidiNoteList )
@@ -74,9 +79,13 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.Compat.Ver_0_7
                     )
                 );
             }
+        }
 
+        private void ConvertControlChangeMapping( Row row, List<IMidiEvent> target )
+        {
             var ccNumberAdapter = new MidiControlChangeNumberCellToControlNumber();
-            var ccValueAdapter  = new MidiControlChangeValueCellToControlValue();;
+            var ccValueAdapter = new MidiControlChangeValueCellToControlValue();
+            ;
 
             foreach( var cc in row.MidiControlChangeList )
             {
@@ -84,6 +93,22 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.Compat.Ver_0_7
                     new MidiControlChange(
                         ccNumberAdapter.Convert( cc.CcNumber ),
                         ccValueAdapter.Convert( cc.CcValue )
+                    )
+                );
+            }
+        }
+
+        private void ConvertProgramChangeMapping( Row row, List<IMidiEvent> target )
+        {
+            var pcLsbAdapter = new MidiProgramChangeLsbCellToPcLsb();
+            var pcMsbAdapter = new MidiProgramChangeMsbCellToPcMsb();
+
+            foreach( var pc in row.MidiProgramChangeList )
+            {
+                target.Add(
+                    new MidiProgramChange(
+                        pcLsbAdapter.Convert( pc.Lsb ),
+                        pcMsbAdapter.Convert( pc.Msb )
                     )
                 );
             }
