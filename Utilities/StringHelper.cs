@@ -1,4 +1,4 @@
-namespace ArticulationUtility.Entities.Helper
+namespace ArticulationUtility.Utilities
 {
     public static class StringHelper
     {
@@ -11,7 +11,7 @@ namespace ArticulationUtility.Entities.Helper
         {
             if( IsNullOrTrimEmpty( text ) )
             {
-                throw new InvalidNameException();
+                throw new NullOrEmptyException();;
             }
             return string.IsNullOrEmpty( text ) || text.Trim().Length == 0;
         }

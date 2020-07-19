@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
 
-using ArticulationUtility.Entities.Helper;
-using ArticulationUtility.Entities.MidiEvents.Value;
 using ArticulationUtility.Entities.Spreadsheet.Value;
 
 namespace ArticulationUtility.Entities.Spreadsheet.Helper

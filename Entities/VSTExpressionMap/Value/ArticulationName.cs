@@ -1,6 +1,6 @@
 using System;
 
-using ArticulationUtility.Entities.Helper;
+using ArticulationUtility.Utilities;
 
 namespace ArticulationUtility.Entities.VSTExpressionMap.Value
 {

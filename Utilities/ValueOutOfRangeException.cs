@@ -1,4 +1,4 @@
-namespace ArticulationUtility.Entities.Helper
+namespace ArticulationUtility.Utilities
 {
     public sealed class ValueOutOfRangeException : System.Exception
     {

@@ -1,4 +1,4 @@
-namespace ArticulationUtility.Entities.Helper
+namespace ArticulationUtility.Entities
 {
     public class InvalidNameException : System.Exception
     {

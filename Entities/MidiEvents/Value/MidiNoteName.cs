@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-using ArticulationUtility.Entities.Helper;
+using ArticulationUtility.Utilities;
 
 namespace ArticulationUtility.Entities.MidiEvents.Value
 {

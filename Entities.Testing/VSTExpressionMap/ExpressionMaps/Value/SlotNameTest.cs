@@ -1,4 +1,3 @@
-using ArticulationUtility.Entities.Helper;
 using ArticulationUtility.Entities.VSTExpressionMap.Value;
 
 using NUnit.Framework;

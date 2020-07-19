@@ -1,6 +1,6 @@
 using System;
 
-namespace ArticulationUtility.Entities.Helper
+namespace ArticulationUtility.Utilities
 {
     public static class EnumHelper
     {

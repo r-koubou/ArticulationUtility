@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
 
-using ArticulationUtility.Entities.Helper;
 using ArticulationUtility.Entities.MidiEvents;
-using ArticulationUtility.Entities.MidiEvents.Value;
 using ArticulationUtility.Entities.Spreadsheet;
 using ArticulationUtility.Entities.VSTExpressionMap;
 using ArticulationUtility.Entities.VSTExpressionMap.Value;
+using ArticulationUtility.Utilities;
 
 namespace ArticulationUtility.Adapters.VSTExpressionMap.Compat.Ver_0_7
 {

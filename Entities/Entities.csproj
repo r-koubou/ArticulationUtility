@@ -8,4 +8,8 @@
         <Product>Spreadsheet2Expressionmap</Product>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Utilities\Utilities.csproj" />
+    </ItemGroup>
+
 </Project>
