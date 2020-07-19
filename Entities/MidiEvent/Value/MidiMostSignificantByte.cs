@@ -2,22 +2,22 @@ using System;
 
 using ArticulationUtility.Utilities;
 
-namespace ArticulationUtility.Entities.MidiEvents.Value
+namespace ArticulationUtility.Entities.MidiEvent.Value
 {
-    public class MidiNoteNumber : IMidiEventData, IEquatable<MidiNoteNumber>
+    public class MidiMostSignificantByte : IMidiEventData, IEquatable<MidiMostSignificantByte>
     {
         public const int MinValue = 0x00;
         public const int MaxValue = 0x7f;
 
         public int Value { get; }
 
-        public MidiNoteNumber( int noteNumber )
+        public MidiMostSignificantByte( int value )
         {
-            RangeValidateHelper.ValidateIntRange( noteNumber, MinValue, MaxValue );
-            Value = noteNumber;
+            RangeValidateHelper.ValidateIntRange( value, MinValue, MaxValue );
+            Value = value;
         }
 
-        public bool Equals( MidiNoteNumber other )
+        public bool Equals( MidiMostSignificantByte other )
         {
             if( other == null )
             {

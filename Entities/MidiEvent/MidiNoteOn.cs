@@ -1,8 +1,8 @@
 using System;
 
-using ArticulationUtility.Entities.MidiEvents.Value;
+using ArticulationUtility.Entities.MidiEvent.Value;
 
-namespace ArticulationUtility.Entities.MidiEvents
+namespace ArticulationUtility.Entities.MidiEvent
 {
     /// <summary>
     /// Representing a MIDI note on.

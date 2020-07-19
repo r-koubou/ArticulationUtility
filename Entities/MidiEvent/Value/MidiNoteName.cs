@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using ArticulationUtility.Utilities;
 
-namespace ArticulationUtility.Entities.MidiEvents.Value
+namespace ArticulationUtility.Entities.MidiEvent.Value
 {
     public class MidiNoteName : IEquatable<MidiNoteName>
     {

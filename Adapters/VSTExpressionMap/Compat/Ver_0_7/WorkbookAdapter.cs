@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-using ArticulationUtility.Entities.MidiEvents;
+using ArticulationUtility.Entities.MidiEvent;
 using ArticulationUtility.Entities.Spreadsheet;
 using ArticulationUtility.Entities.VSTExpressionMap;
 using ArticulationUtility.Entities.VSTExpressionMap.Value;

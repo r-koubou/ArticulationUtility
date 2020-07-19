@@ -1,5 +1,5 @@
-using ArticulationUtility.Entities.MidiEvents;
-using ArticulationUtility.Entities.MidiEvents.Value;
+using ArticulationUtility.Entities.MidiEvent;
+using ArticulationUtility.Entities.MidiEvent.Value;
 using ArticulationUtility.Entities.VSTExpressionMap;
 using ArticulationUtility.Entities.VSTExpressionMap.Value;
 

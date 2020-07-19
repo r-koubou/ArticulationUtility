@@ -2,7 +2,7 @@ using System;
 
 using ArticulationUtility.Utilities;
 
-namespace ArticulationUtility.Entities.MidiEvents.Value
+namespace ArticulationUtility.Entities.MidiEvent.Value
 {
     public class MidiControlValue : IMidiEventData, IEquatable<MidiControlValue>
     {
