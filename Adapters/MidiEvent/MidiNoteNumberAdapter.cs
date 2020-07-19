@@ -1,15 +1,16 @@
 using System.Collections.Generic;
 
+using ArticulationUtility.Entities.MidiEvent.Value;
 using ArticulationUtility.Entities.Spreadsheet.Value;
 
-namespace ArticulationUtility.Entities.Spreadsheet.Helper
+namespace ArticulationUtility.Adapters.MidiEvent
 {
-    public static class MidiNoteCellHelper
+    public class MidiNoteNumberAdapter : IMidiEventAdapter<MidiNoteNumberCell, MidiNoteNumber>
     {
         private static readonly List<string> NoteNameList;
         private static readonly List<string> NoteNumberList;
 
-        static MidiNoteCellHelper()
+        static MidiNoteNumberAdapter()
         {
             NoteNameList   = MidiNoteNumberCell.GetNoteNameList();
             NoteNumberList = MidiNoteNumberCell.GetNoteNumberList();
@@ -19,7 +20,7 @@ namespace ArticulationUtility.Entities.Spreadsheet.Helper
         /// Calculate the MIDI note number from given value.
         /// </summary>
         /// <returns>MIDI note number range (0~127). Otherwise -1.</returns>
-        public static int IndexOf( MidiNoteNumberCell cell )
+        private static int IndexOf( MidiNoteNumberCell cell )
         {
             var cellValue = cell.Value;
 
@@ -28,9 +29,9 @@ namespace ArticulationUtility.Entities.Spreadsheet.Helper
                 return NoteNumberList.IndexOf( cell.Value );
             }
 
-            if( NoteNumberList.Contains( cellValue ) )
+            if( NoteNameList.Contains( cellValue ) )
             {
-                return NoteNumberList.IndexOf( cell.Value );
+                return NoteNameList.IndexOf( cell.Value );
             }
 
             if( int.TryParse( cellValue, out var noteNumber ) )
@@ -39,6 +40,12 @@ namespace ArticulationUtility.Entities.Spreadsheet.Helper
             }
 
             return -1;
+        }
+
+        public MidiNoteNumber Convert( MidiNoteNumberCell source )
+        {
+            int noteNumber = IndexOf( source );
+            return new MidiNoteNumber( noteNumber );
         }
     }
 }

@@ -1,5 +1,7 @@
 using System;
 
+using ArticulationUtility.Utilities;
+
 namespace ArticulationUtility.Entities.Spreadsheet.Value
 {
     public class MidiNoteVelocityCell : IEquatable<MidiNoteVelocityCell>
@@ -11,6 +13,7 @@ namespace ArticulationUtility.Entities.Spreadsheet.Value
 
         public MidiNoteVelocityCell( int velocity )
         {
+            RangeValidateHelper.ValidateIntRange( velocity, MinValue, MaxValue );
             Value = velocity;
         }
 
