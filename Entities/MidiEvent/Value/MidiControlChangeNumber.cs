@@ -1,5 +1,6 @@
 using System;
 
+using ArticulationUtility.Entities.MidiEvent.Aggregate;
 using ArticulationUtility.Utilities;
 
 namespace ArticulationUtility.Entities.MidiEvent.Value

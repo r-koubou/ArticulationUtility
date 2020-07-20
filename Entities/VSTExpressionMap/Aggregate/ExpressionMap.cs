@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 using ArticulationUtility.Entities.VSTExpressionMap.Value;
 
-namespace ArticulationUtility.Entities.VSTExpressionMap
+namespace ArticulationUtility.Entities.VSTExpressionMap.Aggregate
 {
     /// <summary>
     /// Representing ExpressionMap aggregates

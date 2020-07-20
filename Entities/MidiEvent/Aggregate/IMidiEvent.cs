@@ -1,4 +1,4 @@
-namespace ArticulationUtility.Entities.MidiEvent
+namespace ArticulationUtility.Entities.MidiEvent.Aggregate
 {
     /// <summary>
     /// MIDI event aggregation that makes up the sound slot.

@@ -1,6 +1,8 @@
 using ArticulationUtility.Entities.MidiEvent;
+using ArticulationUtility.Entities.MidiEvent.Aggregate;
 using ArticulationUtility.Entities.MidiEvent.Value;
 using ArticulationUtility.Entities.VSTExpressionMap;
+using ArticulationUtility.Entities.VSTExpressionMap.Aggregate;
 using ArticulationUtility.Entities.VSTExpressionMap.Value;
 
 using NUnit.Framework;

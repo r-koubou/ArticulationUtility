@@ -2,7 +2,7 @@ using System;
 
 using ArticulationUtility.Entities.VSTExpressionMap.Value;
 
-namespace ArticulationUtility.Entities.VSTExpressionMap
+namespace ArticulationUtility.Entities.VSTExpressionMap.Aggregate
 {
     public class Articulation
     {

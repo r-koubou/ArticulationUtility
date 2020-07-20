@@ -2,7 +2,7 @@ using System;
 
 using ArticulationUtility.Entities.MidiEvent.Value;
 
-namespace ArticulationUtility.Entities.MidiEvent
+namespace ArticulationUtility.Entities.MidiEvent.Aggregate
 {
     /// <summary>
     /// Represents a MIDI control change.

@@ -5,6 +5,7 @@ using ArticulationUtility.Adapters.VSTExpressionMap;
 using ArticulationUtility.Adapters.VSTExpressionMap.Compat.Ver_0_7;
 using ArticulationUtility.Entities.Spreadsheet;
 using ArticulationUtility.Entities.VSTExpressionMap;
+using ArticulationUtility.Entities.VSTExpressionMap.Aggregate;
 using ArticulationUtility.Gateways.Spreadsheet;
 using ArticulationUtility.Gateways.Spreadsheet.Compat.Ver_0_7;
 using ArticulationUtility.Presenters;
