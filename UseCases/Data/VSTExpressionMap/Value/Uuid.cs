@@ -1,6 +1,6 @@
 using System;
 
-namespace ArticulationUtility.Entities.VSTExpressionMap.Value
+namespace ArticulationUtility.UseCases.Data.VSTExpressionMap.Value
 {
     public class Uuid : IEquatable<Uuid>
     {
@@ -8,7 +8,7 @@ namespace ArticulationUtility.Entities.VSTExpressionMap.Value
 
         private Uuid()
         {
-            Value = System.Guid.NewGuid().ToString( "D" );
+            Value = Guid.NewGuid().ToString( "D" );
         }
 
         public static Uuid New()

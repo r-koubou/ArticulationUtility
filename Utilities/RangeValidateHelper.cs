@@ -6,7 +6,7 @@ namespace ArticulationUtility.Utilities
         {
             if( value < min || value > max )
             {
-                throw new ValueOutOfRangeException( nameof(value), value, min, max );
+                throw new ValueOutOfRangeException( value, min, max );
             }
         }
         public static void ValidateIntMinValue( int value, int min )

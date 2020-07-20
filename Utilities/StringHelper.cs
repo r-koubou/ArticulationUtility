@@ -11,7 +11,7 @@ namespace ArticulationUtility.Utilities
         {
             if( IsNullOrTrimEmpty( text ) )
             {
-                throw new NullOrEmptyException();;
+                throw new NullOrEmptyException();
             }
             return string.IsNullOrEmpty( text ) || text.Trim().Length == 0;
         }

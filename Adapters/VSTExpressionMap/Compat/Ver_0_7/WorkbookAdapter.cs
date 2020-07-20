@@ -2,12 +2,11 @@ using System;
 using System.Collections.Generic;
 
 using ArticulationUtility.Adapters.MidiEvent;
-using ArticulationUtility.Entities.MidiEvent;
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
 using ArticulationUtility.Entities.Spreadsheet;
-using ArticulationUtility.Entities.VSTExpressionMap;
-using ArticulationUtility.Entities.VSTExpressionMap.Aggregate;
-using ArticulationUtility.Entities.VSTExpressionMap.Value;
+using ArticulationUtility.UseCases.Data.Spreadsheet.Aggregate;
+using ArticulationUtility.UseCases.Data.VSTExpressionMap.Aggregate;
+using ArticulationUtility.UseCases.Data.VSTExpressionMap.Value;
 using ArticulationUtility.Utilities;
 
 namespace ArticulationUtility.Adapters.VSTExpressionMap.Compat.Ver_0_7

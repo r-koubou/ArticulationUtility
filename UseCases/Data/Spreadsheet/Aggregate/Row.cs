@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using ArticulationUtility.Entities.Spreadsheet.Value;
 
-namespace ArticulationUtility.Entities.Spreadsheet
+namespace ArticulationUtility.UseCases.Data.Spreadsheet.Aggregate
 {
     public class Row
     {

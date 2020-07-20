@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
-using ArticulationUtility.Entities.VSTExpressionMap.Value;
+using ArticulationUtility.UseCases.Data.VSTExpressionMap.Value;
 
-namespace ArticulationUtility.Entities.VSTExpressionMap.Aggregate
+namespace ArticulationUtility.UseCases.Data.VSTExpressionMap.Aggregate
 {
     /// <summary>
     /// Represents the sound slot in the expression map.

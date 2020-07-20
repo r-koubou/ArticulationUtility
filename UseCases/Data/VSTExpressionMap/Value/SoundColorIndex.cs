@@ -2,7 +2,7 @@ using System;
 
 using ArticulationUtility.Utilities;
 
-namespace ArticulationUtility.Entities.VSTExpressionMap.Value
+namespace ArticulationUtility.UseCases.Data.VSTExpressionMap.Value
 {
     public class SoundSlotColorIndex : IEquatable<SoundSlotColorIndex>
     {

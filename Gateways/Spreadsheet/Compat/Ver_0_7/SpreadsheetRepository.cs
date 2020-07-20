@@ -5,6 +5,7 @@ using System.Text;
 
 using ArticulationUtility.Entities.Spreadsheet;
 using ArticulationUtility.Entities.Spreadsheet.Value;
+using ArticulationUtility.UseCases.Data.Spreadsheet.Aggregate;
 
 using ExcelDataReader;
 

@@ -2,16 +2,16 @@ using System;
 
 using ArticulationUtility.Utilities;
 
-namespace ArticulationUtility.Entities.VSTExpressionMap.Value
+namespace ArticulationUtility.UseCases.Data.VSTExpressionMap.Value
 {
     /// <summary>
-    /// An Articulation name
+    /// A Slot name
     /// </summary>
-    public class ArticulationName : IEquatable<ArticulationName>
+    public class SoundSlotName : IEquatable<SoundSlotName>
     {
         private string Name { get; }
 
-        public ArticulationName( string name )
+        public SoundSlotName( string name )
         {
             if( StringHelper.IsNullOrTrimEmpty( name ) )
             {
@@ -20,7 +20,7 @@ namespace ArticulationUtility.Entities.VSTExpressionMap.Value
             Name = name;
         }
 
-        public bool Equals( ArticulationName other )
+        public bool Equals( SoundSlotName other )
         {
             if( other == null )
             {
@@ -31,6 +31,5 @@ namespace ArticulationUtility.Entities.VSTExpressionMap.Value
         }
 
         public override string ToString() => Name;
-
     }
 }
