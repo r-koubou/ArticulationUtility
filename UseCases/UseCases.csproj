@@ -12,6 +12,7 @@
 
     <ItemGroup>
       <Folder Include="Data\Spreadsheet" />
+      <Folder Include="Data\VSTExpressionMapXml" />
     </ItemGroup>
 
 </Project>

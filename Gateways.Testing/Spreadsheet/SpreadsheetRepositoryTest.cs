@@ -2,7 +2,7 @@ using ArticulationUtility.Gateways.Spreadsheet.Compat.Ver_0_7;
 
 using NUnit.Framework;
 
-namespace ArticulationUtility.Gateways.Testing
+namespace ArticulationUtility.Gateways.Testing.Spreadsheet
 {
     [TestFixture]
     public class SpreadsheetRepositoryTest
