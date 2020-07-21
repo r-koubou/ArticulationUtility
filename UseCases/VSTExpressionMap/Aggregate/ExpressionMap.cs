@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-using ArticulationUtility.UseCases.Data.VSTExpressionMap.Value;
+using ArticulationUtility.UseCases.VSTExpressionMap.Value;
 
-namespace ArticulationUtility.UseCases.Data.VSTExpressionMap.Aggregate
+namespace ArticulationUtility.UseCases.VSTExpressionMap.Aggregate
 {
     /// <summary>
     /// Representing ExpressionMap aggregates

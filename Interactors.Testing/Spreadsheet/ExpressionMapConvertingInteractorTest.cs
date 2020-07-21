@@ -7,9 +7,9 @@ using ArticulationUtility.Entities.Spreadsheet;
 using ArticulationUtility.Gateways.Spreadsheet;
 using ArticulationUtility.Gateways.Spreadsheet.Compat.Ver_0_7;
 using ArticulationUtility.Presenters;
-using ArticulationUtility.UseCases.Converting;
-using ArticulationUtility.UseCases.Data.Spreadsheet.Aggregate;
-using ArticulationUtility.UseCases.Data.VSTExpressionMap.Aggregate;
+using ArticulationUtility.UseCases;
+using ArticulationUtility.UseCases.Spreadsheet.Aggregate;
+using ArticulationUtility.UseCases.VSTExpressionMap.Aggregate;
 
 using NUnit.Framework;
 

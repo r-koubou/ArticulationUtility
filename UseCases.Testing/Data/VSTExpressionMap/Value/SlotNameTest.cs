@@ -1,4 +1,4 @@
-using ArticulationUtility.UseCases.Data.VSTExpressionMap.Value;
+using ArticulationUtility.UseCases.VSTExpressionMap.Value;
 using ArticulationUtility.Utilities;
 
 using NUnit.Framework;

@@ -1,5 +1,5 @@
-using ArticulationUtility.UseCases.Data.VSTExpressionMap.Aggregate;
-using ArticulationUtility.UseCases.Data.VSTExpressionMap.Value;
+using ArticulationUtility.UseCases.VSTExpressionMap.Aggregate;
+using ArticulationUtility.UseCases.VSTExpressionMap.Value;
 
 using NUnit.Framework;
 

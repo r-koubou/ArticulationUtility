@@ -2,7 +2,7 @@ using System;
 
 using ArticulationUtility.Utilities;
 
-namespace ArticulationUtility.UseCases.Data.VSTExpressionMap.Value
+namespace ArticulationUtility.UseCases.VSTExpressionMap.Value
 {
     public class ArticulationGroup : IEquatable<ArticulationGroup>
     {

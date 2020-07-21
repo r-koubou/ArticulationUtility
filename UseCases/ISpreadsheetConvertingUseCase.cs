@@ -1,4 +1,4 @@
-namespace ArticulationUtility.UseCases.Converting
+namespace ArticulationUtility.UseCases
 {
     public interface ISpreadsheetConvertingUseCase
     {

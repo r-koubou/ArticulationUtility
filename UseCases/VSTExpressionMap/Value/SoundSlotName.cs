@@ -2,16 +2,16 @@ using System;
 
 using ArticulationUtility.Utilities;
 
-namespace ArticulationUtility.UseCases.Data.VSTExpressionMap.Value
+namespace ArticulationUtility.UseCases.VSTExpressionMap.Value
 {
     /// <summary>
-    /// A ExpressionMap name
+    /// A Slot name
     /// </summary>
-    public class ExpressionMapName : IEquatable<ExpressionMapName>
+    public class SoundSlotName : IEquatable<SoundSlotName>
     {
         private string Name { get; }
 
-        public ExpressionMapName( string name )
+        public SoundSlotName( string name )
         {
             if( StringHelper.IsNullOrTrimEmpty( name ) )
             {
@@ -20,7 +20,7 @@ namespace ArticulationUtility.UseCases.Data.VSTExpressionMap.Value
             Name = name;
         }
 
-        public bool Equals( ExpressionMapName other )
+        public bool Equals( SoundSlotName other )
         {
             if( other == null )
             {

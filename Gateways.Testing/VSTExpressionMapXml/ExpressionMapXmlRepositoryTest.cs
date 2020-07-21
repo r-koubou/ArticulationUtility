@@ -1,5 +1,5 @@
 using ArticulationUtility.Gateways.VSTExpressionMapXml;
-using ArticulationUtility.UseCases.Data.VSTExpressionMapXml;
+using ArticulationUtility.UseCases.VSTExpressionMapXml;
 
 using NUnit.Framework;
 

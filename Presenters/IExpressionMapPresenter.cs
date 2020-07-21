@@ -1,4 +1,4 @@
-using ArticulationUtility.UseCases.Data.VSTExpressionMap.Aggregate;
+using ArticulationUtility.UseCases.VSTExpressionMap.Aggregate;
 
 namespace ArticulationUtility.Presenters
 {

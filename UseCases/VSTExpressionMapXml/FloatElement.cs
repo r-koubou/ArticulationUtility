@@ -1,9 +1,9 @@
 using System.Xml.Serialization;
 
-namespace ArticulationUtility.UseCases.Data.VSTExpressionMapXml
+namespace ArticulationUtility.UseCases.VSTExpressionMapXml
 {
-    [XmlRoot( ElementName = "int" )]
-    public class IntElement
+    [XmlRoot( ElementName = "float" )]
+    public class FloatElement
     {
         [XmlAttribute( AttributeName = "name" )]
         public string Name { get; set; }

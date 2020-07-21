@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 using ArticulationUtility.Adapters.MidiEvent.Spreadsheet;
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
-using ArticulationUtility.UseCases.Data.Spreadsheet.Aggregate;
-using ArticulationUtility.UseCases.Data.VSTExpressionMap.Aggregate;
-using ArticulationUtility.UseCases.Data.VSTExpressionMap.Value;
+using ArticulationUtility.UseCases.Spreadsheet.Aggregate;
+using ArticulationUtility.UseCases.VSTExpressionMap.Aggregate;
+using ArticulationUtility.UseCases.VSTExpressionMap.Value;
 using ArticulationUtility.Utilities;
 
 namespace ArticulationUtility.Adapters.VSTExpressionMap.Spreadsheet.Compat.Ver_0_7

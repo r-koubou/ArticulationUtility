@@ -1,6 +1,6 @@
 using System;
 
-namespace ArticulationUtility.UseCases.Data.VSTExpressionMap.Value
+namespace ArticulationUtility.UseCases.VSTExpressionMap.Value
 {
     public class Uuid : IEquatable<Uuid>
     {

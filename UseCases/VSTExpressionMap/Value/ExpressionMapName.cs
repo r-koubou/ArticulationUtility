@@ -2,16 +2,16 @@ using System;
 
 using ArticulationUtility.Utilities;
 
-namespace ArticulationUtility.UseCases.Data.VSTExpressionMap.Value
+namespace ArticulationUtility.UseCases.VSTExpressionMap.Value
 {
     /// <summary>
-    /// An Articulation name
+    /// A ExpressionMap name
     /// </summary>
-    public class ArticulationName : IEquatable<ArticulationName>
+    public class ExpressionMapName : IEquatable<ExpressionMapName>
     {
         private string Name { get; }
 
-        public ArticulationName( string name )
+        public ExpressionMapName( string name )
         {
             if( StringHelper.IsNullOrTrimEmpty( name ) )
             {
@@ -20,7 +20,7 @@ namespace ArticulationUtility.UseCases.Data.VSTExpressionMap.Value
             Name = name;
         }
 
-        public bool Equals( ArticulationName other )
+        public bool Equals( ExpressionMapName other )
         {
             if( other == null )
             {
@@ -31,6 +31,5 @@ namespace ArticulationUtility.UseCases.Data.VSTExpressionMap.Value
         }
 
         public override string ToString() => Name;
-
     }
 }

@@ -3,7 +3,7 @@ using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 
-using ArticulationUtility.UseCases.Data.VSTExpressionMapXml;
+using ArticulationUtility.UseCases.VSTExpressionMapXml;
 
 namespace ArticulationUtility.Gateways.VSTExpressionMapXml
 {

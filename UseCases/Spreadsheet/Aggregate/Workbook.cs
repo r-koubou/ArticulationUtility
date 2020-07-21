@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ArticulationUtility.UseCases.Data.Spreadsheet.Aggregate
+namespace ArticulationUtility.UseCases.Spreadsheet.Aggregate
 {
     public class Workbook
     {

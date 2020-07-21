@@ -1,8 +1,8 @@
 using System;
 
-using ArticulationUtility.UseCases.Data.VSTExpressionMap.Value;
+using ArticulationUtility.UseCases.VSTExpressionMap.Value;
 
-namespace ArticulationUtility.UseCases.Data.VSTExpressionMap.Aggregate
+namespace ArticulationUtility.UseCases.VSTExpressionMap.Aggregate
 {
     public class Articulation
     {

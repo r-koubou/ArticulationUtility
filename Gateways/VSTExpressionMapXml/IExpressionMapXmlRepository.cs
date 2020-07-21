@@ -1,5 +1,5 @@
 using ArticulationUtility.Gateways.Common;
-using ArticulationUtility.UseCases.Data.VSTExpressionMapXml;
+using ArticulationUtility.UseCases.VSTExpressionMapXml;
 
 namespace ArticulationUtility.Gateways.VSTExpressionMapXml
 {

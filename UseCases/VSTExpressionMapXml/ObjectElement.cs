@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace ArticulationUtility.UseCases.Data.VSTExpressionMapXml
+namespace ArticulationUtility.UseCases.VSTExpressionMapXml
 {
     [XmlRoot( ElementName = "obj" )]
     public class ObjectElement
