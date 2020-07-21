@@ -2,7 +2,7 @@ using System;
 using System.IO;
 
 using ArticulationUtility.Adapters.VSTExpressionMap;
-using ArticulationUtility.Adapters.VSTExpressionMap.Compat.Ver_0_7;
+using ArticulationUtility.Adapters.VSTExpressionMap.Spreadsheet.Compat.Ver_0_7;
 using ArticulationUtility.Entities.Spreadsheet;
 using ArticulationUtility.Gateways.Spreadsheet;
 using ArticulationUtility.Gateways.Spreadsheet.Compat.Ver_0_7;

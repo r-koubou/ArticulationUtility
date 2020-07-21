@@ -12,4 +12,8 @@
       <ProjectReference Include="..\Utilities\Utilities.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="VSTExpressionMap\Spreadsheet" />
+    </ItemGroup>
+
 </Project>

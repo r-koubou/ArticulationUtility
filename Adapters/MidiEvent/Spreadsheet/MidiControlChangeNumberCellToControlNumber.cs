@@ -1,7 +1,7 @@
 using ArticulationUtility.Entities.MidiEvent.Value;
 using ArticulationUtility.Entities.Spreadsheet.Value;
 
-namespace ArticulationUtility.Adapters.MidiEvent
+namespace ArticulationUtility.Adapters.MidiEvent.Spreadsheet
 {
     public class MidiControlChangeNumberCellToControlNumber : IMidiEventAdapter<MidiControlChangeNumberCell, MidiControlChangeNumber>
     {

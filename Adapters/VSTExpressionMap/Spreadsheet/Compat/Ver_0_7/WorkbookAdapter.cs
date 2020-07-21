@@ -1,15 +1,14 @@
 using System;
 using System.Collections.Generic;
 
-using ArticulationUtility.Adapters.MidiEvent;
+using ArticulationUtility.Adapters.MidiEvent.Spreadsheet;
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
-using ArticulationUtility.Entities.Spreadsheet;
 using ArticulationUtility.UseCases.Data.Spreadsheet.Aggregate;
 using ArticulationUtility.UseCases.Data.VSTExpressionMap.Aggregate;
 using ArticulationUtility.UseCases.Data.VSTExpressionMap.Value;
 using ArticulationUtility.Utilities;
 
-namespace ArticulationUtility.Adapters.VSTExpressionMap.Compat.Ver_0_7
+namespace ArticulationUtility.Adapters.VSTExpressionMap.Spreadsheet.Compat.Ver_0_7
 {
     public class WorkbookAdapter : IExpressionMapAdapter<Workbook>
     {

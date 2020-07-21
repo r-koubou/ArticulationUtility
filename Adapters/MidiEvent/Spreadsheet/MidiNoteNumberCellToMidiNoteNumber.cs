@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using ArticulationUtility.Entities.MidiEvent.Value;
 using ArticulationUtility.Entities.Spreadsheet.Value;
 
-namespace ArticulationUtility.Adapters.MidiEvent
+namespace ArticulationUtility.Adapters.MidiEvent.Spreadsheet
 {
     public class MidiNoteNumberCellToMidiNoteNumber : IMidiEventAdapter<MidiNoteNumberCell, MidiNoteNumber>
     {
