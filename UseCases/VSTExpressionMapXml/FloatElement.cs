@@ -1,14 +1,25 @@
 using System.Xml.Serialization;
 
+using ArticulationUtility.UseCases.VSTExpressionMap.Value;
+
 namespace ArticulationUtility.UseCases.VSTExpressionMapXml
 {
     [XmlRoot( ElementName = "float" )]
     public class FloatElement
     {
         [XmlAttribute( AttributeName = "name" )]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [XmlAttribute( AttributeName = "value" )]
-        public string Value { get; set; }
+        public float Value { get; set; } = 0f;
+
+        public FloatElement()
+        {
+        }
+        public FloatElement( string name, float value )
+        {
+            Name  = name;
+            Value = value;
+        }
     }
 }

@@ -6,9 +6,18 @@ namespace ArticulationUtility.UseCases.VSTExpressionMapXml
     public class IntElement
     {
         [XmlAttribute( AttributeName = "name" )]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [XmlAttribute( AttributeName = "value" )]
-        public string Value { get; set; }
+        public int Value { get; set; } = 0;
+
+        public IntElement()
+        {}
+
+        public IntElement( string name, int value )
+        {
+            Name  = name;
+            Value = value;
+        }
     }
 }

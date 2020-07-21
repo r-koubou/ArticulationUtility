@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Xml.Serialization;
 
 namespace ArticulationUtility.UseCases.VSTExpressionMapXml
@@ -5,13 +6,30 @@ namespace ArticulationUtility.UseCases.VSTExpressionMapXml
     [XmlRoot( ElementName = "member" )]
     public class MemberElement
     {
+        [XmlAttribute( AttributeName = "name" )]
+        public string Name { get; set; } = string.Empty;
+
         [XmlElement( ElementName = "int" )]
-        public IntElement IntElement { get; set; }
+        public List<IntElement> Int { get; set; } = new List<IntElement>();
+
+        [XmlElement( ElementName = "float" )]
+        public List<FloatElement> Float { get; set; } = new List<FloatElement>();
+
+        [XmlElement( ElementName = "string" )]
+        public List<StringElement> String { get; set; } = new List<StringElement>();
+
+        [XmlElement( ElementName = "obj" )]
+        public List<ObjectElement> Obj { get; set; } = new List<ObjectElement>();
 
         [XmlElement( ElementName = "list" )]
-        public ListElement ListElement { get; set; }
+        public List<ListElement> List { get; set; } = new List<ListElement>();
 
-        [XmlAttribute( AttributeName = "name" )]
-        public string Name { get; set; }
+        public MemberElement()
+        {}
+
+        public MemberElement( string name )
+        {
+            Name = name;
+        }
     }
 }
