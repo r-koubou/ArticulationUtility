@@ -8,9 +8,6 @@ namespace ArticulationUtility.UseCases.VSTExpressionMapXml
     [XmlRoot( ElementName = "obj" )]
     public class ObjectElement
     {
-        [XmlAttribute( AttributeName = "name" )]
-        public string Name { get; set; }
-
         [XmlElement( ElementName = "int" )]
         public List<IntElement> Int { get; set; } = new List<IntElement>();
 
@@ -22,6 +19,9 @@ namespace ArticulationUtility.UseCases.VSTExpressionMapXml
 
         [XmlAttribute( AttributeName = "class" )]
         public string ClassName { get; set; } = string.Empty;
+
+        [XmlAttribute( AttributeName = "name" )]
+        public string Name { get; set; }
 
         [XmlAttribute( AttributeName = "ID" )]
         public string Id { get; set; }

@@ -18,7 +18,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMapXml.Spreadsheet.Compat.Ve
             foreach( var worksheet in workbook.Worksheets )
             {
                 var expressionMap = new ExpressionMap();
-                ConvertRows( worksheet.Rows, expressionMap, worksheet.Name );
+                ConvertRows( worksheet.Rows, expressionMap, worksheet.OutputNameCell.Value );
 
                 result.Add( expressionMap );
             }
@@ -37,7 +37,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMapXml.Spreadsheet.Compat.Ve
             {
                 var articulationName = row.ArticulationName.Value;
                 var articulationType = EnumHelper.Parse<ArticulationType>( row.ArticulationType.Value );
-                var articulationGroup = row.GroupIndex.Value;
+                var articulationGroup = row.GroupIndex.Value - 1; // xml data is zero origin
 
                 // if( !xmlRoot.Articulations.Contains( articulation ) )
                 // {
@@ -70,7 +70,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMapXml.Spreadsheet.Compat.Ve
                 pSoundSlot.Obj.Add( PSlotMidiAction.New( listOfPOutputEvent ) );
 
                 // sv
-                pSoundSlot.Member.Add( PSoundSlot.Sv( listOfUSlotVisuals ) );
+                pSoundSlot.Member.Add( PSoundSlot.Sv( slotVisual ) );
 
                 // name
                 pSoundSlot.Member.Add( PSoundSlot.Name( slotName ) );

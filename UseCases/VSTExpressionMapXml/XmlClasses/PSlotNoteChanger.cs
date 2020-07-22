@@ -6,7 +6,7 @@ namespace ArticulationUtility.UseCases.VSTExpressionMapXml.XmlClasses
         {
 #if false
             <obj class="PSlotNoteChanger" ID="1015887872">
-               <int name="channel" value="0"/>
+               <int name="channel" value="-1"/>
                <float name="velocityFact" value="0.25"/>
                <float name="lengthFact" value="0.5"/>
                <int name="minVelocity" value="0"/>
@@ -18,7 +18,7 @@ namespace ArticulationUtility.UseCases.VSTExpressionMapXml.XmlClasses
 #endif
             var obj = new ObjectElement( "PSlotNoteChanger" );
 
-            obj.Int.Add( new IntElement( "channel", 0 ) );
+            obj.Int.Add( new IntElement( "channel", -1 ) );
             obj.Float.Add( new FloatElement( "velocityFact", 1f ) );
             obj.Float.Add( new FloatElement( "lengthFact",   1f ) );
             obj.Int.Add( new IntElement( "minVelocity", 0 ) );

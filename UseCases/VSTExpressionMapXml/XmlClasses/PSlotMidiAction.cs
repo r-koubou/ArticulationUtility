@@ -66,7 +66,7 @@ namespace ArticulationUtility.UseCases.VSTExpressionMapXml.XmlClasses
             obj.Member.Add( NoteChanger() );
             obj.Member.Add( MidiMessages( listOfPOutputEvent ) );
 
-            obj.Int.Add( new IntElement( "channel", 0 ) );
+            obj.Int.Add( new IntElement( "channel", -1 ) );
             obj.Float.Add( new FloatElement( "velocityFact", 1f ) );
             obj.Float.Add( new FloatElement( "lengthFact",   1f ) );
             obj.Int.Add( new IntElement( "minVelocity", 0 ) );
@@ -95,7 +95,11 @@ namespace ArticulationUtility.UseCases.VSTExpressionMapXml.XmlClasses
         {
            var member = new MemberElement( "midiMessages" );
            member.Int.Add( new IntElement( "ownership", 1 ) );
-           member.List.Add( listOfPOutputEvent );
+
+           if( listOfPOutputEvent != null && listOfPOutputEvent.Obj.Count > 0 )
+           {
+              member.List.Add( listOfPOutputEvent );
+           }
 
            return member;
         }

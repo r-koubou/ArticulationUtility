@@ -2,7 +2,7 @@ namespace ArticulationUtility.UseCases.VSTExpressionMap.Value
 {
     public enum ArticulationType
     {
-        Direction,
-        Attribute,
+        Direction = 1,
+        Attribute = 2,
     }
 }

@@ -148,7 +148,7 @@ namespace ArticulationUtility.UseCases.VSTExpressionMapXml.XmlClasses
            return obj;
         }
 
-        public static MemberElement Sv( ListElement listOfUSlotVisuals )
+        public static MemberElement Sv( ObjectElement slotVisual )
         {
            #region xml
 #if false
@@ -171,10 +171,13 @@ namespace ArticulationUtility.UseCases.VSTExpressionMapXml.XmlClasses
            var member = new MemberElement( "sv" );
            member.Int.Add( new IntElement( "ownership", 2 ) );
 
-           listOfUSlotVisuals.Name = "obj";
-           listOfUSlotVisuals.Type = "obj";
+           var list = new ListElement();
 
-           member.List.Add( listOfUSlotVisuals );
+           list.Name = "obj";
+           list.Type = "obj";
+           list.Obj.Add( slotVisual );
+
+           member.List.Add( list );
 
            return member;
         }
