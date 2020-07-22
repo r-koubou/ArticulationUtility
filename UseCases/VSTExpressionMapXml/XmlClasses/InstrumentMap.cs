@@ -1,4 +1,4 @@
-namespace ArticulationUtility.UseCases.VSTExpressionMapXml.Classes
+namespace ArticulationUtility.UseCases.VSTExpressionMapXml.XmlClasses
 {
     public static class InstrumentMap
     {
@@ -14,7 +14,7 @@ namespace ArticulationUtility.UseCases.VSTExpressionMapXml.Classes
             return obj;
         }
 
-        public static MemberElement Slotvisuals( string name, ListElement listOfUSlotVisuals )
+        public static MemberElement Slotvisuals( ListElement listOfUSlotVisuals )
         {
 #if false
    <member name="slotvisuals">
@@ -55,7 +55,7 @@ namespace ArticulationUtility.UseCases.VSTExpressionMapXml.Classes
 
         public static MemberElement Slots( ListElement listOfPSoundSlot = null )
         {
-            var member = new MemberElement( "slotvisuals" );
+            var member = new MemberElement( "slots" );
 
             member.Int.Add( new IntElement( "ownership", 1 ) );
 

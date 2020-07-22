@@ -1,4 +1,4 @@
-namespace ArticulationUtility.UseCases.VSTExpressionMapXml.Classes
+namespace ArticulationUtility.UseCases.VSTExpressionMapXml.XmlClasses
 {
     public static class POutputEvent
     {

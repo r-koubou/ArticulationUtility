@@ -4,34 +4,33 @@ using ArticulationUtility.Adapters.MidiEvent.Spreadsheet;
 using ArticulationUtility.UseCases.Spreadsheet.Aggregate;
 using ArticulationUtility.UseCases.VSTExpressionMap.Value;
 using ArticulationUtility.UseCases.VSTExpressionMapXml;
-using ArticulationUtility.UseCases.VSTExpressionMapXml.Classes;
+using ArticulationUtility.UseCases.VSTExpressionMapXml.XmlClasses;
 using ArticulationUtility.Utilities;
 
 namespace ArticulationUtility.Adapters.VSTExpressionMapXml.Spreadsheet.Compat.Ver_0_7
 {
-    public class WorkbookAdapter : IExpressionMapXmlAdapter<Workbook>
+    public class WorkbookAdapter : IExpressionMapXmlAdapter<Workbook, ExpressionMap>
     {
-        public List<InstrumentMapElement> Convert( Workbook workbook )
+        public List<ExpressionMap> Convert( Workbook workbook )
         {
-            var result = new List<InstrumentMapElement>();
+            var result = new List<ExpressionMap>();
 
             foreach( var worksheet in workbook.Worksheets )
             {
-                var rootElement = new InstrumentMapElement( worksheet.OutputNameCell.Value );
-                ConvertRows( worksheet.Rows, rootElement );
+                var expressionMap = new ExpressionMap();
+                ConvertRows( worksheet.Rows, expressionMap, worksheet.Name );
 
-                result.Add( rootElement );
+                result.Add( expressionMap );
             }
 
             return result;
         }
 
-        private void ConvertRows( List<Row> rows, InstrumentMapElement xmlRoot )
+        private void ConvertRows( List<Row> rows, ExpressionMap target, string expressionMapName )
         {
-            var slotvisuals = new MemberElement();
+            var instrumentMap = InstrumentMap.New( expressionMapName );
             var listOfUSlotVisuals = new ListElement();
 
-            var slots       = new MemberElement();
             var listOfPSoundSlot = new ListElement();
 
             foreach( var row in rows )
@@ -82,16 +81,16 @@ namespace ArticulationUtility.Adapters.VSTExpressionMapXml.Spreadsheet.Compat.Ve
                 // Aggregate
                 listOfPSoundSlot.Obj.Add( pSoundSlot );
 
-
-
-
             }
 
-            slotvisuals.List.Add( listOfUSlotVisuals );
-            slots.List.Add( listOfPSoundSlot );
+            var slots = InstrumentMap.Slots( listOfPSoundSlot );
+            var slotvisuals = InstrumentMap.Slotvisuals( listOfUSlotVisuals );
 
-            xmlRoot.Member.Add( slotvisuals );
-            xmlRoot.Member.Add( slots );
+            instrumentMap.Member.Add( slotvisuals );
+            instrumentMap.Member.Add( slots );
+
+            target.FileName    = expressionMapName;
+            target.RootElement = instrumentMap;
         }
 
         private void ConvertOutputMappings( Row row, ListElement listOfPOutputEvent )

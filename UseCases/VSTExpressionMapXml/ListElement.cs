@@ -6,6 +6,7 @@ namespace ArticulationUtility.UseCases.VSTExpressionMapXml
     [XmlRoot( ElementName = "list" )]
     public class ListElement
     {
+        [XmlElement( ElementName = "obj" )]
         public List<ObjectElement> Obj { get; set; } = new List<ObjectElement>();
 
         [XmlAttribute( AttributeName = "name" )]

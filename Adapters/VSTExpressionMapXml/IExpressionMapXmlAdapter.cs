@@ -4,8 +4,8 @@ using ArticulationUtility.UseCases.VSTExpressionMapXml;
 
 namespace ArticulationUtility.Adapters.VSTExpressionMapXml
 {
-    public interface IExpressionMapXmlAdapter<in TSource>
+    public interface IExpressionMapXmlAdapter<in TSource, TDest>
     {
-        List<InstrumentMapElement> Convert( TSource source );
+        List<TDest> Convert( TSource source );
     }
 }
