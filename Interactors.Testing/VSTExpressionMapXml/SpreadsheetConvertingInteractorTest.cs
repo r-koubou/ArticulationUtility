@@ -1,8 +1,8 @@
 using System.IO;
 
-using ArticulationUtility.Adapters.VSTExpressionMapXml.Spreadsheet.Compat.Ver_0_7;
+using ArticulationUtility.Adapters.VSTExpressionMapXml.Spreadsheet.Compatibility.Ver_0_7;
 using ArticulationUtility.Gateways.Spreadsheet;
-using ArticulationUtility.Gateways.Spreadsheet.Compat.Ver_0_7;
+using ArticulationUtility.Gateways.Spreadsheet.Compatibility.Ver_0_7;
 using ArticulationUtility.Gateways.VSTExpressionMapXml;
 using ArticulationUtility.UseCases;
 

@@ -1,0 +1,14 @@
+using ArticulationUtility.Entities.MidiEvent.Value;
+using ArticulationUtility.UseCases.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7.Value;
+
+namespace ArticulationUtility.Adapters.MidiEvent.Spreadsheet.Compatibility.Ver_0_7
+{
+    public class MidiProgramChangeLsbCellToPcLsb
+        : IMidiEventAdapter<MidiProgramChangeLsbCell, MidiLeastSignificantByte>
+    {
+        public MidiLeastSignificantByte Convert( MidiProgramChangeLsbCell source )
+        {
+            return new MidiLeastSignificantByte( source.Value );
+        }
+    }
+}

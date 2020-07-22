@@ -1,7 +1,5 @@
 using System.Xml.Serialization;
 
-using ArticulationUtility.UseCases.VSTExpressionMap.Value;
-
 namespace ArticulationUtility.UseCases.VSTExpressionMapXml
 {
     [XmlRoot( ElementName = "float" )]

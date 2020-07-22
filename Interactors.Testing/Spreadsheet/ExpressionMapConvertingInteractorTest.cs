@@ -2,13 +2,12 @@ using System;
 using System.IO;
 
 using ArticulationUtility.Adapters.VSTExpressionMap;
-using ArticulationUtility.Adapters.VSTExpressionMap.Spreadsheet.Compat.Ver_0_7;
-using ArticulationUtility.Entities.Spreadsheet;
+using ArticulationUtility.Adapters.VSTExpressionMap.Spreadsheet.Compatibility.Ver_0_7;
 using ArticulationUtility.Gateways.Spreadsheet;
-using ArticulationUtility.Gateways.Spreadsheet.Compat.Ver_0_7;
+using ArticulationUtility.Gateways.Spreadsheet.Compatibility.Ver_0_7;
 using ArticulationUtility.Presenters;
 using ArticulationUtility.UseCases;
-using ArticulationUtility.UseCases.Spreadsheet.Aggregate;
+using ArticulationUtility.UseCases.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7.Aggregate;
 using ArticulationUtility.UseCases.VSTExpressionMap.Aggregate;
 
 using NUnit.Framework;

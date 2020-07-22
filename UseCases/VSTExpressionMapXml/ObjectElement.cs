@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Xml.Serialization;
 
 namespace ArticulationUtility.UseCases.VSTExpressionMapXml
@@ -39,7 +38,7 @@ namespace ArticulationUtility.UseCases.VSTExpressionMapXml
 
         public ObjectElement()
         {
-            var guid = System.Guid.NewGuid().ToString();
+            var guid = Guid.NewGuid().ToString();
             var hex = guid.Split( '-' )[ 0 ];
             Id = ( Convert.ToInt32( hex, 16 ) & 0x7ffffff ).ToString();
         }

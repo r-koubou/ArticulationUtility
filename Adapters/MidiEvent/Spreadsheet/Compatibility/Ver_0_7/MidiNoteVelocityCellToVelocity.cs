@@ -1,0 +1,13 @@
+using ArticulationUtility.Entities.MidiEvent.Value;
+using ArticulationUtility.UseCases.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7.Value;
+
+namespace ArticulationUtility.Adapters.MidiEvent.Spreadsheet.Compatibility.Ver_0_7
+{
+    public class MidiNoteVelocityCellToVelocity : IMidiEventAdapter<MidiNoteVelocityCell, MidiVelocity>
+    {
+        public MidiVelocity Convert( MidiNoteVelocityCell source )
+        {
+            return new MidiVelocity( source.Value );
+        }
+    }
+}

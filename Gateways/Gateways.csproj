@@ -17,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Spreadsheet\Compat" />
+      <Folder Include="Spreadsheet\Compatibility" />
     </ItemGroup>
 
 </Project>
