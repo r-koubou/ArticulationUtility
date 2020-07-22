@@ -1,9 +1,10 @@
 using ArticulationUtility.Gateways.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7;
-using ArticulationUtility.Interactors.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7;
+using ArticulationUtility.Interactors.Converting.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7;
+using ArticulationUtility.UseCases.Converting;
 
 using NUnit.Framework;
 
-namespace ArticulationUtility.Interactors.Testing.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7
+namespace ArticulationUtility.Interactors.Testing.Converting.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7
 {
     [TestFixture]
     public class SpreadsheetConvertingInteractorTest
@@ -13,9 +14,9 @@ namespace ArticulationUtility.Interactors.Testing.Spreadsheet.VSTExpressionMap.C
         {
             var converter = new ConvertingToExpressionMapInteractor();
             var repository = new SpreadsheetRepository( @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp/Template.xlsx" );
-            converter.OutputDirectory = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp";
-            converter.LoadRepository = repository;
-            converter.Convert();
+            var request = new FileConvertingRequest();
+            request.OutputDirectory = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp";
+            converter.Convert( request );
         }
     }
 }

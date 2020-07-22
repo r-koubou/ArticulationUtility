@@ -5,10 +5,9 @@
 
         <IsPackable>false</IsPackable>
 
-        <AssemblyName>ArticulationUtility.Interactors.Testing</AssemblyName>
+        <AssemblyName>ArticulationUtility.Controllers,Testing</AssemblyName>
 
-        <RootNamespace>ArticulationUtility.Interactors.Testing</RootNamespace>
-
+        <RootNamespace>ArticulationUtility.Controllers.Testing</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -18,11 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Interactors\Interactors.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Converting" />
+      <ProjectReference Include="..\Controllers\Controllers.csproj" />
     </ItemGroup>
 
 </Project>

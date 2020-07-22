@@ -13,4 +13,8 @@
       <ProjectReference Include="..\UseCases\UseCases.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Converting" />
+    </ItemGroup>
+
 </Project>

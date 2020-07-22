@@ -2,26 +2,27 @@ using System.IO;
 
 using ArticulationUtility.Adapters.VSTExpressionMapXml.Spreadsheet.Compatibility.Ver_0_7;
 using ArticulationUtility.Gateways.Spreadsheet.VSTExpressionMap;
+using ArticulationUtility.Gateways.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7;
 using ArticulationUtility.Gateways.VSTExpressionMapXml;
 using ArticulationUtility.UseCases;
+using ArticulationUtility.UseCases.Converting;
 
-namespace ArticulationUtility.Interactors.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7
+namespace ArticulationUtility.Interactors.Converting.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7
 {
-    public class ConvertingToExpressionMapInteractor : IConvertingUseCase
+    public class ConvertingToExpressionMapInteractor : IConvertingUseCase<FileConvertingRequest>
     {
-        public string OutputDirectory { get; set; } = ".";
-        public ISpreadsheetRepository LoadRepository { get; set; }
 
-        public void Convert()
+        public void Convert( FileConvertingRequest request )
         {
-            var workbook = LoadRepository.Load();
-            var adapter = new WorkbookAdapter();
+            var loadRepository = new SpreadsheetRepository( request.InputFile );
             var saveRepository = new ExpressionMapXmlRepository();
+            var workbook = loadRepository.Load();
+            var adapter = new WorkbookAdapter();
 
             foreach( var xml in adapter.Convert( workbook ) )
             {
                 saveRepository.Path = Path.Combine(
-                    OutputDirectory,
+                    request.OutputDirectory,
                     xml.FileName + "." + IExpressionMapXmlRepository.Suffix
                 );
 
