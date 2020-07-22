@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-using ArticulationUtility.UseCases.VSTExpressionMap.Aggregate;
+using ArticulationUtility.UseCases.Values.VSTExpressionMap.Aggregate;
 
 namespace ArticulationUtility.Adapters.VSTExpressionMap
 {

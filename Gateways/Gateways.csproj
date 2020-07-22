@@ -16,8 +16,4 @@
       <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Spreadsheet\Compatibility" />
-    </ItemGroup>
-
 </Project>

@@ -1,9 +1,9 @@
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
 using ArticulationUtility.Entities.MidiEvent.Value;
-using ArticulationUtility.UseCases.VSTExpressionMap.Aggregate;
-using ArticulationUtility.UseCases.VSTExpressionMap.MidiEvent.Aggregate;
-using ArticulationUtility.UseCases.VSTExpressionMap.MidiEvent.Value;
-using ArticulationUtility.UseCases.VSTExpressionMap.Value;
+using ArticulationUtility.UseCases.Values.VSTExpressionMap.Aggregate;
+using ArticulationUtility.UseCases.Values.VSTExpressionMap.MidiEvent.Aggregate;
+using ArticulationUtility.UseCases.Values.VSTExpressionMap.MidiEvent.Value;
+using ArticulationUtility.UseCases.Values.VSTExpressionMap.Value;
 
 using NUnit.Framework;
 

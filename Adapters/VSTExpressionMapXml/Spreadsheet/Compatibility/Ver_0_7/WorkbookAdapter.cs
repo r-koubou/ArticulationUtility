@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 
 using ArticulationUtility.Adapters.MidiEvent.Spreadsheet.Compatibility.Ver_0_7;
-using ArticulationUtility.UseCases.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7.Aggregate;
-using ArticulationUtility.UseCases.VSTExpressionMap.Value;
-using ArticulationUtility.UseCases.VSTExpressionMapXml;
-using ArticulationUtility.UseCases.VSTExpressionMapXml.XmlClasses;
+using ArticulationUtility.UseCases.Values.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7.Aggregate;
+using ArticulationUtility.UseCases.Values.VSTExpressionMap.Value;
+using ArticulationUtility.UseCases.Values.VSTExpressionMapXml;
+using ArticulationUtility.UseCases.Values.VSTExpressionMapXml.XmlClasses;
 using ArticulationUtility.Utilities;
 
 namespace ArticulationUtility.Adapters.VSTExpressionMapXml.Spreadsheet.Compatibility.Ver_0_7

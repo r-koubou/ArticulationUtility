@@ -21,4 +21,8 @@
       <ProjectReference Include="..\Interactors\Interactors.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Spreadsheet\VSTExpressionMap" />
+    </ItemGroup>
+
 </Project>
