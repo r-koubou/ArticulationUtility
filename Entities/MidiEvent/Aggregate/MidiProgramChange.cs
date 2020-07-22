@@ -12,10 +12,10 @@ namespace ArticulationUtility.Entities.MidiEvent.Aggregate
         public IMidiEventData DataByte1 { get; }
         public IMidiEventData DataByte2 { get; }
 
-        public MidiProgramChange( MidiLeastSignificantByte lsb, MidiMostSignificantByte msb )
+        public MidiProgramChange( MidiProgramChangeChannel channel, MidiProgramChangeNumber number )
         {
-            DataByte1 = lsb ?? throw new ArgumentNullException( $"{nameof( lsb )}" );
-            DataByte2 = msb ?? throw new ArgumentNullException( $"{nameof( msb )}" );
+            DataByte1 = channel ?? throw new ArgumentNullException( $"{nameof( channel )}" );
+            DataByte2 = number ?? throw new ArgumentNullException( $"{nameof( number )}" );
         }
 
     }
