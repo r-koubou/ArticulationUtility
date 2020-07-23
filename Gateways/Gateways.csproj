@@ -4,6 +4,10 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <AssemblyName>ArticulationUtility.Gateways</AssemblyName>
         <RootNamespace>ArticulationUtility.Gateways</RootNamespace>
+        <Authors>R-Koubou</Authors>
+        <Company>R-Koubou</Company>
+        <AssemblyVersion></AssemblyVersion>
+        <FileVersion></FileVersion>
     </PropertyGroup>
 
     <ItemGroup>

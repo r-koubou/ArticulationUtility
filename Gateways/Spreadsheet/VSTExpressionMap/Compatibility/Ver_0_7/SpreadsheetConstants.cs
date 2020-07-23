@@ -16,9 +16,6 @@ namespace ArticulationUtility.Gateways.Spreadsheet.VSTExpressionMap.Compatibilit
         public static readonly string ColumnMidiPcLsb = "PC LSB";
         public static readonly string ColumnMidiPcMsb = "PC MSB";
 
-        // List definition sheet name
-        public static readonly string DefinitionSheetName   = "DO NOT MODIFY!";
-
         // Position of Output name cell
         public static readonly int RowOutputIndex = 0;
         public static readonly int ColumnOutputNameIndex = 1;

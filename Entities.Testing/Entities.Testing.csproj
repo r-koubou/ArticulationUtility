@@ -9,6 +9,10 @@
 
         <RootNamespace>ArticulationUtility.Entities.Testing</RootNamespace>
 
+        <Authors>R-Koubou</Authors>
+
+        <Company>R-Koubou</Company>
+
     </PropertyGroup>
 
     <ItemGroup>

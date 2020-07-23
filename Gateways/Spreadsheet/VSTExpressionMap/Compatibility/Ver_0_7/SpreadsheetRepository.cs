@@ -60,7 +60,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.VSTExpressionMap.Compatibilit
                 foreach( SourceSheet s in book )
                 {
                     // Ignore sheet
-                    if( s.TableName == SpreadsheetConstants.DefinitionSheetName )
+                    if( s.TableName == CommonSheetConstants.DefinitionSheetName )
                     {
                         continue;
                     }

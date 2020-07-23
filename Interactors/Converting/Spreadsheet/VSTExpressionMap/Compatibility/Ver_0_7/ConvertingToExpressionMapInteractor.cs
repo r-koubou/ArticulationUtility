@@ -9,10 +9,10 @@ using ArticulationUtility.UseCases.Converting;
 
 namespace ArticulationUtility.Interactors.Converting.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7
 {
-    public class ConvertingToExpressionMapInteractor : IConvertingUseCase<FileConvertingRequest>
+    public class ConvertingToExpressionMapInteractor : IConvertingUseCase<ConvertingFileFormatRequest>
     {
 
-        public void Convert( FileConvertingRequest request )
+        public void Convert( ConvertingFileFormatRequest request )
         {
             var loadRepository = new SpreadsheetRepository( request.InputFile );
             var saveRepository = new ExpressionMapXmlRepository();

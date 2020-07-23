@@ -4,6 +4,10 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <AssemblyName>ArticulationUtility.Controllers</AssemblyName>
         <RootNamespace>ArticulationUtility.Controllers</RootNamespace>
+        <Authors>R-Koubou</Authors>
+        <Company>R-Koubou</Company>
+        <AssemblyVersion></AssemblyVersion>
+        <FileVersion></FileVersion>
     </PropertyGroup>
 
     <ItemGroup>

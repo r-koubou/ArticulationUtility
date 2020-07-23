@@ -9,6 +9,12 @@
 
         <RootNamespace>ArticulationUtility.Interactors.Testing</RootNamespace>
 
+        <Authors>R-Koubou</Authors>
+
+        <AssemblyVersion></AssemblyVersion>
+
+        <FileVersion></FileVersion>
+
     </PropertyGroup>
 
     <ItemGroup>

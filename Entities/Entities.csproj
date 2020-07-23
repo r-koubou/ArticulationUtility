@@ -5,7 +5,8 @@
         <AssemblyName>ArticulationUtility.Entities</AssemblyName>
         <RootNamespace>ArticulationUtility.Entities</RootNamespace>
         <Company>R-Koubou</Company>
-        <Product>Spreadsheet2Expressionmap</Product>
+        <Product>ArticulationUtility.Entities</Product>
+        <Authors>R-Koubou</Authors>
     </PropertyGroup>
 
     <ItemGroup>

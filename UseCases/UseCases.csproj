@@ -4,6 +4,9 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <AssemblyName>ArticulationUtility.UseCases</AssemblyName>
         <RootNamespace>ArticulationUtility.UseCases</RootNamespace>
+        <Authors>R-Koubou</Authors>
+        <AssemblyVersion></AssemblyVersion>
+        <FileVersion></FileVersion>
     </PropertyGroup>
 
     <ItemGroup>
