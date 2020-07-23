@@ -1,4 +1,4 @@
-namespace ArticulationUtility.Gateways.Spreadsheet.VSTExpressionMap
+namespace ArticulationUtility.Gateways.Spreadsheet
 {
     public class InvalidCellValueException : System.Exception
     {

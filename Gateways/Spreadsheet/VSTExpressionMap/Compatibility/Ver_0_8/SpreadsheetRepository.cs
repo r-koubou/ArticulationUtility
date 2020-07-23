@@ -4,16 +4,15 @@ using System.IO;
 using System.Text;
 
 using ArticulationUtility.Entities.Spreadsheet.Value;
-using ArticulationUtility.UseCases.Values.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7.Aggregate;
-using ArticulationUtility.UseCases.Values.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7.Value;
+using ArticulationUtility.UseCases.Values.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_8.Aggregate;
+using ArticulationUtility.UseCases.Values.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_8.Value;
 
 using ExcelDataReader;
 
 using SourceSheet   = System.Data.DataTable;
 using SourceRows    = System.Data.DataRowCollection;
-using SourceRow     = System.Data.DataRow;
 
-namespace ArticulationUtility.Gateways.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7
+namespace ArticulationUtility.Gateways.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_8
 {
     public class SpreadsheetRepository : ISpreadsheetRepository<Workbook>
     {
@@ -115,14 +114,14 @@ namespace ArticulationUtility.Gateways.Spreadsheet.VSTExpressionMap.Compatibilit
         {
             var articulationCellGroup = new ArticulationCellGroup();
 
-            ParseSheet( context, SpreadsheetConstants.ColumnName, out var cellValue );
+            ParseSheet( context, SpreadsheetConstants.ColumnArticulationName, out var cellValue );
             articulationCellGroup.NameCell = new ArticulationNameCell( cellValue );
 
             ParseSheet( context, SpreadsheetConstants.ColumnArticulationType, out cellValue );
             articulationCellGroup.TypeCell = ArticulationTypeCell.Parse( cellValue );
 
             ParseSheet( context, SpreadsheetConstants.ColumnColor, out cellValue );
-            articulationCellGroup.ColorIndexCell = new ColorIndexCell( Int32.Parse( cellValue ) );
+            articulationCellGroup.ColorIndexCell = new ColorIndexCell( int.Parse( cellValue ) );
 
             return articulationCellGroup;
         }
@@ -138,7 +137,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.VSTExpressionMap.Compatibilit
             //----------------------------------------------------------------------
             var notes = new List<Row.MidiNote>();
 
-            for( int i = 1; i < Int32.MaxValue; i++ )
+            for( int i = 1; i < int.MaxValue; i++ )
             {
                 if( !TryParseSheet( context, SpreadsheetConstants.ColumnMidiNote + i, out var noteNumberCell ) )
                 {
@@ -147,7 +146,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.VSTExpressionMap.Compatibilit
 
                 ParseSheet( context, SpreadsheetConstants.ColumnMidiVelocity + i, out var velocityCell );
 
-                if( !Int32.TryParse( velocityCell, out var velocityValue ) )
+                if( !int.TryParse( velocityCell, out var velocityValue ) )
                 {
                     break;
                 }
@@ -175,7 +174,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.VSTExpressionMap.Compatibilit
             //----------------------------------------------------------------------
             var controlChanges = new List<Row.MidiControlChange>();
 
-            for( int i = 1; i < Int32.MaxValue; i++ )
+            for( int i = 1; i < int.MaxValue; i++ )
             {
 
                 if( !TryParseSheet( context, SpreadsheetConstants.ColumnMidiCc + i, out var ccNumberCell ) )
@@ -199,39 +198,29 @@ namespace ArticulationUtility.Gateways.Spreadsheet.VSTExpressionMap.Compatibilit
             return controlChanges;
         }
 
-        private List<Row.MidiProgramChange> ParseMidiProgramChanges( CellContext context )
+        private List<MidiProgramCell> ParseMidiProgramChanges( CellContext context )
         {
             //----------------------------------------------------------------------
-            // MIDI PC
-            // * Multiple MIDI Program Change Supported
+            // Program (MIDI Program Change?)
+            // * Multiple value Supported
             // * Column name format:
-            //   PC LSB1 ... PC LSB1+n
-            //   PC MSB1 ... PC MSB1+n (MSB not exist, MSB value will be 0 )
+            //   Program1 ... Program1+n
             //----------------------------------------------------------------------
-            var programChanges = new List<Row.MidiProgramChange>();
+            var program = new List<MidiProgramCell>();
 
-            for( int i = 1; i < Int32.MaxValue; i++ )
+            for( int i = 1; i < int.MaxValue; i++ )
             {
 
                 if( !TryParseSheet( context, SpreadsheetConstants.ColumnMidiPcLsb + i, out var pcLsbCell ) )
                 {
                     break;
                 }
-                if( !TryParseSheet( context, SpreadsheetConstants.ColumnMidiPcMsb + i, out var pcMsbCell ) )
-                {
-                    pcMsbCell = "0";
-                }
 
-                var obj = new Row.MidiProgramChange()
-                {
-                    Lsb = new MidiProgramChangeLsbCell( int.Parse( pcLsbCell ) ),
-                    Msb = new MidiProgramChangeMsbCell( int.Parse( pcMsbCell ) )
-                };
-
-                programChanges.Add( obj );
+                var obj = new MidiProgramCell( int.Parse( pcLsbCell ) );
+                program.Add( obj );
             }
 
-            return programChanges;
+            return program;
         }
 
         #region Core Parsers

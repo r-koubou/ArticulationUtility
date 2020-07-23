@@ -4,6 +4,7 @@ using ArticulationUtility.Gateways.Spreadsheet.VSTExpressionMap;
 using ArticulationUtility.UseCases.Converting;
 
 using InteractorVer_0_7 = ArticulationUtility.Interactors.Converting.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7.ConvertingToExpressionMapInteractor;
+using InteractorVer_0_8 = ArticulationUtility.Interactors.Converting.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_8.ConvertingToExpressionMapInteractor;
 
 namespace SpreadsheetToExpressionMap
 {
@@ -23,6 +24,8 @@ namespace SpreadsheetToExpressionMap
             {
                 case SpreadsheetVersion.Ver_0_7:
                     return new InteractorVer_0_7();
+                case SpreadsheetVersion.Ver_0_8:
+                    return new InteractorVer_0_8();
                 default:
                     throw new InteractorNotFoundException( version );
             }

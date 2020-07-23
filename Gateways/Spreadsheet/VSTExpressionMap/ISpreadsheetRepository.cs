@@ -3,7 +3,7 @@ using ArticulationUtility.UseCases.Values.Spreadsheet.VSTExpressionMap.Compatibi
 
 namespace ArticulationUtility.Gateways.Spreadsheet.VSTExpressionMap
 {
-    public interface ISpreadsheetRepository : IDataLoader<Workbook>
+    public interface ISpreadsheetRepository<T> : IDataLoader<T>
     {
     }
 }
