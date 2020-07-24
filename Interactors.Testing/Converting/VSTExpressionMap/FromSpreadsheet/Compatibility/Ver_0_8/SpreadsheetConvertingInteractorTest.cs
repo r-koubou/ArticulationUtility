@@ -13,7 +13,6 @@ namespace ArticulationUtility.Interactors.Testing.Converting.VSTExpressionMap.Fr
         public void ConvertTest()
         {
             var converter = new ConvertingToExpressionMapInteractor();
-            var repository = new SpreadsheetRepository( @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp/Template.xlsx" );
             var request = new ConvertingFileFormatRequest();
             request.OutputDirectory = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp";
             converter.Convert( request );
