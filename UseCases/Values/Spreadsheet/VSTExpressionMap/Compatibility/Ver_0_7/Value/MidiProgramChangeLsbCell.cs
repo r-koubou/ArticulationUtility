@@ -7,7 +7,7 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.VSTExpressionMap.Compa
     public class MidiProgramChangeLsbCell : IEquatable<MidiProgramChangeLsbCell>
     {
         public const int MinValue = 0x00;
-        public const int MaxValue = 0x7f;
+        public const int MaxValue = 0x7F;
 
         public int Value { get; }
 

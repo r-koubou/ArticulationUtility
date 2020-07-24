@@ -17,13 +17,8 @@ namespace UseCases.Testing.Values.VSTExpressionMap.Aggregate
         public void ValueTest()
         {
             var slot = new SoundSlot( new SoundSlotName( "Name" ), new SoundSlotColorIndex( 0 ) );
-            slot.Articulations.Add(
-                new Articulation(
-                    new ArticulationName( "Name" ),
-                    ArticulationType.Direction,
-                    new ArticulationGroup( 1 )
-                )
-            );
+            slot.ReferenceArticulationIds.Add( ArticulationId.Increment() );
+
             slot.OutputMappings.Add(
                 new MidiNoteOn(
                     new MidiNoteNumber( 1 ),

@@ -10,6 +10,7 @@ namespace ArticulationUtility.Adapters.MidiEvent.FromSpreadsheet.Compatibility.V
         public GenericMidiEvent Convert( MidiProgramCell source )
         {
             return new GenericMidiEvent(
+                MidiStatusCode.ProgramChange,
                 new GenericMidiEventValue( source.Value ),
                 GenericMidiEventValue.Zero()
             );

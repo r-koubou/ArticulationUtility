@@ -8,6 +8,7 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.MidiEvent.Aggrega
 {
     public class ProgramEvent : IMidiEvent
     {
+        public IMidiEventData Status { get; } = new MidiStatusCode( 0xC0 );
         public IMidiEventData DataByte1 { get; }
         public IMidiEventData DataByte2 { get; }
 

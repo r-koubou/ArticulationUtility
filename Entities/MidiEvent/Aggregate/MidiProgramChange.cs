@@ -9,6 +9,7 @@ namespace ArticulationUtility.Entities.MidiEvent.Aggregate
     /// </summary>
     public class MidiProgramChange : IMidiEvent
     {
+        public IMidiEventData Status { get; } = MidiStatusCode.ProgramChange;
         public IMidiEventData DataByte1 { get; }
         public IMidiEventData DataByte2 { get; }
 

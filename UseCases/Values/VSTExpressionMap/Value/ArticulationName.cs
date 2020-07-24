@@ -9,7 +9,7 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.Value
     /// </summary>
     public class ArticulationName : IEquatable<ArticulationName>
     {
-        private string Name { get; }
+        public string Value { get; }
 
         public ArticulationName( string name )
         {
@@ -17,7 +17,7 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.Value
             {
                 throw new InvalidNameException( nameof( name ) );
             }
-            Name = name;
+            Value = name;
         }
 
         public bool Equals( ArticulationName other )
@@ -27,10 +27,10 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.Value
                 return false;
             }
 
-            return other.Name == Name;
+            return other.Value == Value;
         }
 
-        public override string ToString() => Name;
+        public override string ToString() => Value;
 
     }
 }

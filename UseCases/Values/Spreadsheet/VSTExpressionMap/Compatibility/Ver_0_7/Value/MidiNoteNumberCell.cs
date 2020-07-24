@@ -163,7 +163,7 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.VSTExpressionMap.Compa
             };
 
             const int minValue = 0x00;
-            const int maxValue = 0x7f;
+            const int maxValue = 0x7F;
 
             NoteNumberList = new List<string>();
             for( int i = minValue; i <= maxValue; i++ )

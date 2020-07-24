@@ -40,7 +40,7 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml
         {
             var guid = Guid.NewGuid().ToString();
             var hex = guid.Split( '-' )[ 0 ];
-            Id = ( Convert.ToInt32( hex, 16 ) & 0x7ffffff ).ToString();
+            Id = ( Convert.ToInt32( hex, 16 ) & 0x7FFFFFF ).ToString();
         }
     }
 }

@@ -9,6 +9,7 @@ namespace ArticulationUtility.Entities.MidiEvent.Aggregate
     /// </summary>
     public class MidiNoteOn : IMidiEvent
     {
+        public IMidiEventData Status { get; } = MidiStatusCode.NoteOn;
         public IMidiEventData DataByte1 { get; }
         public IMidiEventData DataByte2 { get; }
 

@@ -29,16 +29,19 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromSpreadsheet.Compatib
 
         private void ConvertRows( List<Row> rows, ExpressionMap expressionMap )
         {
+            ArticulationId.Reset();
+
             foreach( var row in rows )
             {
+                var articulationId = ArticulationId.Increment();
                 var articulationName = new ArticulationName( row.ArticulationName.Value );
                 var articulationType = EnumHelper.Parse<ArticulationType>( row.ArticulationType.Value );
                 var articulationGroup = new ArticulationGroup( row.GroupIndex.Value );
-                var articulation = new Articulation( articulationName, articulationType, articulationGroup );
+                var articulation = new Articulation( articulationId, articulationName, articulationType, articulationGroup );
 
-                if( !expressionMap.Articulations.Contains( articulation ) )
+                if( !expressionMap.Articulations.ContainsKey( articulationId ) )
                 {
-                    expressionMap.Articulations.Add( articulation );
+                    expressionMap.Articulations.Add( articulationId, articulation );
                 }
 
                 var slotName = new SoundSlotName( row.ArticulationName.Value );
@@ -46,7 +49,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromSpreadsheet.Compatib
                 var soundSlot = new SoundSlot( slotName, slotColor );
 
                 // One articulation per SoundSlot in this convert.
-                soundSlot.Articulations.Add( articulation );
+                soundSlot.ReferenceArticulationIds.Add( articulation.Id );
 
                 // To Midi note, CC, Program
                 ConvertOutputMappings( row, soundSlot.OutputMappings );

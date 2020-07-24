@@ -8,7 +8,7 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
     public class MidiLeastSignificantByte : IMidiEventData, IEquatable<MidiLeastSignificantByte>
     {
         public const int MinValue = 0x00;
-        public const int MaxValue = 0x7f;
+        public const int MaxValue = 0x7F;
 
         public int Value { get; }
 

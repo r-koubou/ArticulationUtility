@@ -7,13 +7,18 @@ namespace ArticulationUtility.Entities.MidiEvent.Aggregate
     public interface IMidiEvent
     {
         /// <summary>
+        /// MIDI status code
+        /// </summary>
+        public  IMidiEventData Status { get; }
+
+        /// <summary>
         /// MIDI event: 1st data byte
         /// </summary>
+
         public  IMidiEventData DataByte1 { get; }
         /// <summary>
         /// MIDI event: 2nd data byte
         /// </summary>
         public  IMidiEventData DataByte2 { get; }
-
     }
 }

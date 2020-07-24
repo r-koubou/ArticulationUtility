@@ -2,6 +2,7 @@ using System.Collections.Generic;
 
 using ArticulationUtility.Adapters.MidiEvent.FromSpreadsheet.Compatibility.Ver_0_7;
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
+using ArticulationUtility.Entities.MidiEvent.Value;
 using ArticulationUtility.UseCases.Values.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7.Aggregate;
 using ArticulationUtility.UseCases.Values.VSTExpressionMap.Aggregate;
 using ArticulationUtility.UseCases.Values.VSTExpressionMap.Value;
@@ -29,16 +30,19 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromSpreadsheet.Compatib
 
         private void ConvertRows( List<Row> rows, ExpressionMap expressionMap )
         {
+            ArticulationId.Reset();
+
             foreach( var row in rows )
             {
+                var articulationId = ArticulationId.Increment();
                 var articulationName = new ArticulationName( row.ArticulationName.Value );
                 var articulationType = EnumHelper.Parse<ArticulationType>( row.ArticulationType.Value );
                 var articulationGroup = new ArticulationGroup( row.GroupIndex.Value );
-                var articulation = new Articulation( articulationName, articulationType, articulationGroup );
+                var articulation = new Articulation( articulationId, articulationName, articulationType, articulationGroup );
 
-                if( !expressionMap.Articulations.Contains( articulation ) )
+                if( !expressionMap.Articulations.ContainsKey( articulationId ) )
                 {
-                    expressionMap.Articulations.Add( articulation );
+                    expressionMap.Articulations.Add( articulationId, articulation );
                 }
 
                 var slotName = new SoundSlotName( row.ArticulationName.Value );
@@ -46,7 +50,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromSpreadsheet.Compatib
                 var soundSlot = new SoundSlot( slotName, slotColor );
 
                 // One articulation per SoundSlot in this convert.
-                soundSlot.Articulations.Add( articulation );
+                soundSlot.ReferenceArticulationIds.Add( articulation.Id );
 
                 // To Midi note, CC, PC
                 ConvertOutputMappings( row, soundSlot.OutputMappings );
@@ -103,6 +107,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromSpreadsheet.Compatib
             {
                 target.Add(
                     new GenericMidiEvent(
+                        MidiStatusCode.ProgramChange,
                         pcLsbAdapter.Convert( pc.Lsb ),
                         pcMsbAdapter.Convert( pc.Msb )
                     )

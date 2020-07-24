@@ -11,7 +11,7 @@ namespace UseCases.Testing.Values.VSTExpressionMap.Aggregate
         [Test]
         public void SetupArticulationTest()
         {
-            var articulation = new Articulation( new ArticulationName( "Name" ), ArticulationType.Direction, new ArticulationGroup( 1 ) );
+            var articulation = new Articulation( ArticulationId.Increment(),  new ArticulationName( "Name" ), ArticulationType.Direction, new ArticulationGroup( 1 ) );
         }
     }
 }

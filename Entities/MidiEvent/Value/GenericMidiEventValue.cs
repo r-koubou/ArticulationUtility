@@ -11,7 +11,7 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
     public class GenericMidiEventValue : IMidiEventData, IEquatable<GenericMidiEventValue>
     {
         public const int MinValue = 0x00;
-        public const int MaxValue = 0x7f;
+        public const int MaxValue = 0xFF;
 
         public int Value { get; }
 

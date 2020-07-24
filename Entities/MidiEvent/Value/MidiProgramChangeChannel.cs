@@ -8,7 +8,7 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
     public class MidiProgramChangeChannel : IMidiEventData, IEquatable<MidiProgramChangeChannel>
     {
         public const int MinValue = 0x00;
-        public const int MaxValue = 0x0f;
+        public const int MaxValue = 0x0F;
 
         public int Value { get; }
 

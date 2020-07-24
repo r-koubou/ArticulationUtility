@@ -10,7 +10,7 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.Aggregate
     public class ExpressionMap
     {
         public ExpressionMapName Name { get; }
-        public List<Articulation> Articulations { get; } = new List<Articulation>();
+        public Dictionary<ArticulationId, Articulation> Articulations { get; } = new Dictionary<ArticulationId, Articulation>();
         public List<SoundSlot> SoundSlots { get; } = new List<SoundSlot>();
 
         public ExpressionMap( ExpressionMapName name = null )

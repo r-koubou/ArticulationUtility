@@ -13,7 +13,7 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.Aggregate
     {
         public SoundSlotName Name { get; }
         public SoundSlotColorIndex ColorIndex { get; set; }
-        public List<Articulation> Articulations { get; } = new List<Articulation>();
+        public List<ArticulationId> ReferenceArticulationIds { get; } = new List<ArticulationId>();
 
         public List<IMidiEvent> OutputMappings { get; } = new List<IMidiEvent>();
 
