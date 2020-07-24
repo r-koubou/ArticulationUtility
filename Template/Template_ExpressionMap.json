@@ -1,0 +1,19 @@
+{
+  "format_version": "0.0.1",
+  "name": "Example - ProductName - Patchname",
+  "articulations": [
+    {
+      "name": "Power Chord",
+      "type": "Direction",
+      "color": 1,
+      "group": 0,
+      "output_mapping": [
+        {
+          "status": "NoteOn",
+          "data1": "C-2",
+          "data2": "100"
+        }
+      ]
+    }
+  ]
+}

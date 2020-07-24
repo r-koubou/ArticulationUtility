@@ -29,7 +29,6 @@
 
     <ItemGroup>
       <Folder Include="Converting" />
-      <Folder Include="Converting\VSTExpressionMap" />
     </ItemGroup>
 
 </Project>
