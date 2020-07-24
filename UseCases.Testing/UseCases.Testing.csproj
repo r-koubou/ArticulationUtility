@@ -15,10 +15,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Values" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\UseCases\UseCases.csproj" />
     </ItemGroup>
 

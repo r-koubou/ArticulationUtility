@@ -7,7 +7,7 @@ using ArticulationUtility.UseCases.Values.VSTExpressionMap.Value;
 
 using NUnit.Framework;
 
-namespace UseCases.Testing.Data.VSTExpressionMap.Aggregate
+namespace UseCases.Testing.Values.VSTExpressionMap.Aggregate
 {
     [TestFixture]
     public class SoundSlotTest

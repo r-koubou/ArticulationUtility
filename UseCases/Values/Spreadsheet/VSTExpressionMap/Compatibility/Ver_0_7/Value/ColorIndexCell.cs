@@ -7,7 +7,7 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.VSTExpressionMap.Compa
     public class ColorIndexCell : IEquatable<ColorIndexCell>
     {
         public const int MinValue = 0;
-        public const int MaxValue = int.MaxValue;
+        public const int MaxValue = 255;
         public int Value { get; }
 
         public ColorIndexCell( int index )

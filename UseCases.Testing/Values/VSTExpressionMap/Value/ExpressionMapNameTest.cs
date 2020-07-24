@@ -3,7 +3,7 @@ using ArticulationUtility.Utilities;
 
 using NUnit.Framework;
 
-namespace UseCases.Testing.Data.VSTExpressionMap.Value
+namespace UseCases.Testing.Values.VSTExpressionMap.Value
 {
     [TestFixture]
     public class ExpressionMapNameTest
