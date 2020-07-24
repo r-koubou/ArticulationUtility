@@ -1,4 +1,4 @@
-using ArticulationUtility.Interactors.Converting.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7;
+using ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromSpreadsheet.Compatibility.Ver_0_7;
 using ArticulationUtility.UseCases.Converting;
 
 using NUnit.Framework;
