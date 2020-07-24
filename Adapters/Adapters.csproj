@@ -17,7 +17,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="VSTExpressionMapXml\FromVSTExpressionMap" />
       <Folder Include="VSTExpressionMap\FromSpreadsheet" />
     </ItemGroup>
 

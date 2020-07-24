@@ -9,15 +9,15 @@ using ArticulationUtility.Utilities;
 
 namespace ArticulationUtility.Adapters.VSTExpressionMapXml.FromSpreadsheet.Compatibility.Ver_0_8
 {
-    public class WorkbookAdapter : IExpressionMapXmlAdapter<Workbook, ExpressionMap>
+    public class WorkbookAdapter : IExpressionMapXmlAdapter<Workbook, ExpressionMapXml>
     {
-        public List<ExpressionMap> Convert( Workbook workbook )
+        public List<ExpressionMapXml> Convert( Workbook workbook )
         {
-            var result = new List<ExpressionMap>();
+            var result = new List<ExpressionMapXml>();
 
             foreach( var worksheet in workbook.Worksheets )
             {
-                var expressionMap = new ExpressionMap();
+                var expressionMap = new ExpressionMapXml();
                 ConvertRows( worksheet.Rows, expressionMap, worksheet.OutputNameCell.Value );
 
                 result.Add( expressionMap );
@@ -26,7 +26,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMapXml.FromSpreadsheet.Compa
             return result;
         }
 
-        private void ConvertRows( List<Row> rows, ExpressionMap target, string expressionMapName )
+        private void ConvertRows( List<Row> rows, ExpressionMapXml target, string expressionMapName )
         {
             var instrumentMap = InstrumentMap.New( expressionMapName );
             var listOfUSlotVisuals = new ListElement();
