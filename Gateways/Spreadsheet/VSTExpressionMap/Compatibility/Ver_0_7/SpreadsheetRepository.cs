@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-using ArticulationUtility.Entities.Spreadsheet.Value;
+using ArticulationUtility.UseCases.Values.Spreadsheet.VSTExpressionMap;
 using ArticulationUtility.UseCases.Values.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7.Aggregate;
 using ArticulationUtility.UseCases.Values.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_7.Value;
 

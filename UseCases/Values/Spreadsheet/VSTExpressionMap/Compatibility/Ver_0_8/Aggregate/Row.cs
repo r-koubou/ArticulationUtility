@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 
-using ArticulationUtility.Entities.Spreadsheet.Value;
 using ArticulationUtility.UseCases.Values.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_8.Value;
 
 namespace ArticulationUtility.UseCases.Values.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_8.Aggregate
