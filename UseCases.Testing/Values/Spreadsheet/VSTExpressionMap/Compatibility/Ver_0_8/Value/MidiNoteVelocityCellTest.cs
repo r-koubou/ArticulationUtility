@@ -1,4 +1,4 @@
-using ArticulationUtility.UseCases.Values.Spreadsheet.VSTExpressionMap.Compatibility.Ver_0_8.Value;
+using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_8.Value;
 using ArticulationUtility.Utilities;
 
 using NUnit.Framework;

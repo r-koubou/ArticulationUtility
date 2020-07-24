@@ -1,6 +1,6 @@
 using System;
 
-using ArticulationUtility.Gateways.Spreadsheet.VSTExpressionMap;
+using ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap;
 using ArticulationUtility.UseCases.Converting;
 
 using InteractorVer_0_7 = ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromSpreadsheet.Compatibility.Ver_0_7.ConvertingToExpressionMapInteractor;
