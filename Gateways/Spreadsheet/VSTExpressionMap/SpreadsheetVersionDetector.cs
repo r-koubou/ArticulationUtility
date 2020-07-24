@@ -47,7 +47,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.VSTExpressionMap
 
                 return SpreadsheetVersion.Unknown;
             }
-            catch( Exception e )
+            catch
             {
                 return SpreadsheetVersion.Unknown;
             }
