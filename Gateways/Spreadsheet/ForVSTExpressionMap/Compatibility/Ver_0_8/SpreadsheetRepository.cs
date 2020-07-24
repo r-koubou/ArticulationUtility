@@ -117,11 +117,14 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
             ParseSheet( context, SpreadsheetConstants.ColumnArticulationName, out var cellValue );
             articulationCellGroup.NameCell = new ArticulationNameCell( cellValue );
 
+            ParseSheet( context, SpreadsheetConstants.ColumnColor, out cellValue );
+            articulationCellGroup.ColorIndexCell = new ColorIndexCell( int.Parse( cellValue ) );
+
             ParseSheet( context, SpreadsheetConstants.ColumnArticulationType, out cellValue );
             articulationCellGroup.TypeCell = ArticulationTypeCell.Parse( cellValue );
 
-            ParseSheet( context, SpreadsheetConstants.ColumnColor, out cellValue );
-            articulationCellGroup.ColorIndexCell = new ColorIndexCell( int.Parse( cellValue ) );
+            ParseSheet( context, SpreadsheetConstants.ColumnGroup, out cellValue );
+            articulationCellGroup.GroupIndexCell = new GroupIndexCell( int.Parse( cellValue ) );
 
             return articulationCellGroup;
         }

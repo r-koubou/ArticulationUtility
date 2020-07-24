@@ -6,8 +6,8 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.Value
 {
     public class ArticulationGroup : IEquatable<ArticulationGroup>
     {
-        public const int MinValue = 1;
-        public const int MaxValue = 4;
+        public const int MinValue = 0;
+        public const int MaxValue = 3;
         public int Value { get; }
 
         public ArticulationGroup( int groupValue )

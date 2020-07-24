@@ -1,6 +1,7 @@
 using System.IO;
 
-using ArticulationUtility.Adapters.VSTExpressionMapXml.FromSpreadsheet.Compatibility.Ver_0_8;
+using ArticulationUtility.Adapters.VSTExpressionMap.FromSpreadsheet.Compatibility.Ver_0_8;
+using ArticulationUtility.Adapters.VSTExpressionMapXml.FromVSTExpressionMap;
 using ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_8;
 using ArticulationUtility.Gateways.VSTExpressionMapXml;
 using ArticulationUtility.UseCases.Converting;
@@ -15,16 +16,20 @@ namespace ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromSpread
             var loadRepository = new SpreadsheetRepository( request.InputFile );
             var saveRepository = new ExpressionMapXmlRepository();
             var workbook = loadRepository.Load();
-            var adapter = new WorkbookAdapter();
+            var workBookAdapter = new WorkbookAdapter();
+            var expressionMapAdapter = new ExpressionMapAdapter();
 
-            foreach( var xml in adapter.Convert( workbook ) )
+            foreach( var expressionMap in workBookAdapter.Convert( workbook ) )
             {
-                saveRepository.Path = Path.Combine(
-                    request.OutputDirectory,
-                    xml.FileName + "." + IExpressionMapXmlRepository.Suffix
-                );
+                foreach( var xml in expressionMapAdapter.Convert( expressionMap ) )
+                {
 
-                saveRepository.Save( xml.RootElement );
+                    saveRepository.Path = Path.Combine(
+                        request.OutputDirectory,
+                        expressionMap.Name.Value + "." + IExpressionMapXmlRepository.Suffix
+                    );
+                    saveRepository.Save( xml.RootElement );
+                }
             }
         }
     }

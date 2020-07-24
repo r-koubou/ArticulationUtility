@@ -37,7 +37,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromSpreadsheet.Compatib
                 var articulationId = ArticulationId.Increment();
                 var articulationName = new ArticulationName( row.ArticulationName.Value );
                 var articulationType = EnumHelper.Parse<ArticulationType>( row.ArticulationType.Value );
-                var articulationGroup = new ArticulationGroup( row.GroupIndex.Value );
+                var articulationGroup = new ArticulationGroup( row.GroupIndex.Value - 1 ); // Cell is 1 origin, ExpressionMap is zero origin
                 var articulation = new Articulation( articulationId, articulationName, articulationType, articulationGroup );
 
                 if( !expressionMap.Articulations.ContainsKey( articulationId ) )

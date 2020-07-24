@@ -6,8 +6,8 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Co
 {
     public class GroupIndexCell : IEquatable<GroupIndexCell>
     {
-        public const int MinValue = 1;
-        public const int MaxValue = 16;
+        public const int MinValue = 0;
+        public const int MaxValue = 3;
 
         public int Value { get; }
 

@@ -13,30 +13,26 @@ namespace ArticulationUtility.Adapters.VSTExpressionMapXml.FromVSTExpressionMap
         {
             var result = new List<ExpressionMapXml>();
 
-            var expressionMapXml = new ExpressionMapXml();
-            var instrumentMapElement = InstrumentMap.New( source.Name.Value );
-
+            #region List of USlotVisuals
             var listOfUSlotVisuals = new ListElement();
+
+            foreach( var articulation in source.Articulations.Values )
+            {
+                var slotVisual = USlotVisuals.New(
+                    articulation.Name.Value,
+                    articulation.Name.Value,
+                    (int)articulation.Type,
+                    articulation.Group.Value
+                );
+                listOfUSlotVisuals.Obj.Add( slotVisual );
+            }
+            #endregion List of USlotVisuals
+
+            #region List of PSoundSlot
             var listOfPSoundSlot = new ListElement();
 
             foreach( var slot in source.SoundSlots )
             {
-
-                // slotvisuals
-                foreach( var id in slot.ReferenceArticulationIds )
-                {
-                    var articulation = source.Articulations[ id ];
-                    var slotVisual = USlotVisuals.New(
-                        articulation.Name.Value,
-                        articulation.Name.Value,
-                        (int)articulation.Type,
-                        articulation.Group.Value
-                    );
-
-                    // One articulation per SoundSlot in this convert.
-                    listOfUSlotVisuals.Obj.Add( slotVisual );
-                }
-
                 var slotName = slot.Name;
                 var slotColor = slot.ColorIndex.Value;
 
@@ -52,8 +48,16 @@ namespace ArticulationUtility.Adapters.VSTExpressionMapXml.FromVSTExpressionMap
                 pSoundSlot.Obj.Add( PSlotMidiAction.New( listOfPOutputEvent ) );
 
                 // sv
-                foreach( var slotVisual in listOfUSlotVisuals.Obj )
+                foreach( var id in slot.ReferenceArticulationIds )
                 {
+                    var articulation = source.Articulations[ id ];
+                    var slotVisual = USlotVisuals.New(
+                        articulation.Name.Value,
+                        articulation.Name.Value,
+                        (int)articulation.Type,
+                        articulation.Group.Value
+                    );
+
                     pSoundSlot.Member.Add( PSoundSlot.Sv( slotVisual ) );
                 }
 
@@ -67,15 +71,18 @@ namespace ArticulationUtility.Adapters.VSTExpressionMapXml.FromVSTExpressionMap
                 listOfPSoundSlot.Obj.Add( pSoundSlot );
 
             }
+            #endregion List of PSoundSlot
 
             // Construction of InstrumentMap element
             var slots = InstrumentMap.Slots( listOfPSoundSlot );
             var slotvisuals = InstrumentMap.Slotvisuals( listOfUSlotVisuals );
 
+            var instrumentMapElement = InstrumentMap.New( source.Name.Value );
             instrumentMapElement.Member.Add( slotvisuals );
             instrumentMapElement.Member.Add( slots );
 
             // Construction of XML structure
+            var expressionMapXml = new ExpressionMapXml();
             expressionMapXml.FileName    = source.Name.Value;
             expressionMapXml.RootElement = instrumentMapElement;
             result.Add( expressionMapXml );
