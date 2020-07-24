@@ -2,19 +2,18 @@ using System;
 
 namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.Value
 {
-    public class Uuid : IEquatable<Uuid>
+    public class Id : IEquatable<Id>
     {
         public string Value { get; }
 
-        private Uuid()
+        public Id()
         {
-            Value = Guid.NewGuid().ToString( "D" );
+            var guid = Guid.NewGuid().ToString();
+            var hex = guid.Split( '-' )[ 0 ];
+            Value = ( Convert.ToInt32( hex, 16 ) & 0x7ffffff ).ToString();
         }
 
-        public static Uuid New()
-            => new Uuid();
-
-        public bool Equals( Uuid other )
+        public bool Equals( Id other )
         {
             if( other == null )
             {
