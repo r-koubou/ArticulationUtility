@@ -9,7 +9,8 @@ namespace ArticulationUtility.Gateways.VSTExpressionMapXml
 {
     public class ExpressionMapXmlRepository : IExpressionMapXmlRepository
     {
-        public string Path { get; set; }
+        public string LoadPath { get; set; }
+        public string SavePath { get; set; }
 
         public InstrumentMapElement Load()
         {
@@ -19,7 +20,7 @@ namespace ArticulationUtility.Gateways.VSTExpressionMapXml
                 CheckCharacters = true
             };
 
-            using var streamReader = new StreamReader( Path, Encoding.UTF8 );
+            using var streamReader = new StreamReader( LoadPath, Encoding.UTF8 );
             using var xmlReader = XmlReader.Create( streamReader, settings );
 
             return (InstrumentMapElement)deserializer.Deserialize( xmlReader );
@@ -34,7 +35,7 @@ namespace ArticulationUtility.Gateways.VSTExpressionMapXml
             var xmlNamespaces = new XmlSerializerNamespaces();
             xmlNamespaces.Add( "", "" );
 
-            using var writer = new StreamWriter( Path, false, Encoding.UTF8 );
+            using var writer = new StreamWriter( SavePath, false, Encoding.UTF8 );
             serializer.Serialize( writer, data, xmlNamespaces );
         }
     }

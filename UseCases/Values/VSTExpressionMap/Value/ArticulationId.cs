@@ -9,32 +9,7 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.Value
         public const int MinValue = 0;
         public const int MaxValue = int.MaxValue - 1;
 
-        private static int _incrementalCount;
-
         public int Value { get; }
-
-        static ArticulationId()
-        {
-            Reset();
-        }
-
-        public static void Reset( int initialId = 0 )
-        {
-            _incrementalCount = initialId;
-        }
-
-        public static ArticulationId Increment()
-        {
-            if( _incrementalCount == int.MaxValue )
-            {
-                throw new OverflowException();
-            }
-
-            var id = new ArticulationId( _incrementalCount );
-            _incrementalCount++;
-
-            return id;
-        }
 
         public ArticulationId( int id )
         {

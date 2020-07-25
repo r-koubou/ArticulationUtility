@@ -14,7 +14,7 @@ namespace ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromSpread
 
         public void Convert( ConvertingFileFormatRequest request )
         {
-            var loadRepository = new SpreadsheetRepository( request.InputFile );
+            var loadRepository = new SpreadsheetRepository(){ LoadPath = request.InputFile };
             var saveRepository = new ExpressionMapXmlRepository();
             var workbook = loadRepository.Load();
             var workBookAdapter = new WorkbookAdapter();
@@ -24,8 +24,7 @@ namespace ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromSpread
             {
                 foreach( var xml in expressionMapAdapter.Convert( expressionMap ) )
                 {
-
-                    saveRepository.Path = Path.Combine(
+                    saveRepository.SavePath = Path.Combine(
                         request.OutputDirectory,
                         expressionMap.Name.Value + "." + IExpressionMapXmlRepository.Suffix
                     );

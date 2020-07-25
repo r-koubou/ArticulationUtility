@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using ArticulationUtility.Utilities;
 
@@ -141,7 +142,7 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
         /// <summary>
         /// A list containing the index and scale name of the list in sequential form.
         /// </summary>
-        private static readonly List<string> NoteNameList = new List<string>()
+        private static readonly IReadOnlyList<string> NoteNameList = new List<string>()
         {
             C_M2,
             C_Sharp_M2,
@@ -284,6 +285,15 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
                 throw new InvalidNameException( nameof( noteName ) );
             }
             Value = noteName;
+        }
+
+        public MidiNoteNumber ToMidiNoteNumber()
+        {
+            var number =
+                NoteNameList.Select( ( n, i ) => new { name = n, index = i } )
+                            .Where( obj => obj.name == Value );
+
+            return new MidiNoteNumber( number.First().index );
         }
 
         public bool Equals( MidiNoteName other )

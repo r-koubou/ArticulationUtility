@@ -3,6 +3,15 @@
   "name": "Example - ProductName - Patchname",
   "articulations": [
     {
+      "name": "IDLE",
+      "type": "Direction",
+      "color": 1,
+      "group": 0,
+      "output_mapping": [
+        
+      ]
+    },
+    {
       "name": "Power Chord",
       "type": "Direction",
       "color": 1,
@@ -12,6 +21,11 @@
           "status": "NoteOn",
           "data1": "C-2",
           "data2": "100"
+        },
+        {
+          "status": "ControlChange",
+          "data1": "1",
+          "data2": "23"
         }
       ]
     }

@@ -8,5 +8,7 @@ namespace ArticulationUtility.Gateways.VSTExpressionMapXml
         IDataSaver<InstrumentMapElement>
     {
         const string Suffix = "expressionmap";
+        public string LoadPath { get; set; }
+        public string SavePath { get; set; }
     }
 }

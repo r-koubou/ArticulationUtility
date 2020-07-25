@@ -21,10 +21,12 @@ namespace UseCases.Testing.Values.VSTExpressionMap.Value
         [Test]
         public void EqualityTest()
         {
+            var idGenerator = new ArticulationIdGenerator();
+
             var obj1 = new ArticulationId( ArticulationId.MinValue );
             var obj2 = new ArticulationId( ArticulationId.MaxValue );
-            var obj3 = ArticulationId.Increment();
-            var obj4 = ArticulationId.Increment();
+            var obj3 = idGenerator.Next();
+            var obj4 = idGenerator.Next();
             Assert.AreEqual( obj1, new ArticulationId( ArticulationId.MinValue ) );
             Assert.AreNotEqual( obj1, obj2 );
             Assert.AreNotEqual( obj3, obj4 );

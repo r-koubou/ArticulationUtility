@@ -29,11 +29,11 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromSpreadsheet.Compatib
 
         private void ConvertRows( List<Row> rows, ExpressionMap expressionMap )
         {
-            ArticulationId.Reset();
+            var idGenerator = new ArticulationIdGenerator();
 
             foreach( var row in rows )
             {
-                var articulationId = ArticulationId.Increment();
+                var articulationId = idGenerator.Next();
                 var articulationName = new ArticulationName( row.ArticulationName.Value );
                 var articulationType = EnumHelper.Parse<ArticulationType>( row.ArticulationType.Value );
                 var articulationGroup = new ArticulationGroup( row.GroupIndex.Value );

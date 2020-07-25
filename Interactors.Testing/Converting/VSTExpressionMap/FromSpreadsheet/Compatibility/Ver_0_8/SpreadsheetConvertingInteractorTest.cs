@@ -14,6 +14,7 @@ namespace ArticulationUtility.Interactors.Testing.Converting.VSTExpressionMap.Fr
         {
             var converter = new ConvertingToExpressionMapInteractor();
             var request = new ConvertingFileFormatRequest();
+            request.InputFile = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp/Template_0_8.xlsx";
             request.OutputDirectory = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp";
             converter.Convert( request );
         }

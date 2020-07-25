@@ -1,6 +1,8 @@
 using System;
+using System.IO;
 
 using ArticulationUtility.Adapters.VSTExpressionMap.FromJson;
+using ArticulationUtility.Adapters.VSTExpressionMapXml.FromVSTExpressionMap;
 using ArticulationUtility.Gateways.Json.ForVSTExpressionMap;
 using ArticulationUtility.Gateways.VSTExpressionMapXml;
 using ArticulationUtility.UseCases.Converting;
@@ -23,12 +25,19 @@ namespace ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromJson
         {
             var json = LoadRepository.Load();
             var jsonAdapter = new JsonAdapter();
+            var expressionMapAdapter = new ExpressionMapAdapter();
 
             foreach( var expressionMap in jsonAdapter.Convert( json ) )
             {
-
+                foreach( var xml in expressionMapAdapter.Convert( expressionMap ) )
+                {
+                    SaveRepository.SavePath = Path.Combine(
+                        request.OutputDirectory,
+                        expressionMap.Name.Value + "." + IExpressionMapXmlRepository.Suffix
+                    );
+                    SaveRepository.Save( xml.RootElement );
+                }
             }
-            throw new System.NotImplementedException();
         }
     }
 }

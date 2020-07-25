@@ -2,7 +2,7 @@ using ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibility
 
 using NUnit.Framework;
 
-namespace ArticulationUtility.Gateways.Testing.Spreadsheet
+namespace ArticulationUtility.Gateways.Testing.Spreadsheet.ForVSTExpressionMap
 {
     [TestFixture]
     public class SpreadsheetRepositoryTest
@@ -10,7 +10,7 @@ namespace ArticulationUtility.Gateways.Testing.Spreadsheet
         [Test]
         public void LoadTest()
         {
-            var repository = new SpreadsheetRepository( "/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp/Template.xlsx" );
+            var repository = new SpreadsheetRepository(){ LoadPath = "/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp/Template.xlsx" };
             var workbook = repository.Load();
 
             Assert.IsNotNull( workbook );

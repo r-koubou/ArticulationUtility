@@ -24,7 +24,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
             public GroupIndexCell GroupIndexCell { get; set; }
         }
 
-        public string Path { get; }
+        public string LoadPath { get; set; }
 
         static SpreadsheetRepository()
         {
@@ -34,16 +34,15 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
             Encoding.RegisterProvider( CodePagesEncodingProvider.Instance );
         }
 
-        public SpreadsheetRepository( string path, Encoding encoding = null )
+        public SpreadsheetRepository( Encoding encoding = null )
         {
-            Path = path ?? throw new ArgumentNullException( nameof( path ) );
         }
 
         public Workbook Load()
         {
-            var result = new Workbook( Path );
+            var result = new Workbook( LoadPath );
 
-            using( var stream = File.Open( Path, FileMode.Open, FileAccess.Read ) )
+            using( var stream = File.Open( LoadPath, FileMode.Open, FileAccess.Read ) )
             using( var reader = ExcelReaderFactory.CreateReader( stream ) )
             {
                 var dataSet = reader.AsDataSet();
