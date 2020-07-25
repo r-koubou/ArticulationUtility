@@ -1,6 +1,11 @@
 {
-  "format_version": "0.0.1",
-  "name": "Example - ProductName - Patchname",
+  "info": {
+    "format_version": "0.0.1",
+    "name": "Example - ProductName - Patchname",
+    "author": "R-Koubou",
+    "product": "Example Virtual Guitar",
+    "url": "https://www.example.com"
+  },
   "articulations": [
     {
       "name": "IDLE",
@@ -13,7 +18,7 @@
       "type": "Direction",
       "color": 1,
       "group": 0,
-      "output_mapping": [
+      "midi_mapping": [
         {
           "status": "NoteOn",
           "data1": "C-2",

@@ -4,9 +4,9 @@ using Newtonsoft.Json;
 
 namespace ArticulationUtility.Gateways.Json.ForVSTExpressionMap
 {
-    class Articulation
+    public class Articulation
     {
-        [JsonProperty( "name" )]
+        [JsonProperty( "name", Required = Required.Always )]
         public string Name { get; set; }
 
         [JsonProperty( "type" )]
@@ -18,7 +18,7 @@ namespace ArticulationUtility.Gateways.Json.ForVSTExpressionMap
         [JsonProperty( "group" )]
         public int Group { get; set; }
 
-        [JsonProperty( "output_mapping", Required = Required.DisallowNull)]
-        public List<OutputMapping> OutputMapping { get; set; } = new List<OutputMapping>();
+        [JsonProperty( "midi_mapping" )]
+        public List<MidiMapping> MidiMapping { get; set; } = new List<MidiMapping>();
     }
 }

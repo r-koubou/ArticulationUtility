@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace ArticulationUtility.Gateways.Json.ForVSTExpressionMap
 {
-    class OutputMapping
+    public class MidiMapping
     {
         [JsonProperty( "status" )]
         public string Status { get; set; }

@@ -18,8 +18,8 @@ namespace ArticulationUtility.Gateways.Json.ForVSTExpressionMap
             var srcRoot = JsonConvert.DeserializeObject<JsonRoot>( File.ReadAllText( LoadPath ) );
             var jsonRoot = new JsonRootObject();
 
-            jsonRoot.FormatVersion = srcRoot.FormatVersion;
-            jsonRoot.Name = srcRoot.Name;
+            jsonRoot.FormatVersion = srcRoot.Info.FormatVersion;
+            jsonRoot.Name = srcRoot.Info.Name;
 
             foreach( var articulation in srcRoot.Articulations )
             {
@@ -29,7 +29,7 @@ namespace ArticulationUtility.Gateways.Json.ForVSTExpressionMap
                 obj.Type  = articulation.Type;
                 obj.Group = articulation.Group;
 
-                foreach( var mapping in articulation.OutputMapping )
+                foreach( var mapping in articulation.MidiMapping )
                 {
                     var midi = new JsonOutputMappingObject();
                     midi.Status = mapping.Status;

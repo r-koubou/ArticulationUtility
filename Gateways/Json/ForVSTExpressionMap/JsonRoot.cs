@@ -4,15 +4,12 @@ using Newtonsoft.Json;
 
 namespace ArticulationUtility.Gateways.Json.ForVSTExpressionMap
 {
-    class JsonRoot
+    public class JsonRoot
     {
-        [JsonProperty( "format_version" )]
-        public string FormatVersion { get; set; }
+        [JsonProperty( "info" )]
+        public Info Info { get; set; } = new Info();
 
-        [JsonProperty( "name" )]
-        public string Name { get; set; }
-
-        [JsonProperty( "articulations", Required = Required.DisallowNull )]
+        [JsonProperty( "articulations" )]
         public List<Articulation> Articulations { get; set; } = new List<Articulation>();
     }
 }

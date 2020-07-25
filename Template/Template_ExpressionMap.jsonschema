@@ -1,19 +1,86 @@
 {
-  "format_version": "0.0.1",
-  "name": "Example - ProductName - Patchname",
-  "articulations": [
-    {
-      "name": "Power Chord",
-      "type": "Direction | Attribute",
-      "color": 1,
-      "group": 0,
-      "output_mapping": [
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "info": {
+      "type": "object",
+      "properties": {
+        "format_version": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "format_version",
+        "name"
+      ]
+    },
+    "articulations": {
+      "type": "array",
+      "items": [
         {
-          "status": "NoteOn | ControlChange | Program",
-          "data1": "C-2 | 123",
-          "data2": "123"
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "color": {
+              "type": "integer"
+            },
+            "group": {
+              "type": "integer"
+            },
+            "midi_mapping": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "data1": {
+                      "type": "string"
+                    },
+                    "data2": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "data1"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "type",
+            "color",
+            "group",
+            "midi_mapping"
+          ]
         }
       ]
     }
+  },
+  "required": [
+    "info",
+    "articulations"
   ]
 }
