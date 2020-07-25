@@ -18,7 +18,7 @@ namespace ArticulationUtility.Gateways.Json.ForVSTExpressionMap
         [JsonProperty( "group" )]
         public int Group { get; set; }
 
-        [JsonProperty( "output_mapping" )]
-        public List<OutputMapping> OutputMapping { get; set; }
+        [JsonProperty( "output_mapping", Required = Required.DisallowNull)]
+        public List<OutputMapping> OutputMapping { get; set; } = new List<OutputMapping>();
     }
 }

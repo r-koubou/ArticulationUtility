@@ -12,7 +12,7 @@ namespace ArticulationUtility.Gateways.Json.ForVSTExpressionMap
         [JsonProperty( "name" )]
         public string Name { get; set; }
 
-        [JsonProperty( "articulations" )]
-        public List<Articulation> Articulations { get; set; }
+        [JsonProperty( "articulations", Required = Required.DisallowNull )]
+        public List<Articulation> Articulations { get; set; } = new List<Articulation>();
     }
 }

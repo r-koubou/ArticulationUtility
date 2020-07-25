@@ -38,6 +38,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Application
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpreadsheetToExpressionMap", "Applications\SpreadsheetToExpressionMap\SpreadsheetToExpressionMap.csproj", "{5C9990E7-E538-421D-A774-951ABF650C07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonToExpressionMap", "Applications\JsonToExpressionMap\JsonToExpressionMap.csproj", "{48414402-31A3-466F-B2BB-ABF7E2AE4A8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,6 +102,10 @@ Global
 		{5C9990E7-E538-421D-A774-951ABF650C07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C9990E7-E538-421D-A774-951ABF650C07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C9990E7-E538-421D-A774-951ABF650C07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48414402-31A3-466F-B2BB-ABF7E2AE4A8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48414402-31A3-466F-B2BB-ABF7E2AE4A8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48414402-31A3-466F-B2BB-ABF7E2AE4A8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48414402-31A3-466F-B2BB-ABF7E2AE4A8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{899418AD-7A88-496B-BD4C-984166160962} = {6B016EEE-B77F-467A-82AA-88471C5AA937}
@@ -116,5 +122,6 @@ Global
 		{0BDBC3D9-7516-42CC-81B9-451C135C011E} = {18629011-EA85-4BC3-83A7-EA3C209E7C82}
 		{37C702E0-42F9-494F-9E34-4E47834FA916} = {F878A491-ABAC-4910-BA04-DBBC67435C40}
 		{5C9990E7-E538-421D-A774-951ABF650C07} = {37C702E0-42F9-494F-9E34-4E47834FA916}
+		{48414402-31A3-466F-B2BB-ABF7E2AE4A8C} = {37C702E0-42F9-494F-9E34-4E47834FA916}
 	EndGlobalSection
 EndGlobal

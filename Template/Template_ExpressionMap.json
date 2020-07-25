@@ -5,11 +5,8 @@
     {
       "name": "IDLE",
       "type": "Direction",
-      "color": 1,
-      "group": 0,
-      "output_mapping": [
-        
-      ]
+      "color": 0,
+      "group": 0
     },
     {
       "name": "Power Chord",
