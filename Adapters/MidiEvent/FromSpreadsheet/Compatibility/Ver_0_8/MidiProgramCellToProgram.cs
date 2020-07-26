@@ -5,7 +5,7 @@ using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Compat
 namespace ArticulationUtility.Adapters.MidiEvent.FromSpreadsheet.Compatibility.Ver_0_8
 {
     public class MidiProgramCellToProgram
-        : IMidiEventAdapter<MidiProgramCell, GenericMidiEvent>
+        : IDataAdapter<MidiProgramCell, GenericMidiEvent>
     {
         public GenericMidiEvent Convert( MidiProgramCell source )
         {

@@ -4,7 +4,7 @@ using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Compat
 namespace ArticulationUtility.Adapters.MidiEvent.FromSpreadsheet.Compatibility.Ver_0_7
 {
     public class MidiProgramChangeLsbCellToPcLsb
-        : IMidiEventAdapter<MidiProgramChangeLsbCell, MidiLeastSignificantByte>
+        : IDataAdapter<MidiProgramChangeLsbCell, MidiLeastSignificantByte>
     {
         public MidiLeastSignificantByte Convert( MidiProgramChangeLsbCell source )
         {

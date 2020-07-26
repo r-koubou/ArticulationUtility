@@ -7,7 +7,7 @@ using ArticulationUtility.UseCases.Values.VSTExpressionMapXml.XmlClasses;
 
 namespace ArticulationUtility.Adapters.VSTExpressionMapXml.FromVSTExpressionMap
 {
-    public class ExpressionMapAdapter : IExpressionMapXmlAdapter<ExpressionMap, ExpressionMapXml>
+    public class ExpressionMapAdapter : IDataAdapter<ExpressionMap, List<ExpressionMapXml>>
     {
         public List<ExpressionMapXml> Convert( ExpressionMap source )
         {

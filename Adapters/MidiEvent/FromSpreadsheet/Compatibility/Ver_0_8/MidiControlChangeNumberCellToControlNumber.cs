@@ -3,7 +3,7 @@ using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Compat
 
 namespace ArticulationUtility.Adapters.MidiEvent.FromSpreadsheet.Compatibility.Ver_0_8
 {
-    public class MidiControlChangeNumberCellToControlNumber : IMidiEventAdapter<MidiControlChangeNumberCell, MidiControlChangeNumber>
+    public class MidiControlChangeNumberCellToControlNumber : IDataAdapter<MidiControlChangeNumberCell, MidiControlChangeNumber>
     {
         public MidiControlChangeNumber Convert( MidiControlChangeNumberCell source )
         {

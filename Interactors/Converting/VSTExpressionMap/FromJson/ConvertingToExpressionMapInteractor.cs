@@ -3,7 +3,7 @@ using System.IO;
 
 using ArticulationUtility.Adapters.VSTExpressionMap.FromJson;
 using ArticulationUtility.Adapters.VSTExpressionMapXml.FromVSTExpressionMap;
-using ArticulationUtility.Gateways.Json.ForVSTExpressionMap;
+using ArticulationUtility.Gateways.Json.NewtonsoftJson;
 using ArticulationUtility.Gateways.VSTExpressionMapXml;
 using ArticulationUtility.UseCases.Converting;
 

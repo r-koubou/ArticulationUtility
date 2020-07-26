@@ -1,26 +1,23 @@
 using System.Collections.Generic;
-using System.IO;
 
+using ArticulationUtility.Entities.Json.Aggregate;
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
 using ArticulationUtility.Entities.MidiEvent.Value;
-using ArticulationUtility.UseCases.Values.Json.ForVSTExpressionMap;
 using ArticulationUtility.UseCases.Values.VSTExpressionMap.Aggregate;
 using ArticulationUtility.UseCases.Values.VSTExpressionMap.MidiEvent.Aggregate;
 using ArticulationUtility.UseCases.Values.VSTExpressionMap.MidiEvent.Value;
 using ArticulationUtility.UseCases.Values.VSTExpressionMap.Value;
 using ArticulationUtility.Utilities;
 
-using Articulation = ArticulationUtility.UseCases.Values.VSTExpressionMap.Aggregate.Articulation;
-using ArticulationJson = ArticulationUtility.UseCases.Values.Json.ForVSTExpressionMap.Articulation;
-using OutputMappingJson = ArticulationUtility.UseCases.Values.Json.ForVSTExpressionMap.OutputMapping;
+using ArticulationJson = ArticulationUtility.Entities.Json.Value.Articulation;
 
 namespace ArticulationUtility.Adapters.VSTExpressionMap.FromJson
 {
-    public class JsonAdapter : IExpressionMapAdapter<JsonRoot>
+    public class JsonAdapter : IDataAdapter<JsonRoot, List<ExpressionMap>>
     {
         public List<ExpressionMap> Convert( JsonRoot source )
         {
-            var expressionMap = new ExpressionMap( new ExpressionMapName( source.Name ) );
+            var expressionMap = new ExpressionMap( new ExpressionMapName( source.Info.Name ) );
             var idGenerator = new ArticulationIdGenerator();
 
             foreach( var obj in source.Articulations )
@@ -56,25 +53,25 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromJson
             var soundSlot = new SoundSlot( new SoundSlotName( obj.Name ), new SoundSlotColorIndex( obj.Color ) );
             soundSlot.ReferenceArticulationIds.Add( articulationId );
 
-            foreach( var midi in obj.OutputMapping )
+            foreach( var midi in obj.MidiMappings )
             {
                 IMidiEvent mapping;
 
                 switch( midi.Status )
                 {
-                    case ArticulationJson.MidiNoteOn:
+                    case ArticulationJson.MidiControlNameAlias.MidiNoteOn:
                         var noteName = new MidiNoteName( midi.Data1 );
                         var velocity = int.Parse( midi.Data2 );
                         mapping = new MidiNoteOn( noteName.ToMidiNoteNumber(), new MidiVelocity( velocity ) );
                         break;
 
-                    case ArticulationJson.ControlChange:
+                    case ArticulationJson.MidiControlNameAlias.ControlChange:
                         var ccNumber = int.Parse( midi.Data1 );
                         var ccValue = int.Parse( midi.Data2 );
                         mapping = new MidiControlChange( new MidiControlChangeNumber( ccNumber ), new MidiControlChangeValue( ccValue ) );
                         break;
 
-                    case ArticulationJson.Program:
+                    case ArticulationJson.MidiControlNameAlias.Program:
                         var programValue = int.Parse( midi.Data1 );
                         mapping = new ProgramEvent( new ProgramEventValue( programValue ) );
                         break;

@@ -5,7 +5,7 @@ using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Compat
 
 namespace ArticulationUtility.Adapters.MidiEvent.FromSpreadsheet.Compatibility.Ver_0_7
 {
-    public class MidiNoteNumberCellToMidiNoteNumber : IMidiEventAdapter<MidiNoteNumberCell, MidiNoteNumber>
+    public class MidiNoteNumberCellToMidiNoteNumber : IDataAdapter<MidiNoteNumberCell, MidiNoteNumber>
     {
         private static readonly List<string> NoteNameList;
         private static readonly List<string> NoteNumberList;

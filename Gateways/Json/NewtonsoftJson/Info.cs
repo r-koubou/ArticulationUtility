@@ -1,14 +1,14 @@
 using Newtonsoft.Json;
 
-namespace ArticulationUtility.Gateways.Json.ForVSTExpressionMap
+namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
 {
     public class Info
     {
-        [JsonProperty( "version", Required = Required.Always)]
-        public string Version { get; set; }
+        [JsonProperty( "version", Required = Required.Always )]
+        public string Version { get; set; } = string.Empty;
 
-        [JsonProperty( "name", Required = Required.Always )]
-        public string Name { get; set; }
+        [JsonProperty( "name" )]
+        public string Name { get; set; } = string.Empty;
 
         [JsonProperty( "author" )]
         public string Author { get; set; } = string.Empty;

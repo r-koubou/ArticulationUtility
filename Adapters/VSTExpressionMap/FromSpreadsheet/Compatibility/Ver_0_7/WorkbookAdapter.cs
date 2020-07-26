@@ -10,7 +10,7 @@ using ArticulationUtility.Utilities;
 
 namespace ArticulationUtility.Adapters.VSTExpressionMap.FromSpreadsheet.Compatibility.Ver_0_7
 {
-    public class WorkbookAdapter : IExpressionMapAdapter<Workbook>
+    public class WorkbookAdapter : IDataAdapter<Workbook, List<ExpressionMap>>
     {
         public List<ExpressionMap> Convert( Workbook workbook )
         {

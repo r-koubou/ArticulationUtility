@@ -1,7 +1,7 @@
 ﻿using System;
 
 using ArticulationUtility.Controllers;
-using ArticulationUtility.Gateways.Json.ForVSTExpressionMap;
+using ArticulationUtility.Gateways.Json.NewtonsoftJson;
 using ArticulationUtility.Gateways.VSTExpressionMapXml;
 using ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromJson;
 using ArticulationUtility.UseCases.Converting;
