@@ -280,11 +280,20 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
         {
             StringHelper.ValidateNullOrTrimEmpty( noteName );
 
-            if( !NoteNameList.Contains( noteName ) )
+            if( NoteNameList.Contains( noteName ) )
             {
-                throw new InvalidNameException( nameof( noteName ) );
+                Value = noteName;
+                return;
             }
-            Value = noteName;
+
+            if( int.TryParse( noteName, out var number ) )
+            {
+                RangeValidateHelper.ValidateIntRange( number, MidiNoteNumber.MinValue, MidiNoteNumber.MaxValue );
+                Value = NoteNameList[ number ];
+                return;
+            }
+
+            throw new InvalidNameException( nameof( noteName ) );
         }
 
         public MidiNoteNumber ToMidiNoteNumber()

@@ -4,5 +4,7 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.Value
     {
         Direction = 1,
         Attribute = 2,
+
+        Default = Direction,
     }
 }

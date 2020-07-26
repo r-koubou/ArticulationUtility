@@ -36,7 +36,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromSpreadsheet.Compatib
             {
                 var articulationId = idGenerator.Next();
                 var articulationName = new ArticulationName( row.ArticulationName.Value );
-                var articulationType = EnumHelper.Parse<ArticulationType>( row.ArticulationType.Value );
+                var articulationType = EnumHelper.Parse<ArticulationType>( row.ArticulationType.Value, ArticulationType.Default );
                 var articulationGroup = new ArticulationGroup( row.GroupIndex.Value - 1 ); // Cell is 1 origin, ExpressionMap is zero origin
                 var articulation = new Articulation( articulationId, articulationName, articulationType, articulationGroup );
 

@@ -1,3 +1,5 @@
+using ArticulationUtility.Entities.MidiEvent.Value;
+
 namespace ArticulationUtility.Entities.MidiEvent.Aggregate
 {
     /// <summary>

@@ -1,4 +1,5 @@
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
+using ArticulationUtility.Entities.MidiEvent.Value;
 using ArticulationUtility.Utilities;
 
 namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.MidiEvent.Value

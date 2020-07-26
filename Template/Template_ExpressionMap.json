@@ -1,6 +1,7 @@
 {
+  "format_version": "0.0.1",
   "info": {
-    "format_version": "0.0.1",
+    "version": "1.0.0",
     "name": "Example - ProductName - Patchname",
     "author": "R-Koubou",
     "product": "Example Virtual Guitar",
@@ -22,12 +23,12 @@
         {
           "status": "NoteOn",
           "data1": "C-2",
-          "data2": "100"
+          "data2": 100
         },
         {
           "status": "ControlChange",
-          "data1": "1",
-          "data2": "23"
+          "data1": 1,
+          "data2": 23
         }
       ]
     }

@@ -4,8 +4,8 @@ namespace ArticulationUtility.Gateways.Json.ForVSTExpressionMap
 {
     public class Info
     {
-        [JsonProperty( "format_version", Required = Required.Always)]
-        public string FormatVersion { get; set; }
+        [JsonProperty( "version", Required = Required.Always)]
+        public string Version { get; set; }
 
         [JsonProperty( "name", Required = Required.Always )]
         public string Name { get; set; }

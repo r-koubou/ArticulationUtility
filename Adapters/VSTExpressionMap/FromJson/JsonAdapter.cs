@@ -44,7 +44,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromJson
         private static Articulation ParseArticulation( ArticulationJson obj, ArticulationId articulationId )
         {
             var articulationName = new ArticulationName( obj.Name );
-            var articulationType = EnumHelper.Parse<ArticulationType>( obj.Type );
+            var articulationType = EnumHelper.Parse<ArticulationType>( obj.Type, ArticulationType.Default );
             var articulationGroup = new ArticulationGroup( obj.Group );
             var articulation = new Articulation( articulationId, articulationName, articulationType, articulationGroup );
 
@@ -80,7 +80,11 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromJson
                         break;
 
                     default:
-                        throw new InvalidDataException();
+                        var status = new MidiStatusCode( int.Parse( midi.Status ) );
+                        var data1 = new GenericMidiEventValue( int.Parse( midi.Data1 ) );
+                        var data2 = new GenericMidiEventValue( int.Parse( midi.Data2 ) );
+                        mapping = new GenericMidiEvent( status, data1, data2 );
+                        break;
                 };
 
                 soundSlot.OutputMappings.Add( mapping );

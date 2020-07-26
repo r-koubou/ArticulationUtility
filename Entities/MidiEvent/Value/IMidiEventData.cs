@@ -1,4 +1,4 @@
-namespace ArticulationUtility.Entities.MidiEvent.Aggregate
+namespace ArticulationUtility.Entities.MidiEvent.Value
 {
     /// <summary>
     /// An interface for MIDI Event data byte

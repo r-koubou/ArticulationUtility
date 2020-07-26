@@ -1,0 +1,282 @@
+{
+    "default": {},
+    "description": "The root schema comprises the entire JSON document.",
+    "examples": [
+        {
+            "format_version": "1.0.0",
+            "info": {
+                "version": "1.0.0",
+                "name": "output filename without extension",
+                "author": "Your name",
+                "product": "A target virtual instrument software",
+                "url": "https://www.example.com"
+            },
+            "articulations": [
+                {
+                    "name": "An articulation name",
+                    "type": "Direction",
+                    "color": 1,
+                    "group": 0,
+                    "midi_mapping": [
+                        {
+                            "status": "NoteOn",
+                            "data1": "C-2",
+                            "data2": "100"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "required": [
+        "format_version",
+        "info",
+        "articulations"
+    ],
+    "properties": {
+        "format_version": {
+            "default": "",
+            "description": "An explanation about the purpose of this instance.",
+            "examples": [
+                "1.0.0"
+            ]
+        },
+        "info": {
+            "default": {},
+            "description": "An explanation about the purpose of this instance.",
+            "examples": [
+                {
+                    "version": "1.0.0",
+                    "name": "output filename without extension",
+                    "author": "Your name",
+                    "product": "A target virtual instrument software",
+                    "url": "https://www.example.com"
+                }
+            ],
+            "required": [
+                "version",
+                "name"
+            ],
+            "properties": {
+                "version": {
+                    "default": "",
+                    "description": "An explanation about the purpose of this instance.",
+                    "examples": [
+                        "1.0.0"
+                    ]
+                },
+                "name": {
+                    "default": "",
+                    "description": "An explanation about the purpose of this instance.",
+                    "examples": [
+                        "output filename without extension"
+                    ]
+                },
+                "author": {
+                    "default": "",
+                    "description": "An explanation about the purpose of this instance.",
+                    "examples": [
+                        "Your name"
+                    ]
+                },
+                "product": {
+                    "default": "",
+                    "description": "Target product name",
+                    "examples": [
+                        "My Virtual Guitar Instrument"
+                    ]
+                },
+                "url": {
+                    "default": "",
+                    "description": "Your website url",
+                    "examples": [
+                        "https://www.example.com"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "articulations": {
+            "default": [],
+            "description": "Articulations list",
+            "examples": [
+                [
+                    {
+                        "name": "An articulation name",
+                        "type": "Direction",
+                        "color": 1,
+                        "group": 0,
+                        "midi_mapping": [
+                            {
+                                "status": "NoteOn",
+                                "data1": "C-2",
+                                "data2": "100"
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/articulations/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/articulations/items/anyOf/0",
+                        "type": "object",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": {},
+                        "examples": [
+                            {
+                                "name": "An articulation name",
+                                "type": "Direction",
+                                "color": 1,
+                                "group": 0,
+                                "midi_mapping": [
+                                    {
+                                        "status": "NoteOn",
+                                        "data1": "C-2",
+                                        "data2": "100"
+                                    }
+                                ]
+                            }
+                        ],
+                        "required": [
+                            "name",
+                            "type",
+                            "color",
+                            "group",
+                            "midi_mapping"
+                        ],
+                        "properties": {
+                            "name": {
+                                "description": "An articulation name",
+                                "examples": [
+                                    "Power Chord"
+                                ]
+                            },
+                            "type": {
+                                "default": "",
+                                "description": "If you select Attribute, only single notes are influenced by the articulation symbol. If you select Direction,Note: Some DAWs do not support this feature.",
+                                "examples": [
+                                    "Direction"
+                                ],
+                                "enum": [
+                                    "Direction",
+                                    "Attribute"
+                                ]
+                            },
+                            "color": {
+                                "default": 0,
+                                "description": "An index number assign color to the articulation if DAW suppurted.",
+                                "examples": [
+                                    1
+                                ]
+                            },
+                            "group": {
+                                "default": 0,
+                                "description": "A Group number if DAW supprted",
+                                "examples": [
+                                    0
+                                ]
+                            },
+                            "midi_mapping": {
+                                "default": [],
+                                "description": "MIDI messages to enable articulation",
+                                "examples": [
+                                    [
+                                        {
+                                            "status": "NoteOn",
+                                            "data1": "C-2",
+                                            "data2": "100"
+                                        }
+                                    ]
+                                ],
+                                "additionalItems": true,
+                                "items": {
+                                    "$id": "#/properties/articulations/items/anyOf/0/properties/midi_mapping/items",
+                                    "anyOf": [
+                                        {
+                                            "default": {},
+                                            "description": "An explanation about the purpose of this instance.",
+                                            "examples": [
+                                                {
+                                                    "status": "NoteOn",
+                                                    "data1": "C-2",
+                                                    "data2": "100"
+                                                },
+                                                {
+                                                    "status": "ControlChange",
+                                                    "data1": "1",
+                                                    "data2": "64"
+                                                },
+                                                {
+                                                    "status": "Program",
+                                                    "data1": "10",
+                                                    "data2": "0"
+                                                }
+                                            ],
+                                            "required": [
+                                                "status",
+                                                "data1",
+                                                "data2"
+                                            ],
+                                            "title": "The first anyOf schema",
+                                            "properties": {
+                                                "status": {
+                                                    "default": "",
+                                                    "description": "MIDI status codes expressed as text",
+                                                    "enum": [
+                                                        "NoteOn",
+                                                        "ControlChange",
+                                                        "Program",
+                                                        144
+                                                    ],
+                                                    "examples": [
+                                                        "NoteOn"
+                                                    ],
+                                                    "title": "The status schema",
+                                                    "type": [
+                                                        "string",
+                                                        "integer"
+                                                    ]
+                                                },
+                                                "data1": {
+                                                    "description": "MIDI message first byte. The name of a scale (C-1, C#-1, A#-1, etc.) or a string in decimal format.",
+                                                    "examples": [
+                                                        "C-2",
+                                                        "123",
+                                                        123
+                                                    ],
+                                                    "type": [
+                                                        "string",
+                                                        "integer"
+                                                    ]
+                                                },
+                                                "data2": {
+                                                    "default": "",
+                                                    "description": "The second byte of a MIDI message, a string or number in decimal format.",
+                                                    "examples": [
+                                                        "100",
+                                                        123
+                                                    ],
+                                                    "type": [
+                                                        "string",
+                                                        "integer"
+                                                    ]
+                                                }
+                                            },
+                                            "additionalProperties": true
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "additionalProperties": true
+                    }
+                ]
+            }
+        }
+    },
+    "additionalProperties": true
+}

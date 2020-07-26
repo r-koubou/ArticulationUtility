@@ -6,6 +6,9 @@ namespace ArticulationUtility.Gateways.Json.ForVSTExpressionMap
 {
     public class JsonRoot
     {
+        [JsonProperty( "format_version", Required = Required.Always)]
+        public string FormatVersion { get; set; }
+
         [JsonProperty( "info" )]
         public Info Info { get; set; } = new Info();
 

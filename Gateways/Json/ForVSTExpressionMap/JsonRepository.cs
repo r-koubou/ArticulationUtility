@@ -18,7 +18,7 @@ namespace ArticulationUtility.Gateways.Json.ForVSTExpressionMap
             var srcRoot = JsonConvert.DeserializeObject<JsonRoot>( File.ReadAllText( LoadPath ) );
             var jsonRoot = new JsonRootObject();
 
-            jsonRoot.FormatVersion = srcRoot.Info.FormatVersion;
+            jsonRoot.FormatVersion = srcRoot.FormatVersion;
             jsonRoot.Name = srcRoot.Info.Name;
 
             foreach( var articulation in srcRoot.Articulations )
