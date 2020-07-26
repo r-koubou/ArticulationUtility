@@ -4,11 +4,9 @@ using ArticulationUtility.UseCases.Values.VSTExpressionMapXml;
 namespace ArticulationUtility.Gateways.VSTExpressionMapXml
 {
     public interface IExpressionMapXmlRepository :
-        IDataLoader<InstrumentMapElement>,
-        IDataSaver<InstrumentMapElement>
+        IFileLoader<InstrumentMapElement>,
+        IFileSaver<InstrumentMapElement>
     {
-        const string Suffix = "expressionmap";
-        public string LoadPath { get; set; }
-        public string SavePath { get; set; }
+        const string Suffix = ".expressionmap";
     }
 }

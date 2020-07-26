@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 
+using ArticulationUtility.Entities;
 using ArticulationUtility.Entities.MidiEvent.Value;
 using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_7.Value;
 

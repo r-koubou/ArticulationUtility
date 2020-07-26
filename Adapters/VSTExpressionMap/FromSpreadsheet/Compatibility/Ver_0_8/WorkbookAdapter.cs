@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 
 using ArticulationUtility.Adapters.MidiEvent.FromSpreadsheet.Compatibility.Ver_0_8;
+using ArticulationUtility.Entities;
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
 using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_8.Aggregate;
 using ArticulationUtility.UseCases.Values.VSTExpressionMap.Aggregate;

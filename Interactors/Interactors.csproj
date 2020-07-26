@@ -18,7 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Converting" />
+      <Folder Include="Converting\Json\FromSpreadsheet\Compatibility\Ver_0_7" />
     </ItemGroup>
 
 </Project>

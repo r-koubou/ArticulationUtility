@@ -33,7 +33,7 @@ namespace ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromJson
                 {
                     SaveRepository.SavePath = Path.Combine(
                         request.OutputDirectory,
-                        expressionMap.Name.Value + "." + IExpressionMapXmlRepository.Suffix
+                        expressionMap.Name.Value + IExpressionMapXmlRepository.Suffix
                     );
                     SaveRepository.Save( xml.RootElement );
                 }

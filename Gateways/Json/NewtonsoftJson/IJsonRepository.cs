@@ -2,9 +2,10 @@ using ArticulationUtility.Gateways.Common;
 
 namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
 {
-    public interface IJsonRepository : IDataLoader<Entities.Json.Articulation.JsonRoot>
+    public interface IJsonRepository :
+        IFileLoader<Entities.Json.Articulation.JsonRoot>,
+        IFileSaver<Entities.Json.Articulation.JsonRoot>
     {
-        public const string Suffix = "json";
-        public string LoadPath { get; set; }
+        public const string Suffix = ".json";
     }
 }

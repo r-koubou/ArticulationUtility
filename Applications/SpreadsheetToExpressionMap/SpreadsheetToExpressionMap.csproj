@@ -3,7 +3,7 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <Company>Hiroaki@R-Koubou</Company>
+        <Company>R-Koubou</Company>
         <Product>Spreadsheet To ExpressionMap</Product>
         <VersionPrefix>0.8.0</VersionPrefix>
         <AssemblyVersion>0.8.0</AssemblyVersion>

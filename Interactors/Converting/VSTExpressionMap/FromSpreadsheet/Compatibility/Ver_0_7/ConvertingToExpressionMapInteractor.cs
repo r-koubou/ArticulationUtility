@@ -26,7 +26,7 @@ namespace ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromSpread
                 {
                     saveRepository.SavePath = Path.Combine(
                         request.OutputDirectory,
-                        expressionMap.Name.Value + "." + IExpressionMapXmlRepository.Suffix
+                        expressionMap.Name.Value + IExpressionMapXmlRepository.Suffix
                     );
                     saveRepository.Save( xml.RootElement );
                 }
