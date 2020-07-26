@@ -2,10 +2,10 @@ using System.IO;
 
 using Newtonsoft.Json;
 
-using DestJsonRoot = ArticulationUtility.Entities.Json.Aggregate.JsonRoot;
-using DestJsonInfo = ArticulationUtility.Entities.Json.Value.Info;
-using DestMidiMappingInfo = ArticulationUtility.Entities.Json.Value.MidiMapping;
-using DestJsonArticulation = ArticulationUtility.Entities.Json.Value.Articulation;
+using EntityJsonRoot = ArticulationUtility.Entities.Json.Articulation.JsonRoot;
+using EntityJsonInfo = ArticulationUtility.Entities.Json.Articulation.Info;
+using EntityMidiMapping = ArticulationUtility.Entities.Json.Articulation.MidiMapping;
+using EntityJsonArticulation = ArticulationUtility.Entities.Json.Articulation.Articulation;
 
 namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
 {
@@ -13,10 +13,10 @@ namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
     {
         public string LoadPath { get; set; }
 
-        public DestJsonRoot Load()
+        public EntityJsonRoot Load()
         {
             var srcRoot = JsonConvert.DeserializeObject<JsonRoot>( File.ReadAllText( LoadPath ) );
-            var jsonRoot = new DestJsonRoot();
+            var jsonRoot = new EntityJsonRoot();
 
             jsonRoot.FormatVersion = srcRoot.FormatVersion;
 
@@ -31,19 +31,23 @@ namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
             #region Articulations
             foreach( var articulation in srcRoot.Articulations )
             {
-                var obj = new DestJsonArticulation();
-                obj.Name  = articulation.Name;
-                obj.Color = articulation.Color;
-                obj.Type  = articulation.Type;
-                obj.Group = articulation.Group;
+                var obj = new EntityJsonArticulation
+                {
+                    Name  = articulation.Name,
+                    Color = articulation.Color,
+                    Type  = articulation.Type,
+                    Group = articulation.Group
+                };
 
                 #region MidiMappings
                 foreach( var mapping in articulation.MidiMappings )
                 {
-                    var midi = new Entities.Json.Value.MidiMapping();
-                    midi.Status = mapping.Status;
-                    midi.Data1 = mapping.Data1;
-                    midi.Data2 = mapping.Data2;
+                    var midi = new EntityMidiMapping
+                    {
+                        Status = mapping.Status,
+                        Data1  = mapping.Data1,
+                        Data2  = mapping.Data2
+                    };
                     obj.MidiMappings.Add( midi );
                 }
                 #endregion

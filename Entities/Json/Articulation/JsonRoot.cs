@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 
-using ArticulationUtility.Entities.Json.Value;
-
-namespace ArticulationUtility.Entities.Json.Aggregate
+namespace ArticulationUtility.Entities.Json.Articulation
 {
     public class JsonRoot
     {
