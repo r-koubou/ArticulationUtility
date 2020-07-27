@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <AssemblyName>ArticulationUtility.Entities</AssemblyName>
+        <RootNamespace>ArticulationUtility.Entities</RootNamespace>
+        <Company>R-Koubou</Company>
+        <Product>ArticulationUtility.Entities</Product>
+        <Authors>R-Koubou</Authors>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Utilities\Utilities.csproj" />
+    </ItemGroup>
+
+</Project>
