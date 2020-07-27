@@ -13,10 +13,11 @@ namespace ArticulationUtility.Interactors.Testing.Converting.VSTExpressionMap.Fr
         [Test]
         public void ConvertTest()
         {
-            var loadRepository = new JsonRepository(){ LoadPath = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/Template/Template_ExpressionMap.json" };
-            var saveRepository = new ExpressionMapXmlRepository();
+            var loadRepository = new JsonFileRepository();
+            var saveRepository = new ExpressionMapFileRepository();
             var converter = new ConvertingToExpressionMapInteractor( loadRepository, saveRepository );
             var request = new ConvertingFileFormatRequest();
+            request.InputFile       = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/Template/Template_ExpressionMap.json";
             request.OutputDirectory = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp";
             converter.Convert( request );
         }

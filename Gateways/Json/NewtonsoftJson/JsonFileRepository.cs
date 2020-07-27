@@ -8,8 +8,9 @@ using ExternalJsonRoot = ArticulationUtility.Gateways.Json.NewtonsoftJson.JsonRo
 
 namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
 {
-    public class JsonRepository : IJsonRepository
+    public class JsonFileRepository : IFileRepository<EntityJsonRoot>
     {
+        public string Suffix { get; } = ".json";
         public string LoadPath { get; set; }
         public string SavePath { get; set; }
 

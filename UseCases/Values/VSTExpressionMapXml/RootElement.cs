@@ -4,24 +4,26 @@ using System.Xml.Serialization;
 namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml
 {
     [XmlRoot( ElementName = "InstrumentMap" )]
-    public class InstrumentMapElement
+    public class RootElement
     {
+        public string Name { get; set; }
+
         [XmlElement( ElementName = "string" )]
         public StringElement StringElement { get; set; }
 
         [XmlElement( ElementName = "member" )]
         public List<MemberElement> Member { get; set; } = new List<MemberElement>();
 
-        public InstrumentMapElement()
+        public RootElement()
         {
         }
 
-        public InstrumentMapElement( string name )
+        public RootElement( string name )
         {
             StringElement = new StringElement( "name", name );
         }
 
-        public InstrumentMapElement( StringElement stringElement, List<MemberElement> members )
+        public RootElement( StringElement stringElement, List<MemberElement> members )
         {
             StringElement = stringElement;
             Member.AddRange( members );

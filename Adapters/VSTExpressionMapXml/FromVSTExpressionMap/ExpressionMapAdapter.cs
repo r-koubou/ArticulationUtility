@@ -8,11 +8,11 @@ using ArticulationUtility.UseCases.Values.VSTExpressionMapXml.XmlClasses;
 
 namespace ArticulationUtility.Adapters.VSTExpressionMapXml.FromVSTExpressionMap
 {
-    public class ExpressionMapAdapter : IDataAdapter<ExpressionMap, List<ExpressionMapXml>>
+    public class ExpressionMapAdapter : IDataAdapter<ExpressionMap, List<RootElement>>
     {
-        public List<ExpressionMapXml> Convert( ExpressionMap source )
+        public List<RootElement> Convert( ExpressionMap source )
         {
-            var result = new List<ExpressionMapXml>();
+            var result = new List<RootElement>();
 
             #region List of USlotVisuals
             var listOfUSlotVisuals = new ListElement();
@@ -81,12 +81,9 @@ namespace ArticulationUtility.Adapters.VSTExpressionMapXml.FromVSTExpressionMap
             var instrumentMapElement = InstrumentMap.New( source.Name.Value );
             instrumentMapElement.Member.Add( slotvisuals );
             instrumentMapElement.Member.Add( slots );
+            instrumentMapElement.Name = source.Name.Value;
 
-            // Construction of XML structure
-            var expressionMapXml = new ExpressionMapXml();
-            expressionMapXml.FileName    = source.Name.Value;
-            expressionMapXml.RootElement = instrumentMapElement;
-            result.Add( expressionMapXml );
+            result.Add( instrumentMapElement );
 
             return result;
         }

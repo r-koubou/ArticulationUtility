@@ -2,9 +2,9 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml.XmlClasses
 {
     public static class InstrumentMap
     {
-        public static InstrumentMapElement New( string mapName)
+        public static RootElement New( string mapName)
         {
-            var obj = new InstrumentMapElement( mapName );
+            var obj = new RootElement( mapName );
 
             var controller = new MemberElement( "controller" );
             controller.Int.Add( new IntElement( "ownership", 1 ) );

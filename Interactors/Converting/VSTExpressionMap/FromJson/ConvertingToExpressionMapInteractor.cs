@@ -3,19 +3,25 @@ using System.IO;
 
 using ArticulationUtility.Adapters.VSTExpressionMap.FromJson;
 using ArticulationUtility.Adapters.VSTExpressionMapXml.FromVSTExpressionMap;
+using ArticulationUtility.Gateways;
 using ArticulationUtility.Gateways.Json.NewtonsoftJson;
 using ArticulationUtility.Gateways.VSTExpressionMapXml;
 using ArticulationUtility.UseCases.Converting;
+using ArticulationUtility.UseCases.Values.VSTExpressionMapXml;
+
+using JsonRoot = ArticulationUtility.Entities.Json.Articulation.JsonRoot;
 
 namespace ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromJson
 {
     public class ConvertingToExpressionMapInteractor : IConvertingUseCase<ConvertingFileFormatRequest>
     {
-        private IJsonRepository LoadRepository { get; }
+        private IFileRepository<JsonRoot> LoadRepository { get; }
 
-        private IExpressionMapXmlRepository SaveRepository { get; }
+        private IFileRepository<RootElement> SaveRepository { get; }
 
-        public ConvertingToExpressionMapInteractor( IJsonRepository loadRepository, IExpressionMapXmlRepository saveRepository )
+        public ConvertingToExpressionMapInteractor(
+            IFileRepository<JsonRoot> loadRepository,
+            IFileRepository<RootElement> saveRepository )
         {
             LoadRepository = loadRepository ?? throw new ArgumentNullException( nameof( loadRepository ) );
             SaveRepository = saveRepository ?? throw new ArgumentNullException( nameof( saveRepository ) );
@@ -23,6 +29,8 @@ namespace ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromJson
 
         public void Convert( ConvertingFileFormatRequest request )
         {
+            LoadRepository.LoadPath = request.InputFile;
+
             var json = LoadRepository.Load();
             var jsonAdapter = new JsonAdapter();
             var expressionMapAdapter = new ExpressionMapAdapter();
@@ -33,9 +41,9 @@ namespace ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromJson
                 {
                     SaveRepository.SavePath = Path.Combine(
                         request.OutputDirectory,
-                        expressionMap.Name.Value + IExpressionMapXmlRepository.Suffix
+                        expressionMap.Name.Value + SaveRepository.Suffix
                     );
-                    SaveRepository.Save( xml.RootElement );
+                    SaveRepository.Save( xml );
                 }
             }
         }

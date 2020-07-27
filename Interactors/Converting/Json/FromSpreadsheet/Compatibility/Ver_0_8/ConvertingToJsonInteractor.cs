@@ -3,8 +3,8 @@ using System.IO;
 
 using ArticulationUtility.Adapters.Json.FromVSTExpressionMap;
 using ArticulationUtility.Adapters.VSTExpressionMap.FromSpreadsheet.Compatibility.Ver_0_8;
-using ArticulationUtility.Gateways.Json.NewtonsoftJson;
-using ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap;
+using ArticulationUtility.Entities.Json.Articulation;
+using ArticulationUtility.Gateways;
 using ArticulationUtility.UseCases.Converting;
 using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_8.Aggregate;
 
@@ -12,13 +12,13 @@ namespace ArticulationUtility.Interactors.Converting.Json.FromSpreadsheet.Compat
 {
     public class ConvertingToJsonInteractor : IConvertingUseCase<ConvertingFileFormatRequest>
     {
-        private ISpreadsheetRepository<Workbook> LoadRepository { get; }
+        private IFileRepository<Workbook> LoadRepository { get; }
 
-        private IJsonRepository SaveRepository { get; }
+        private IFileRepository<JsonRoot> SaveRepository { get; }
 
         public ConvertingToJsonInteractor(
-            ISpreadsheetRepository<Workbook> loadRepository,
-            IJsonRepository saveRepository )
+            IFileRepository<Workbook> loadRepository,
+            IFileRepository<JsonRoot> saveRepository )
         {
             LoadRepository = loadRepository ?? throw new ArgumentNullException( nameof( loadRepository ) );
             SaveRepository = saveRepository ?? throw new ArgumentNullException( nameof( saveRepository ) );
@@ -26,6 +26,8 @@ namespace ArticulationUtility.Interactors.Converting.Json.FromSpreadsheet.Compat
 
         public void Convert( ConvertingFileFormatRequest request )
         {
+            LoadRepository.LoadPath = request.InputFile;
+
             var workbook = LoadRepository.Load();
             var toExpressionMapAdaptor = new WorkbookAdapter();
             var toJsonAdaptor = new ExpressionMapAdapter();
@@ -38,7 +40,7 @@ namespace ArticulationUtility.Interactors.Converting.Json.FromSpreadsheet.Compat
 
                 SaveRepository.SavePath = Path.Combine(
                     request.OutputDirectory,
-                    json.Info.Name + IJsonRepository.Suffix
+                    json.Info.Name + SaveRepository.Suffix
                 );
                 SaveRepository.Save( json );
             }

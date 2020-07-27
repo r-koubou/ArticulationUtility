@@ -36,10 +36,8 @@ namespace JsonToExpressionMap
             var parsed = (Parsed<CommandlineOption>)result;
             var option = parsed.Value;
 
-            var loadRepository = new JsonRepository();
-            var saveRepository = new ExpressionMapXmlRepository();
-
-            loadRepository.LoadPath = option.InputFileName;
+            var loadRepository = new JsonFileRepository();
+            var saveRepository = new ExpressionMapFileRepository();
 
             var useCase = new ConvertingToExpressionMapInteractor( loadRepository, saveRepository );
             var controller = new ConvertingFileFormatController( useCase );

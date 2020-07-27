@@ -14,7 +14,7 @@ using SourceRows    = System.Data.DataRowCollection;
 
 namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_8
 {
-    public class SpreadsheetRepository : ISpreadsheetRepository<Workbook>
+    public class SpreadsheetFileRepository : IFileRepository<Workbook>
     {
         private class ArticulationCellGroup
         {
@@ -24,9 +24,11 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
             public GroupIndexCell GroupIndexCell { get; set; }
         }
 
+        public string Suffix { get; } = ".xlsx";
         public string LoadPath { get; set; }
+        public string SavePath { get; set; }
 
-        static SpreadsheetRepository()
+        static SpreadsheetFileRepository()
         {
             // Workaround
             // "System.NotSupportedException: No data is available for encoding 1252"
@@ -34,10 +36,11 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
             Encoding.RegisterProvider( CodePagesEncodingProvider.Instance );
         }
 
-        public SpreadsheetRepository( Encoding encoding = null )
+        public SpreadsheetFileRepository()
         {
         }
 
+        #region Load
         public Workbook Load()
         {
             var result = new Workbook( LoadPath );
@@ -279,5 +282,13 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
 
         #endregion
 
+        #endregion Load
+
+        #region Save
+        public void Save( Workbook data )
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }
