@@ -42,6 +42,27 @@ namespace ArticulationUtility.Utilities
             return target;
         }
         #endregion Parser
+
+        #region Converter
+        public static bool TryFromInt<T>( int v, out T result ) where T : struct
+        {
+            result = default;
+            try
+            {
+                result = (T)Enum.ToObject( typeof( T ), v );
+                return true;
+            }
+            catch( Exception e )
+            {
+                return false;
+            }
+        }
+
+        public static T FromInt<T>( int v ) where T : struct
+        {
+            return (T)Enum.ToObject( typeof( T ), v );
+        }
+        #endregion
     }
 
     public class EnumValueNotFoundException : Exception

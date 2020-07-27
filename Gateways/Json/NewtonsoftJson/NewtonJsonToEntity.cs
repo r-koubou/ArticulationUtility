@@ -22,11 +22,12 @@ namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
             json.FormatVersion = source.FormatVersion;
 
             #region Info
-            json.Info.Version = source.Info.Version;
-            json.Info.Name    = source.Info.Name;
-            json.Info.Author  = source.Info.Author;
-            json.Info.Product = source.Info.Product;
-            json.Info.Url     = source.Info.Url;
+            json.Info.Version     = source.Info.Version;
+            json.Info.Name        = source.Info.Name;
+            json.Info.Author      = source.Info.Author;
+            json.Info.Product     = source.Info.Product;
+            json.Info.Url         = source.Info.Url;
+            json.Info.Description = source.Info.Description;
             #endregion Info
 
             #region Articulations

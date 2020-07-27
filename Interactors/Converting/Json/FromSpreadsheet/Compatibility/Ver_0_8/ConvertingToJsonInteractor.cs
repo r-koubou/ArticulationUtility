@@ -37,6 +37,7 @@ namespace ArticulationUtility.Interactors.Converting.Json.FromSpreadsheet.Compat
             foreach( var expressionMap in expressionMaps )
             {
                 var json = toJsonAdaptor.Convert( expressionMap );
+                json.Info.Description = "Converted from spreadsheet";
 
                 SaveRepository.SavePath = Path.Combine(
                     request.OutputDirectory,

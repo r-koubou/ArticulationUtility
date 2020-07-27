@@ -5,7 +5,8 @@
     "name": "Example - ProductName - Patchname",
     "author": "R-Koubou",
     "product": "Example Virtual Guitar",
-    "url": "https://www.example.com"
+    "url": "https://www.example.com",
+    "description": "your comment"
   },
   "articulations": [
     {

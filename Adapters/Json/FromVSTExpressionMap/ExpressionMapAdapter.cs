@@ -17,7 +17,6 @@ namespace ArticulationUtility.Adapters.Json.FromVSTExpressionMap
             #region Info
             json.Info.Name = source.Name.Value;
             json.Info.Version = "1.0.0";
-            json.Info.Author = "Converted from spreadsheet";
             #endregion Info
 
             #region Articulations
