@@ -6,6 +6,7 @@
         <Company>R-Koubou</Company>
         <AssemblyVersion>1.0.0</AssemblyVersion>
         <FileVersion>1.0.0</FileVersion>
+        <Product>Json To ExpressionMap</Product>
     </PropertyGroup>
 
     <ItemGroup>
@@ -15,5 +16,8 @@
     <ItemGroup>
       <ProjectReference Include="..\..\Controllers\Controllers.csproj" />
     </ItemGroup>
+
+    <!-- Output assenbly version to text file for including on deploy by msbuild script. -->
+    <Import Project="../GenerateVersion.msbuild.proj" />
 
 </Project>

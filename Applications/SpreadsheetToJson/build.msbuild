@@ -1,0 +1,9 @@
+<Project>
+    <PropertyGroup>
+        <ProjectName>SpreadsheetToJson</ProjectName>
+        <ProjectFile>SpreadsheetToJson.csproj</ProjectFile>
+    </PropertyGroup>
+
+    <Import Project="../Common.msbuild.proj" />
+
+</Project>
