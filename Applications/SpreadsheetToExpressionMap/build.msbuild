@@ -1,0 +1,9 @@
+<Project>
+    <PropertyGroup>
+        <ProjectName>SpreadsheetToExpressionMap</ProjectName>
+        <ProjectFile>SpreadsheetToExpressionMap.csproj</ProjectFile>
+    </PropertyGroup>
+
+    <Import Project="../Common.msbuild.proj" />
+
+</Project>

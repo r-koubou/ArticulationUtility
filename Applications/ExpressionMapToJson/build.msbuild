@@ -1,0 +1,9 @@
+<Project>
+    <PropertyGroup>
+        <ProjectName>ExpressionMapToJson</ProjectName>
+        <ProjectFile>ExpressionMapToJson.csproj</ProjectFile>
+    </PropertyGroup>
+
+    <Import Project="../Common.msbuild.proj" />
+
+</Project>
