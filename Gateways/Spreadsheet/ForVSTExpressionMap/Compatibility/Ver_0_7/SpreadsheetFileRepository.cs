@@ -6,6 +6,7 @@ using System.Text;
 using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap;
 using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_7.Aggregate;
 using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_7.Value;
+using ArticulationUtility.Utilities;
 
 using ExcelDataReader;
 
@@ -18,15 +19,15 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
     {
         private class ArticulationCellGroup
         {
-            public ArticulationNameCell NameCell { get; set; }
-            public ArticulationTypeCell TypeCell { get; set; }
-            public ColorIndexCell ColorIndexCell { get; set; }
-            public GroupIndexCell GroupIndexCell { get; set; }
+            public ArticulationNameCell NameCell { get; set; } = ArticulationNameCell.Empty;
+            public ArticulationTypeCell TypeCell { get; set; } = ArticulationTypeCell.Default;
+            public ColorIndexCell ColorIndexCell { get; set; } = ColorIndexCell.Default;
+            public GroupIndexCell GroupIndexCell { get; set; } = GroupIndexCell.Default;
         }
 
         public string Suffix { get; } = ".xlsx";
-        public string LoadPath { get; set; }
-        public string SavePath { get; set; }
+        public string LoadPath { get; set; } = string.Empty;
+        public string SavePath { get; set; } = string.Empty;
 
         static SpreadsheetFileRepository()
         {
@@ -34,10 +35,6 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
             // "System.NotSupportedException: No data is available for encoding 1252"
             // https://stackoverflow.com/questions/49215791/vs-code-c-sharp-system-notsupportedexception-no-data-is-available-for-encodin
             Encoding.RegisterProvider( CodePagesEncodingProvider.Instance );
-        }
-
-        public SpreadsheetFileRepository()
-        {
         }
 
         #region Load
@@ -51,8 +48,13 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
                 var dataSet = reader.AsDataSet();
                 var book = dataSet.Tables;
 
-                foreach( SourceSheet s in book )
+                foreach( SourceSheet? s in book )
                 {
+                    if( s == null )
+                    {
+                        throw new ObjectIsNullException();
+                    }
+
                     // Ignore sheet
                     if( s.TableName == CommonSheetConstants.DefinitionSheetName )
                     {
@@ -87,7 +89,8 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
             var outputName = rows[ SpreadsheetConstants.RowOutputIndex ]
                             .ItemArray[ SpreadsheetConstants.ColumnOutputNameIndex ].ToString();
 
-            worksheet.OutputNameCell = new OutputNameCell( outputName );
+            worksheet.OutputNameCell = outputName == null ?
+                OutputNameCell.Empty : new OutputNameCell( outputName );
 
             return worksheet;
         }
@@ -264,7 +267,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
             var columns = sheet.Columns;
 
             int i = 0;
-            result = null;
+            result = string.Empty;
 
             foreach( var name in rows[ SpreadsheetConstants.HeaderRowIndex ].ItemArray )
             {
@@ -277,7 +280,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
                         return false;
                     }
 
-                    result = cell.ToString();
+                    result = cell.ToString() ?? string.Empty;
 
                     return result != null &&
                            !string.IsNullOrEmpty( result.Trim() );

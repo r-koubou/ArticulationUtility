@@ -19,11 +19,6 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Co
 
         public bool Equals( MidiProgramCell other )
         {
-            if( other == null )
-            {
-                return false;
-            }
-
             return other.Value == Value;
         }
 

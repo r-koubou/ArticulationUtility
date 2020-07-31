@@ -6,6 +6,7 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Co
     {
         public static readonly ArticulationTypeCell Direction = new ArticulationTypeCell( "Direction" );
         public static readonly ArticulationTypeCell Attribute = new ArticulationTypeCell( "Attribute" );
+        public static readonly ArticulationTypeCell Default = Direction;
         public string Value { get; }
 
         public static ArticulationTypeCell Parse( string value )
@@ -35,11 +36,6 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Co
 
         public bool Equals( ArticulationTypeCell other )
         {
-            if( other == null )
-            {
-                return false;
-            }
-
             return other.Value == Value;
         }
 

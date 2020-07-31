@@ -1,11 +1,14 @@
 using System;
 
+using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_7.Value;
 using ArticulationUtility.Utilities;
 
 namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap
 {
     public class ArticulationNameCell : IEquatable<ArticulationNameCell>
     {
+        public static readonly ArticulationNameCell Empty
+            = new ArticulationNameCell( CellConstants.NotAvailableCellValue );
         public string Value { get; }
 
         public ArticulationNameCell( string name )
@@ -20,11 +23,6 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap
 
         public bool Equals( ArticulationNameCell other )
         {
-            if( other == null )
-            {
-                return false;
-            }
-
             return other.Value == Value;
         }
 

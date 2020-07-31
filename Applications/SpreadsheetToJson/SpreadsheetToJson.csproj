@@ -8,6 +8,7 @@
         <AssemblyVersion>1.0.0</AssemblyVersion>
         <FileVersion>1.0.0</FileVersion>
         <Product>Spreadsheet To Json</Product>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>

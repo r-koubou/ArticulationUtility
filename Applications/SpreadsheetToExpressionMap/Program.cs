@@ -13,10 +13,10 @@ namespace SpreadsheetToExpressionMap
         private const string HelpOutputDirectory = "Output directory of *.expressionmap";
 
         [Option( 'i', "input", Required = true, HelpText = HelpInputFileName )]
-        public string InputFileName { get; set; }
+        public string InputFileName { get; set; } = string.Empty;
 
         [Option( 'o', "outputdir", Required = true, HelpText = HelpOutputDirectory )]
-        public string OutputDirectory { get; set; }
+        public string OutputDirectory { get; set; } = string.Empty;
 
     }
     public class Program

@@ -8,6 +8,7 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Co
     {
         public const int MinValue = 0;
         public const int MaxValue = 255;
+        public static readonly ColorIndexCell Default = new ColorIndexCell( MinValue );
         public int Value { get; }
 
         public ColorIndexCell( int index )
@@ -18,11 +19,6 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Co
 
         public bool Equals( ColorIndexCell other )
         {
-            if( other == null )
-            {
-                return false;
-            }
-
             return other.Value == Value;
         }
 

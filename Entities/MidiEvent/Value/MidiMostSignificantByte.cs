@@ -20,11 +20,6 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
 
         public bool Equals( MidiMostSignificantByte other )
         {
-            if( other == null )
-            {
-                return false;
-            }
-
             return other.Value == Value;
         }
 

@@ -129,16 +129,13 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml.XmlClasses
 #endif
         #endregion
 
-        public static ObjectElement New( string slotName = null, int color = -1 )
+        public static ObjectElement New( string slotName = "", int color = -1 )
         {
            var obj = new ObjectElement( "PSoundSlot" );
 
-           if( slotName != null )
-           {
-              var m = new MemberElement( "name" );
-              m.String.Add( new StringElement( "s", slotName ) );
-              obj.Member.Add( m );
-           }
+           var m = new MemberElement( "name" );
+           m.String.Add( new StringElement( "s", slotName ) );
+           obj.Member.Add( m );
 
            if( color >= 0 )
            {

@@ -19,11 +19,6 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.Value
 
         public bool Equals( ArticulationId other )
         {
-            if( other == null )
-            {
-                return false;
-            }
-
             return other.Value == Value;
         }
 

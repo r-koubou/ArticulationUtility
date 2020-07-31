@@ -307,11 +307,6 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
 
         public bool Equals( MidiNoteName other )
         {
-            if( other == null )
-            {
-                return false;
-            }
-
             return other.Value == Value;
         }
 

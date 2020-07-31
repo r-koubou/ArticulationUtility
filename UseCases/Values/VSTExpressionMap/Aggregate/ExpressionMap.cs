@@ -13,9 +13,9 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.Aggregate
         public Dictionary<ArticulationId, Articulation> Articulations { get; } = new Dictionary<ArticulationId, Articulation>();
         public List<SoundSlot> SoundSlots { get; } = new List<SoundSlot>();
 
-        public ExpressionMap( ExpressionMapName name = null )
+        public ExpressionMap( ExpressionMapName name )
         {
-            Name = name ?? new ExpressionMapName( "default.out" );
+            Name = name;
         }
     }
 }

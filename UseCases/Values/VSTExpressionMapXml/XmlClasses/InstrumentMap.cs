@@ -53,7 +53,7 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml.XmlClasses
 
         }
 
-        public static MemberElement Slots( ListElement listOfPSoundSlot = null )
+        public static MemberElement Slots( ListElement listOfPSoundSlot )
         {
             var member = new MemberElement( "slots" );
 

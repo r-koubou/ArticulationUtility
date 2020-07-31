@@ -8,6 +8,7 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Co
     {
         public const int MinValue = 1;
         public const int MaxValue = 16;
+        public static readonly GroupIndexCell Default = new GroupIndexCell( MinValue );
 
         public int Value { get; }
 
@@ -19,11 +20,6 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Co
 
         public bool Equals( GroupIndexCell other )
         {
-            if( other == null )
-            {
-                return false;
-            }
-
             return other.Value == Value;
         }
 

@@ -20,7 +20,7 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml
         public string ClassName { get; set; } = string.Empty;
 
         [XmlAttribute( AttributeName = "name" )]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [XmlAttribute( AttributeName = "ID" )]
         public string Id { get; set; }
