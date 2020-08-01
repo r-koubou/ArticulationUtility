@@ -59,22 +59,25 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml.XmlClasses
 
         public static ObjectElement New( ListElement listOfPOutputEvent )
         {
-            var obj = new ObjectElement( "PSlotMidiAction" );
-            obj.Name = "action";
-            obj.Int.Add( new IntElement( "version", 600 ) );
+           var obj = new ObjectElement( "PSlotMidiAction" )
+           {
+              Name = "action"
+           };
 
-            obj.Member.Add( NoteChanger() );
-            obj.Member.Add( MidiMessages( listOfPOutputEvent ) );
+           obj.Int.Add( new IntElement( "version", 600 ) );
 
-            obj.Int.Add( new IntElement( "channel", -1 ) );
-            obj.Float.Add( new FloatElement( "velocityFact", 1f ) );
-            obj.Float.Add( new FloatElement( "lengthFact",   1f ) );
-            obj.Int.Add( new IntElement( "minVelocity", 0 ) );
-            obj.Int.Add( new IntElement( "maxVelocity", 127 ) );
-            obj.Int.Add( new IntElement( "transpose",   0 ) );
-            obj.Int.Add( new IntElement( "minPitch",    0 ) );
-            obj.Int.Add( new IntElement( "maxPitch",    127 ) );
-            obj.Int.Add( new IntElement( "key",         0 ) );
+           obj.Member.Add( NoteChanger() );
+           obj.Member.Add( MidiMessages( listOfPOutputEvent ) );
+
+           obj.Int.Add( new IntElement( "channel", -1 ) );
+           obj.Float.Add( new FloatElement( "velocityFact", 1f ) );
+           obj.Float.Add( new FloatElement( "lengthFact",   1f ) );
+           obj.Int.Add( new IntElement( "minVelocity", 0 ) );
+           obj.Int.Add( new IntElement( "maxVelocity", 127 ) );
+           obj.Int.Add( new IntElement( "transpose",   0 ) );
+           obj.Int.Add( new IntElement( "minPitch",    0 ) );
+           obj.Int.Add( new IntElement( "maxPitch",    127 ) );
+           obj.Int.Add( new IntElement( "key",         0 ) );
 
             return obj;
         }

@@ -12,9 +12,11 @@ namespace ArticulationUtility.Interactors.Testing.Converting.VSTExpressionMap.Fr
         public void ConvertTest()
         {
             var converter = new ConvertingToExpressionMapInteractor();
-            var request = new ConvertingFileFormatRequest();
-            request.InputFile = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp/Template_0_8.xlsx";
-            request.OutputDirectory = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp";
+            var request = new ConvertingFileFormatRequest
+            {
+                InputFile       = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp/Template_0_8.xlsx",
+                OutputDirectory = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp"
+            };
             converter.Convert( request );
         }
     }

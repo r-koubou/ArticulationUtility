@@ -16,9 +16,11 @@ namespace ArticulationUtility.Interactors.Testing.Converting.VSTExpressionMap.Fr
             var loadRepository = new JsonFileRepository();
             var saveRepository = new ExpressionMapFileRepository();
             var converter = new ConvertingToExpressionMapInteractor( loadRepository, saveRepository );
-            var request = new ConvertingFileFormatRequest();
-            request.InputFile       = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/Template/Template_ExpressionMap.json";
-            request.OutputDirectory = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp";
+            var request = new ConvertingFileFormatRequest
+            {
+                InputFile       = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/Template/Template_ExpressionMap.json",
+                OutputDirectory = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp"
+            };
             converter.Convert( request );
         }
     }

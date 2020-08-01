@@ -34,10 +34,11 @@ namespace SpreadsheetToExpressionMap
 
             var useCase = ConvertingInteractorFactory.Create( option.InputFileName );
             var controller = new ConvertingFileFormatController( useCase );
-            var request = new ConvertingFileFormatRequest();
-
-            request.InputFile       = option.InputFileName;
-            request.OutputDirectory = option.OutputDirectory;
+            var request = new ConvertingFileFormatRequest
+            {
+                InputFile       = option.InputFileName,
+                OutputDirectory = option.OutputDirectory
+            };
 
             controller.Convert( request );
         }

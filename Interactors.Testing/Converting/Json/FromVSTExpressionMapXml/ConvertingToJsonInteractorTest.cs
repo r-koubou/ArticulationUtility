@@ -16,9 +16,11 @@ namespace ArticulationUtility.Interactors.Testing.Converting.Json.FromVSTExpress
             var loadRepository = new ExpressionMapFileRepository();
             var saveRepository = new JsonFileRepository();
             var converter = new ConvertingToJsonInteractor( loadRepository, saveRepository );
-            var request = new ConvertingFileFormatRequest();
-            request.InputFile       = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp/2.expressionmap";
-            request.OutputDirectory = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp";
+            var request = new ConvertingFileFormatRequest
+            {
+                InputFile       = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp/2.expressionmap",
+                OutputDirectory = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp"
+            };
             converter.Convert( request );
         }
     }

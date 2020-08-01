@@ -16,9 +16,11 @@ namespace ArticulationUtility.Interactors.Testing.Converting.Json.FromSpreadshee
             var loadRepository = new SpreadsheetFileRepository();
             var saveRepository = new JsonFileRepository();
             var converter = new ConvertingToJsonInteractor( loadRepository, saveRepository );
-            var request = new ConvertingFileFormatRequest();
-            request.InputFile       = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp/Template_0_8.xlsx";
-            request.OutputDirectory = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp";
+            var request = new ConvertingFileFormatRequest
+            {
+                InputFile       = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp/Template_0_8.xlsx",
+                OutputDirectory = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp"
+            };
             converter.Convert( request );
         }
     }
