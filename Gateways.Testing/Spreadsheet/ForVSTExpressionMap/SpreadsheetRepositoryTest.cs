@@ -10,7 +10,10 @@ namespace ArticulationUtility.Gateways.Testing.Spreadsheet.ForVSTExpressionMap
         [Test]
         public void LoadTest()
         {
-            var repository = new SpreadsheetFileRepository(){ LoadPath = "/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp/Template.xlsx" };
+            var repository = new SpreadsheetFileRepository
+            {
+                LoadPath = "/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp/Template.xlsx"
+            };
             var workbook = repository.Load();
 
             Assert.IsNotNull( workbook );

@@ -76,7 +76,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
             Worksheet worksheet = new Worksheet( sheet.TableName );
             for( int rowIndex = SpreadsheetConstants.StartRowIndex; rowIndex < rows.Count; rowIndex++ )
             {
-                var context = new CellContext()
+                var context = new CellContext
                 {
                     Sheet    = sheet,
                     Row      = rows[ rowIndex ],
@@ -156,7 +156,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
                     break;
                 }
 
-                var obj = new Row.MidiNote()
+                var obj = new Row.MidiNote
                 {
                     Note     = new MidiNoteNumberCell( noteNumberCell ),
                     Velocity =  new MidiNoteVelocityCell( velocityValue )
@@ -191,7 +191,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
                     break;
                 }
 
-                var obj = new Row.MidiControlChange()
+                var obj = new Row.MidiControlChange
                 {
                     CcNumber = new MidiControlChangeNumberCell( int.Parse( ccNumberCell ) ),
                     CcValue  = new MidiControlChangeValueCell( int.Parse( ccValueCell ) )
@@ -226,7 +226,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
                     pcMsbCell = "0";
                 }
 
-                var obj = new Row.MidiProgramChange()
+                var obj = new Row.MidiProgramChange
                 {
                     Lsb = new MidiProgramChangeLsbCell( int.Parse( pcLsbCell ) ),
                     Msb = new MidiProgramChangeMsbCell( int.Parse( pcMsbCell ) )

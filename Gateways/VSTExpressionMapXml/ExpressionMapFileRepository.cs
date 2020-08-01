@@ -16,7 +16,7 @@ namespace ArticulationUtility.Gateways.VSTExpressionMapXml
         public RootElement Load()
         {
             var deserializer = new XmlSerializer( typeof(RootElement) );
-            var settings = new XmlReaderSettings()
+            var settings = new XmlReaderSettings
             {
                 CheckCharacters = true
             };

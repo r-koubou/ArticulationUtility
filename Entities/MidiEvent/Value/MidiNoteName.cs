@@ -271,7 +271,7 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
         /// <summary>
         /// A list containing the index and scale name of the list in sequential form.
         /// </summary>
-        private static readonly IReadOnlyList<string> NoteNameList = new List<string>()
+        private static readonly IReadOnlyList<string> NoteNameList = new List<string>
         {
             C_M2,
             C_Sharp_M2,
@@ -400,7 +400,7 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
             E_8,
             F_8,
             F_Sharp_8,
-            G_8,
+            G_8
         };
 
         public string Value { get; }

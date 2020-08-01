@@ -7,6 +7,6 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap
     {
         Unknown,
         Ver_0_7,
-        Ver_0_8,
+        Ver_0_8
     }
 }

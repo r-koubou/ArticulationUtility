@@ -13,7 +13,10 @@ namespace ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromSpread
 
         public void Convert( ConvertingFileFormatRequest request )
         {
-            var loadRepository = new SpreadsheetFileRepository(){ LoadPath = request.InputFile };
+            var loadRepository = new SpreadsheetFileRepository
+            {
+                LoadPath = request.InputFile
+            };
             var saveRepository = new ExpressionMapFileRepository();
             var workbook = loadRepository.Load();
             var workBookAdapter = new WorkbookAdapter();

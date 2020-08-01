@@ -16,7 +16,7 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.Aggregate
             Id    = id ?? throw new ArgumentNullException( $"{nameof( id )}" );
             Name  = name ?? throw new ArgumentNullException( $"{nameof( name )}" );
             Type  = type;
-            Group = @group ?? throw new ArgumentNullException( $"{nameof( @group )}" );
+            Group = group ?? throw new ArgumentNullException( $"{nameof( group )}" );
         }
     }
 }

@@ -30,7 +30,7 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Co
         static MidiNoteNumberCell()
         {
             #region Mapper
-            NoteNameList = new List<string>()
+            NoteNameList = new List<string>
             {
                 "C-2 (0)",
                 "C#-2 (1)",
@@ -159,7 +159,7 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Co
                 "E8 (124)",
                 "F8 (125)",
                 "F#8 (126)",
-                "G8 (127)",
+                "G8 (127)"
             };
 
             const int minValue = 0x00;
