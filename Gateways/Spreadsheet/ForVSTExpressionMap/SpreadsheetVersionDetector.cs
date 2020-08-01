@@ -43,13 +43,12 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap
 
                     var value = sheet.Rows[ 0 ][ 0 ].ToString();
 
-                    if( value == "MIDI Notes" )
+                    switch( value )
                     {
-                        return SpreadsheetVersion.Ver_0_7;
-                    }
-                    if( value == "Version 0.8" )
-                    {
-                        return SpreadsheetVersion.Ver_0_8;
+                        case "MIDI Notes":
+                            return SpreadsheetVersion.Ver_0_7;
+                        case "Version 0.8":
+                            return SpreadsheetVersion.Ver_0_8;
                     }
                 }
 

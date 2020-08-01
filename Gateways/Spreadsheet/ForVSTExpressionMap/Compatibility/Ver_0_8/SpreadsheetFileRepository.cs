@@ -42,28 +42,27 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
         {
             var result = new Workbook( LoadPath );
 
-            using( var stream = File.Open( LoadPath, FileMode.Open, FileAccess.Read ) )
-            using( var reader = ExcelReaderFactory.CreateReader( stream ) )
+            using var stream = File.Open( LoadPath, FileMode.Open, FileAccess.Read );
+            using var reader = ExcelReaderFactory.CreateReader( stream );
+
+            var dataSet = reader.AsDataSet();
+            var book = dataSet.Tables;
+
+            foreach( SourceSheet? s in book )
             {
-                var dataSet = reader.AsDataSet();
-                var book = dataSet.Tables;
-
-                foreach( SourceSheet? s in book )
+                if( s == null )
                 {
-                    if( s == null )
-                    {
-                        throw new ObjectIsNullException();
-                    }
-
-                    // Ignore sheet
-                    if( s.TableName == CommonSheetConstants.DefinitionSheetName )
-                    {
-                        continue;
-                    }
-
-                    Worksheet worksheet = ParseWorksheet( s );
-                    result.Worksheets.Add( worksheet );
+                    throw new ObjectIsNullException();
                 }
+
+                // Ignore sheet
+                if( s.TableName == CommonSheetConstants.DefinitionSheetName )
+                {
+                    continue;
+                }
+
+                Worksheet worksheet = ParseWorksheet( s );
+                result.Worksheets.Add( worksheet );
             }
 
             return result;
@@ -97,11 +96,9 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
 
         private Row ParseRow( CellContext context )
         {
-            Row row;
-
             var articulationCellGroup = ParseArticulation( context );
 
-            row = new Row(
+            var row = new Row(
                 articulationCellGroup.NameCell,
                 articulationCellGroup.TypeCell,
                 articulationCellGroup.ColorIndexCell,
