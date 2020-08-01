@@ -20,15 +20,12 @@ namespace ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromSpread
         {
             var version = SpreadsheetVersionDetector.Detect( spreadSheetFilePath );
 
-            switch( version )
+            return version switch
             {
-                case SpreadsheetVersion.Ver_0_7:
-                    return new InteractorVer_0_7();
-                case SpreadsheetVersion.Ver_0_8:
-                    return new InteractorVer_0_8();
-                default:
-                    throw new InteractorNotFoundException( version );
-            }
+                SpreadsheetVersion.Ver_0_7 => new InteractorVer_0_7(),
+                SpreadsheetVersion.Ver_0_8 => new InteractorVer_0_8(),
+                _                          => throw new InteractorNotFoundException( version )
+            };
         }
     }
 }
