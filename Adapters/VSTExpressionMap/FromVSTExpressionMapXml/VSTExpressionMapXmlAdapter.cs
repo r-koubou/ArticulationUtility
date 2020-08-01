@@ -80,7 +80,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromVSTExpressionMapXml
         }
 
         #region Parser
-        private static MemberElement Slots( IReadOnlyList<MemberElement> xml )
+        private static MemberElement Slots( IEnumerable<MemberElement> xml )
         {
             foreach( var element in xml )
             {
