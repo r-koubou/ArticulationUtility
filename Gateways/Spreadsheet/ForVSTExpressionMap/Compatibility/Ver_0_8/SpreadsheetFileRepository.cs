@@ -131,7 +131,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
             return articulationCellGroup;
         }
 
-        private List<Row.MidiNote> ParseMidiNotes( CellContext context )
+        private IEnumerable<Row.MidiNote> ParseMidiNotes( CellContext context )
         {
             //----------------------------------------------------------------------
             // MIDI Notes
@@ -168,7 +168,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
             return notes;
         }
 
-        private List<Row.MidiControlChange> ParseMidiControlChanges( CellContext context )
+        private IEnumerable<Row.MidiControlChange> ParseMidiControlChanges( CellContext context )
         {
             //----------------------------------------------------------------------
             // MIDI CC
@@ -203,7 +203,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
             return controlChanges;
         }
 
-        private List<MidiProgramCell> ParseMidiProgramChanges( CellContext context )
+        private IEnumerable<MidiProgramCell> ParseMidiProgramChanges( CellContext context )
         {
             //----------------------------------------------------------------------
             // Program (MIDI Program Change?)

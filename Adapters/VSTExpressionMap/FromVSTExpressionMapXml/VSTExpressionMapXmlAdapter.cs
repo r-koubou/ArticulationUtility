@@ -92,7 +92,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromVSTExpressionMapXml
             throw new ElementNotFoundException( "slots" );
         }
 
-        private static IReadOnlyList<ObjectElement> PSoundSlot( RootElement xml )
+        private static IEnumerable<ObjectElement> PSoundSlot( RootElement xml )
         {
             var result = new List<ObjectElement>();
             var slots = Slots( xml.Member );
@@ -168,7 +168,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromVSTExpressionMapXml
             throw new ElementNotFoundException( "USlotVisuals" );
         }
 
-        private static IReadOnlyList<ObjectElement> MidiMessages( ObjectElement psoundSlot )
+        private static IEnumerable<ObjectElement> MidiMessages( ObjectElement psoundSlot )
         {
             var result = new List<ObjectElement>();
 
