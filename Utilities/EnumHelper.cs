@@ -9,7 +9,14 @@ namespace ArticulationUtility.Utilities
         // https://qiita.com/masaru/items/a44dc30bfc18aac95015
         public static bool TryParse<TEnum>( string text, out TEnum target, TEnum defaultValue ) where TEnum : struct
         {
-            return Enum.TryParse( text, out target ) && Enum.IsDefined( typeof( TEnum ), target );
+            if( Enum.TryParse( text, out target ) || !Enum.IsDefined( typeof( TEnum ), target ) )
+            {
+                return true;
+            }
+
+            target = defaultValue;
+            return false;
+
         }
 
         public static TEnum Parse<TEnum>( string text, TEnum defaultValue ) where TEnum : struct
