@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ArticulationUtility.UseCases.Values.Json.Articulation
+namespace ArticulationUtility.UseCases.Values.Json.ForArticulation.Value
 {
     public class Articulation
     {

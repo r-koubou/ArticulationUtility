@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
+namespace ArticulationUtility.Gateways.Json.NewtonsoftJson.Internal
 {
     internal class MidiMapping
     {

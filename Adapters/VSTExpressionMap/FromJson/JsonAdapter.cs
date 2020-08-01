@@ -2,15 +2,14 @@ using System.Collections.Generic;
 
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
 using ArticulationUtility.Entities.MidiEvent.Value;
-using ArticulationUtility.UseCases.Values.Json.Articulation;
+using ArticulationUtility.UseCases.Values.Json.ForArticulation.Aggregate;
 using ArticulationUtility.UseCases.Values.VSTExpressionMap.Aggregate;
 using ArticulationUtility.UseCases.Values.VSTExpressionMap.MidiEvent.Aggregate;
 using ArticulationUtility.UseCases.Values.VSTExpressionMap.MidiEvent.Value;
 using ArticulationUtility.UseCases.Values.VSTExpressionMap.Value;
 using ArticulationUtility.Utilities;
 
-using Articulation = ArticulationUtility.UseCases.Values.VSTExpressionMap.Aggregate.Articulation;
-using ArticulationJson = ArticulationUtility.UseCases.Values.Json.Articulation.Articulation;
+using ArticulationJson = ArticulationUtility.UseCases.Values.Json.ForArticulation.Value.Articulation;
 
 namespace ArticulationUtility.Adapters.VSTExpressionMap.FromJson
 {
