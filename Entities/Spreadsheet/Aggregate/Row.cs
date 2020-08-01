@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
 using ArticulationUtility.Entities.Spreadsheet.Value;
 
-namespace ArticulationUtility.Entities.Spreadsheet
+namespace ArticulationUtility.Entities.Spreadsheet.Aggregate
 {
 
     public class Row : IRow

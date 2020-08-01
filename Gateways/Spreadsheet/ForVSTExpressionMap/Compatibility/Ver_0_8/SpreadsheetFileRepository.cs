@@ -257,7 +257,6 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
         private static bool TryParseSheet( SourceSheet sheet, int rowIndex, string columnName, out string result )
         {
             var rows       = sheet.Rows;
-            var columns = sheet.Columns;
 
             int i = 0;
             result = string.Empty;

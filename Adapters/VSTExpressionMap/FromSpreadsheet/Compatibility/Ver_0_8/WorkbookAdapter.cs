@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 
 using ArticulationUtility.Adapters.MidiEvent.FromSpreadsheet.Compatibility.Ver_0_8;
-using ArticulationUtility.Entities;
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
 using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_8.Aggregate;
 using ArticulationUtility.UseCases.Values.VSTExpressionMap.Aggregate;
@@ -36,7 +35,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromSpreadsheet.Compatib
             {
                 var articulationId = idGenerator.Next();
                 var articulationName = new ArticulationName( row.ArticulationName.Value );
-                var articulationType = EnumHelper.Parse<ArticulationType>( row.ArticulationType.Value, ArticulationType.Default );
+                var articulationType = EnumHelper.Parse( row.ArticulationType.Value, ArticulationType.Default );
                 var articulationGroup = new ArticulationGroup( row.GroupIndex.Value );
                 var articulation = new Articulation( articulationId, articulationName, articulationType, articulationGroup );
 

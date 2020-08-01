@@ -1,6 +1,8 @@
+using System;
+
 namespace ArticulationUtility.Gateways.Spreadsheet
 {
-    public class InvalidCellValueException : System.Exception
+    public class InvalidCellValueException : Exception
     {
         public InvalidCellValueException()
         {}

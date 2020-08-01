@@ -1,5 +1,3 @@
-using System.Resources;
-
 using ArticulationUtility.UseCases.Values.VSTExpressionMap.Value;
 using ArticulationUtility.Utilities;
 

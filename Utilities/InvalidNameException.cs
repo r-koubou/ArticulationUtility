@@ -1,6 +1,8 @@
+using System;
+
 namespace ArticulationUtility.Utilities
 {
-    public class InvalidNameException : System.Exception
+    public class InvalidNameException : Exception
     {
         public InvalidNameException()
         {

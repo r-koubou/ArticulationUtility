@@ -2,8 +2,7 @@ namespace ArticulationUtility.Entities.Spreadsheet.Value
 {
     public class NullCell : ICell
     {
-        private static readonly ICell instance = new NullCell();
-        public static ICell Instance => instance;
+        public static ICell Instance { get; } = new NullCell();
 
         public string Value { get; } = string.Empty;
 

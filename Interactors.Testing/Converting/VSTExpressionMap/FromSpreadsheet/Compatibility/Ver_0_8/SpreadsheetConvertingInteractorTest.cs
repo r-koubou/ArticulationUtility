@@ -1,4 +1,3 @@
-using ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_8;
 using ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromSpreadsheet.Compatibility.Ver_0_8;
 using ArticulationUtility.UseCases.Converting;
 

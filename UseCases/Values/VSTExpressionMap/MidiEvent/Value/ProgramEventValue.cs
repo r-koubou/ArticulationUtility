@@ -1,4 +1,3 @@
-using ArticulationUtility.Entities.MidiEvent.Aggregate;
 using ArticulationUtility.Entities.MidiEvent.Value;
 using ArticulationUtility.Utilities;
 

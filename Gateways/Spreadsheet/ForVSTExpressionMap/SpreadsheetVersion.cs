@@ -1,5 +1,8 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap
 {
+    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
     public enum SpreadsheetVersion
     {
         Unknown,

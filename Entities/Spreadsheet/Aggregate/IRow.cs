@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-
 using ArticulationUtility.Entities.Spreadsheet.Value;
 
-namespace ArticulationUtility.Entities.Spreadsheet
+namespace ArticulationUtility.Entities.Spreadsheet.Aggregate
 {
     public interface IRow
     {
@@ -13,8 +10,7 @@ namespace ArticulationUtility.Entities.Spreadsheet
     }
     public class NullRow : IRow
     {
-        private static readonly IRow instance = new Row();
-        public static IRow Instance => instance;
+        public static IRow Instance { get; } = new NullRow();
 
         private NullRow()
         {

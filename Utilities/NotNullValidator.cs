@@ -1,5 +1,3 @@
-using System;
-
 namespace ArticulationUtility.Utilities
 {
     public static class NotNullValidator

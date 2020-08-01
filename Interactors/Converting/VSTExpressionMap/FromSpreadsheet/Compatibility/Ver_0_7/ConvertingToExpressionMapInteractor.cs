@@ -6,7 +6,6 @@ using ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibility
 using ArticulationUtility.Gateways.VSTExpressionMapXml;
 using ArticulationUtility.UseCases.Converting;
 
-
 namespace ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromSpreadsheet.Compatibility.Ver_0_7
 {
     public class ConvertingToExpressionMapInteractor : IConvertingUseCase<ConvertingFileFormatRequest>

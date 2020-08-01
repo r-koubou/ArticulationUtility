@@ -1,5 +1,4 @@
 ﻿using ArticulationUtility.Controllers;
-using ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromSpreadsheet;
 using ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromSpreadsheet.Compatibility;
 using ArticulationUtility.UseCases.Converting;
 

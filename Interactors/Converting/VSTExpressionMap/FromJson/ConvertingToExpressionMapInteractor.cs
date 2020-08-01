@@ -3,13 +3,10 @@ using System.IO;
 
 using ArticulationUtility.Adapters.VSTExpressionMap.FromJson;
 using ArticulationUtility.Adapters.VSTExpressionMapXml.FromVSTExpressionMap;
+using ArticulationUtility.Entities.Json.Articulation;
 using ArticulationUtility.Gateways;
-using ArticulationUtility.Gateways.Json.NewtonsoftJson;
-using ArticulationUtility.Gateways.VSTExpressionMapXml;
 using ArticulationUtility.UseCases.Converting;
 using ArticulationUtility.UseCases.Values.VSTExpressionMapXml;
-
-using JsonRoot = ArticulationUtility.Entities.Json.Articulation.JsonRoot;
 
 namespace ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromJson
 {

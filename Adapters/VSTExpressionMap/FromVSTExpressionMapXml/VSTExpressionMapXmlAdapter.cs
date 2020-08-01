@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using ArticulationUtility.Entities;
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
 using ArticulationUtility.Entities.MidiEvent.Value;
 using ArticulationUtility.UseCases.Values.VSTExpressionMap.Aggregate;
@@ -113,6 +111,8 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromVSTExpressionMapXml
             return result;
         }
 
+        #region Not use (keep)
+#if false
         private static IReadOnlyList<ObjectElement> SlotVisuals( RootElement xml )
         {
             var result = new List<ObjectElement>();
@@ -138,6 +138,8 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromVSTExpressionMapXml
 
             return result;
         }
+#endif
+        #endregion
 
         private static MemberElement Sv( ObjectElement psoundSlot )
         {

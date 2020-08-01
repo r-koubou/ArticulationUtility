@@ -9,7 +9,7 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml
         public string Name { get; set; } = string.Empty;
 
         [XmlAttribute( AttributeName = "value" )]
-        public int Value { get; set; } = 0;
+        public int Value { get; set; }
 
         public IntElement()
         {}

@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 
-using ArticulationUtility.Entities;
-using ArticulationUtility.Entities.Json;
 using ArticulationUtility.Entities.Json.Articulation;
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
 using ArticulationUtility.Entities.MidiEvent.Value;
@@ -44,7 +42,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromJson
         private static Articulation ParseArticulation( ArticulationJson obj, ArticulationId articulationId )
         {
             var articulationName = new ArticulationName( obj.Name );
-            var articulationType = EnumHelper.Parse<ArticulationType>( obj.Type, ArticulationType.Default );
+            var articulationType = EnumHelper.Parse( obj.Type, ArticulationType.Default );
             var articulationGroup = new ArticulationGroup( obj.Group );
             var articulation = new Articulation( articulationId, articulationName, articulationType, articulationGroup );
 
@@ -85,7 +83,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromJson
                         var data2 = new GenericMidiEventValue( int.Parse( midi.Data2 ) );
                         mapping = new GenericMidiEvent( status, data1, data2 );
                         break;
-                };
+                }
 
                 soundSlot.OutputMappings.Add( mapping );
             }

@@ -193,6 +193,6 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Co
             return other.Value == Value;
         }
 
-        public override string ToString() => Value.ToString();
+        public override string ToString() => Value;
     }
 }

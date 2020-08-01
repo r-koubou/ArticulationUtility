@@ -13,10 +13,10 @@ namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
         public string Type { get; set; } = string.Empty;
 
         [JsonProperty( "color" )]
-        public int Color { get; set; } = 0;
+        public int Color { get; set; }
 
         [JsonProperty( "group" )]
-        public int Group { get; set; } = 0;
+        public int Group { get; set; }
 
         [JsonProperty( "midi_mapping" )]
         public List<MidiMapping> MidiMappings { get; set; } = new List<MidiMapping>();

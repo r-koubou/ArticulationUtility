@@ -1,6 +1,8 @@
+using System;
+
 namespace ArticulationUtility.Adapters.VSTExpressionMap.FromVSTExpressionMapXml
 {
-    public class ElementNotFoundException : System.Exception
+    public class ElementNotFoundException : Exception
     {
         public ElementNotFoundException( string elementName ) :
             base( $"Element {elementName} : not found")
