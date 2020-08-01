@@ -19,7 +19,9 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromVSTExpressionMapXml
 
             var idGenerator = new ArticulationIdGenerator();
 
-            foreach( var slot in psoundSlot )
+            var objectElements = psoundSlot.ToList();
+
+            foreach( var slot in objectElements )
             {
                 var sv = Sv( slot );
                 var uslotVisuals = USlotVisuals( sv );
@@ -40,7 +42,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromVSTExpressionMapXml
                 result.Articulations.Add( id, articulation );
             }
 
-            foreach( var slot in psoundSlot )
+            foreach( var slot in objectElements )
             {
                 var sv = Sv( slot );
                 var uslotVisuals = USlotVisuals( sv );
@@ -52,7 +54,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromVSTExpressionMapXml
                     new SoundSlotColorIndex( color ) );
 
                 var refIdPairs =
-                    result.Articulations.Where( ( x ) => x.Value.Name.Value == articulationName ).ToArray();
+                    result.Articulations.Where( x => x.Value.Name.Value == articulationName ).ToArray();
 
                 foreach( var kvp in refIdPairs )
                 {

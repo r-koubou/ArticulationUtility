@@ -7,12 +7,12 @@ namespace ArticulationUtility.Utilities
         #region Parser
         // see also
         // https://qiita.com/masaru/items/a44dc30bfc18aac95015
-        static public bool TryParse<TEnum>( string text, out TEnum target, TEnum defaultValue ) where TEnum : struct
+        public static bool TryParse<TEnum>( string text, out TEnum target, TEnum defaultValue ) where TEnum : struct
         {
             return Enum.TryParse( text, out target ) && Enum.IsDefined( typeof( TEnum ), target );
         }
 
-        static public TEnum Parse<TEnum>( string text, TEnum defaultValue ) where TEnum : struct
+        public static TEnum Parse<TEnum>( string text, TEnum defaultValue ) where TEnum : struct
         {
             if( string.IsNullOrEmpty( text ) )
             {
@@ -27,12 +27,12 @@ namespace ArticulationUtility.Utilities
             return target;
         }
 
-        static public bool TryParse<TEnum>( string text, out TEnum target ) where TEnum : struct
+        public static bool TryParse<TEnum>( string text, out TEnum target ) where TEnum : struct
         {
             return Enum.TryParse( text, out target ) && Enum.IsDefined( typeof( TEnum ), target );
         }
 
-        static public TEnum Parse<TEnum>( string text ) where TEnum : struct
+        public static TEnum Parse<TEnum>( string text ) where TEnum : struct
         {
             if( !TryParse( text, out TEnum target ) )
             {
