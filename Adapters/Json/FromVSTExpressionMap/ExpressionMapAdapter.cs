@@ -9,12 +9,14 @@ namespace ArticulationUtility.Adapters.Json.FromVSTExpressionMap
     {
         public JsonRoot Convert( ExpressionMap source )
         {
-            var json = new JsonRoot();
-
-            #region Info
-            json.Info.Name = source.Name.Value;
-            json.Info.Version = "1.0.0";
-            #endregion Info
+            var json = new JsonRoot
+            {
+                Info =
+                {
+                    Name    = source.Name.Value,
+                    Version = "1.0.0"
+                }
+            };
 
             #region Articulations
             foreach( var slot in source.SoundSlots )
@@ -31,10 +33,12 @@ namespace ArticulationUtility.Adapters.Json.FromVSTExpressionMap
 
                 foreach( var midi in slot.OutputMappings )
                 {
-                    var mapping = new MidiMapping();
-                    mapping.Status = midi.Status.Value.ToString();
-                    mapping.Data1 = midi.DataByte1.Value.ToString();
-                    mapping.Data2 = midi.DataByte2.Value.ToString();
+                    var mapping = new MidiMapping
+                    {
+                        Status = midi.Status.Value.ToString(),
+                        Data1  = midi.DataByte1.Value.ToString(),
+                        Data2  = midi.DataByte2.Value.ToString()
+                    };
                     obj.MidiMappings.Add( mapping );
                 }
 

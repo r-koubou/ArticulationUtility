@@ -16,18 +16,19 @@ namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
     {
         public EntityJsonRoot Convert( JsonRoot source )
         {
-            var json = new EntityJsonRoot();
-
-            json.FormatVersion = source.FormatVersion;
-
-            #region Info
-            json.Info.Version     = source.Info.Version;
-            json.Info.Name        = source.Info.Name;
-            json.Info.Author      = source.Info.Author;
-            json.Info.Product     = source.Info.Product;
-            json.Info.Url         = source.Info.Url;
-            json.Info.Description = source.Info.Description;
-            #endregion Info
+            var json = new EntityJsonRoot
+            {
+                FormatVersion = source.FormatVersion,
+                Info =
+                {
+                    Version     = source.Info.Version,
+                    Name        = source.Info.Name,
+                    Author      = source.Info.Author,
+                    Product     = source.Info.Product,
+                    Url         = source.Info.Url,
+                    Description = source.Info.Description
+                }
+            };
 
             #region Articulations
             foreach( var articulation in source.Articulations )

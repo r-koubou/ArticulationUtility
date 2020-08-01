@@ -16,7 +16,7 @@ namespace ArticulationUtility.Gateways.Testing.VSTExpressionMapXml
             {
                 LoadPath = path
             };
-            var expressionMap = repository.Load();
+            repository.Load();
         }
 
         [Test]
