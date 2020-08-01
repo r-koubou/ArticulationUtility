@@ -1,4 +1,4 @@
-namespace ArticulationUtility.Entities.Json.Articulation
+namespace ArticulationUtility.UseCases.Values.Json.Articulation
 {
     public class MidiMapping
     {

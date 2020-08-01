@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
 {
-    public class Articulation
+    internal class Articulation
     {
         [JsonProperty( "name" )]
         public string Name { get; set; } = string.Empty;

@@ -1,9 +1,9 @@
 using ArticulationUtility.Adapters;
 
-using EntityJsonRoot = ArticulationUtility.Entities.Json.Articulation.JsonRoot;
-using EntityJsonInfo = ArticulationUtility.Entities.Json.Articulation.Info;
-using EntityMidiMapping = ArticulationUtility.Entities.Json.Articulation.MidiMapping;
-using EntityJsonArticulation = ArticulationUtility.Entities.Json.Articulation.Articulation;
+using EntityJsonRoot = ArticulationUtility.UseCases.Values.Json.Articulation.JsonRoot;
+using EntityJsonInfo = ArticulationUtility.UseCases.Values.Json.Articulation.Info;
+using EntityMidiMapping = ArticulationUtility.UseCases.Values.Json.Articulation.MidiMapping;
+using EntityJsonArticulation = ArticulationUtility.UseCases.Values.Json.Articulation.Articulation;
 
 using ExternalJsonRoot = ArticulationUtility.Gateways.Json.NewtonsoftJson.JsonRoot;
 using ExternalJsonInfo = ArticulationUtility.Gateways.Json.NewtonsoftJson.Info;

@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
 {
-    public class JsonRoot
+    internal class JsonRoot
     {
         [JsonProperty( "format_version" )]
         public string FormatVersion { get; set; } = string.Empty;

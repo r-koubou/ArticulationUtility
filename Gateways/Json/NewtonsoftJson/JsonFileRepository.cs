@@ -3,7 +3,7 @@ using System.Text;
 
 using Newtonsoft.Json;
 
-using EntityJsonRoot = ArticulationUtility.Entities.Json.Articulation.JsonRoot;
+using EntityJsonRoot = ArticulationUtility.UseCases.Values.Json.Articulation.JsonRoot;
 using ExternalJsonRoot = ArticulationUtility.Gateways.Json.NewtonsoftJson.JsonRoot;
 
 namespace ArticulationUtility.Gateways.Json.NewtonsoftJson

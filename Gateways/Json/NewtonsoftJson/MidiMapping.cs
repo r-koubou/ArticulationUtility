@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
 {
-    public class MidiMapping
+    internal class MidiMapping
     {
         [JsonProperty( "status" ) ]
         public string Status { get; set; } = string.Empty;

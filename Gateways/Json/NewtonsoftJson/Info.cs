@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
 {
-    public class Info
+    internal class Info
     {
         [JsonProperty( "version", Required = Required.Always )]
         public string Version { get; set; } = string.Empty;
