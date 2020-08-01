@@ -27,7 +27,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromSpreadsheet.Compatib
             return result;
         }
 
-        private void ConvertRows( List<Row> rows, ExpressionMap expressionMap )
+        private void ConvertRows( IEnumerable<Row> rows, ExpressionMap expressionMap )
         {
             var idGenerator = new ArticulationIdGenerator();
 

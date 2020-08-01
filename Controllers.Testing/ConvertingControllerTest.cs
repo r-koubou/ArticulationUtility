@@ -14,9 +14,11 @@ namespace ArticulationUtility.Controllers.Testing
         {
             var convertingUseCase = new ConvertingToExpressionMapInteractor();
             var controller = new ConvertingFileFormatController( convertingUseCase );
-            var request = new ConvertingFileFormatRequest();
-            request.InputFile = "#";
-            request.OutputDirectory = ".";
+            var request = new ConvertingFileFormatRequest
+            {
+                InputFile       = "#",
+                OutputDirectory = "."
+            };
             controller.Convert( request );
         }
     }

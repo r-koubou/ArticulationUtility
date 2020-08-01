@@ -75,10 +75,10 @@ namespace ArticulationUtility.Adapters.VSTExpressionMapXml.FromVSTExpressionMap
 
             // Construction of InstrumentMap element
             var slots = InstrumentMap.Slots( listOfPSoundSlot );
-            var slotvisuals = InstrumentMap.Slotvisuals( listOfUSlotVisuals );
+            var slotVisuals = InstrumentMap.SlotVisuals( listOfUSlotVisuals );
 
             var instrumentMapElement = InstrumentMap.New( source.Name.Value );
-            instrumentMapElement.Member.Add( slotvisuals );
+            instrumentMapElement.Member.Add( slotVisuals );
             instrumentMapElement.Member.Add( slots );
             instrumentMapElement.Name = source.Name.Value;
 

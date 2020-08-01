@@ -10,9 +10,10 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml.XmlClasses
                <int name="data1" value="-1"/>
             </obj>
 #endif
-            var obj = new ObjectElement( "PSlotThruTrigger" );
-            obj.Name = "remote";
-
+            var obj = new ObjectElement( "PSlotThruTrigger" )
+            {
+                Name = "remote"
+            };
 
             obj.Int.Add( new IntElement( "status", 144 ) );
             obj.Int.Add( new IntElement( "data1",  -1 ) );

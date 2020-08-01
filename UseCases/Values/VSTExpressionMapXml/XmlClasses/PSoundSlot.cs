@@ -168,10 +168,12 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml.XmlClasses
            var member = new MemberElement( "sv" );
            member.Int.Add( new IntElement( "ownership", 2 ) );
 
-           var list = new ListElement();
+           var list = new ListElement
+           {
+              Name = "obj",
+              Type = "obj"
+           };
 
-           list.Name = "obj";
-           list.Type = "obj";
            list.Obj.Add( slotVisual );
 
            member.List.Add( list );

@@ -24,7 +24,7 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml
             StringElement = new StringElement( "name", name );
         }
 
-        public RootElement( StringElement stringElement, List<MemberElement> members )
+        public RootElement( StringElement stringElement, IEnumerable<MemberElement> members )
         {
             StringElement = stringElement;
             Member.AddRange( members );

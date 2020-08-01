@@ -42,28 +42,27 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
         {
             var result = new Workbook( LoadPath );
 
-            using( var stream = File.Open( LoadPath, FileMode.Open, FileAccess.Read ) )
-            using( var reader = ExcelReaderFactory.CreateReader( stream ) )
+            using var stream = File.Open( LoadPath, FileMode.Open, FileAccess.Read );
+            using var reader = ExcelReaderFactory.CreateReader( stream );
+
+            var dataSet = reader.AsDataSet();
+            var book = dataSet.Tables;
+
+            foreach( SourceSheet? s in book )
             {
-                var dataSet = reader.AsDataSet();
-                var book = dataSet.Tables;
-
-                foreach( SourceSheet? s in book )
+                if( s == null )
                 {
-                    if( s == null )
-                    {
-                        throw new ObjectIsNullException();
-                    }
-
-                    // Ignore sheet
-                    if( s.TableName == CommonSheetConstants.DefinitionSheetName )
-                    {
-                        continue;
-                    }
-
-                    Worksheet worksheet = ParseWorksheet( s );
-                    result.Worksheets.Add( worksheet );
+                    throw new ObjectIsNullException();
                 }
+
+                // Ignore sheet
+                if( s.TableName == CommonSheetConstants.DefinitionSheetName )
+                {
+                    continue;
+                }
+
+                Worksheet worksheet = ParseWorksheet( s );
+                result.Worksheets.Add( worksheet );
             }
 
             return result;
@@ -76,7 +75,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
             Worksheet worksheet = new Worksheet( sheet.TableName );
             for( int rowIndex = SpreadsheetConstants.StartRowIndex; rowIndex < rows.Count; rowIndex++ )
             {
-                var context = new CellContext()
+                var context = new CellContext
                 {
                     Sheet    = sheet,
                     Row      = rows[ rowIndex ],
@@ -97,11 +96,9 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
 
         private Row ParseRow( CellContext context )
         {
-            Row row;
-
             var articulationCellGroup = ParseArticulation( context );
 
-            row = new Row(
+            var row = new Row(
                 articulationCellGroup.NameCell,
                 articulationCellGroup.TypeCell,
                 articulationCellGroup.ColorIndexCell,
@@ -131,7 +128,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
             return articulationCellGroup;
         }
 
-        private List<Row.MidiNote> ParseMidiNotes( CellContext context )
+        private IEnumerable<Row.MidiNote> ParseMidiNotes( CellContext context )
         {
             //----------------------------------------------------------------------
             // MIDI Notes
@@ -156,7 +153,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
                     break;
                 }
 
-                var obj = new Row.MidiNote()
+                var obj = new Row.MidiNote
                 {
                     Note     = new MidiNoteNumberCell( noteNumberCell ),
                     Velocity =  new MidiNoteVelocityCell( velocityValue )
@@ -168,7 +165,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
             return notes;
         }
 
-        private List<Row.MidiControlChange> ParseMidiControlChanges( CellContext context )
+        private IEnumerable<Row.MidiControlChange> ParseMidiControlChanges( CellContext context )
         {
             //----------------------------------------------------------------------
             // MIDI CC
@@ -191,7 +188,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
                     break;
                 }
 
-                var obj = new Row.MidiControlChange()
+                var obj = new Row.MidiControlChange
                 {
                     CcNumber = new MidiControlChangeNumberCell( int.Parse( ccNumberCell ) ),
                     CcValue  = new MidiControlChangeValueCell( int.Parse( ccValueCell ) )
@@ -203,7 +200,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
             return controlChanges;
         }
 
-        private List<Row.MidiProgramChange> ParseMidiProgramChanges( CellContext context )
+        private IEnumerable<Row.MidiProgramChange> ParseMidiProgramChanges( CellContext context )
         {
             //----------------------------------------------------------------------
             // MIDI PC
@@ -226,7 +223,7 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibi
                     pcMsbCell = "0";
                 }
 
-                var obj = new Row.MidiProgramChange()
+                var obj = new Row.MidiProgramChange
                 {
                     Lsb = new MidiProgramChangeLsbCell( int.Parse( pcLsbCell ) ),
                     Msb = new MidiProgramChangeMsbCell( int.Parse( pcMsbCell ) )

@@ -271,7 +271,7 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
         /// <summary>
         /// A list containing the index and scale name of the list in sequential form.
         /// </summary>
-        private static readonly IReadOnlyList<string> NoteNameList = new List<string>()
+        private static readonly IReadOnlyList<string> NoteNameList = new List<string>
         {
             C_M2,
             C_Sharp_M2,
@@ -400,7 +400,7 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
             E_8,
             F_8,
             F_Sharp_8,
-            G_8,
+            G_8
         };
 
         public string Value { get; }
@@ -415,14 +415,13 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
                 return;
             }
 
-            if( int.TryParse( noteName, out var number ) )
+            if( !int.TryParse( noteName, out var number ) )
             {
-                RangeValidateHelper.ValidateIntRange( number, MidiNoteNumber.MinValue, MidiNoteNumber.MaxValue );
-                Value = NoteNameList[ number ];
-                return;
+                throw new InvalidNameException( nameof( noteName ) );
             }
 
-            throw new InvalidNameException( nameof( noteName ) );
+            RangeValidateHelper.ValidateIntRange( number, MidiNoteNumber.MinValue, MidiNoteNumber.MaxValue );
+            Value = NoteNameList[ number ];
         }
 
         public MidiNoteNumber ToMidiNoteNumber()

@@ -19,7 +19,9 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromVSTExpressionMapXml
 
             var idGenerator = new ArticulationIdGenerator();
 
-            foreach( var slot in psoundSlot )
+            var objectElements = psoundSlot.ToList();
+
+            foreach( var slot in objectElements )
             {
                 var sv = Sv( slot );
                 var uslotVisuals = USlotVisuals( sv );
@@ -40,7 +42,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromVSTExpressionMapXml
                 result.Articulations.Add( id, articulation );
             }
 
-            foreach( var slot in psoundSlot )
+            foreach( var slot in objectElements )
             {
                 var sv = Sv( slot );
                 var uslotVisuals = USlotVisuals( sv );
@@ -52,7 +54,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromVSTExpressionMapXml
                     new SoundSlotColorIndex( color ) );
 
                 var refIdPairs =
-                    result.Articulations.Where( ( x ) => x.Value.Name.Value == articulationName ).ToArray();
+                    result.Articulations.Where( x => x.Value.Name.Value == articulationName ).ToArray();
 
                 foreach( var kvp in refIdPairs )
                 {
@@ -80,7 +82,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromVSTExpressionMapXml
         }
 
         #region Parser
-        private static MemberElement Slots( IReadOnlyList<MemberElement> xml )
+        private static MemberElement Slots( IEnumerable<MemberElement> xml )
         {
             foreach( var element in xml )
             {
@@ -92,7 +94,7 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromVSTExpressionMapXml
             throw new ElementNotFoundException( "slots" );
         }
 
-        private static IReadOnlyList<ObjectElement> PSoundSlot( RootElement xml )
+        private static IEnumerable<ObjectElement> PSoundSlot( RootElement xml )
         {
             var result = new List<ObjectElement>();
             var slots = Slots( xml.Member );
@@ -168,27 +170,31 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromVSTExpressionMapXml
             throw new ElementNotFoundException( "USlotVisuals" );
         }
 
-        private static IReadOnlyList<ObjectElement> MidiMessages( ObjectElement psoundSlot )
+        private static IEnumerable<ObjectElement> MidiMessages( ObjectElement psoundSlot )
         {
             var result = new List<ObjectElement>();
 
             foreach( var obj in psoundSlot.Obj )
             {
-                if( obj.ClassName == "PSlotMidiAction" )
+                if( obj.ClassName != "PSlotMidiAction" )
                 {
-                    foreach( var member in obj.Member )
+                    continue;
+                }
+
+                foreach( var member in obj.Member )
+                {
+                    if( member.Name != "midiMessages" )
                     {
-                        if( member.Name == "midiMessages" )
+                        continue;
+                    }
+
+                    foreach( var i in member.List )
+                    {
+                        foreach( var midi in i.Obj )
                         {
-                            foreach( var i in member.List )
+                            if( midi.ClassName == "POutputEvent" )
                             {
-                                foreach( var midi in i.Obj )
-                                {
-                                    if( midi.ClassName == "POutputEvent" )
-                                    {
-                                        result.Add( midi );
-                                    }
-                                }
+                                result.Add( midi );
                             }
                         }
                     }
