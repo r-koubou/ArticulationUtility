@@ -52,7 +52,7 @@ namespace ArticulationUtility.Utilities
                 result = (T)Enum.ToObject( typeof( T ), v );
                 return true;
             }
-            catch( Exception e )
+            catch
             {
                 return false;
             }

@@ -1,4 +1,4 @@
-namespace ArticulationUtility.Entities.Spreadsheet
+namespace ArticulationUtility.Entities.Spreadsheet.Value
 {
     public interface ICellVisitor
     {

@@ -10,13 +10,17 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Co
         public class MidiNote
         {
             public MidiNoteNumberCell Note { get; set; }
+                = new MidiNoteNumberCell( MidiNoteNumberCell.GetNoteNameList()[ 0 ] );
             public MidiNoteVelocityCell Velocity { get; set; }
+                = new MidiNoteVelocityCell( MidiNoteVelocityCell.MinValue );
         }
 
         public class MidiControlChange
         {
             public MidiControlChangeNumberCell CcNumber { get; set; }
+                = new MidiControlChangeNumberCell( MidiControlChangeNumberCell.MinValue );
             public MidiControlChangeValueCell CcValue { get; set; }
+                = new MidiControlChangeValueCell( MidiControlChangeValueCell.MinValue );
         }
 
         public ArticulationNameCell ArticulationName { get; }

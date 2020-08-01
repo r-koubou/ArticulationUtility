@@ -19,11 +19,6 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.MidiEvent.Value
 
         public bool Equals( ProgramEventValue other )
         {
-            if( other == null )
-            {
-                return false;
-            }
-
             return other.Value == Value;
         }
 

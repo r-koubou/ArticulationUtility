@@ -7,10 +7,10 @@ namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
     public class Articulation
     {
         [JsonProperty( "name" )]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [JsonProperty( "type" )]
-        public string Type { get; set; }
+        public string Type { get; set; } = string.Empty;
 
         [JsonProperty( "color" )]
         public int Color { get; set; } = 0;

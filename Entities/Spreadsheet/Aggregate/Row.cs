@@ -1,11 +1,15 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
+using ArticulationUtility.Entities.Spreadsheet.Value;
+
 namespace ArticulationUtility.Entities.Spreadsheet
 {
-    public class Row
+
+    public class Row : IRow
     {
-        public SortedDictionary<int, ICell> Columns { get; } = new SortedDictionary<int, ICell>();
+        private SortedDictionary<int, ICell> Columns { get; } = new SortedDictionary<int, ICell>();
 
         public int ColumnCount
         {
@@ -29,7 +33,7 @@ namespace ArticulationUtility.Entities.Spreadsheet
                     return Columns[ columnIndex ];
                 }
 
-                return null;
+                return NullCell.Instance;
             }
             set => Columns[ columnIndex ] = value;
         }

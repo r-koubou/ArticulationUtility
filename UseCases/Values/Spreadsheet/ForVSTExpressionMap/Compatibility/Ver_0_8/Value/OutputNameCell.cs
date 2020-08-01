@@ -6,7 +6,13 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Co
 {
     public class OutputNameCell : IEquatable<OutputNameCell>
     {
+        public static readonly OutputNameCell Empty = new OutputNameCell();
         public string Value { get; }
+
+        private OutputNameCell()
+        {
+            Value = string.Empty;
+        }
 
         public OutputNameCell( string name )
         {
@@ -20,11 +26,6 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Co
 
         public bool Equals( OutputNameCell other )
         {
-            if( other == null )
-            {
-                return false;
-            }
-
             return other.Value == Value;
         }
 

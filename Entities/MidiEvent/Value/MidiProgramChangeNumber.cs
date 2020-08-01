@@ -20,11 +20,6 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
 
         public bool Equals( MidiProgramChangeNumber other )
         {
-            if( other == null )
-            {
-                return false;
-            }
-
             return other.Value == Value;
         }
 

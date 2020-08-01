@@ -14,7 +14,7 @@ namespace UseCases.Testing.Values.Spreadsheet.VSTExpressionMap.Compatibility.Ver
             var obj = new OutputNameCell( "Hoge" );
 
             Assert.Throws<InvalidNameException>( () => { new OutputNameCell( "" ); } );
-            Assert.Throws<InvalidNameException>( () => { new OutputNameCell( null ); } );
+            Assert.Throws<InvalidNameException>( () => { new OutputNameCell( "    " ); } );
         }
 
         [Test]

@@ -16,6 +16,8 @@
         <AssemblyVersion></AssemblyVersion>
 
         <FileVersion></FileVersion>
+
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>

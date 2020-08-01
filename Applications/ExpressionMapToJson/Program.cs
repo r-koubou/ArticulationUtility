@@ -1,4 +1,6 @@
-﻿using ArticulationUtility.Controllers;
+﻿using System;
+
+using ArticulationUtility.Controllers;
 using ArticulationUtility.Gateways.Json.NewtonsoftJson;
 using ArticulationUtility.Gateways.VSTExpressionMapXml;
 using ArticulationUtility.Interactors.Converting.Json.FromVSTExpressionMapXml;
@@ -14,10 +16,10 @@ namespace ExpressionMapToJson
         private const string HelpOutputDirectory = "Output directory of *.json";
 
         [Option( 'i', "input", Required = true, HelpText = HelpInputFileName )]
-        public string InputFileName { get; set; }
+        public string InputFileName { get; set; } = string.Empty;
 
         [Option( 'o', "outputdir", Required = true, HelpText = HelpOutputDirectory )]
-        public string OutputDirectory { get; set; }
+        public string OutputDirectory { get; set; } = string.Empty;
 
     }
     public class Program

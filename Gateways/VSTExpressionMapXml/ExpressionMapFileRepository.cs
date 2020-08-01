@@ -10,8 +10,8 @@ namespace ArticulationUtility.Gateways.VSTExpressionMapXml
     public class ExpressionMapFileRepository : IFileRepository<RootElement>
     {
         public string Suffix { get; } = ".expressionmap";
-        public string LoadPath { get; set; }
-        public string SavePath { get; set; }
+        public string LoadPath { get; set; } = string.Empty;
+        public string SavePath { get; set; } = string.Empty;
 
         public RootElement Load()
         {

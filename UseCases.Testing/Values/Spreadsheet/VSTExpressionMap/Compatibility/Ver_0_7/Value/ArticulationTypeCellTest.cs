@@ -18,7 +18,7 @@ namespace UseCases.Testing.Values.Spreadsheet.VSTExpressionMap.Compatibility.Ver
             ArticulationTypeCell.Parse( ArticulationTypeCell.Attribute.Value );
 
             Assert.Throws<ArgumentException>( () => { ArticulationTypeCell.Parse( "Invalid Value" ); } );
-            Assert.Throws<ArgumentNullException>( () => { ArticulationTypeCell.Parse( null ); } );
+            Assert.Throws<ArgumentException>( () => { ArticulationTypeCell.Parse( "" ); } );
         }
 
         [Test]

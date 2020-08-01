@@ -8,7 +8,7 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Co
     public class Worksheet
     {
         public string Name { get; }
-        public OutputNameCell OutputNameCell { get; set; }
+        public OutputNameCell OutputNameCell { get; set; } = OutputNameCell.Empty;
 
         public readonly List<Row> Rows = new List<Row>();
 

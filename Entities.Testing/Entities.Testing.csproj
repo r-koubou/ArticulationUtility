@@ -13,6 +13,8 @@
 
         <Company>R-Koubou</Company>
 
+        <Nullable>enable</Nullable>
+
     </PropertyGroup>
 
     <ItemGroup>

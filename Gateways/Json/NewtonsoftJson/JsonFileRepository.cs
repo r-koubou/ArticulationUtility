@@ -11,8 +11,8 @@ namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
     public class JsonFileRepository : IFileRepository<EntityJsonRoot>
     {
         public string Suffix { get; } = ".json";
-        public string LoadPath { get; set; }
-        public string SavePath { get; set; }
+        public string LoadPath { get; set; } = string.Empty;
+        public string SavePath { get; set; } = string.Empty;
 
         public EntityJsonRoot Load()
         {

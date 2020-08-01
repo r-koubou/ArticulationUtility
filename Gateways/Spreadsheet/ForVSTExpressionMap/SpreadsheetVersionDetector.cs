@@ -1,6 +1,9 @@
+using System;
 using System.Data;
 using System.IO;
 using System.Text;
+
+using ArticulationUtility.Utilities;
 
 using ExcelDataReader;
 
@@ -27,8 +30,13 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap
             try
             {
                 // Search version value A1 in "DO NOT EDIT" sheet.
-                foreach( DataTable sheet in book )
+                foreach( DataTable? sheet in book )
                 {
+                    if( sheet == null )
+                    {
+                        throw new ObjectIsNullException();
+                    }
+
                     if( sheet.TableName == CommonSheetConstants.DefinitionSheetName )
                     {
                         var value = sheet.Rows[ 0 ][ 0 ].ToString();

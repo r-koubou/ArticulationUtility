@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 
+using ArticulationUtility.Entities.Spreadsheet.Value;
+
 namespace ArticulationUtility.Entities.Spreadsheet
 {
     public class Worksheet
     {
         public string SheetName { get; set; } = string.Empty;
-        public SortedDictionary<int, Row> Rows { get; } = new SortedDictionary<int, Row>();
+        public SortedDictionary<int, IRow> Rows { get; } = new SortedDictionary<int, IRow>();
 
         public int RowsCount => Rows.Count;
 
@@ -24,7 +26,7 @@ namespace ArticulationUtility.Entities.Spreadsheet
             }
         }
 
-        public Row this[ int rowIndex ]
+        public IRow this[ int rowIndex ]
         {
             get
             {
@@ -33,7 +35,7 @@ namespace ArticulationUtility.Entities.Spreadsheet
                     return Rows[ rowIndex ];
                 }
 
-                return null;
+                return NullRow.Instance;
             }
             set => Rows[ rowIndex ] = value;
         }
@@ -44,11 +46,11 @@ namespace ArticulationUtility.Entities.Spreadsheet
             {
                 if( Rows.ContainsKey( rowIndex ) )
                 {
-                    return Rows[ rowIndex ].Columns[ columnIndex ];
+                    return Rows[ rowIndex ][ columnIndex ];
                 }
-                return null;
+                return NullCell.Instance;
             }
-            set => Rows[ rowIndex ].Columns[ columnIndex ] = value;
+            set => Rows[ rowIndex ][ columnIndex ] = value;
         }
     }
 }
