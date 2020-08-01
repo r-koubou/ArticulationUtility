@@ -174,21 +174,25 @@ namespace ArticulationUtility.Adapters.VSTExpressionMap.FromVSTExpressionMapXml
 
             foreach( var obj in psoundSlot.Obj )
             {
-                if( obj.ClassName == "PSlotMidiAction" )
+                if( obj.ClassName != "PSlotMidiAction" )
                 {
-                    foreach( var member in obj.Member )
+                    continue;
+                }
+
+                foreach( var member in obj.Member )
+                {
+                    if( member.Name != "midiMessages" )
                     {
-                        if( member.Name == "midiMessages" )
+                        continue;
+                    }
+
+                    foreach( var i in member.List )
+                    {
+                        foreach( var midi in i.Obj )
                         {
-                            foreach( var i in member.List )
+                            if( midi.ClassName == "POutputEvent" )
                             {
-                                foreach( var midi in i.Obj )
-                                {
-                                    if( midi.ClassName == "POutputEvent" )
-                                    {
-                                        result.Add( midi );
-                                    }
-                                }
+                                result.Add( midi );
                             }
                         }
                     }

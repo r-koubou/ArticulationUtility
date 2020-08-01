@@ -415,14 +415,13 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
                 return;
             }
 
-            if( int.TryParse( noteName, out var number ) )
+            if( !int.TryParse( noteName, out var number ) )
             {
-                RangeValidateHelper.ValidateIntRange( number, MidiNoteNumber.MinValue, MidiNoteNumber.MaxValue );
-                Value = NoteNameList[ number ];
-                return;
+                throw new InvalidNameException( nameof( noteName ) );
             }
 
-            throw new InvalidNameException( nameof( noteName ) );
+            RangeValidateHelper.ValidateIntRange( number, MidiNoteNumber.MinValue, MidiNoteNumber.MaxValue );
+            Value = NoteNameList[ number ];
         }
 
         public MidiNoteNumber ToMidiNoteNumber()

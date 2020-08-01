@@ -36,18 +36,20 @@ namespace ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap
                         throw new ObjectIsNullException();
                     }
 
-                    if( sheet.TableName == CommonSheetConstants.DefinitionSheetName )
+                    if( sheet.TableName != CommonSheetConstants.DefinitionSheetName )
                     {
-                        var value = sheet.Rows[ 0 ][ 0 ].ToString();
+                        continue;
+                    }
 
-                        if( value == "MIDI Notes" )
-                        {
-                            return SpreadsheetVersion.Ver_0_7;
-                        }
-                        if( value == "Version 0.8" )
-                        {
-                            return SpreadsheetVersion.Ver_0_8;
-                        }
+                    var value = sheet.Rows[ 0 ][ 0 ].ToString();
+
+                    if( value == "MIDI Notes" )
+                    {
+                        return SpreadsheetVersion.Ver_0_7;
+                    }
+                    if( value == "Version 0.8" )
+                    {
+                        return SpreadsheetVersion.Ver_0_8;
                     }
                 }
 
