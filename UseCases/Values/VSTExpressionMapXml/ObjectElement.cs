@@ -17,10 +17,10 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml
         public List<StringElement> String { get; set; } = new List<StringElement>();
 
         [XmlAttribute( AttributeName = "class" )]
-        public string ClassName { get; set; } = string.Empty;
+        public string ClassName { get; set; }
 
         [XmlAttribute( AttributeName = "name" )]
-        public string Name { get; set; } = string.Empty;
+        public string Name { get; set; }
 
         [XmlAttribute( AttributeName = "ID" )]
         public string Id { get; set; }
