@@ -14,7 +14,7 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml.XmlClasses
             return obj;
         }
 
-        public static MemberElement Slotvisuals( ListElement listOfUSlotVisuals )
+        public static MemberElement SlotVisuals( ListElement listOfUSlotVisuals )
         {
 #if false
    <member name="slotvisuals">
