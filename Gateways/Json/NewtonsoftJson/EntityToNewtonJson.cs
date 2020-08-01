@@ -1,5 +1,4 @@
-
-using ArticulationUtility.Entities;
+using ArticulationUtility.Adapters;
 
 using EntityJsonRoot = ArticulationUtility.Entities.Json.Articulation.JsonRoot;
 using EntityJsonInfo = ArticulationUtility.Entities.Json.Articulation.Info;
