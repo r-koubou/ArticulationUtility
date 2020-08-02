@@ -17,10 +17,10 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml
         public List<StringElement> String { get; set; } = new List<StringElement>();
 
         [XmlAttribute( AttributeName = "class" )]
-        public string ClassName { get; set; } = string.Empty;
+        public string ClassName { get; set; }
 
         [XmlAttribute( AttributeName = "name" )]
-        public string Name { get; set; } = string.Empty;
+        public string? Name { get; set; }
 
         [XmlAttribute( AttributeName = "ID" )]
         public string Id { get; set; }
@@ -31,16 +31,12 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml
         [XmlElement( ElementName = "member" )]
         public List<MemberElement> Member { get; set; } = new List<MemberElement>();
 
-        public ObjectElement( string classNameName ) : this()
-        {
-            ClassName = classNameName;
-        }
-
-        public ObjectElement()
+        public ObjectElement( string className )
         {
             var guid = Guid.NewGuid().ToString();
             var hex = guid.Split( '-' )[ 0 ];
-            Id = ( Convert.ToInt32( hex, 16 ) & 0x7FFFFFF ).ToString();
+            Id        = ( Convert.ToInt32( hex, 16 ) & 0x7FFFFFF ).ToString();
+            ClassName = className ?? throw new ArgumentNullException( nameof( className ) );
         }
     }
 }

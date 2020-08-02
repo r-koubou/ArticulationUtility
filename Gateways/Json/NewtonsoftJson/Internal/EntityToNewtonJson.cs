@@ -1,18 +1,13 @@
 using ArticulationUtility.Adapters;
 
-using EntityJsonRoot = ArticulationUtility.Entities.Json.Articulation.JsonRoot;
-using EntityJsonInfo = ArticulationUtility.Entities.Json.Articulation.Info;
-using EntityMidiMapping = ArticulationUtility.Entities.Json.Articulation.MidiMapping;
-using EntityJsonArticulation = ArticulationUtility.Entities.Json.Articulation.Articulation;
+using EntityJsonRoot = ArticulationUtility.UseCases.Values.Json.ForArticulation.Aggregate.JsonRoot;
+using ExternalJsonRoot = ArticulationUtility.Gateways.Json.NewtonsoftJson.Internal.JsonRoot;
+using ExternalMidiMapping = ArticulationUtility.Gateways.Json.NewtonsoftJson.Internal.MidiMapping;
+using ExternalJsonArticulation = ArticulationUtility.Gateways.Json.NewtonsoftJson.Internal.Articulation;
 
-using ExternalJsonRoot = ArticulationUtility.Gateways.Json.NewtonsoftJson.JsonRoot;
-using ExternalJsonInfo = ArticulationUtility.Gateways.Json.NewtonsoftJson.Info;
-using ExternalMidiMapping = ArticulationUtility.Gateways.Json.NewtonsoftJson.MidiMapping;
-using ExternalJsonArticulation = ArticulationUtility.Gateways.Json.NewtonsoftJson.Articulation;
-
-namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
+namespace ArticulationUtility.Gateways.Json.NewtonsoftJson.Internal
 {
-    internal class EntityToNewtonJson : IDataAdapter<EntityJsonRoot, ExternalJsonRoot>
+    internal class EntityToNewtonJson : IDataAdapter<EntityJsonRoot, JsonRoot>
     {
         public ExternalJsonRoot Convert( EntityJsonRoot source )
         {

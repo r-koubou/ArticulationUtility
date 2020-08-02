@@ -1,7 +1,8 @@
-using ArticulationUtility.Entities.Json.Articulation;
+using ArticulationUtility.UseCases.Values.Json.ForArticulation.Aggregate;
+using ArticulationUtility.UseCases.Values.Json.ForArticulation.Value;
 using ArticulationUtility.UseCases.Values.VSTExpressionMap.Aggregate;
 
-using ArticulationJson = ArticulationUtility.Entities.Json.Articulation.Articulation;
+using ArticulationJson = ArticulationUtility.UseCases.Values.Json.ForArticulation.Value.Articulation;
 
 namespace ArticulationUtility.Adapters.Json.FromVSTExpressionMap
 {

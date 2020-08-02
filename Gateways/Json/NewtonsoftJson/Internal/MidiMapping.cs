@@ -1,8 +1,8 @@
 using Newtonsoft.Json;
 
-namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
+namespace ArticulationUtility.Gateways.Json.NewtonsoftJson.Internal
 {
-    public class MidiMapping
+    internal class MidiMapping
     {
         [JsonProperty( "status" ) ]
         public string Status { get; set; } = string.Empty;

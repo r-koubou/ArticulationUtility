@@ -2,9 +2,9 @@ using System.Collections.Generic;
 
 using Newtonsoft.Json;
 
-namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
+namespace ArticulationUtility.Gateways.Json.NewtonsoftJson.Internal
 {
-    public class JsonRoot
+    internal class JsonRoot
     {
         [JsonProperty( "format_version" )]
         public string FormatVersion { get; set; } = string.Empty;

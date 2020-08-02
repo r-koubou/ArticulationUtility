@@ -3,9 +3,9 @@ using System.IO;
 
 using ArticulationUtility.Adapters.VSTExpressionMap.FromJson;
 using ArticulationUtility.Adapters.VSTExpressionMapXml.FromVSTExpressionMap;
-using ArticulationUtility.Entities.Json.Articulation;
 using ArticulationUtility.Gateways;
 using ArticulationUtility.UseCases.Converting;
+using ArticulationUtility.UseCases.Values.Json.ForArticulation.Aggregate;
 using ArticulationUtility.UseCases.Values.VSTExpressionMapXml;
 
 namespace ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromJson

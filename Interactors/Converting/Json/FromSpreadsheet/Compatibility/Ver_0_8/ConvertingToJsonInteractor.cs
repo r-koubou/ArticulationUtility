@@ -3,9 +3,9 @@ using System.IO;
 
 using ArticulationUtility.Adapters.Json.FromVSTExpressionMap;
 using ArticulationUtility.Adapters.VSTExpressionMap.FromSpreadsheet.Compatibility.Ver_0_8;
-using ArticulationUtility.Entities.Json.Articulation;
 using ArticulationUtility.Gateways;
 using ArticulationUtility.UseCases.Converting;
+using ArticulationUtility.UseCases.Values.Json.ForArticulation.Aggregate;
 using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_8.Aggregate;
 
 namespace ArticulationUtility.Interactors.Converting.Json.FromSpreadsheet.Compatibility.Ver_0_8

@@ -1,8 +1,8 @@
 using Newtonsoft.Json;
 
-namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
+namespace ArticulationUtility.Gateways.Json.NewtonsoftJson.Internal
 {
-    public class Info
+    internal class Info
     {
         [JsonProperty( "version", Required = Required.Always )]
         public string Version { get; set; } = string.Empty;
