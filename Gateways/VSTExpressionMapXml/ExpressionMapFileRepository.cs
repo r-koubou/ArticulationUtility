@@ -36,6 +36,8 @@ namespace ArticulationUtility.Gateways.VSTExpressionMapXml
             var xmlNamespaces = new XmlSerializerNamespaces();
             xmlNamespaces.Add( "", "" );
 
+            Directory.CreateDirectory( Path.GetDirectoryName( SavePath ) );
+
             using var writer = new StreamWriter( SavePath, false, Encoding.UTF8 );
             serializer.Serialize( writer, data, xmlNamespaces );
         }
