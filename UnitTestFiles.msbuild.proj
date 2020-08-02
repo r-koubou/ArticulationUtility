@@ -1,0 +1,9 @@
+<Project>
+    <!-- Import from Unit Test project when testing with files -->
+    <Target Name="DeployTestData" AfterTargets="build">
+        <ItemGroup>
+            <TestFiles Include="**/TestFiles/**/*.*" />
+        </ItemGroup>
+        <Copy SourceFiles="@(TestFiles)" DestinationFiles="@(TestFiles->'$(OutputPath)/%(RecursiveDir)/%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+    </Target>
+</Project>

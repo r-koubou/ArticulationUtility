@@ -29,6 +29,8 @@ namespace ArticulationUtility.Gateways.Json.NewtonsoftJson
             var json = adapter.Convert( data );
             var text = JsonConvert.SerializeObject( json, Formatting.Indented );
 
+            Directory.CreateDirectory( Path.GetDirectoryName( SavePath ) );
+
             File.WriteAllText( SavePath, text, Encoding.UTF8 );
         }
     }

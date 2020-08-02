@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Xml.Serialization;
 
 namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml
@@ -11,9 +12,10 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml
         [XmlAttribute( AttributeName = "value" )]
         public float Value { get; set; }
 
+        [SuppressMessage( "ReSharper", "UnusedMember.Global" )]
         public FloatElement()
-        {
-        }
+        {}
+
         public FloatElement( string name, float value )
         {
             Name  = name;

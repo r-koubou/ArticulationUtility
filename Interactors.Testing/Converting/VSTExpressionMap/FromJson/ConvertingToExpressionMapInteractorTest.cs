@@ -1,3 +1,5 @@
+using System.IO;
+
 using ArticulationUtility.Gateways.Json.NewtonsoftJson;
 using ArticulationUtility.Gateways.VSTExpressionMapXml;
 using ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromJson;
@@ -10,6 +12,14 @@ namespace ArticulationUtility.Interactors.Testing.Converting.VSTExpressionMap.Fr
     [TestFixture]
     public class ConvertingToExpressionMapInteractorTest
     {
+        private static readonly string TestDataDir =
+            Path.Combine(
+                TestContext.CurrentContext.TestDirectory,
+                @"TestFiles/"
+            );
+
+        private static readonly string TestOutputDir = Path.Combine( TestDataDir, "out/" );
+
         [Test]
         public void ConvertTest()
         {
@@ -18,8 +28,8 @@ namespace ArticulationUtility.Interactors.Testing.Converting.VSTExpressionMap.Fr
             var converter = new ConvertingToExpressionMapInteractor( loadRepository, saveRepository );
             var request = new ConvertingFileFormatRequest
             {
-                InputFile       = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/Template/Template_ExpressionMap.json",
-                OutputDirectory = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp"
+                InputFile = Path.Combine( TestDataDir, @"ExpressionMapSample.json" ),
+                OutputDirectory = TestOutputDir
             };
             converter.Convert( request );
         }

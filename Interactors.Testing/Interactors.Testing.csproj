@@ -33,4 +33,6 @@
       <Folder Include="Converting\Json\FromSpreadsheet\Compatibility\Ver_0_7" />
     </ItemGroup>
 
+    <Import Project="../UnitTestFiles.msbuild.proj" />
+
 </Project>
