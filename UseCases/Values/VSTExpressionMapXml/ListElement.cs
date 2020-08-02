@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Xml.Serialization;
 
 namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml
@@ -15,6 +16,7 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml
         [XmlAttribute( AttributeName = "type" )]
         public string Type { get; set; }
 
+        [SuppressMessage( "ReSharper", "UnusedMember.Global" )]
         public ListElement()
         {
             Name = "obj";

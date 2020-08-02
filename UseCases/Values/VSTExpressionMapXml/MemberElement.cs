@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Xml.Serialization;
 
 namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml
@@ -24,6 +25,7 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml
         [XmlElement( ElementName = "list" )]
         public List<ListElement> List { get; set; } = new List<ListElement>();
 
+        [SuppressMessage( "ReSharper", "UnusedMember.Global" )]
         public MemberElement()
         {}
 

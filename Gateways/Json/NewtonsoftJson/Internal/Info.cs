@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 using Newtonsoft.Json;
 
 namespace ArticulationUtility.Gateways.Json.NewtonsoftJson.Internal
@@ -21,5 +23,9 @@ namespace ArticulationUtility.Gateways.Json.NewtonsoftJson.Internal
 
         [JsonProperty( "description" )]
         public string Description { get; set; } = string.Empty;
+
+        [SuppressMessage( "ReSharper", "UnusedMember.Global" )]
+        public Info()
+        {}
     }
 }

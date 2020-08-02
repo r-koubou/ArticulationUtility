@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Xml.Serialization;
 
 namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml
@@ -14,6 +15,7 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml
         [XmlAttribute( AttributeName = "wide" )]
         public bool Wide { get; set; } = true;
 
+        [SuppressMessage( "ReSharper", "UnusedMember.Global" )]
         public StringElement()
         {}
 

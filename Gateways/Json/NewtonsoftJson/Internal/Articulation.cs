@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 using Newtonsoft.Json;
 
@@ -20,5 +21,9 @@ namespace ArticulationUtility.Gateways.Json.NewtonsoftJson.Internal
 
         [JsonProperty( "midi_mapping" )]
         public List<MidiMapping> MidiMappings { get; set; } = new List<MidiMapping>();
+
+        [SuppressMessage( "ReSharper", "UnusedMember.Global" )]
+        public Articulation()
+        {}
     }
 }
