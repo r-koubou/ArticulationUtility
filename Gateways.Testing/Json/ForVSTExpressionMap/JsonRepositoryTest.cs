@@ -1,3 +1,5 @@
+using System.IO;
+
 using ArticulationUtility.Gateways.Json.NewtonsoftJson;
 
 using NUnit.Framework;
@@ -7,12 +9,18 @@ namespace ArticulationUtility.Gateways.Testing.Json.ForVSTExpressionMap
     [TestFixture]
     public class JsonRepositoryTest
     {
+        private static readonly string TestDataDir =
+            Path.Combine(
+                TestContext.CurrentContext.TestDirectory,
+                @"Json/ForVSTExpressionMap/TestFiles/"
+            );
+
         [Test]
         public void LoadTest()
         {
             var repository = new JsonFileRepository
             {
-                LoadPath = "/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/Template/Template_ExpressionMap.json"
+                LoadPath = Path.Combine( TestDataDir, @"JsonRepositoryTest.json" )
             };
             var workbook = repository.Load();
 

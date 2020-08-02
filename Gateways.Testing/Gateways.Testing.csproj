@@ -31,4 +31,10 @@
       <ProjectReference Include="..\Gateways\Gateways.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="TestFiles" />
+    </ItemGroup>
+
+    <Import Project="../UnitTestFiles.msbuild.proj" />
+    
 </Project>

@@ -1,3 +1,5 @@
+using System.IO;
+
 using ArticulationUtility.Gateways.Json.NewtonsoftJson;
 using ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_8;
 using ArticulationUtility.Interactors.Converting.Json.FromSpreadsheet.Compatibility.Ver_0_8;
@@ -10,6 +12,14 @@ namespace ArticulationUtility.Interactors.Testing.Converting.Json.FromSpreadshee
     [TestFixture]
     public class ConvertingToJsonInteractorTest
     {
+        private static readonly string TestDataDir =
+            Path.Combine(
+                TestContext.CurrentContext.TestDirectory,
+                @"TestFiles/"
+            );
+
+        private static readonly string TestOutputDir = Path.Combine( TestDataDir, "out/" );
+
         [Test]
         public void ConvertTest()
         {
@@ -18,8 +28,8 @@ namespace ArticulationUtility.Interactors.Testing.Converting.Json.FromSpreadshee
             var converter = new ConvertingToJsonInteractor( loadRepository, saveRepository );
             var request = new ConvertingFileFormatRequest
             {
-                InputFile       = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp/Template_0_8.xlsx",
-                OutputDirectory = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp"
+                InputFile       = Path.Combine( TestDataDir, @"Sample_Ver_0_8.xlsx" ),
+                OutputDirectory = TestOutputDir
             };
             converter.Convert( request );
         }

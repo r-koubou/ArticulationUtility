@@ -1,3 +1,5 @@
+using System.IO;
+
 using ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromSpreadsheet.Compatibility.Ver_0_8;
 using ArticulationUtility.UseCases.Converting;
 
@@ -8,14 +10,22 @@ namespace ArticulationUtility.Interactors.Testing.Converting.VSTExpressionMap.Fr
     [TestFixture]
     public class SpreadsheetConvertingInteractorTest
     {
+        private static readonly string TestDataDir =
+            Path.Combine(
+                TestContext.CurrentContext.TestDirectory,
+                @"TestFiles/"
+            );
+
+        private static readonly string TestOutputDir = Path.Combine( TestDataDir, "out/" );
+
         [Test]
         public void ConvertTest()
         {
             var converter = new ConvertingToExpressionMapInteractor();
             var request = new ConvertingFileFormatRequest
             {
-                InputFile       = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp/Template_0_8.xlsx",
-                OutputDirectory = @"/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp"
+                InputFile       = Path.Combine( TestDataDir, @"Sample_Ver_0_8.xlsx" ),
+                OutputDirectory = TestOutputDir
             };
             converter.Convert( request );
         }

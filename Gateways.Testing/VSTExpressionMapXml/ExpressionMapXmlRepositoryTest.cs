@@ -1,3 +1,5 @@
+using System.IO;
+
 using ArticulationUtility.Gateways.VSTExpressionMapXml;
 using ArticulationUtility.UseCases.Values.VSTExpressionMapXml;
 
@@ -8,24 +10,30 @@ namespace ArticulationUtility.Gateways.Testing.VSTExpressionMapXml
     [TestFixture]
     public class ExpressionMapXmlRepositoryTest
     {
+        private static readonly string TestDataDir =
+            Path.Combine(
+                TestContext.CurrentContext.TestDirectory,
+                @"TestFiles/"
+            );
+
+        private static readonly string TestOutputDir = Path.Combine( TestDataDir, "out/" );
+
         [Test]
-        [TestCase( "/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp/DevTemplate.expressionmap" )]
-        public void LoadTest( string path )
+        public void LoadTest()
         {
             var repository = new ExpressionMapFileRepository
             {
-                LoadPath = path
+                LoadPath = Path.Combine( TestDataDir, @"Sample.expressionmap" )
             };
             repository.Load();
         }
 
         [Test]
-        [TestCase( "/Users/hiroaki/Develop/Project/OSS/ArticulationUtility/.temp/TestCase.out.expressionmap" )]
-        public void SaveTest( string path )
+        public void SaveTest()
         {
             var repository = new ExpressionMapFileRepository
             {
-                SavePath = path
+                SavePath = Path.Combine( TestOutputDir, @"SaveTest.expressionmap" )
             };
             var root = new RootElement();
             repository.Save( root );

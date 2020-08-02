@@ -1,0 +1,37 @@
+{
+  "format_version": "0.0.1",
+  "info": {
+    "version": "1.0.0",
+    "name": "Example - ProductName - Patchname",
+    "author": "R-Koubou",
+    "product": "Example Virtual Guitar",
+    "url": "https://www.example.com",
+    "description": "your comment"
+  },
+  "articulations": [
+    {
+      "name": "IDLE",
+      "type": "Direction",
+      "color": 0,
+      "group": 0
+    },
+    {
+      "name": "Power Chord",
+      "type": "Direction",
+      "color": 1,
+      "group": 0,
+      "midi_mapping": [
+        {
+          "status": "NoteOn",
+          "data1": "C-2",
+          "data2": 100
+        },
+        {
+          "status": "ControlChange",
+          "data1": 1,
+          "data2": 23
+        }
+      ]
+    }
+  ]
+}
