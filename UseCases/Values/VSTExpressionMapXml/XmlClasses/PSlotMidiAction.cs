@@ -99,7 +99,7 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml.XmlClasses
            var member = new MemberElement( "midiMessages" );
            member.Int.Add( new IntElement( "ownership", 1 ) );
 
-           if( listOfPOutputEvent != null && listOfPOutputEvent.Obj.Count > 0 )
+           if( listOfPOutputEvent.Obj.Count > 0 )
            {
               member.List.Add( listOfPOutputEvent );
            }

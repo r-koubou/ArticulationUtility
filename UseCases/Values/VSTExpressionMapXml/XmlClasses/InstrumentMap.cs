@@ -42,11 +42,6 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml.XmlClasses
             var member = new MemberElement( "slotvisuals" );
             member.Int.Add( new IntElement( "ownership", 1 ) );
 
-            if( listOfUSlotVisuals == null )
-            {
-                return member;
-            }
-
             listOfUSlotVisuals.Name = "obj";
             listOfUSlotVisuals.Type = "obj";
             member.List.Add( listOfUSlotVisuals );
@@ -60,11 +55,6 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml.XmlClasses
             var member = new MemberElement( "slots" );
 
             member.Int.Add( new IntElement( "ownership", 1 ) );
-
-            if( listOfPSoundSlot == null )
-            {
-                return member;
-            }
 
             listOfPSoundSlot.Name = "obj";
             listOfPSoundSlot.Type = "obj";
