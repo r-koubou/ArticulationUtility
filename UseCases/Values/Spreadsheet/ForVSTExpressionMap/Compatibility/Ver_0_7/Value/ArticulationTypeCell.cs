@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_7.Value
 {
@@ -34,9 +35,9 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Co
             Value = name;
         }
 
-        public bool Equals( ArticulationTypeCell other )
+        public bool Equals( [AllowNull] ArticulationTypeCell other )
         {
-            return other.Value == Value;
+            return other != null && other.Value == Value;
         }
 
         public override string ToString() => Value;

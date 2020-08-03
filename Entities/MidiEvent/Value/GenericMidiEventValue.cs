@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 using ArticulationUtility.Utilities;
 
@@ -25,9 +26,9 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
             Value  = value;
         }
 
-        public bool Equals( GenericMidiEventValue other )
+        public bool Equals( [AllowNull] GenericMidiEventValue other )
         {
-            return other.Value == Value;
+            return other != null && other.Value == Value;
         }
 
         public override string ToString() => Value.ToString();

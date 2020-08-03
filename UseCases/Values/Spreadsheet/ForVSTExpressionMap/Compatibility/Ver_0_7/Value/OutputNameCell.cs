@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 using ArticulationUtility.Utilities;
 
@@ -24,9 +25,9 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Co
             Value = name;
         }
 
-        public bool Equals( OutputNameCell other )
+        public bool Equals( [AllowNull] OutputNameCell other )
         {
-            return other.Value == Value;
+            return other != null && other.Value == Value;
         }
 
         public override string ToString() => Value;

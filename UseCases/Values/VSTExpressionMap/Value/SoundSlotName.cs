@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 using ArticulationUtility.Utilities;
 
@@ -20,9 +21,9 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.Value
             Value = name;
         }
 
-        public bool Equals( SoundSlotName other )
+        public bool Equals( [AllowNull] SoundSlotName other )
         {
-            return other.Value == Value;
+            return other != null && other.Value == Value;
         }
 
         public override string ToString() => Value;

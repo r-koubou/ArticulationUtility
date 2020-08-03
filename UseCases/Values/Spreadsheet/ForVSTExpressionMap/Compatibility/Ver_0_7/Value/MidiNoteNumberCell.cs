@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_7.Value
 {
@@ -188,9 +189,9 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Co
             Value = noteName;
         }
 
-        public bool Equals( MidiNoteNumberCell other )
+        public bool Equals( [AllowNull] MidiNoteNumberCell other )
         {
-            return other.Value == Value;
+            return other != null && other.Value == Value;
         }
 
         public override string ToString() => Value;

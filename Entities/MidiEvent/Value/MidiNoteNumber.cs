@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 using ArticulationUtility.Utilities;
 
@@ -17,9 +18,9 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
             Value = noteNumber;
         }
 
-        public bool Equals( MidiNoteNumber other )
+        public bool Equals( [AllowNull] MidiNoteNumber other )
         {
-            return other.Value == Value;
+            return other != null && other.Value == Value;
         }
 
         public override string ToString() => Value.ToString();

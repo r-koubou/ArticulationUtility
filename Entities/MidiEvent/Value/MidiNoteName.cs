@@ -433,9 +433,9 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
             return new MidiNoteNumber( number.First().index );
         }
 
-        public bool Equals( MidiNoteName other )
+        public bool Equals( [AllowNull] MidiNoteName other )
         {
-            return other.Value == Value;
+            return other != null && other.Value == Value;
         }
 
         public override string ToString() => Value;
