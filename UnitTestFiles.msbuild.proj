@@ -2,8 +2,11 @@
     <!-- Import from Unit Test project when testing with files -->
     <Target Name="DeployTestData" AfterTargets="build">
         <ItemGroup>
-            <TestFiles Include="**/TestFiles/**/*.*" />
+            <TestFiles Include="**/TestFiles/**/*.*"
+                       Exclude="**/obj/;**/bin/" />
         </ItemGroup>
-        <Copy SourceFiles="@(TestFiles)" DestinationFiles="@(TestFiles->'$(OutputPath)/%(RecursiveDir)/%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="@(TestFiles)"
+              DestinationFiles="@(TestFiles->'$(OutputPath)/%(RecursiveDir)/%(Filename)%(Extension)')"
+              SkipUnchangedFiles="true" />
     </Target>
 </Project>

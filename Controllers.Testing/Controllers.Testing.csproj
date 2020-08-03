@@ -5,7 +5,7 @@
 
         <IsPackable>false</IsPackable>
 
-        <AssemblyName>ArticulationUtility.Controllers,Testing</AssemblyName>
+        <AssemblyName>ArticulationUtility.Controllers.Testing</AssemblyName>
 
         <RootNamespace>ArticulationUtility.Controllers.Testing</RootNamespace>
 
@@ -29,5 +29,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Controllers\Controllers.csproj" />
     </ItemGroup>
+
+    <Import Project="../UnitTestFiles.msbuild.proj" />
 
 </Project>
