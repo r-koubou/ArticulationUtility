@@ -12,7 +12,7 @@ namespace ArticulationUtility.Gateways.Testing.Json.ForVSTExpressionMap
         private static readonly string TestDataDir =
             Path.Combine(
                 TestContext.CurrentContext.TestDirectory,
-                @"Json/ForVSTExpressionMap/TestFiles/"
+                @"TestFiles/"
             );
 
         [Test]
@@ -20,7 +20,7 @@ namespace ArticulationUtility.Gateways.Testing.Json.ForVSTExpressionMap
         {
             var repository = new JsonFileRepository
             {
-                LoadPath = Path.Combine( TestDataDir, @"JsonRepositoryTest.json" )
+                LoadPath = Path.Combine( TestDataDir, @"ExpressionMapSample.json" )
             };
             var workbook = repository.Load();
 

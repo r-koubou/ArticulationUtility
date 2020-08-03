@@ -1,3 +1,5 @@
+using System.IO;
+
 using ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromSpreadsheet.Compatibility.Ver_0_7;
 using ArticulationUtility.UseCases.Converting;
 
@@ -8,6 +10,13 @@ namespace ArticulationUtility.Controllers.Testing
     [TestFixture]
     public class ConvertingControllerTest
     {
+        private static readonly string TestDataDir =
+            Path.Combine(
+                TestContext.CurrentContext.TestDirectory,
+                @"TestFiles/"
+            );
+
+        private static readonly string TestOutputDir = Path.Combine( TestDataDir, "out/" );
 
         [Test]
         public void ConvertTest()
@@ -16,8 +25,8 @@ namespace ArticulationUtility.Controllers.Testing
             var controller = new ConvertingFileFormatController( convertingUseCase );
             var request = new ConvertingFileFormatRequest
             {
-                InputFile       = "#",
-                OutputDirectory = "."
+                InputFile       = Path.Combine( TestDataDir, "Sample_Ver_0_7.xlsx" ),
+                OutputDirectory = TestOutputDir
             };
             controller.Convert( request );
         }
