@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 using ArticulationUtility.Utilities;
 
@@ -17,9 +18,9 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Co
             Value = value;
         }
 
-        public bool Equals( MidiProgramCell other )
+        public bool Equals( [AllowNull] MidiProgramCell other )
         {
-            return other.Value == Value;
+            return other != null && other.Value == Value;
         }
 
         public override string ToString() => Value.ToString();

@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 using ArticulationUtility.Utilities;
 
@@ -17,9 +18,9 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.Value
             Value = id;
         }
 
-        public bool Equals( ArticulationId other )
+        public bool Equals( [AllowNull] ArticulationId other )
         {
-            return other.Value == Value;
+            return other != null && other.Value == Value;
         }
 
         public override string ToString() => Value.ToString();

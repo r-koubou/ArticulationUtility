@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace ArticulationUtility.Entities.Spreadsheet.Value
 {
     public class NullCell : ICell
@@ -15,6 +17,9 @@ namespace ArticulationUtility.Entities.Spreadsheet.Value
             visitor.Visit( this );
         }
 
-        public bool Equals( ICell other ) => Instance == other;
+        public bool Equals( [AllowNull] ICell other )
+        {
+            return other != null && Instance == other;
+        }
     }
 }
