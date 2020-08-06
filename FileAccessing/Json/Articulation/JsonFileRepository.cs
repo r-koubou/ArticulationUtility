@@ -27,7 +27,7 @@ namespace ArticulationUtility.FileAccessing.Json.Articulation
         public void Save( EntityJsonRoot data )
         {
             var adapter = new EntityToNewtonJson();
-            var json = adapter.Convert( data );
+            var json = adapter.Translate( data );
             var text = JsonConvert.SerializeObject( json, Formatting.Indented );
 
             Directory.CreateDirectory( Path.GetDirectoryName( SavePath ) );

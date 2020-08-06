@@ -1,12 +1,12 @@
-using ArticulationUtility.Adapters;
+using ArticulationUtility.Translators;
 
 using EntityJsonRoot = ArticulationUtility.UseCases.Values.Json.ForArticulation.Aggregate.JsonRoot;
 
 namespace ArticulationUtility.FileAccessing.Json.Articulation.Internal
 {
-    internal class EntityToNewtonJson : IDataAdapter<EntityJsonRoot, JsonRoot>
+    internal class EntityToNewtonJson : IExternalDataTranslator<EntityJsonRoot, JsonRoot>
     {
-        public JsonRoot Convert( EntityJsonRoot source )
+        public JsonRoot Translate( EntityJsonRoot source )
         {
             var json = new JsonRoot
             {

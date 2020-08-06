@@ -12,8 +12,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Adapters\Adapters.csproj" />
       <ProjectReference Include="..\Entities\Entities.csproj" />
+      <ProjectReference Include="..\FormatTranslators\FormatTranslators.csproj" />
       <ProjectReference Include="..\UseCases\UseCases.csproj" />
     </ItemGroup>
 

@@ -1,5 +1,7 @@
 ﻿using ArticulationUtility.Controllers;
-using ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromSpreadsheet.Compatibility;
+using ArticulationUtility.FileAccessing.Spreadsheet.ForVSTExpressionMap;
+using ArticulationUtility.FileAccessing.VSTExpressionMapXml;
+using ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromSpreadsheet;
 using ArticulationUtility.UseCases.Converting;
 
 using CommandLine;
@@ -32,7 +34,10 @@ namespace SpreadsheetToExpressionMap
             var parsed = (Parsed<CommandlineOption>)result;
             var option = parsed.Value;
 
-            var useCase = ConvertingInteractorFactory.Create( option.InputFileName );
+            var loadRepository = SpreadsheetVersionDetector.DetectRepository( option.InputFileName );
+            var saveRepository = new ExpressionMapFileRepository();
+
+            var useCase = new ConvertingToExpressionMapFileInteractor( loadRepository, saveRepository );
             var controller = new ConvertingFileFormatController( useCase );
             var request = new ConvertingFileFormatRequest
             {

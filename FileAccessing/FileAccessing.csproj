@@ -5,10 +5,12 @@
         <Nullable>enable</Nullable>
         <PackageId>ArticulationUtility.FileAccessing</PackageId>
         <Authors>R-Koubou</Authors>
-        <Company>ArticulationUtility.FileAccessing</Company>
+        <Company>R-Koubou</Company>
         <Product>ArticulationUtility.FileAccessing</Product>
         <AssemblyName>ArticulationUtility.FileAccessing</AssemblyName>
         <RootNamespace>ArticulationUtility.FileAccessing</RootNamespace>
+        <AssemblyVersion></AssemblyVersion>
+        <FileVersion></FileVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -18,8 +20,8 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\ExternalTranslators\ExternalTranslators.csproj" />
       <ProjectReference Include="..\Gateways\Gateways.csproj" />
-      <ProjectReference Include="..\Translators\Translators.csproj" />
     </ItemGroup>
 
 </Project>

@@ -4,9 +4,8 @@ using System.IO;
 using System.Text;
 
 using ArticulationUtility.Gateways;
-using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap;
-using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_8.Aggregate;
-using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_8.Value;
+using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Aggregate;
+using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Value;
 using ArticulationUtility.Utilities;
 
 using ExcelDataReader;
@@ -204,7 +203,7 @@ namespace ArticulationUtility.FileAccessing.Spreadsheet.ForVSTExpressionMap.Comp
             return controlChanges;
         }
 
-        private IEnumerable<MidiProgramCell> ParseMidiProgramChanges( CellContext context )
+        private IEnumerable<Row.MidiProgramChange> ParseMidiProgramChanges( CellContext context )
         {
             //----------------------------------------------------------------------
             // Program (MIDI Program Change?)
@@ -212,17 +211,22 @@ namespace ArticulationUtility.FileAccessing.Spreadsheet.ForVSTExpressionMap.Comp
             // * Column name format:
             //   Program1 ... Program1+n
             //----------------------------------------------------------------------
-            var program = new List<MidiProgramCell>();
+            var program = new List<Row.MidiProgramChange>();
 
             for( int i = 1; i < int.MaxValue; i++ )
             {
 
-                if( !TryParseSheet( context, SpreadsheetConstants.ColumnMidiPcLsb + i, out var pcLsbCell ) )
+                if( !TryParseSheet( context, SpreadsheetConstants.ColumnMidiPcLsb + i, out var pcCell ) )
                 {
                     break;
                 }
 
-                var obj = new MidiProgramCell( int.Parse( pcLsbCell ) );
+                var obj = new Row.MidiProgramChange
+                {
+                    Channel = new MidiProgramChangeCell( MidiProgramChangeCell.MinValue ),
+                    Data    = new MidiProgramChangeCell( int.Parse( pcCell ) )
+                };
+
                 program.Add( obj );
             }
 

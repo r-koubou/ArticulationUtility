@@ -1,6 +1,6 @@
 ﻿using ArticulationUtility.Controllers;
-using ArticulationUtility.Gateways.Json.NewtonsoftJson;
-using ArticulationUtility.Gateways.VSTExpressionMapXml;
+using ArticulationUtility.FileAccessing.Json.Articulation;
+using ArticulationUtility.FileAccessing.VSTExpressionMapXml;
 using ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromJson;
 using ArticulationUtility.UseCases.Converting;
 
@@ -37,7 +37,7 @@ namespace JsonToExpressionMap
             var loadRepository = new JsonFileRepository();
             var saveRepository = new ExpressionMapFileRepository();
 
-            var useCase = new ConvertingToExpressionMapInteractor( loadRepository, saveRepository );
+            var useCase = new ConvertingToExpressionMapFileInteractor( loadRepository, saveRepository );
             var controller = new ConvertingFileFormatController( useCase );
             var request = new ConvertingFileFormatRequest
             {

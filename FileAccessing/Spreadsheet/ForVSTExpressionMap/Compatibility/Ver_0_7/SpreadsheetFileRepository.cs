@@ -4,9 +4,8 @@ using System.IO;
 using System.Text;
 
 using ArticulationUtility.Gateways;
-using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap;
-using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_7.Aggregate;
-using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_7.Value;
+using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Aggregate;
+using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Value;
 using ArticulationUtility.Utilities;
 
 using ExcelDataReader;
@@ -226,8 +225,8 @@ namespace ArticulationUtility.FileAccessing.Spreadsheet.ForVSTExpressionMap.Comp
 
                 var obj = new Row.MidiProgramChange
                 {
-                    Lsb = new MidiProgramChangeLsbCell( int.Parse( pcLsbCell ) ),
-                    Msb = new MidiProgramChangeMsbCell( int.Parse( pcMsbCell ) )
+                    Channel = new MidiProgramChangeCell( int.Parse( pcLsbCell ) ),
+                    Data    = new MidiProgramChangeCell( int.Parse( pcMsbCell ) )
                 };
 
                 programChanges.Add( obj );

@@ -6,7 +6,7 @@ using EntityJsonArticulation = ArticulationUtility.UseCases.Values.Json.ForArtic
 
 namespace ArticulationUtility.FileAccessing.Json.Articulation.Internal
 {
-    internal class NewtonJsonToEntity : IDataTranslator<JsonRoot, EntityJsonRoot>
+    internal class NewtonJsonToEntity : IExternalDataTranslator<JsonRoot, EntityJsonRoot>
     {
         public EntityJsonRoot Translate( JsonRoot source )
         {

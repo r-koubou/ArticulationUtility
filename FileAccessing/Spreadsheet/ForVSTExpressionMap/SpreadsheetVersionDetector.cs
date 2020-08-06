@@ -1,10 +1,16 @@
+using System;
 using System.Data;
 using System.IO;
 using System.Text;
 
+using ArticulationUtility.Gateways;
+using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Aggregate;
 using ArticulationUtility.Utilities;
 
 using ExcelDataReader;
+
+using Repository_Version_0_7 = ArticulationUtility.FileAccessing.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_7.SpreadsheetFileRepository;
+using Repository_Version_0_8 = ArticulationUtility.FileAccessing.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_8.SpreadsheetFileRepository;
 
 namespace ArticulationUtility.FileAccessing.Spreadsheet.ForVSTExpressionMap
 {
@@ -18,7 +24,20 @@ namespace ArticulationUtility.FileAccessing.Spreadsheet.ForVSTExpressionMap
             Encoding.RegisterProvider( CodePagesEncodingProvider.Instance );
         }
 
-        public static SpreadsheetVersion Detect( string spreadsheetFilePath )
+        public static IFileRepository<Workbook> CreateRepository( SpreadsheetVersion version )
+        {
+            switch( version )
+            {
+                case SpreadsheetVersion.Ver_0_7:
+                    return new Repository_Version_0_7();
+                case SpreadsheetVersion.Ver_0_8:
+                    return new Repository_Version_0_8();
+                default:
+                    throw new ArgumentException( $"Spreadsheet Repository for `{version}` not found");
+            }
+        }
+
+        public static SpreadsheetVersion DetectVersion( string spreadsheetFilePath )
         {
             using var stream = File.Open( spreadsheetFilePath, FileMode.Open, FileAccess.Read );
             using var reader = ExcelReaderFactory.CreateReader( stream );
@@ -58,6 +77,12 @@ namespace ArticulationUtility.FileAccessing.Spreadsheet.ForVSTExpressionMap
             {
                 return SpreadsheetVersion.Unknown;
             }
+        }
+
+        public static IFileRepository<Workbook> DetectRepository( string spreadsheetFilePath )
+        {
+            var version = DetectVersion( spreadsheetFilePath );
+            return CreateRepository( version );
         }
     }
 }

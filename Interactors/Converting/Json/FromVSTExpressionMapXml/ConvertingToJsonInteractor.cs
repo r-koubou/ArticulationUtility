@@ -1,9 +1,9 @@
 using System;
 using System.IO;
 
-using ArticulationUtility.Adapters.Json.FromVSTExpressionMap;
-using ArticulationUtility.Adapters.VSTExpressionMap.FromVSTExpressionMapXml;
 using ArticulationUtility.Gateways;
+using ArticulationUtility.Gateways.Translating.Json.FromVSTExpressionMap;
+using ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpressionMapXml;
 using ArticulationUtility.UseCases.Converting;
 using ArticulationUtility.UseCases.Values.Json.ForArticulation.Aggregate;
 using ArticulationUtility.UseCases.Values.VSTExpressionMapXml;
@@ -24,16 +24,16 @@ namespace ArticulationUtility.Interactors.Converting.Json.FromVSTExpressionMapXm
 
         public void Convert( ConvertingFileFormatRequest request )
         {
-            var expressionMapAdapter = new VSTExpressionMapXmlAdapter();
-            var jsonAdapter = new ExpressionMapAdapter();
+            var expressionMapAdapter = new ExpressionMapXmlTranslator();
+            var jsonAdapter = new ExpressionMapTranslator();
 
             LoadRepository.LoadPath = request.InputFile;
             var xml = LoadRepository.Load();
             xml.Name = Path.GetFileNameWithoutExtension( request.InputFile );
 
-            var expressionMap = expressionMapAdapter.Convert( xml );
+            var expressionMap = expressionMapAdapter.Translate( xml );
 
-            var json = jsonAdapter.Convert( expressionMap );
+            var json = jsonAdapter.Translate( expressionMap );
             json.Info.Description = "Converted from expressionmap";
             SaveRepository.SavePath = Path.Combine(
                 request.OutputDirectory,
