@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 using ArticulationUtility.Entities.MidiEvent.Value;
 

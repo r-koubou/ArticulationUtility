@@ -1,28 +1,19 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 
+using ArticulationUtility.Entities.Spreadsheet.Value;
 using ArticulationUtility.Utilities;
 
 namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Value
 {
-    public class MidiControlChangeValueCell : IEquatable<MidiControlChangeValueCell>
+    public class MidiControlChangeValueCell : IntegerCell
     {
         public const int MinValue = 0x00;
         public const int MaxValue = 0x7F;
 
-        public int Value { get; }
-
-        public MidiControlChangeValueCell( int ccValue )
+        public MidiControlChangeValueCell( int ccValue ) : base( ccValue )
         {
-            RangeValidateHelper.ValidateIntRange( ccValue, MinValue, MaxValue );
-            Value = ccValue;
+            RangeValidateHelper.ValidateIntRange( Value, MinValue, MaxValue );
         }
-
-        public bool Equals( [AllowNull] MidiControlChangeValueCell other )
-        {
-            return other != null && other.Value == Value;
-        }
-
-        public override string ToString() => Value.ToString();
     }
 }

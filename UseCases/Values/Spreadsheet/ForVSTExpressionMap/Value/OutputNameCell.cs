@@ -1,36 +1,25 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 
+using ArticulationUtility.Entities.Spreadsheet.Value;
 using ArticulationUtility.Utilities;
 
 namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Value
 {
-    public class OutputNameCell : IEquatable<OutputNameCell>
+    public class OutputNameCell : StringCell
     {
         public static readonly OutputNameCell Empty = new OutputNameCell();
-        public string Value { get; }
 
-        private OutputNameCell()
+        private OutputNameCell() : base( string.Empty )
         {
-            Value = string.Empty;
         }
 
-        public OutputNameCell( string name )
+        public OutputNameCell( string name ) : base( name )
         {
-            if( StringHelper.IsNullOrTrimEmpty( name ) )
+            if( StringHelper.IsNullOrTrimEmpty( Value ) )
             {
                 throw new InvalidNameException( nameof( name ) );
             }
-
-            Value = name;
         }
-
-        public bool Equals( [AllowNull] OutputNameCell other )
-        {
-            return other != null && other.Value == Value;
-        }
-
-        public override string ToString() => Value;
-
     }
 }

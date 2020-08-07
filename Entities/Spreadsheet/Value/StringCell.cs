@@ -1,11 +1,25 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace ArticulationUtility.Entities.Spreadsheet.Value
 {
-    public class StringCell : Cell
+    public class StringCell : GenericCell<string>
     {
-        public string StringValue { get; }
         public StringCell( string value ) : base( value )
+        {}
+
+        public override bool Equals( [AllowNull] ICell obj )
         {
-            StringValue = value;
+            if( obj?.Value == null )
+            {
+                return false;
+            }
+
+            if( obj.Value is string s )
+            {
+                return Value == s;
+            }
+
+            return false;
         }
     }
 }

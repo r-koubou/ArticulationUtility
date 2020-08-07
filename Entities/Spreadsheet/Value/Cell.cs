@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics.CodeAnalysis;
 
 namespace ArticulationUtility.Entities.Spreadsheet.Value
@@ -6,14 +7,16 @@ namespace ArticulationUtility.Entities.Spreadsheet.Value
     {
         public object Value { get; }
 
-        public Cell( object value )
+        public Cell( [AllowNull] object value )
         {
-            Value = value;
+            Value = value ?? throw new ArgumentNullException();
         }
 
-        public bool Equals( [AllowNull] ICell other )
+        public virtual bool Equals( [AllowNull] ICell other )
         {
             return other != null && other.Value == Value;
         }
+
+        public  override string? ToString() => Value.ToString();
     }
 }
