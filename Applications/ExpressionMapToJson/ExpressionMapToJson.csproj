@@ -12,6 +12,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Controllers\Controllers.csproj" />
+      <ProjectReference Include="..\..\FileAccessing\FileAccessing.csproj" />
     </ItemGroup>
 
     <ItemGroup>

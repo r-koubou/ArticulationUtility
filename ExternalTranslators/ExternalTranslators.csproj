@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <Nullable>enable</Nullable>
+        <AssemblyName>ArticulationUtility.ExternalTranslators</AssemblyName>
+        <RootNamespace>ArticulationUtility.ExternalTranslators</RootNamespace>
+        <PackageId>ArticulationUtility.ExternalTranslators</PackageId>
+        <Authors>R-Koubou</Authors>
+        <Company>R-Koubou</Company>
+        <Product>ArticulationUtility.ExternalTranslators</Product>
+        <AssemblyVersion></AssemblyVersion>
+        <FileVersion></FileVersion>
+    </PropertyGroup>
+
+</Project>

@@ -1,6 +1,6 @@
 ﻿using ArticulationUtility.Controllers;
-using ArticulationUtility.Gateways.Json.NewtonsoftJson;
-using ArticulationUtility.Gateways.VSTExpressionMapXml;
+using ArticulationUtility.FileAccessing.Json.Articulation;
+using ArticulationUtility.FileAccessing.VSTExpressionMapXml;
 using ArticulationUtility.Interactors.Converting.Json.FromVSTExpressionMapXml;
 using ArticulationUtility.UseCases.Converting;
 

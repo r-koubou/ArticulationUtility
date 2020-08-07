@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <Nullable>enable</Nullable>
+        <PackageId>ArticulationUtility.FileAccessing</PackageId>
+        <Authors>R-Koubou</Authors>
+        <Company>R-Koubou</Company>
+        <Product>ArticulationUtility.FileAccessing</Product>
+        <AssemblyName>ArticulationUtility.FileAccessing</AssemblyName>
+        <RootNamespace>ArticulationUtility.FileAccessing</RootNamespace>
+        <AssemblyVersion></AssemblyVersion>
+        <FileVersion></FileVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="ExcelDataReader" Version="3.6.0" />
+      <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ExternalTranslators\ExternalTranslators.csproj" />
+      <ProjectReference Include="..\Gateways\Gateways.csproj" />
+    </ItemGroup>
+
+</Project>

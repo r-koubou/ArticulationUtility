@@ -1,7 +1,7 @@
 ﻿using ArticulationUtility.Controllers;
-using ArticulationUtility.Gateways.Json.NewtonsoftJson;
-using ArticulationUtility.Gateways.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_8;
-using ArticulationUtility.Interactors.Converting.Json.FromSpreadsheet.Compatibility.Ver_0_8;
+using ArticulationUtility.FileAccessing.Json.Articulation;
+using ArticulationUtility.FileAccessing.Spreadsheet.ForVSTExpressionMap;
+using ArticulationUtility.Interactors.Converting.Json.FromSpreadsheet;
 using ArticulationUtility.UseCases.Converting;
 
 using CommandLine;
@@ -34,7 +34,7 @@ namespace SpreadsheetToJson
             var parsed = (Parsed<CommandlineOption>)result;
             var option = parsed.Value;
 
-            var loadRepository = new SpreadsheetFileRepository();
+            var loadRepository = SpreadsheetVersionDetector.DetectRepository( option.InputFileName );
             var saveRepository = new JsonFileRepository();
 
             var useCase = new ConvertingToJsonInteractor( loadRepository, saveRepository );

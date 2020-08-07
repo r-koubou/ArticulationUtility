@@ -16,6 +16,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Controllers\Controllers.csproj" />
+      <ProjectReference Include="..\..\FileAccessing\FileAccessing.csproj" />
     </ItemGroup>
 
     <!-- Output assenbly version to text file for including on deploy by msbuild script. -->
