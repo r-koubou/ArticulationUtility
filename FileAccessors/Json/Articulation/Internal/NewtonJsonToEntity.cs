@@ -1,14 +1,16 @@
 using ArticulationUtility.Translators;
 
 using EntityJsonRoot = ArticulationUtility.UseCases.Values.Json.ForArticulation.Aggregate.JsonRoot;
+using EntityMidiMapping = ArticulationUtility.UseCases.Values.Json.ForArticulation.Value.MidiMapping;
+using EntityJsonArticulation = ArticulationUtility.UseCases.Values.Json.ForArticulation.Value.Articulation;
 
-namespace ArticulationUtility.FileAccessing.Json.Articulation.Internal
+namespace ArticulationUtility.FileAccessors.Json.Articulation.Internal
 {
-    internal class EntityToNewtonJson : IExternalDataTranslator<EntityJsonRoot, JsonRoot>
+    internal class NewtonJsonToEntity : IExternalDataTranslator<JsonRoot, EntityJsonRoot>
     {
-        public JsonRoot Translate( EntityJsonRoot source )
+        public EntityJsonRoot Translate( JsonRoot source )
         {
-            var json = new JsonRoot
+            var json = new EntityJsonRoot
             {
                 FormatVersion = source.FormatVersion,
                 Info =
@@ -25,7 +27,7 @@ namespace ArticulationUtility.FileAccessing.Json.Articulation.Internal
             #region Articulations
             foreach( var articulation in source.Articulations )
             {
-                var obj = new Articulation
+                var obj = new EntityJsonArticulation
                 {
                     Name  = articulation.Name,
                     Color = articulation.Color,
@@ -36,7 +38,7 @@ namespace ArticulationUtility.FileAccessing.Json.Articulation.Internal
                 #region MidiMappings
                 foreach( var mapping in articulation.MidiMappings )
                 {
-                    var midi = new MidiMapping
+                    var midi = new EntityMidiMapping
                     {
                         Status = mapping.Status,
                         Data1  = mapping.Data1,

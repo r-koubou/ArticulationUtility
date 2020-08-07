@@ -1,6 +1,6 @@
 using System;
 
-namespace ArticulationUtility.FileAccessing.Spreadsheet
+namespace ArticulationUtility.FileAccessors.Spreadsheet
 {
     public class InvalidCellValueException : Exception
     {

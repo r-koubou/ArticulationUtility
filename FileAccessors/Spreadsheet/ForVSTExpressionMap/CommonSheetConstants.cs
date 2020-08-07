@@ -1,4 +1,4 @@
-namespace ArticulationUtility.FileAccessing.Spreadsheet.ForVSTExpressionMap
+namespace ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap
 {
     public static class CommonSheetConstants
     {

@@ -1,4 +1,4 @@
-namespace ArticulationUtility.FileAccessing.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_7
+namespace ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_7
 {
     public static  class SpreadsheetConstants
     {

@@ -3,12 +3,12 @@
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <Nullable>enable</Nullable>
-        <PackageId>ArticulationUtility.FileAccessing</PackageId>
+        <PackageId>ArticulationUtility.FileAccessors</PackageId>
         <Authors>R-Koubou</Authors>
         <Company>R-Koubou</Company>
-        <Product>ArticulationUtility.FileAccessing</Product>
-        <AssemblyName>ArticulationUtility.FileAccessing</AssemblyName>
-        <RootNamespace>ArticulationUtility.FileAccessing</RootNamespace>
+        <Product>ArticulationUtility.FileAccessors</Product>
+        <AssemblyName>ArticulationUtility.FileAccessors</AssemblyName>
+        <RootNamespace>ArticulationUtility.FileAccessors</RootNamespace>
         <AssemblyVersion></AssemblyVersion>
         <FileVersion></FileVersion>
     </PropertyGroup>

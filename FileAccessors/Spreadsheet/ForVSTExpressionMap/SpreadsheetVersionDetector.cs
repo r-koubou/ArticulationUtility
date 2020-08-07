@@ -9,10 +9,10 @@ using ArticulationUtility.Utilities;
 
 using ExcelDataReader;
 
-using Repository_Version_0_7 = ArticulationUtility.FileAccessing.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_7.SpreadsheetFileRepository;
-using Repository_Version_0_8 = ArticulationUtility.FileAccessing.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_8.SpreadsheetFileRepository;
+using Repository_Version_0_7 = ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_7.SpreadsheetFileRepository;
+using Repository_Version_0_8 = ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_8.SpreadsheetFileRepository;
 
-namespace ArticulationUtility.FileAccessing.Spreadsheet.ForVSTExpressionMap
+namespace ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap
 {
     public static class SpreadsheetVersionDetector
     {

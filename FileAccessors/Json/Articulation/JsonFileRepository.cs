@@ -1,15 +1,15 @@
 using System.IO;
 using System.Text;
 
-using ArticulationUtility.FileAccessing.Json.Articulation.Internal;
+using ArticulationUtility.FileAccessors.Json.Articulation.Internal;
 using ArticulationUtility.Gateways;
 
 using Newtonsoft.Json;
 
 using EntityJsonRoot = ArticulationUtility.UseCases.Values.Json.ForArticulation.Aggregate.JsonRoot;
-using ExternalJsonRoot = ArticulationUtility.FileAccessing.Json.Articulation.Internal.JsonRoot;
+using ExternalJsonRoot = ArticulationUtility.FileAccessors.Json.Articulation.Internal.JsonRoot;
 
-namespace ArticulationUtility.FileAccessing.Json.Articulation
+namespace ArticulationUtility.FileAccessors.Json.Articulation
 {
     public class JsonFileRepository : IFileRepository<EntityJsonRoot>
     {

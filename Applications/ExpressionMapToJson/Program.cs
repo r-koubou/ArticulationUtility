@@ -1,6 +1,6 @@
 ﻿using ArticulationUtility.Controllers;
-using ArticulationUtility.FileAccessing.Json.Articulation;
-using ArticulationUtility.FileAccessing.VSTExpressionMapXml;
+using ArticulationUtility.FileAccessors.Json.Articulation;
+using ArticulationUtility.FileAccessors.VSTExpressionMapXml;
 using ArticulationUtility.Interactors.Converting.Json.FromVSTExpressionMapXml;
 using ArticulationUtility.UseCases.Converting;
 

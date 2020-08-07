@@ -1,6 +1,6 @@
 using System.Data;
 
-namespace ArticulationUtility.FileAccessing.Spreadsheet
+namespace ArticulationUtility.FileAccessors.Spreadsheet
 {
     public struct CellContext
     {

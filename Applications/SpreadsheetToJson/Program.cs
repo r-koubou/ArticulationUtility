@@ -1,6 +1,6 @@
 ﻿using ArticulationUtility.Controllers;
-using ArticulationUtility.FileAccessing.Json.Articulation;
-using ArticulationUtility.FileAccessing.Spreadsheet.ForVSTExpressionMap;
+using ArticulationUtility.FileAccessors.Json.Articulation;
+using ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap;
 using ArticulationUtility.Interactors.Converting.Json.FromSpreadsheet;
 using ArticulationUtility.UseCases.Converting;
 

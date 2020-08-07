@@ -1,6 +1,6 @@
 ﻿using ArticulationUtility.Controllers;
-using ArticulationUtility.FileAccessing.Spreadsheet.ForVSTExpressionMap;
-using ArticulationUtility.FileAccessing.VSTExpressionMapXml;
+using ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap;
+using ArticulationUtility.FileAccessors.VSTExpressionMapXml;
 using ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromSpreadsheet;
 using ArticulationUtility.UseCases.Converting;
 

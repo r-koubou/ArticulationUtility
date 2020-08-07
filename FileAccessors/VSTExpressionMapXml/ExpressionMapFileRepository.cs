@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 using ArticulationUtility.Gateways;
 using ArticulationUtility.UseCases.Values.VSTExpressionMapXml;
 
-namespace ArticulationUtility.FileAccessing.VSTExpressionMapXml
+namespace ArticulationUtility.FileAccessors.VSTExpressionMapXml
 {
     public class ExpressionMapFileRepository : IFileRepository<RootElement>
     {

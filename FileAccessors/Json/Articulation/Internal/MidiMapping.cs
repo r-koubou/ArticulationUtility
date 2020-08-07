@@ -2,7 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 
 using Newtonsoft.Json;
 
-namespace ArticulationUtility.FileAccessing.Json.Articulation.Internal
+namespace ArticulationUtility.FileAccessors.Json.Articulation.Internal
 {
     internal class MidiMapping
     {
