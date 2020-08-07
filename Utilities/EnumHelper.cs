@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ArticulationUtility.Utilities
 {
@@ -51,7 +52,7 @@ namespace ArticulationUtility.Utilities
         #endregion Parser
 
         #region Converter
-        public static bool TryFromInt<T>( int v, out T result ) where T : struct
+        public static bool TryFromInt<T>( int v, [MaybeNull] out T result ) where T : struct
         {
             result = default;
             try

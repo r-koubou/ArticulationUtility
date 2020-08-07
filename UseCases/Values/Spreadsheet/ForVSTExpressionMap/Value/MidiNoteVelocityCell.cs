@@ -1,28 +1,19 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 
+using ArticulationUtility.Entities.Spreadsheet.Value;
 using ArticulationUtility.Utilities;
 
 namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Value
 {
-    public class MidiNoteVelocityCell : IEquatable<MidiNoteVelocityCell>
+    public class MidiNoteVelocityCell : IntegerCell
     {
         public const int MinValue = 0x00;
         public const int MaxValue = 0x7F;
 
-        public int Value { get; }
-
-        public MidiNoteVelocityCell( int velocity )
+        public MidiNoteVelocityCell( int velocity ) : base( velocity )
         {
-            RangeValidateHelper.ValidateIntRange( velocity, MinValue, MaxValue );
-            Value = velocity;
+            RangeValidateHelper.ValidateIntRange( Value, MinValue, MaxValue );
         }
-
-        public bool Equals( [AllowNull] MidiNoteVelocityCell other )
-        {
-            return other != null && other.Value == Value;
-        }
-
-        public override string ToString() => Value.ToString();
     }
 }

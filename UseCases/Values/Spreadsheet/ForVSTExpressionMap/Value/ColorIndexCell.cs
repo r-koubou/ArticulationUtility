@@ -1,28 +1,20 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 
+using ArticulationUtility.Entities.Spreadsheet.Value;
 using ArticulationUtility.Utilities;
 
 namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Value
 {
-    public class ColorIndexCell : IEquatable<ColorIndexCell>
+    public class ColorIndexCell : IntegerCell
     {
         public const int MinValue = 0;
         public const int MaxValue = 255;
         public static readonly ColorIndexCell Default = new ColorIndexCell( MinValue );
-        public int Value { get; }
 
-        public ColorIndexCell( int index )
+        public ColorIndexCell( int index ) : base( index )
         {
-            RangeValidateHelper.ValidateIntRange( index, MinValue, MaxValue );
-            Value = index;
+            RangeValidateHelper.ValidateIntRange( Value, MinValue, MaxValue );
         }
-
-        public bool Equals( [AllowNull] ColorIndexCell other )
-        {
-            return other != null && other.Value == Value;
-        }
-
-        public override string ToString() => Value.ToString();
     }
 }

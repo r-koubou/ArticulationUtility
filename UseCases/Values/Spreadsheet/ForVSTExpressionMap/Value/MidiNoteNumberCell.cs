@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
+using ArticulationUtility.Entities.Spreadsheet.Value;
+
 namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Value
 {
-    public class MidiNoteNumberCell : IEquatable<MidiNoteNumberCell>
+    public class MidiNoteNumberCell : StringCell
     {
         /// <summary>
         /// A list containing the index and scale name of the list in sequential form.
@@ -174,26 +176,15 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Va
             #endregion
         }
 
-        public string Value { get; }
-
-        public MidiNoteNumberCell( string noteName )
+        public MidiNoteNumberCell( string noteName ) : base( noteName )
         {
-            var found1 = NoteNameList.Contains( noteName );
-            var found2 = NoteNumberList.Contains( noteName );
+            var found1 = NoteNameList.Contains( Value );
+            var found2 = NoteNumberList.Contains( Value );
 
             if( !found1 && !found2 )
             {
                 throw new ArgumentException( nameof( noteName ) );
             }
-
-            Value = noteName;
         }
-
-        public bool Equals( [AllowNull] MidiNoteNumberCell other )
-        {
-            return other != null && other.Value == Value;
-        }
-
-        public override string ToString() => Value;
     }
 }

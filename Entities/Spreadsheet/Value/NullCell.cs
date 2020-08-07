@@ -6,15 +6,10 @@ namespace ArticulationUtility.Entities.Spreadsheet.Value
     {
         public static ICell Instance { get; } = new NullCell();
 
-        public string Value { get; } = string.Empty;
+        public object Value { get; } = string.Empty;
 
         private NullCell()
         {
-        }
-
-        public void Accept( ICellVisitor visitor )
-        {
-            visitor.Visit( this );
         }
 
         public bool Equals( [AllowNull] ICell other )
