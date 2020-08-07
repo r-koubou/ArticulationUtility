@@ -4,16 +4,11 @@ namespace ArticulationUtility.Entities.Spreadsheet.Value
 {
     public class Cell : ICell
     {
-        public string Value { get; }
+        public object Value { get; }
 
-        public Cell( string value )
+        public Cell( object value )
         {
             Value = value;
-        }
-
-        public void Accept( ICellVisitor visitor )
-        {
-            visitor.Visit( this );
         }
 
         public bool Equals( [AllowNull] ICell other )
