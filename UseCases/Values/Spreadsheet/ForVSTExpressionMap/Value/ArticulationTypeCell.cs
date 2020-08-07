@@ -13,11 +13,6 @@ namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Va
 
         public static ArticulationTypeCell Parse( string value )
         {
-            if( value == null )
-            {
-                throw new ArgumentNullException( nameof( value ) );
-            }
-
             if( value == Direction.Value )
             {
                 return Direction;
