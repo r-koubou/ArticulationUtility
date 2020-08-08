@@ -1,7 +1,7 @@
 using ArticulationUtility.Entities.MidiEvent.Value;
 using ArticulationUtility.Utilities;
 
-namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.MidiEvent.Value
+namespace ArticulationUtility.Entities.VSTExpressionMap.MidiEvent.Value
 {
     public class ProgramEventValue : IMidiEventData
     {

@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 
 using ArticulationUtility.Utilities;
 
-namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.Value
+namespace ArticulationUtility.Entities.VSTExpressionMap.Value
 {
     public class ArticulationId : IEquatable<ArticulationId>
     {

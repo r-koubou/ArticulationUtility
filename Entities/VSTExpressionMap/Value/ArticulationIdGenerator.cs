@@ -2,7 +2,7 @@ using System;
 
 using ArticulationUtility.Utilities;
 
-namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.Value
+namespace ArticulationUtility.Entities.VSTExpressionMap.Value
 {
     public class ArticulationIdGenerator
     {

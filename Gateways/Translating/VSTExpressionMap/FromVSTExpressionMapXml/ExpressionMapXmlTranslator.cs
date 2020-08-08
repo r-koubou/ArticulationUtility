@@ -3,8 +3,8 @@ using System.Linq;
 
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
 using ArticulationUtility.Entities.MidiEvent.Value;
-using ArticulationUtility.UseCases.Values.VSTExpressionMap.Aggregate;
-using ArticulationUtility.UseCases.Values.VSTExpressionMap.Value;
+using ArticulationUtility.Entities.VSTExpressionMap.Aggregate;
+using ArticulationUtility.Entities.VSTExpressionMap.Value;
 using ArticulationUtility.UseCases.Values.VSTExpressionMapXml;
 using ArticulationUtility.Utilities;
 

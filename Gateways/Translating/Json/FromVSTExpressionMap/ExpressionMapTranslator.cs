@@ -1,6 +1,6 @@
+using ArticulationUtility.Entities.VSTExpressionMap.Aggregate;
 using ArticulationUtility.UseCases.Values.Json.ForArticulation.Aggregate;
 using ArticulationUtility.UseCases.Values.Json.ForArticulation.Value;
-using ArticulationUtility.UseCases.Values.VSTExpressionMap.Aggregate;
 
 using ArticulationJson = ArticulationUtility.UseCases.Values.Json.ForArticulation.Value.Articulation;
 

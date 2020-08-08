@@ -2,9 +2,9 @@ using System;
 
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
 using ArticulationUtility.Entities.MidiEvent.Value;
-using ArticulationUtility.UseCases.Values.VSTExpressionMap.MidiEvent.Value;
+using ArticulationUtility.Entities.VSTExpressionMap.MidiEvent.Value;
 
-namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.MidiEvent.Aggregate
+namespace ArticulationUtility.Entities.VSTExpressionMap.MidiEvent.Aggregate
 {
     public class ProgramEvent : IMidiEvent
     {

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
-using ArticulationUtility.UseCases.Values.VSTExpressionMap.Aggregate;
+using ArticulationUtility.Entities.VSTExpressionMap.Aggregate;
 using ArticulationUtility.UseCases.Values.VSTExpressionMapXml;
 using ArticulationUtility.UseCases.Values.VSTExpressionMapXml.XmlClasses;
 
