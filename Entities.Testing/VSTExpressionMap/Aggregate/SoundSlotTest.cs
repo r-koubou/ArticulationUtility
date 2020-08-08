@@ -1,8 +1,6 @@
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
 using ArticulationUtility.Entities.MidiEvent.Value;
 using ArticulationUtility.Entities.VSTExpressionMap.Aggregate;
-using ArticulationUtility.Entities.VSTExpressionMap.MidiEvent.Aggregate;
-using ArticulationUtility.Entities.VSTExpressionMap.MidiEvent.Value;
 using ArticulationUtility.Entities.VSTExpressionMap.Value;
 
 using NUnit.Framework;
@@ -33,8 +31,9 @@ namespace ArticulationUtility.Entities.Testing.VSTExpressionMap.Aggregate
                 )
             );
             slot.OutputMappings.Add(
-                new ProgramEvent(
-                    new ProgramEventValue( 1 )
+                new MidiProgramChange(
+                    new MidiProgramChangeChannel( 1 ),
+                    new MidiProgramChangeNumber( 1 )
                 )
             );
         }

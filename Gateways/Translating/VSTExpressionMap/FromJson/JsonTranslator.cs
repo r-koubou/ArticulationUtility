@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
 using ArticulationUtility.Entities.MidiEvent.Value;
 using ArticulationUtility.Entities.VSTExpressionMap.Aggregate;
-using ArticulationUtility.Entities.VSTExpressionMap.MidiEvent.Aggregate;
-using ArticulationUtility.Entities.VSTExpressionMap.MidiEvent.Value;
 using ArticulationUtility.Entities.VSTExpressionMap.Value;
 using ArticulationUtility.UseCases.Values.Json.ForArticulation.Aggregate;
 using ArticulationUtility.Utilities;
@@ -73,7 +71,10 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromJson
 
                     case ArticulationJson.MidiControlNameAlias.Program:
                         var programValue = int.Parse( midi.Data1 );
-                        mapping = new ProgramEvent( new ProgramEventValue( programValue ) );
+                        mapping = new MidiProgramChange(
+                            new MidiProgramChangeChannel( MidiProgramChangeChannel.MinValue ),
+                            new MidiProgramChangeNumber( programValue )
+                        );
                         break;
 
                     default:
