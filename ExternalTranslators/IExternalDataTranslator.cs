@@ -1,4 +1,4 @@
-namespace ArticulationUtility.Translators
+namespace ArticulationUtility.ExternalTranslators
 {
     public interface IExternalDataTranslator<in TSource, out TTarget>
     {

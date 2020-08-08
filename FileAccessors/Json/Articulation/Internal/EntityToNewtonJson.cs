@@ -1,4 +1,4 @@
-using ArticulationUtility.Translators;
+using ArticulationUtility.ExternalTranslators;
 
 using EntityJsonRoot = ArticulationUtility.UseCases.Values.Json.ForArticulation.Aggregate.JsonRoot;
 
