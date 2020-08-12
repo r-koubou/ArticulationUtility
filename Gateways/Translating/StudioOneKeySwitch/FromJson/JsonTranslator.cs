@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 
-using ArticulationUtility.Entities.MidiEvent.Aggregate;
 using ArticulationUtility.Entities.MidiEvent.Value;
 using ArticulationUtility.Entities.StudioOneKeySwitch.Aggregate;
 using ArticulationUtility.Entities.StudioOneKeySwitch.Value;
@@ -20,49 +18,52 @@ namespace ArticulationUtility.Gateways.Translating.StudioOneKeySwitch.FromJson
             foreach( var obj in source.Articulations )
             {
                 // A Key switch
-                var keySwitchElement = ParseArticulation( obj );
-                keySwitch.KeySwitchList.Add( keySwitchElement );
+                if( ParseArticulation( obj, out var element ) )
+                {
+                    keySwitch.KeySwitchList.Add( element );
+                }
             }
 
             return new List<KeySwitch> { keySwitch };
         }
 
-        private static KeySwitchElement ParseArticulation( ArticulationJson obj )
+        private static bool ParseArticulation( ArticulationJson obj, out KeySwitchElement target )
         {
+            target = default!;
 
             foreach( var midi in obj.MidiMappings )
             {
-                IMidiEvent mapping;
-
                 switch( midi.Status )
                 {
                     // alias format
                     case ArticulationJson.MidiStatusAlias.MidiNoteOn:
                     {
                         var noteName = new MidiNoteName( midi.Data1 );
-                        return new KeySwitchElement(
+                        target = new KeySwitchElement(
                             new KeySwitchName( obj.Name ),
                             new KeySwitchPitch( noteName.ToMidiNoteNumber().Value )
                         );
                     }
-                    break;
+                    return true;
                     // direct value format ("123")
                     default:
                     {
                         if( int.Parse( midi.Status ) == MidiStatusCode.NoteOn.Value )
                         {
                             var noteName = new MidiNoteName( midi.Data1 );
-                            return new KeySwitchElement(
+                            target = new KeySwitchElement(
                                 new KeySwitchName( obj.Name ),
                                 new KeySwitchPitch( noteName.ToMidiNoteNumber().Value )
                             );
+
+                            return true;
                         }
                     }
                     break;
                 }
             }
 
-            throw new ArgumentException( $"{nameof(ArticulationJson)} : Not included ``" );
+            return false;
         }
     }
 }

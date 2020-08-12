@@ -6,7 +6,6 @@ using ArticulationUtility.Entities.StudioOneKeySwitch.Aggregate;
 using ArticulationUtility.Entities.StudioOneKeySwitch.Value;
 using ArticulationUtility.Gateways.Translating.MidiEvent.FromSpreadsheet;
 using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Aggregate;
-using ArticulationUtility.Utilities;
 
 namespace ArticulationUtility.Gateways.Translating.StudioOneKeySwitch.FromSpreadsheet
 {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Xml.Serialization;
@@ -7,7 +8,6 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMapXml
     [XmlRoot( ElementName = "InstrumentMap" )]
     public class RootElement
     {
-        public string Name { get; set; } = string.Empty;
 
         [XmlElement( ElementName = "string" )]
         public StringElement StringElement { get; set; }

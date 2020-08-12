@@ -24,7 +24,7 @@ namespace ArticulationUtility.Gateways.Translating.StudioOneKeySwitch.FromVSTExp
 
                 foreach( var midi in slot.OutputMappings )
                 {
-                    if( midi.Status == MidiStatusCode.NoteOn )
+                    if( midi.Status.Value == MidiStatusCode.NoteOn.Value )
                     {
                         var pitch = new KeySwitchPitch( midi.DataByte1.Value );
                         keySwitch.KeySwitchList.Add( new KeySwitchElement( name, pitch  ) );
