@@ -107,6 +107,7 @@
 {
   public class $CLASS$ {$END$}
 }</s:String>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=Cubase/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=hiroaki/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=Hiroaki/@EntryIndexedValue">True</s:Boolean>
 	
