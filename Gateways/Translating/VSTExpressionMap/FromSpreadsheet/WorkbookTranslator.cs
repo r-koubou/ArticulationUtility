@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
+using ArticulationUtility.Entities.VSTExpressionMap.Aggregate;
+using ArticulationUtility.Entities.VSTExpressionMap.Value;
 using ArticulationUtility.Gateways.Translating.MidiEvent.FromSpreadsheet;
 using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Aggregate;
-using ArticulationUtility.UseCases.Values.VSTExpressionMap.Aggregate;
-using ArticulationUtility.UseCases.Values.VSTExpressionMap.Value;
 using ArticulationUtility.Utilities;
 
 namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromSpreadsheet

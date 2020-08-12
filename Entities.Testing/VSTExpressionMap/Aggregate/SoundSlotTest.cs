@@ -1,13 +1,11 @@
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
 using ArticulationUtility.Entities.MidiEvent.Value;
-using ArticulationUtility.UseCases.Values.VSTExpressionMap.Aggregate;
-using ArticulationUtility.UseCases.Values.VSTExpressionMap.MidiEvent.Aggregate;
-using ArticulationUtility.UseCases.Values.VSTExpressionMap.MidiEvent.Value;
-using ArticulationUtility.UseCases.Values.VSTExpressionMap.Value;
+using ArticulationUtility.Entities.VSTExpressionMap.Aggregate;
+using ArticulationUtility.Entities.VSTExpressionMap.Value;
 
 using NUnit.Framework;
 
-namespace UseCases.Testing.Values.VSTExpressionMap.Aggregate
+namespace ArticulationUtility.Entities.Testing.VSTExpressionMap.Aggregate
 {
     [TestFixture]
     public class SoundSlotTest
@@ -33,8 +31,9 @@ namespace UseCases.Testing.Values.VSTExpressionMap.Aggregate
                 )
             );
             slot.OutputMappings.Add(
-                new ProgramEvent(
-                    new ProgramEventValue( 1 )
+                new MidiProgramChange(
+                    new MidiProgramChangeChannel( 1 ),
+                    new MidiProgramChangeNumber( 1 )
                 )
             );
         }

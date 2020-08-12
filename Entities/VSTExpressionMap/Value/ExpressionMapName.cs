@@ -3,16 +3,16 @@ using System.Diagnostics.CodeAnalysis;
 
 using ArticulationUtility.Utilities;
 
-namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.Value
+namespace ArticulationUtility.Entities.VSTExpressionMap.Value
 {
     /// <summary>
-    /// An Articulation name
+    /// A ExpressionMap name
     /// </summary>
-    public class ArticulationName : IEquatable<ArticulationName>
+    public class ExpressionMapName : IEquatable<ExpressionMapName>
     {
         public string Value { get; }
 
-        public ArticulationName( string name )
+        public ExpressionMapName( string name )
         {
             if( StringHelper.IsNullOrTrimEmpty( name ) )
             {
@@ -21,12 +21,11 @@ namespace ArticulationUtility.UseCases.Values.VSTExpressionMap.Value
             Value = name;
         }
 
-        public bool Equals( [AllowNull] ArticulationName other )
+        public bool Equals( [AllowNull] ExpressionMapName other )
         {
             return other != null && other.Value == Value;
         }
 
         public override string ToString() => Value;
-
     }
 }

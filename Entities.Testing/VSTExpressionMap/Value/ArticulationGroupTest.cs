@@ -1,9 +1,9 @@
-using ArticulationUtility.UseCases.Values.VSTExpressionMap.Value;
+using ArticulationUtility.Entities.VSTExpressionMap.Value;
 using ArticulationUtility.Utilities;
 
 using NUnit.Framework;
 
-namespace UseCases.Testing.Values.VSTExpressionMap.Value
+namespace ArticulationUtility.Entities.Testing.VSTExpressionMap.Value
 {
     [TestFixture]
     public class ArticulationGroupTest
