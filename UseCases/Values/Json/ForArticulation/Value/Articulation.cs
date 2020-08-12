@@ -10,7 +10,7 @@ namespace ArticulationUtility.UseCases.Values.Json.ForArticulation.Value
             public const string Attribute = "Attribute";
         }
 
-        public static class MidiControlNameAlias
+        public static class MidiStatusAlias
         {
             public const string MidiNoteOn = "NoteOn";
             public const string ControlChange = "ControlChange";
