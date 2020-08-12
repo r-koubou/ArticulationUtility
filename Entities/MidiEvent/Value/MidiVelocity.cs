@@ -10,6 +10,8 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
         public const int MinValue = 0x00;
         public const int MaxValue = 0x7F;
 
+        public static readonly MidiVelocity Zero = new MidiVelocity( 0 );
+
         public int Value { get; }
 
         public MidiVelocity( int velocity )

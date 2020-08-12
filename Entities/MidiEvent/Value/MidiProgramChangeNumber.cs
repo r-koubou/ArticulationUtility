@@ -10,6 +10,8 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
         public const int MinValue = 0x00;
         public const int MaxValue = 0x0F;
 
+        public static readonly MidiProgramChangeNumber Zero = new MidiProgramChangeNumber( 0 );
+
         public int Value { get; }
 
         public MidiProgramChangeNumber( int value )

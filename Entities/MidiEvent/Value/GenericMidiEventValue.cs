@@ -13,12 +13,9 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
         public const int MinValue = 0x00;
         public const int MaxValue = 0xFF;
 
-        public int Value { get; }
+        public static readonly GenericMidiEventValue Zero = new GenericMidiEventValue( 0 );
 
-        public static GenericMidiEventValue Zero()
-        {
-            return new GenericMidiEventValue( 0 );
-        }
+        public int Value { get; }
 
         public GenericMidiEventValue( int value )
         {
