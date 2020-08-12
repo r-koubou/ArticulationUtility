@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
-        <ProjectName>SpreadsheetToExpressionMap</ProjectName>
-        <ProjectFile>SpreadsheetToExpressionMap.csproj</ProjectFile>
+        <ProjectName>SpreadsheetToStudioOneKeySwitch</ProjectName>
+        <ProjectFile>SpreadsheetToStudioOneKeySwitch.csproj</ProjectFile>
     </PropertyGroup>
 
     <Import Project="../Common.msbuild.proj" />
