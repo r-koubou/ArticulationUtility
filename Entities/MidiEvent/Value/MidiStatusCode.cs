@@ -14,6 +14,7 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
         public const int MaxValue = 0xFF;
 
         #region Presets
+        public static readonly MidiStatusCode Zero = new MidiStatusCode( 0 );
         public static readonly MidiStatusCode NoteOn = new MidiStatusCode( 0x90 );
         public static readonly MidiStatusCode ControlChange = new MidiStatusCode( 0xB0 );
         public static readonly MidiStatusCode ProgramChange = new MidiStatusCode( 0xC0 );

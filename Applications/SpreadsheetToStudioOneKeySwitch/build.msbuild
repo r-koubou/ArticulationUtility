@@ -1,0 +1,9 @@
+<Project>
+    <PropertyGroup>
+        <ProjectName>SpreadsheetToStudioOneKeySwitch</ProjectName>
+        <ProjectFile>SpreadsheetToStudioOneKeySwitch.csproj</ProjectFile>
+    </PropertyGroup>
+
+    <Import Project="../Common.msbuild.proj" />
+
+</Project>

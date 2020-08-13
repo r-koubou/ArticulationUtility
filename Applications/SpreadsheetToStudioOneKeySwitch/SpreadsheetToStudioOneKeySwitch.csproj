@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <Authors>R-Koubou</Authors>
+        <Company>R-Koubou</Company>
+        <Product>Spreadsheet To Studio One KeySwitch</Product>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Controllers\Controllers.csproj" />
+        <ProjectReference Include="..\..\FileAccessors\FileAccessors.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="CommandLineParser" Version="2.8.0" />
+    </ItemGroup>
+
+    <!-- Output assenbly version to text file for including on deploy by msbuild script. -->
+    <Import Project="../GenerateVersion.msbuild.proj" />
+
+</Project>

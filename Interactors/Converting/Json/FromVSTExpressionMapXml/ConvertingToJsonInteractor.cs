@@ -29,7 +29,7 @@ namespace ArticulationUtility.Interactors.Converting.Json.FromVSTExpressionMapXm
 
             LoadRepository.LoadPath = request.InputFile;
             var xml = LoadRepository.Load();
-            xml.Name = Path.GetFileNameWithoutExtension( request.InputFile );
+            xml.StringElement.Value = Path.GetFileNameWithoutExtension( request.InputFile );
 
             var expressionMap = expressionMapAdapter.Translate( xml );
 

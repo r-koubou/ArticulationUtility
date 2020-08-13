@@ -57,19 +57,19 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromJson
 
                 switch( midi.Status )
                 {
-                    case ArticulationJson.MidiControlNameAlias.MidiNoteOn:
+                    case ArticulationJson.MidiStatusAlias.MidiNoteOn:
                         var noteName = new MidiNoteName( midi.Data1 );
                         var velocity = int.Parse( midi.Data2 );
                         mapping = new MidiNoteOn( noteName.ToMidiNoteNumber(), new MidiVelocity( velocity ) );
                         break;
 
-                    case ArticulationJson.MidiControlNameAlias.ControlChange:
+                    case ArticulationJson.MidiStatusAlias.ControlChange:
                         var ccNumber = int.Parse( midi.Data1 );
                         var ccValue = int.Parse( midi.Data2 );
                         mapping = new MidiControlChange( new MidiControlChangeNumber( ccNumber ), new MidiControlChangeValue( ccValue ) );
                         break;
 
-                    case ArticulationJson.MidiControlNameAlias.Program:
+                    case ArticulationJson.MidiStatusAlias.Program:
                         var programValue = int.Parse( midi.Data1 );
                         mapping = new MidiProgramChange(
                             new MidiProgramChangeChannel( MidiProgramChangeChannel.MinValue ),

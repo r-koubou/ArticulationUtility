@@ -80,7 +80,7 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMapXml.FromVSTEx
             var instrumentMapElement = InstrumentMap.New( source.Name.Value );
             instrumentMapElement.Member.Add( slotVisuals );
             instrumentMapElement.Member.Add( slots );
-            instrumentMapElement.Name = source.Name.Value;
+            instrumentMapElement.StringElement.Value = source.Name.Value;
 
             result.Add( instrumentMapElement );
 

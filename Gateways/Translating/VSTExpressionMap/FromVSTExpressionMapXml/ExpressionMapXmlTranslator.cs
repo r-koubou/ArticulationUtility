@@ -14,7 +14,7 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpre
     {
         public ExpressionMap Translate( RootElement source )
         {
-            var result = new ExpressionMap( new ExpressionMapName( source.Name ) );
+            var result = new ExpressionMap( new ExpressionMapName( source.StringElement.Value ) );
             var psoundSlot = PSoundSlot( source );
 
             var idGenerator = new ArticulationIdGenerator();

@@ -12,7 +12,7 @@ namespace ArticulationUtility.Gateways.Translating.MidiEvent.FromSpreadsheet
             return new GenericMidiEvent(
                 MidiStatusCode.ProgramChange,
                 new GenericMidiEventValue( source.Value ),
-                GenericMidiEventValue.Zero()
+                GenericMidiEventValue.Zero
             );
         }
     }

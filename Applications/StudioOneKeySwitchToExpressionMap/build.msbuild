@@ -1,0 +1,9 @@
+<Project>
+    <PropertyGroup>
+        <ProjectName>StudioOneKeySwitchToExpressionMap</ProjectName>
+        <ProjectFile>StudioOneKeySwitchToExpressionMap.csproj</ProjectFile>
+    </PropertyGroup>
+
+    <Import Project="../Common.msbuild.proj" />
+
+</Project>
