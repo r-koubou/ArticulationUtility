@@ -1,14 +1,9 @@
-using System;
-using System.Diagnostics.CodeAnalysis;
-
-using ArticulationUtility.Utilities;
-
 namespace ArticulationUtility.Entities.MidiEvent.Value
 {
     /// <summary>
     /// Generic MIDI message data.
     /// </summary>
-    public class MidiStatusCode : IMidiEventData, IEquatable<MidiStatusCode>
+    public class MidiStatusCode : MidiEventData
     {
         public const int MinValue = 0x00;
         public const int MaxValue = 0xFF;
@@ -20,20 +15,10 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
         public static readonly MidiStatusCode ProgramChange = new MidiStatusCode( 0xC0 );
         #endregion
 
-        public int Value { get; }
-
         public MidiStatusCode( int value )
-        {
-            RangeValidateHelper.ValidateIntRange( value, MinValue, MaxValue );
-            Value  = value;
-        }
+            : base( value, MinValue, MaxValue )
+        {}
 
-        public bool Equals( [AllowNull] MidiStatusCode other )
-        {
-            return other != null && other.Value == Value;
-        }
-
-        public override string ToString() => Value.ToString();
-
+        public override int GetHashCode() => 1215229421 * Value;
     }
 }
