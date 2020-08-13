@@ -5,7 +5,7 @@ using System.Text;
 
 using ArticulationUtility.Gateways;
 using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Aggregate;
-using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Value;
+using ArticulationUtility.UseCases.Values.Spreadsheet.Value;
 using ArticulationUtility.Utilities;
 
 using ExcelDataReader;

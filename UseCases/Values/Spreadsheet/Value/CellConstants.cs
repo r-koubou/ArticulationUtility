@@ -1,4 +1,4 @@
-namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Value
+namespace ArticulationUtility.UseCases.Values.Spreadsheet.Value
 {
     static class CellConstants
     {
