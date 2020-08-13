@@ -2,7 +2,7 @@ using System;
 
 using ArticulationUtility.Entities.Spreadsheet.Value;
 
-namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Value
+namespace ArticulationUtility.UseCases.Values.Spreadsheet.Value
 {
     public class ArticulationTypeCell : StringCell
     {

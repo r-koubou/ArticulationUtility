@@ -1,30 +1,14 @@
-using System;
-using System.Diagnostics.CodeAnalysis;
-
-using ArticulationUtility.Utilities;
-
 namespace ArticulationUtility.Entities.MidiEvent.Value
 {
-    public class MidiLeastSignificantByte : IMidiEventData, IEquatable<MidiLeastSignificantByte>
+    public class MidiLeastSignificantByte : MidiEventData
     {
         public const int MinValue = 0x00;
         public const int MaxValue = 0x7F;
 
-        public static readonly MidiLeastSignificantByte Zero = new MidiLeastSignificantByte( 0 );
-
-        public int Value { get; }
-
         public MidiLeastSignificantByte( int value )
-        {
-            RangeValidateHelper.ValidateIntRange( value, MinValue, MaxValue );
-            Value = value;
-        }
+            : base( value, MinValue, MaxValue )
+        {}
 
-        public bool Equals( [AllowNull] MidiLeastSignificantByte other )
-        {
-            return other != null && other.Value == Value;
-        }
-
-        public override string ToString() => Value.ToString();
+        public override int GetHashCode() => 787987416 * Value;
     }
 }

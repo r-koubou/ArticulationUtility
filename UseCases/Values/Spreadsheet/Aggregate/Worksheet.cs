@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Value;
+using ArticulationUtility.UseCases.Values.Spreadsheet.Value;
 
 namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Aggregate
 {

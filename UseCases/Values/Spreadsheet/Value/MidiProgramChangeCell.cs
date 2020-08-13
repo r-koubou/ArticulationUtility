@@ -1,7 +1,7 @@
 using ArticulationUtility.Entities.Spreadsheet.Value;
 using ArticulationUtility.Utilities;
 
-namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Value
+namespace ArticulationUtility.UseCases.Values.Spreadsheet.Value
 {
     public class MidiProgramChangeCell : IntegerCell
     {

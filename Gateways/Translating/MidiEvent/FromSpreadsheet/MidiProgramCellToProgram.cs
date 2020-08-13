@@ -1,6 +1,6 @@
 using ArticulationUtility.Entities.MidiEvent.Aggregate;
 using ArticulationUtility.Entities.MidiEvent.Value;
-using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Value;
+using ArticulationUtility.UseCases.Values.Spreadsheet.Value;
 
 namespace ArticulationUtility.Gateways.Translating.MidiEvent.FromSpreadsheet
 {

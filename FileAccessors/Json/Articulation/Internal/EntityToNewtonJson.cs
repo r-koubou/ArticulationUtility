@@ -1,6 +1,6 @@
 using ArticulationUtility.ExternalTranslators;
 
-using EntityJsonRoot = ArticulationUtility.UseCases.Values.Json.ForArticulation.Aggregate.JsonRoot;
+using EntityJsonRoot = ArticulationUtility.UseCases.Values.Json.ForArticulation.JsonRoot;
 
 namespace ArticulationUtility.FileAccessors.Json.Articulation.Internal
 {

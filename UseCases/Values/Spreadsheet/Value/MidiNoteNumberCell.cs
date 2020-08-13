@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using ArticulationUtility.Entities.Spreadsheet.Value;
 
-namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Value
+namespace ArticulationUtility.UseCases.Values.Spreadsheet.Value
 {
     public class MidiNoteNumberCell : StringCell
     {

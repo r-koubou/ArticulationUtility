@@ -1,6 +1,6 @@
 using System;
 
-using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Value;
+using ArticulationUtility.UseCases.Values.Spreadsheet.Value;
 
 using NUnit.Framework;
 

@@ -1,30 +1,14 @@
-using System;
-using System.Diagnostics.CodeAnalysis;
-
-using ArticulationUtility.Utilities;
-
 namespace ArticulationUtility.Entities.MidiEvent.Value
 {
-    public class MidiProgramChangeNumber : IMidiEventData, IEquatable<MidiProgramChangeNumber>
+    public class MidiProgramChangeNumber : MidiEventData
     {
         public const int MinValue = 0x00;
         public const int MaxValue = 0x0F;
 
-        public static readonly MidiProgramChangeNumber Zero = new MidiProgramChangeNumber( 0 );
-
-        public int Value { get; }
-
         public MidiProgramChangeNumber( int value )
-        {
-            RangeValidateHelper.ValidateIntRange( value, MinValue, MaxValue );
-            Value = value;
-        }
+            : base( value, MinValue, MaxValue )
+        {}
 
-        public bool Equals( [AllowNull] MidiProgramChangeNumber other )
-        {
-            return other != null && other.Value == Value;
-        }
-
-        public override string ToString() => Value.ToString();
+        public override int GetHashCode() => 1757310380 * Value;
     }
 }

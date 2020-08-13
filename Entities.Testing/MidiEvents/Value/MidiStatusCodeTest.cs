@@ -6,30 +6,39 @@ using NUnit.Framework;
 namespace ArticulationUtility.Entities.Testing.MidiEvents.Value
 {
     [TestFixture]
-    public class MidiStatusCode
+    public class MidiStatusCodeTest
     {
         [Test]
-        [TestCase( MidiControlChangeValue.MinValue - 1 )]
-        [TestCase( MidiControlChangeValue.MaxValue + 1 )]
+        [TestCase( MidiStatusCode.MinValue - 1 )]
+        [TestCase( MidiStatusCode.MaxValue + 1 )]
         public void OutOfRangeTest( int ccNumber )
         {
-            Assert.Throws<ValueOutOfRangeException>( () => new MidiControlChangeValue( ccNumber ) );
+            Assert.Throws<ValueOutOfRangeException>( () => new MidiStatusCode( ccNumber ) );
         }
 
         [Test]
         public void EqualityTest()
         {
-            var cc1 = new MidiControlChangeValue( 1 );
-            var cc2 = new MidiControlChangeValue( 2 );
-            Assert.IsTrue( cc1.Equals( new MidiControlChangeValue( 1 ) ) );
-            Assert.IsFalse( cc1.Equals( cc2 ) );
+            var code1 = new MidiStatusCode( 1 );
+            var code2 = new MidiStatusCode( 2 );
+            Assert.IsTrue( code1.Equals( new MidiStatusCode( 1 ) ) );
+            Assert.IsFalse( code1.Equals( code2 ) );
+
+            // overridden operator ==, !=
+            Assert.IsTrue( code1 == new MidiStatusCode( 1 ) );
+            Assert.IsFalse( code1 == code2 );
+            Assert.IsTrue( code1 != code2 );
+
+            // overridden hashcode
+            Assert.IsTrue( code1.GetHashCode() == new MidiStatusCode( 1 ).GetHashCode() );
+            Assert.IsTrue( code1.GetHashCode() != code2.GetHashCode() );
         }
 
         [Test]
         public void ToStringEqualityTest()
         {
-            Assert.AreEqual( new MidiControlChangeValue( 1 ).ToString(), "1" );
-            Assert.IsTrue( new MidiControlChangeValue( 1 ).ToString() == "1" );
+            Assert.AreEqual( new MidiStatusCode( 1 ).ToString(), "1" );
+            Assert.IsTrue( new MidiStatusCode( 1 ).ToString() == "1" );
 
         }
 
