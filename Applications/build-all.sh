@@ -12,14 +12,16 @@ fi
 # Build all applications
 for i in $dirs
 do
-    if [ -e "$i/build.sh" ] ; then
+    if [ $i != "publish" -a -e "$i/build.sh" ] ; then
         echo ----- $i --------------
         pushd "$i"
             ./build.sh
             # Copy all applications zip to ./publish folder
             pushd publish/
-                cp *.* "$this_dir"/publish/
+                cp -f *.zip "$this_dir"/publish/
             popd
+            # cleanup
+            rm -fr publish/
         popd
     fi
 done

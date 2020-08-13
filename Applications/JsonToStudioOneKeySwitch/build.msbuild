@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
-        <ProjectName>JsonToStudioOneKeSwitch.</ProjectName>
-        <ProjectFile>JsonToStudioOneKeSwitch.csproj</ProjectFile>
+        <ProjectName>JsonToStudioOneKeySwitch</ProjectName>
+        <ProjectFile>JsonToStudioOneKeySwitch.csproj</ProjectFile>
     </PropertyGroup>
 
     <Import Project="../Common.msbuild.proj" />

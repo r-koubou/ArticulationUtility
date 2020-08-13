@@ -1,0 +1,16 @@
+<Project>
+    <PropertyGroup>
+
+        <BashLauncherText>
+#/bin/bash
+dotnet $(ProjectName).dll $*
+        </BashLauncherText>
+
+        <DosLauncherText>
+@echo off
+dotnet $(ProjectName).dll %*
+        </DosLauncherText>
+
+    </PropertyGroup>
+
+</Project>

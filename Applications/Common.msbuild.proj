@@ -1,4 +1,7 @@
 <Project>
+
+    <Import Project="GenerateDotnetVersionLaunchShellScript.msbuild.proj" />
+
     <PropertyGroup>
         <BuildDate>$([System.DateTime]::Now.ToString("yyyyMMdd"))</BuildDate>
         <OtherDeployingFiles>
@@ -12,10 +15,12 @@
         <!-- Build for Specific OS native code -->
         <PropertyGroup Condition="$(RID) != ''">
             <Prefix>$(ProjectName)-$(RID)</Prefix>
+            <ForDotNetCore>false</ForDotNetCore>
         </PropertyGroup>
         <!-- Build for .net Core code -->
         <PropertyGroup Condition="$(RID) == ''">
             <Prefix>$(ProjectName)-dotnet</Prefix>
+            <ForDotNetCore>true</ForDotNetCore>
         </PropertyGroup>
 
         <PropertyGroup>
@@ -42,13 +47,13 @@
     <Target Name="Build" DependsOnTargets="Initialize">
 
         <!-- Build for Specific OS native code -->
-        <PropertyGroup Condition="$(RID) != ''">
+        <PropertyGroup Condition="$(ForDotNetCore) == 'false'">
             <ProprtyArgs>
                 PublishDir=$(PublishDir);Configuration=$(Configuration);SelfContained=true;RuntimeIdentifier=$(RID)
             </ProprtyArgs>
         </PropertyGroup>
         <!-- Build for .net Core code -->
-        <PropertyGroup Condition="$(RID) == ''">
+        <PropertyGroup Condition="$(ForDotNetCore) == 'true'">
             <ProprtyArgs>
                 PublishDir=$(PublishDir);Configuration=$(Configuration)
             </ProprtyArgs>
@@ -61,7 +66,19 @@
 
     </Target>
 
-    <Target Name="Archive" DependsOnTargets="Build">
+    <Target Name="GenerateDotnetLauncer" Condition="$(ForDotNetCore) == 'true'">
+        <WriteLinesToFile
+                File="$(PublishDir)/$(ProjectName).sh"
+                Overwrite="true"
+                Lines="$(BashLauncherText)"/>
+
+        <WriteLinesToFile
+                File="$(PublishDir)/$(ProjectName).bat"
+                Overwrite="true"
+                Lines="$(DosLauncherText)"/>
+    </Target>
+
+    <Target Name="Archive" DependsOnTargets="Build;GenerateDotnetLauncer">
 
         <Copy
                 SourceFiles="$(OtherDeployingFiles)"

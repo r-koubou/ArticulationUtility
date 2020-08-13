@@ -22,7 +22,7 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
 
         public abstract override int GetHashCode();
 
-        public static bool operator == ( MidiEventData a, MidiEventData b )
+        public static bool operator == ( [AllowNull] MidiEventData a, [AllowNull] MidiEventData b )
         {
             if( ReferenceEquals( a, null ) )
             {
@@ -31,7 +31,7 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
             return a.Equals( b );
         }
 
-        public static bool operator != ( MidiEventData a, MidiEventData b )
+        public static bool operator != ( [AllowNull] MidiEventData a, [AllowNull] MidiEventData? b )
         {
             if( ReferenceEquals( a, null ) )
             {
