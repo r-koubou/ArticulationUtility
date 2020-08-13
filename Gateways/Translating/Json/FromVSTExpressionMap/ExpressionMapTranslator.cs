@@ -1,8 +1,7 @@
 using ArticulationUtility.Entities.VSTExpressionMap.Aggregate;
-using ArticulationUtility.UseCases.Values.Json.ForArticulation.Aggregate;
-using ArticulationUtility.UseCases.Values.Json.ForArticulation.Value;
+using ArticulationUtility.UseCases.Values.Json.ForArticulation;
 
-using ArticulationJson = ArticulationUtility.UseCases.Values.Json.ForArticulation.Value.Articulation;
+using ArticulationJson = ArticulationUtility.UseCases.Values.Json.ForArticulation.Articulation;
 
 namespace ArticulationUtility.Gateways.Translating.Json.FromVSTExpressionMap
 {

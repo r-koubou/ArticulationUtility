@@ -5,7 +5,7 @@ using ArticulationUtility.Gateways;
 using ArticulationUtility.Gateways.Translating.Json.FromVSTExpressionMap;
 using ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpressionMapXml;
 using ArticulationUtility.UseCases.Converting;
-using ArticulationUtility.UseCases.Values.Json.ForArticulation.Aggregate;
+using ArticulationUtility.UseCases.Values.Json.ForArticulation;
 using ArticulationUtility.UseCases.Values.VSTExpressionMapXml;
 
 namespace ArticulationUtility.Interactors.Converting.Json.FromVSTExpressionMapXml

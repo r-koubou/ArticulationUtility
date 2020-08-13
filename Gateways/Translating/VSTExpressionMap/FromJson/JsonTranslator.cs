@@ -4,10 +4,11 @@ using ArticulationUtility.Entities.MidiEvent.Aggregate;
 using ArticulationUtility.Entities.MidiEvent.Value;
 using ArticulationUtility.Entities.VSTExpressionMap.Aggregate;
 using ArticulationUtility.Entities.VSTExpressionMap.Value;
-using ArticulationUtility.UseCases.Values.Json.ForArticulation.Aggregate;
+using ArticulationUtility.UseCases.Values.Json.ForArticulation;
 using ArticulationUtility.Utilities;
 
-using ArticulationJson = ArticulationUtility.UseCases.Values.Json.ForArticulation.Value.Articulation;
+using Articulation = ArticulationUtility.Entities.VSTExpressionMap.Aggregate.Articulation;
+using ArticulationJson = ArticulationUtility.UseCases.Values.Json.ForArticulation.Articulation;
 
 namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromJson
 {

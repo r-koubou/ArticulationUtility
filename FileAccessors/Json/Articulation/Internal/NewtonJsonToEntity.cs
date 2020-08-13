@@ -1,8 +1,8 @@
 using ArticulationUtility.ExternalTranslators;
 
-using EntityJsonRoot = ArticulationUtility.UseCases.Values.Json.ForArticulation.Aggregate.JsonRoot;
-using EntityMidiMapping = ArticulationUtility.UseCases.Values.Json.ForArticulation.Value.MidiMapping;
-using EntityJsonArticulation = ArticulationUtility.UseCases.Values.Json.ForArticulation.Value.Articulation;
+using EntityJsonRoot = ArticulationUtility.UseCases.Values.Json.ForArticulation.JsonRoot;
+using EntityMidiMapping = ArticulationUtility.UseCases.Values.Json.ForArticulation.MidiMapping;
+using EntityJsonArticulation = ArticulationUtility.UseCases.Values.Json.ForArticulation.Articulation;
 
 namespace ArticulationUtility.FileAccessors.Json.Articulation.Internal
 {

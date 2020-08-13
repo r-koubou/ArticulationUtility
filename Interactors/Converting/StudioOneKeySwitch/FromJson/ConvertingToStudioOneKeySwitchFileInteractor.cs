@@ -4,7 +4,7 @@ using ArticulationUtility.Gateways;
 using ArticulationUtility.Gateways.Translating.StudioOneKeySwitch.FromJson;
 using ArticulationUtility.Gateways.Translating.StudioOneKeySwitchXml.FromStudioOneKeySwitch;
 using ArticulationUtility.UseCases.Converting;
-using ArticulationUtility.UseCases.Values.Json.ForArticulation.Aggregate;
+using ArticulationUtility.UseCases.Values.Json.ForArticulation;
 using ArticulationUtility.UseCases.Values.StudioOneKeySwitchXml;
 
 namespace ArticulationUtility.Interactors.Converting.StudioOneKeySwitch.FromJson

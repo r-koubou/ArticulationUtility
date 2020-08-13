@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using ArticulationUtility.Entities.MidiEvent.Value;
 using ArticulationUtility.Entities.StudioOneKeySwitch.Aggregate;
 using ArticulationUtility.Entities.StudioOneKeySwitch.Value;
-using ArticulationUtility.UseCases.Values.Json.ForArticulation.Aggregate;
+using ArticulationUtility.UseCases.Values.Json.ForArticulation;
 
-using ArticulationJson = ArticulationUtility.UseCases.Values.Json.ForArticulation.Value.Articulation;
+using ArticulationJson = ArticulationUtility.UseCases.Values.Json.ForArticulation.Articulation;
 
 namespace ArticulationUtility.Gateways.Translating.StudioOneKeySwitch.FromJson
 {
@@ -36,7 +36,7 @@ namespace ArticulationUtility.Gateways.Translating.StudioOneKeySwitch.FromJson
                 switch( midi.Status )
                 {
                     // alias format
-                    case ArticulationJson.MidiStatusAlias.MidiNoteOn:
+                    case Articulation.MidiStatusAlias.MidiNoteOn:
                     {
                         var noteName = new MidiNoteName( midi.Data1 );
                         target = new KeySwitchElement(

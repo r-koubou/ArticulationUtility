@@ -6,7 +6,7 @@ using ArticulationUtility.Gateways;
 
 using Newtonsoft.Json;
 
-using EntityJsonRoot = ArticulationUtility.UseCases.Values.Json.ForArticulation.Aggregate.JsonRoot;
+using EntityJsonRoot = ArticulationUtility.UseCases.Values.Json.ForArticulation.JsonRoot;
 using ExternalJsonRoot = ArticulationUtility.FileAccessors.Json.Articulation.Internal.JsonRoot;
 
 namespace ArticulationUtility.FileAccessors.Json.Articulation
