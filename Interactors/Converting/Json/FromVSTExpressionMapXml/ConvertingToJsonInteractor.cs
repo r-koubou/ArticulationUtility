@@ -10,7 +10,7 @@ using ArticulationUtility.UseCases.Values.VSTExpressionMapXml;
 
 namespace ArticulationUtility.Interactors.Converting.Json.FromVSTExpressionMapXml
 {
-    public class ConvertingToJsonInteractor : IConvertingUseCase<ConvertingFileFormatRequest>
+    public class ConvertingToJsonInteractor : IFileConvertingUseCase
     {
         private IFileRepository<RootElement> LoadRepository { get; }
         private IFileRepository<JsonRoot> SaveRepository { get; }
@@ -22,7 +22,7 @@ namespace ArticulationUtility.Interactors.Converting.Json.FromVSTExpressionMapXm
             SaveRepository = saveRepository ?? throw new ArgumentNullException( nameof( saveRepository ) );
         }
 
-        public void Convert( ConvertingFileFormatRequest request )
+        public void Convert( IFileConvertingRequest request )
         {
             var expressionMapAdapter = new ExpressionMapXmlTranslator();
             var jsonAdapter = new ExpressionMapTranslator();

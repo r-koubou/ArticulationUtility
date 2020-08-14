@@ -48,6 +48,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionMapToStudioOneKey
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudioOneKeySwitchToExpressionMap", "Applications\StudioOneKeySwitchToExpressionMap\StudioOneKeySwitchToExpressionMap.csproj", "{6F92B227-8655-448E-B7AD-146864912E1C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvertingAppLauncher", "Applications\ConvertingAppLauncher\ConvertingAppLauncher.csproj", "{6361E371-9602-4881-8442-281638A34D49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -130,6 +132,10 @@ Global
 		{6F92B227-8655-448E-B7AD-146864912E1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F92B227-8655-448E-B7AD-146864912E1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F92B227-8655-448E-B7AD-146864912E1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6361E371-9602-4881-8442-281638A34D49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6361E371-9602-4881-8442-281638A34D49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6361E371-9602-4881-8442-281638A34D49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6361E371-9602-4881-8442-281638A34D49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{899418AD-7A88-496B-BD4C-984166160962} = {6B016EEE-B77F-467A-82AA-88471C5AA937}
@@ -150,5 +156,6 @@ Global
 		{7B6495E0-DFF5-4370-AA80-411DD954367F} = {97ECF67D-B5FC-4987-900D-78F65169AECA}
 		{83DD2667-9AB6-45EA-B8BD-FA9DC06834A3} = {97ECF67D-B5FC-4987-900D-78F65169AECA}
 		{6F92B227-8655-448E-B7AD-146864912E1C} = {97ECF67D-B5FC-4987-900D-78F65169AECA}
+		{6361E371-9602-4881-8442-281638A34D49} = {97ECF67D-B5FC-4987-900D-78F65169AECA}
 	EndGlobalSection
 EndGlobal

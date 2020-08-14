@@ -4,16 +4,16 @@ using ArticulationUtility.UseCases.Converting;
 
 namespace ArticulationUtility.Controllers
 {
-    public class ConvertingFileFormatController : IConvertingController<ConvertingFileFormatRequest>
+    public class ConvertingFileFormatController : IConvertingFileFormatController
     {
-        private IConvertingUseCase<ConvertingFileFormatRequest> UseCase { get; }
+        private IFileConvertingUseCase UseCase { get; }
 
-        public ConvertingFileFormatController( IConvertingUseCase<ConvertingFileFormatRequest> useCase )
+        public ConvertingFileFormatController( IFileConvertingUseCase useCase )
         {
             UseCase = useCase ?? throw new ArgumentNullException( nameof( useCase ) );
         }
 
-        public void Convert( ConvertingFileFormatRequest request )
+        public void Convert( IFileConvertingRequest request )
         {
             UseCase.Convert( request );
         }

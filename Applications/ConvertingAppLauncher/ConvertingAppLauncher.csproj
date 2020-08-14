@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <Nullable>enable</Nullable>
+        <Authors>R-Koubou</Authors>
+        <Company>R-Koubou</Company>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CommandLineParser" Version="2.8.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Controllers\Controllers.csproj" />
+    </ItemGroup>
+
+</Project>

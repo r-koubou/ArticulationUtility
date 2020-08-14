@@ -25,7 +25,7 @@ namespace ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromStudio
             TargetRepository = saveRepository;
         }
 
-        public void Convert( ConvertingFileFormatRequest request )
+        public void Convert( IFileConvertingRequest request )
         {
             SourceRepository.LoadPath = request.InputFile;
 

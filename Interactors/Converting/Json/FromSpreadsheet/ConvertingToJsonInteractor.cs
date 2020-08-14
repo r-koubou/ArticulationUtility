@@ -10,7 +10,7 @@ using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Aggreg
 
 namespace ArticulationUtility.Interactors.Converting.Json.FromSpreadsheet
 {
-    public class ConvertingToJsonInteractor : IConvertingUseCase<ConvertingFileFormatRequest>
+    public class ConvertingToJsonInteractor : IFileConvertingUseCase
     {
         private IFileRepository<Workbook> LoadRepository { get; }
 
@@ -24,7 +24,7 @@ namespace ArticulationUtility.Interactors.Converting.Json.FromSpreadsheet
             SaveRepository = saveRepository ?? throw new ArgumentNullException( nameof( saveRepository ) );
         }
 
-        public void Convert( ConvertingFileFormatRequest request )
+        public void Convert( IFileConvertingRequest request )
         {
             LoadRepository.LoadPath = request.InputFile;
 

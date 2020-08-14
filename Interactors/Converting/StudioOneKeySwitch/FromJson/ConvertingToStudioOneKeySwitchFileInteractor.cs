@@ -23,7 +23,7 @@ namespace ArticulationUtility.Interactors.Converting.StudioOneKeySwitch.FromJson
             TargetRepository = saveRepository;
         }
 
-        public void Convert( ConvertingFileFormatRequest request )
+        public void Convert( IFileConvertingRequest request )
         {
             SourceRepository.LoadPath = request.InputFile;
 
