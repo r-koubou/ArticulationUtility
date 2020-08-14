@@ -1,13 +1,10 @@
-﻿using ArticulationUtility.Controllers;
-using ArticulationUtility.UseCases.Converting;
-
-using CommandLine;
+﻿using CommandLine;
 
 namespace ConvertingAppLauncher
 {
     public class CliAppLauncher
     {
-        public CommandlineOption Option { get; }
+        protected CommandlineOption Option { get; }
 
         public bool ParsedArguments { get; }
 
@@ -34,18 +31,18 @@ namespace ConvertingAppLauncher
             return true;
         }
 
-        public void Execute(
-            IConvertingFileFormatController controller,
-            IFileConvertingRequest request )
+        public void Execute( ICliApplication application )
         {
             if( !ParsedArguments )
             {
                 return;
             }
 
+            var request = application.CreateRequest();
             request.InputFile       = Option.InputFileName;
             request.OutputDirectory = Option.OutputDirectory;
 
+            var controller = application.GetController( request );
             controller.Convert( request );
 
         }
