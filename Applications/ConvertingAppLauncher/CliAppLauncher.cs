@@ -7,9 +7,9 @@ namespace ConvertingAppLauncher
 {
     public class CliAppLauncher
     {
-        private CommandlineOption Option { get; }
+        public CommandlineOption Option { get; }
 
-        private bool ParsedArguments { get; }
+        public bool ParsedArguments { get; }
 
         public CliAppLauncher( string[] args )
         {
