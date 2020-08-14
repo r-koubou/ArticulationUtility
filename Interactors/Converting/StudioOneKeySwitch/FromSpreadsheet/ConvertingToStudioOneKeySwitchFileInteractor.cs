@@ -20,7 +20,7 @@ namespace ArticulationUtility.Interactors.Converting.StudioOneKeySwitch.FromSpre
             TargetRepository = targetRepository;
         }
 
-        public void Convert( ConvertingFileFormatRequest request )
+        public void Convert( IFileConvertingRequest request )
         {
             SourceRepository.LoadPath = request.InputFile;
 

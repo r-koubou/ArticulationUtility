@@ -24,7 +24,7 @@ namespace ArticulationUtility.Interactors.Converting.StudioOneKeySwitch.FromVSTE
             TargetRepository = saveRepository;
         }
 
-        public void Convert( ConvertingFileFormatRequest request )
+        public void Convert( IFileConvertingRequest request )
         {
             SourceRepository.LoadPath = request.InputFile;
 
