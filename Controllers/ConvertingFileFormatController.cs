@@ -6,9 +6,9 @@ namespace ArticulationUtility.Controllers
 {
     public class ConvertingFileFormatController : IConvertingFileFormatController
     {
-        private IConvertingUseCase<IFileConvertingRequest> UseCase { get; }
+        private IFileConvertingUseCase UseCase { get; }
 
-        public ConvertingFileFormatController( IConvertingUseCase<IFileConvertingRequest> useCase )
+        public ConvertingFileFormatController( IFileConvertingUseCase useCase )
         {
             UseCase = useCase ?? throw new ArgumentNullException( nameof( useCase ) );
         }
