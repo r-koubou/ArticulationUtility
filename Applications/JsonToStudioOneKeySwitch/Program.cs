@@ -8,26 +8,21 @@ using ConvertingAppLauncher;
 
 namespace JsonToStudioOneKeySwitch
 {
-    public class Program
+    public class Program : ICliApplication
     {
+        public IConvertingFileFormatController GetController( IFileConvertingRequest request )
+        {
+            var loadRepository = new JsonFileRepository();
+            var saveRepository = new KeySwitchFileRepository();
+            var useCase = new ConvertingToStudioOneKeySwitchFileInteractor( loadRepository, saveRepository );
+
+            return  new ConvertingFileFormatController( useCase );
+        }
+
         public static void Main( string[] args )
         {
             var launcher = new CliAppLauncher( args );
-
-            if( !launcher.ParsedArguments )
-            {
-                return;
-            }
-
-            var loadRepository = new JsonFileRepository();
-            var saveRepository = new KeySwitchFileRepository();
-
-            var useCase = new ConvertingToStudioOneKeySwitchFileInteractor( loadRepository, saveRepository );
-            var controller = new ConvertingFileFormatController( useCase );
-            var request = new FileConvertingRequest();
-
-            launcher.Execute( controller, request );
-
+            launcher.Execute( new Program() );
         }
     }
 }
