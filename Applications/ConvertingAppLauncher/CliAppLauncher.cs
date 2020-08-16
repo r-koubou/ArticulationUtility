@@ -38,13 +38,15 @@ namespace ConvertingAppLauncher
                 return;
             }
 
-            var request = application.CreateRequest();
-            request.InputFile       = Option.InputFileName;
-            request.OutputDirectory = Option.OutputDirectory;
+            foreach( var inputFile in Option.InputFilesByWildCard )
+            {
+                var request = application.CreateRequest();
+                request.InputFile       = inputFile;
+                request.OutputDirectory = Option.OutputDirectory;
 
-            var controller = application.GetController( request );
-            controller.Convert( request );
-
+                var controller = application.GetController( request );
+                controller.Convert( request );
+            }
         }
     }
 }
