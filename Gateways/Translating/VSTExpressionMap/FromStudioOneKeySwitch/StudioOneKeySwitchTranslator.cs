@@ -38,7 +38,7 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromStudioOn
             var articulationName = new ArticulationName( obj.Name.Value );
             var articulationType = ArticulationType.Direction;
             var articulationGroup = new ArticulationGroup( ArticulationGroup.MinValue );
-            var articulation = new Articulation( articulationId, articulationName, ArticulationSymbol.Default, articulationType, articulationGroup );
+            var articulation = new Articulation( articulationId, articulationName, ArticulationSymbol.None, articulationType, articulationGroup );
 
             return articulation;
         }

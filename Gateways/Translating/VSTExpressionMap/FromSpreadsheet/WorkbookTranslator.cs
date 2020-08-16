@@ -37,7 +37,7 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromSpreadsh
                 var articulationName = new ArticulationName( row.ArticulationName.Value );
                 var articulationType = EnumHelper.Parse( row.ArticulationType.Value, ArticulationType.Default );
                 var articulationGroup = new ArticulationGroup( row.GroupIndex.Value );
-                var articulation = new Articulation( articulationId, articulationName, ArticulationSymbol.Default, articulationType, articulationGroup );
+                var articulation = new Articulation( articulationId, articulationName, ArticulationSymbol.None, articulationType, articulationGroup );
 
                 if( !expressionMap.Articulations.ContainsKey( articulationId ) )
                 {

@@ -42,7 +42,7 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromJson
             var articulationName = new ArticulationName( obj.Name );
             var articulationType = EnumHelper.Parse( obj.Type, ArticulationType.Default );
             var articulationGroup = new ArticulationGroup( obj.Group );
-            var articulation = new Articulation( articulationId, articulationName, ArticulationSymbol.Default, articulationType, articulationGroup );
+            var articulation = new Articulation( articulationId, articulationName, ArticulationSymbol.None, articulationType, articulationGroup );
 
             return articulation;
         }
