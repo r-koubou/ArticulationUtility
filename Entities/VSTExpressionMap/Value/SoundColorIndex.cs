@@ -7,8 +7,8 @@ namespace ArticulationUtility.Entities.VSTExpressionMap.Value
 {
     public class SoundSlotColorIndex : IEquatable<SoundSlotColorIndex>
     {
-        public const int MinValue = 0;
-        public const int MaxValue = 15;
+        public const int MinValue = 0;    // 0: default color
+        public const int MaxValue = 16;   // 1~16: User color
         public int Value { get; }
 
         public SoundSlotColorIndex( int groupValue )

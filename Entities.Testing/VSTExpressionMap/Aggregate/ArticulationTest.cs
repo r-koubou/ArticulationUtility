@@ -12,7 +12,7 @@ namespace ArticulationUtility.Entities.Testing.VSTExpressionMap.Aggregate
         public void SetupArticulationTest()
         {
             var idGenerator = new ArticulationIdGenerator();
-            new Articulation( idGenerator.Next(),  new ArticulationName( "Name" ), ArticulationType.Direction, new ArticulationGroup( 1 ) );
+            new Articulation( idGenerator.Next(),  new ArticulationName( "Name" ), new ArticulationSymbol( 0 ),  ArticulationType.Direction, new ArticulationGroup( 1 ) );
         }
     }
 }
