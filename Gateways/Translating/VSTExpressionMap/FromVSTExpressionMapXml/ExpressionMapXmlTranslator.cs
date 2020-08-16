@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -24,9 +25,19 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpre
             foreach( var slot in objectElements )
             {
                 var sv = Sv( slot );
-                var uslotVisuals = USlotVisuals( sv );
 
-                var articulationName = GetStringElement( uslotVisuals, "text" ).Value;
+                if( !USlotVisuals( sv, out var uslotVisuals ) )
+                {
+                    continue;
+                }
+
+                var articulationName = ParseArticulationName( uslotVisuals );
+
+                if( !TryGetIntElement( uslotVisuals, "symbol", out var articulationSymbol ) )
+                {
+                    articulationSymbol.Value = ArticulationSymbol.Default.Value;
+                }
+
                 var type = GetIntElement( uslotVisuals, "articulationtype" ).Value;
                 var group = GetIntElement( uslotVisuals, "group" ).Value;
 
@@ -35,6 +46,7 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpre
                 var articulation = new Articulation(
                     id,
                     new ArticulationName( articulationName ),
+                    new ArticulationSymbol( articulationSymbol.Value ),
                     EnumHelper.FromInt<ArticulationType>( type ),
                     new ArticulationGroup( group )
                 );
@@ -45,10 +57,20 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpre
             foreach( var slot in objectElements )
             {
                 var sv = Sv( slot );
-                var uslotVisuals = USlotVisuals( sv );
-                var articulationName = GetStringElement( uslotVisuals, "text" ).Value;
 
+                if( !USlotVisuals( sv, out var uslotVisuals ) )
+                {
+                    continue;
+                }
+
+                var articulationName = ParseArticulationName( uslotVisuals );
                 var color = GetIntElement( slot, "color" ).Value;
+
+                // Implement a Safe Mode..? or Everytime Clamp?
+                // Some files over SoundSlotColorIndex.Max that created by Instrument developer
+                // e.g. East West Quantum Leap
+                //color = Math.Clamp( color, SoundSlotColorIndex.MinValue, SoundSlotColorIndex.MaxValue );
+
                 var soundSlot = new SoundSlot(
                     new SoundSlotName( articulationName ),
                     new SoundSlotColorIndex( color ) );
@@ -79,6 +101,26 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpre
             }
 
             return result;
+        }
+
+        private static string ParseArticulationName( ObjectElement uslotVisuals )
+        {
+            var articulationName = GetStringElement( uslotVisuals, "text" ).Value;
+
+            // If text attribute is empty (use a music symbol)
+            if( string.IsNullOrEmpty( articulationName ) )
+            {
+                // Parse description attribute instead "text"
+                articulationName = GetStringElement( uslotVisuals, "description" ).Value;
+
+                // Both empty...
+                if( string.IsNullOrEmpty( articulationName ) )
+                {
+                    articulationName = "UNKNOWN";
+                }
+            }
+
+            return articulationName;
         }
 
         #region Parser
@@ -155,19 +197,23 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpre
             return memberElements.First();
         }
 
-        private ObjectElement USlotVisuals( MemberElement sv )
+        private bool USlotVisuals( MemberElement sv, out ObjectElement target )
         {
+            target = default!;
+
             foreach( var list in sv.List )
             {
                 foreach( var obj in list.Obj )
                 {
                     if( obj.ClassName == "USlotVisuals" )
                     {
-                        return obj;
+                        target = obj;
+                        return true;
                     }
                 }
             }
-            throw new ElementNotFoundException( "USlotVisuals" );
+            // "USlotVisuals" Not found (== Warn: Slot has found, but this slot is not assigned to articulation.)
+            return false;
         }
 
         private static IEnumerable<ObjectElement> MidiMessages( ObjectElement psoundSlot )
@@ -204,6 +250,7 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpre
             return result;
         }
 
+
         private static IntElement GetIntElement( ObjectElement obj, string name )
         {
             foreach( var i in obj.Int )
@@ -217,6 +264,22 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpre
 
         }
 
+        private static bool TryGetIntElement( ObjectElement obj, string name, out IntElement target )
+        {
+            target = default!;
+            foreach( var i in obj.Int )
+            {
+                if( i.Name == name )
+                {
+                    target = i;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
         private static StringElement GetStringElement( ObjectElement obj, string name )
         {
             foreach( var i in obj.String )
@@ -226,8 +289,23 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpre
                     return i;
                 }
             }
-            throw new ElementNotFoundException( $"{obj.ClassName}.int" );
 
+            throw new ElementNotFoundException( $"{obj.ClassName}.string" );
+        }
+
+        private static bool TryGetStringElement( ObjectElement obj, string name, out StringElement target )
+        {
+            target = default!;
+            foreach( var i in obj.String )
+            {
+                if( i.Name == name )
+                {
+                    target = i;
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         #endregion Parser
