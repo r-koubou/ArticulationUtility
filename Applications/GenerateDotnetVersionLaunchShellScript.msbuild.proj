@@ -8,7 +8,7 @@ dotnet $(ProjectName).dll $*
 
         <DosLauncherText>
 @echo off
-dotnet $(ProjectName).dll %*
+dotnet %~dp0\$(ProjectName).dll %*
         </DosLauncherText>
 
     </PropertyGroup>
