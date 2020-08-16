@@ -13,7 +13,5 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
         public GenericMidiEventValue( int value )
             : base( value, MinValue, MaxValue )
         {}
-
-        public override int GetHashCode() => 402610497 * Value;
     }
 }

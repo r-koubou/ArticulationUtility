@@ -22,16 +22,6 @@ namespace ArticulationUtility.Entities.Testing.MidiEvents.Value
             var byte2 = new MidiLeastSignificantByte( 2 );
             Assert.IsTrue( byte1.Equals( new MidiLeastSignificantByte( 1 ) ) );
             Assert.IsFalse( byte1.Equals( byte2 ) );
-
-            // overridden operator ==, !=
-            Assert.IsTrue( byte1 == new MidiLeastSignificantByte( 1 ) );
-            Assert.IsFalse( byte1 == byte2 );
-            Assert.IsTrue( byte1 != byte2 );
-
-            // overridden hashcode
-            Assert.IsTrue( byte1.GetHashCode() == new MidiLeastSignificantByte( 1 ).GetHashCode() );
-            Assert.IsTrue( byte1.GetHashCode() != byte2.GetHashCode() );
-
         }
 
         [Test]

@@ -22,15 +22,6 @@ namespace ArticulationUtility.Entities.Testing.MidiEvents.Value
             var vel2 = new MidiVelocity( 20 );
             Assert.IsTrue( vel1.Equals( new MidiVelocity( 10 ) ) );
             Assert.IsFalse( vel1.Equals( vel2 ) );
-
-            // overridden operator ==, !=
-            Assert.IsTrue( vel1 == new MidiVelocity( 10 ) );
-            Assert.IsFalse( vel1 == vel2 );
-            Assert.IsTrue( vel1 != vel2 );
-
-            // overridden hashcode
-            Assert.IsTrue( vel1.GetHashCode() == new MidiVelocity( 10 ).GetHashCode() );
-            Assert.IsTrue( vel1.GetHashCode() != vel2.GetHashCode() );
         }
 
         [Test]
