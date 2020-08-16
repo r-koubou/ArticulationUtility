@@ -9,13 +9,13 @@ if [ ! -d publish/ ] ; then
     mkdir publish/
 fi
 
-# Build all applications
+# Publish all applications
 for i in $dirs
 do
-    if [ $i != "publish" -a -e "$i/build.sh" ] ; then
+    if [ $i != "publish" -a -e "$i/publish.sh" ] ; then
         echo ----- $i --------------
         pushd "$i"
-            ./build.sh
+            ./publish.sh
             # Copy all applications zip to ./publish folder
             pushd publish/
                 cp -f *.zip "$this_dir"/publish/
