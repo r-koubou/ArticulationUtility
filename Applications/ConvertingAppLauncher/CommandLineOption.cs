@@ -42,22 +42,16 @@ namespace ConvertingAppLauncher
         /// </summary>
         private static IEnumerable<string> ExtractFileNamesByWildCard( string path )
         {
-            var result = new List<string>();
-
             if( path.IndexOf( "*", StringComparison.Ordinal ) == -1 )
             {
-                result.Add( path );
-                return  result;
+                return new List<string>{ path };
             }
 
             var fullPath = Path.GetFullPath( path );
             var directory = Path.GetDirectoryName( fullPath );
             var fileName = Path.GetFileName( fullPath );
-            var files = Directory.GetFiles( directory, fileName, SearchOption.TopDirectoryOnly );
 
-            result.AddRange( files );
-
-            return result;
+            return Directory.EnumerateFiles( directory, fileName, SearchOption.TopDirectoryOnly );
         }
     }
 }
