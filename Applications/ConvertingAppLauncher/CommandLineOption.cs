@@ -14,7 +14,7 @@ namespace ConvertingAppLauncher
         [Option( 'o', "outputdir", Default = ".", HelpText = HelpOutputDirectory )]
         public string OutputDirectory { get; set; } = string.Empty;
 
-        [Value( 0, Required = true, HelpText = HelpInputFileName)]
+        [Value( 0, MetaName = "input files", Required = true, HelpText = HelpInputFileName)]
         public IEnumerable<string> InputFiles { get; set; } = new List<string>();
 
         /// <summary>
