@@ -6,8 +6,6 @@
         <RootNamespace>ArticulationUtility.Presenters</RootNamespace>
         <Authors>R-Koubou</Authors>
         <Company>R-Koubou</Company>
-        <AssemblyVersion></AssemblyVersion>
-        <FileVersion></FileVersion>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
