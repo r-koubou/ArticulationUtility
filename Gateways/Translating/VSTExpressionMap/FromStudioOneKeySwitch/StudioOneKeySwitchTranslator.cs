@@ -52,19 +52,25 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromStudioOn
 
         private static SoundSlot ParseSoundSlot( KeySwitchElement obj, ArticulationId articulationId )
         {
-            var soundSlot = new SoundSlot(
-                new SoundSlotName( obj.Name.Value ),
-                new SoundSlotColorIndex( SoundSlotColorIndex.MinValue )
-            );
-            soundSlot.ReferenceArticulationIds.Add( articulationId );
+            var name = new SoundSlotName( obj.Name.Value );
+            var colorIndex = new SoundSlotColorIndex( SoundSlotColorIndex.MinValue  );
+            var referenceArticulationIds = new List<ArticulationId>();
+            var outputMappings = new List<IMidiEvent>();
+
+            referenceArticulationIds.Add( articulationId );
 
             var noteName = new MidiNoteName( obj.KeySwitchPitch.Value.ToString() );
             var velocity = MidiVelocity.MinValue;
             var mapping = new MidiNoteOn( noteName.ToMidiNoteNumber(), new MidiVelocity( velocity ) );
 
-            soundSlot.OutputMappings.Add( mapping );
+            outputMappings.Add( mapping );
 
-            return soundSlot;
+            return new SoundSlot(
+                name,
+                colorIndex,
+                referenceArticulationIds,
+                outputMappings
+            );
         }
     }
 }

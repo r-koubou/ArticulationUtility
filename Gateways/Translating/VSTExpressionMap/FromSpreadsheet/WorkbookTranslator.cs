@@ -59,15 +59,24 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromSpreadsh
                     articulations.Add( articulationId, articulation );
                 }
 
+                var referenceArticulationIds = new List<ArticulationId>();
+                var outputMappings = new List<IMidiEvent>();
+
                 var slotName = new SoundSlotName( row.ArticulationName.Value );
                 var slotColor = new SoundSlotColorIndex( row.ColorIndex.Value );
-                var soundSlot = new SoundSlot( slotName, slotColor );
 
                 // One articulation per SoundSlot in this convert.
-                soundSlot.ReferenceArticulationIds.Add( articulation.Id );
+                referenceArticulationIds.Add( articulation.Id );
 
                 // To Midi note, CC, Program
-                ConvertOutputMappings( row, soundSlot.OutputMappings );
+                ConvertOutputMappings( row, outputMappings );
+
+                var soundSlot = new SoundSlot(
+                    slotName,
+                    slotColor,
+                    referenceArticulationIds,
+                    outputMappings
+                );
 
                 soundSlots.Add( soundSlot );
             }

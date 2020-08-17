@@ -74,16 +74,17 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpre
                 // e.g. East West Quantum Leap
                 //color = Math.Clamp( color, SoundSlotColorIndex.MinValue, SoundSlotColorIndex.MaxValue );
 
-                var soundSlot = new SoundSlot(
-                    new SoundSlotName( articulationName ),
-                    new SoundSlotColorIndex( color ) );
+                var slotName = new SoundSlotName( articulationName );
+                var colorIndex = new SoundSlotColorIndex( color  );
+                var referenceArticulationIds = new List<ArticulationId>();
+                var outputMappings = new List<IMidiEvent>();
 
                 var refIdPairs =
                     articulations.Where( x => x.Value.Name.Value == articulationName ).ToArray();
 
                 foreach( var kvp in refIdPairs )
                 {
-                    soundSlot.ReferenceArticulationIds.Add( kvp.Key );
+                    referenceArticulationIds.Add( kvp.Key );
                 }
 
                 foreach( var midiMessage in MidiMessages( slot ) )
@@ -97,8 +98,15 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpre
                         new GenericMidiEventValue( data1 ),
                         new GenericMidiEventValue( data2 )
                     );
-                    soundSlot.OutputMappings.Add( mapping );
+                    outputMappings.Add( mapping );
                 }
+
+                var soundSlot = new SoundSlot(
+                    slotName,
+                    colorIndex,
+                    referenceArticulationIds,
+                    outputMappings
+                );
 
                 soundSlots.Add( soundSlot );
             }

@@ -57,8 +57,12 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromJson
 
         private static SoundSlot ParseSoundSlot( ArticulationJson obj, ArticulationId articulationId )
         {
-            var soundSlot = new SoundSlot( new SoundSlotName( obj.Name ), new SoundSlotColorIndex( obj.Color ) );
-            soundSlot.ReferenceArticulationIds.Add( articulationId );
+            var name = new SoundSlotName( obj.Name );
+            var colorIndex = new SoundSlotColorIndex( obj.Color );
+            var referenceArticulationIds = new List<ArticulationId>();
+            var outputMappings = new List<IMidiEvent>();
+
+            referenceArticulationIds.Add( articulationId );
 
             foreach( var midi in obj.MidiMappings )
             {
@@ -94,10 +98,15 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromJson
                         break;
                 }
 
-                soundSlot.OutputMappings.Add( mapping );
+                outputMappings.Add( mapping );
             }
 
-            return soundSlot;
+            return new SoundSlot(
+                name,
+                colorIndex,
+                referenceArticulationIds,
+                outputMappings
+            );
         }
     }
 }
