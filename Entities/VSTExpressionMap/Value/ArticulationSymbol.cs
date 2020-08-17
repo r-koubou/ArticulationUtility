@@ -1,10 +1,11 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 using ArticulationUtility.Utilities;
 
 namespace ArticulationUtility.Entities.VSTExpressionMap.Value
 {
-    public class ArticulationSymbol
+    public class ArticulationSymbol : IEquatable<ArticulationSymbol>
     {
         public const int NoneValue = -1;
 
@@ -20,7 +21,7 @@ namespace ArticulationUtility.Entities.VSTExpressionMap.Value
             Value = symbolId;
         }
 
-        public bool Equals( [AllowNull] ArticulationId other )
+        public bool Equals( [AllowNull] ArticulationSymbol other )
         {
             return other != null && other.Value == Value;
         }
