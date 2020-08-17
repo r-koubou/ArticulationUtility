@@ -12,15 +12,21 @@ namespace ArticulationUtility.Entities.VSTExpressionMap.Aggregate
     public class SoundSlot
     {
         public SoundSlotName Name { get; }
-        public SoundSlotColorIndex ColorIndex { get; set; }
-        public List<ArticulationId> ReferenceArticulationIds { get; } = new List<ArticulationId>();
+        public SoundSlotColorIndex ColorIndex { get; }
+        public IReadOnlyList<ArticulationId> ReferenceArticulationIds { get; }
 
-        public List<IMidiEvent> OutputMappings { get; } = new List<IMidiEvent>();
+        public IReadOnlyList<IMidiEvent> OutputMappings { get; }
 
-        public SoundSlot( SoundSlotName name, SoundSlotColorIndex colorIndex )
+        public SoundSlot(
+            SoundSlotName name,
+            SoundSlotColorIndex colorIndex,
+            IEnumerable<ArticulationId> referenceArticulationIds,
+            IEnumerable<IMidiEvent> outputMappings )
         {
-            Name       = name ?? throw new ArgumentNullException( $"{nameof( name )}" );
-            ColorIndex = colorIndex ?? new SoundSlotColorIndex( SoundSlotColorIndex.MinValue );
+            Name                     = name ?? throw new ArgumentNullException( $"{nameof( name )}" );
+            ColorIndex               = colorIndex ?? new SoundSlotColorIndex( SoundSlotColorIndex.MinValue );
+            ReferenceArticulationIds = new List<ArticulationId>( referenceArticulationIds );
+            OutputMappings           = new List<IMidiEvent>( outputMappings );
         }
     }
 }

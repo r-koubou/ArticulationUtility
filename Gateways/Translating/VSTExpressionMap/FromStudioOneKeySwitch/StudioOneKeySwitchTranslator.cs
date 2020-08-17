@@ -12,7 +12,10 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromStudioOn
     {
         public List<ExpressionMap> Translate( KeySwitch source )
         {
-            var expressionMap = new ExpressionMap( new ExpressionMapName( source.Name.Value ) );
+            var name = new ExpressionMapName( source.Name.Value );
+            var articulations = new Dictionary<ArticulationId, Articulation>();
+            var soundSlots = new List<SoundSlot>();
+
             var idGenerator = new ArticulationIdGenerator();
 
             foreach( var element in source.KeySwitchList )
@@ -20,17 +23,21 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromStudioOn
                 // Articulation
                 var articulationId = idGenerator.Next();
                 var articulation = ParseArticulation( element, articulationId );
+                articulations.Add( articulationId, articulation );
 
                 // SoundSlot
                 var soundSlot = ParseSoundSlot( element, articulationId );
-
-                expressionMap.Articulations.Add( articulationId, articulation );
-                expressionMap.SoundSlots.Add( soundSlot );
+                soundSlots.Add( soundSlot );
             }
 
-            var result = new List<ExpressionMap> { expressionMap };
+            // Aggregate Expressionmap
+            var expressionMap = new ExpressionMap(
+                name,
+                articulations,
+                soundSlots
+            );
 
-            return result;
+            return  new List<ExpressionMap> { expressionMap };
         }
 
         private static Articulation ParseArticulation( KeySwitchElement obj, ArticulationId articulationId )
@@ -45,19 +52,25 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromStudioOn
 
         private static SoundSlot ParseSoundSlot( KeySwitchElement obj, ArticulationId articulationId )
         {
-            var soundSlot = new SoundSlot(
-                new SoundSlotName( obj.Name.Value ),
-                new SoundSlotColorIndex( SoundSlotColorIndex.MinValue )
-            );
-            soundSlot.ReferenceArticulationIds.Add( articulationId );
+            var name = new SoundSlotName( obj.Name.Value );
+            var colorIndex = new SoundSlotColorIndex( SoundSlotColorIndex.MinValue  );
+            var referenceArticulationIds = new List<ArticulationId>();
+            var outputMappings = new List<IMidiEvent>();
+
+            referenceArticulationIds.Add( articulationId );
 
             var noteName = new MidiNoteName( obj.KeySwitchPitch.Value.ToString() );
             var velocity = MidiVelocity.MinValue;
             var mapping = new MidiNoteOn( noteName.ToMidiNoteNumber(), new MidiVelocity( velocity ) );
 
-            soundSlot.OutputMappings.Add( mapping );
+            outputMappings.Add( mapping );
 
-            return soundSlot;
+            return new SoundSlot(
+                name,
+                colorIndex,
+                referenceArticulationIds,
+                outputMappings
+            );
         }
     }
 }

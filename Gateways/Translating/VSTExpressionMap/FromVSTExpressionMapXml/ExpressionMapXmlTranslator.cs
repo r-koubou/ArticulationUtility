@@ -15,12 +15,15 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpre
     {
         public ExpressionMap Translate( RootElement source )
         {
-            var result = new ExpressionMap( new ExpressionMapName( source.StringElement.Value ) );
             var psoundSlot = PSoundSlot( source );
+            var objectElements = psoundSlot.ToList();
+
+            var name = new ExpressionMapName( source.StringElement.Value );
+            var articulations = new Dictionary<ArticulationId, Articulation>();
+            var soundSlots = new List<SoundSlot>();
 
             var idGenerator = new ArticulationIdGenerator();
 
-            var objectElements = psoundSlot.ToList();
 
             foreach( var slot in objectElements )
             {
@@ -51,7 +54,7 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpre
                     new ArticulationGroup( group )
                 );
 
-                result.Articulations.Add( id, articulation );
+                articulations.Add( id, articulation );
             }
 
             foreach( var slot in objectElements )
@@ -71,16 +74,17 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpre
                 // e.g. East West Quantum Leap
                 //color = Math.Clamp( color, SoundSlotColorIndex.MinValue, SoundSlotColorIndex.MaxValue );
 
-                var soundSlot = new SoundSlot(
-                    new SoundSlotName( articulationName ),
-                    new SoundSlotColorIndex( color ) );
+                var slotName = new SoundSlotName( articulationName );
+                var colorIndex = new SoundSlotColorIndex( color  );
+                var referenceArticulationIds = new List<ArticulationId>();
+                var outputMappings = new List<IMidiEvent>();
 
                 var refIdPairs =
-                    result.Articulations.Where( x => x.Value.Name.Value == articulationName ).ToArray();
+                    articulations.Where( x => x.Value.Name.Value == articulationName ).ToArray();
 
                 foreach( var kvp in refIdPairs )
                 {
-                    soundSlot.ReferenceArticulationIds.Add( kvp.Key );
+                    referenceArticulationIds.Add( kvp.Key );
                 }
 
                 foreach( var midiMessage in MidiMessages( slot ) )
@@ -94,13 +98,24 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpre
                         new GenericMidiEventValue( data1 ),
                         new GenericMidiEventValue( data2 )
                     );
-                    soundSlot.OutputMappings.Add( mapping );
+                    outputMappings.Add( mapping );
                 }
 
-                result.SoundSlots.Add( soundSlot );
+                var soundSlot = new SoundSlot(
+                    slotName,
+                    colorIndex,
+                    referenceArticulationIds,
+                    outputMappings
+                );
+
+                soundSlots.Add( soundSlot );
             }
 
-            return result;
+            return new ExpressionMap(
+                name,
+                articulations,
+                soundSlots
+            );
         }
 
         private static string ParseArticulationName( ObjectElement uslotVisuals )

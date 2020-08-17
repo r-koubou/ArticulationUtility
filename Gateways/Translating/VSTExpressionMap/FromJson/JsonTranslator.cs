@@ -16,7 +16,10 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromJson
     {
         public List<ExpressionMap> Translate( JsonRoot source )
         {
-            var expressionMap = new ExpressionMap( new ExpressionMapName( source.Info.Name ) );
+            var name = new ExpressionMapName( source.Info.Name );
+            var articulations = new Dictionary<ArticulationId, Articulation>();
+            var soundSlots = new List<SoundSlot>();
+
             var idGenerator = new ArticulationIdGenerator();
 
             foreach( var obj in source.Articulations )
@@ -28,13 +31,18 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromJson
                 // SoundSlot
                 var soundSlot = ParseSoundSlot( obj, articulationId );
 
-                expressionMap.Articulations.Add( articulationId, articulation );
-                expressionMap.SoundSlots.Add( soundSlot );
+                articulations.Add( articulationId, articulation );
+                soundSlots.Add( soundSlot );
             }
 
-            var result = new List<ExpressionMap> { expressionMap };
+            // Aggregate Expressionmap
+            var expressionMap = new ExpressionMap(
+                name,
+                articulations,
+                soundSlots
+            );
 
-            return result;
+            return new List<ExpressionMap> { expressionMap };
         }
 
         private static Articulation ParseArticulation( ArticulationJson obj, ArticulationId articulationId )
@@ -49,8 +57,12 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromJson
 
         private static SoundSlot ParseSoundSlot( ArticulationJson obj, ArticulationId articulationId )
         {
-            var soundSlot = new SoundSlot( new SoundSlotName( obj.Name ), new SoundSlotColorIndex( obj.Color ) );
-            soundSlot.ReferenceArticulationIds.Add( articulationId );
+            var name = new SoundSlotName( obj.Name );
+            var colorIndex = new SoundSlotColorIndex( obj.Color );
+            var referenceArticulationIds = new List<ArticulationId>();
+            var outputMappings = new List<IMidiEvent>();
+
+            referenceArticulationIds.Add( articulationId );
 
             foreach( var midi in obj.MidiMappings )
             {
@@ -86,10 +98,15 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromJson
                         break;
                 }
 
-                soundSlot.OutputMappings.Add( mapping );
+                outputMappings.Add( mapping );
             }
 
-            return soundSlot;
+            return new SoundSlot(
+                name,
+                colorIndex,
+                referenceArticulationIds,
+                outputMappings
+            );
         }
     }
 }
