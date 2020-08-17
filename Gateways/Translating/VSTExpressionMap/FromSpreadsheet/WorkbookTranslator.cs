@@ -18,18 +18,33 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromSpreadsh
             foreach( var worksheet in workbook.Worksheets )
             {
                 var name = new ExpressionMapName( worksheet.OutputNameCell.Value );
-                var expressionMap = new ExpressionMap( name );
 
-                ConvertRows( worksheet.Rows, expressionMap );
+                ConvertRows(
+                    worksheet.Rows,
+                    out var articulations,
+                    out var soundSlots
+                );
+
+                var expressionMap = new ExpressionMap(
+                    name,
+                    articulations,
+                    soundSlots
+                );
 
                 result.Add( expressionMap );
             }
             return result;
         }
 
-        private void ConvertRows( IEnumerable<Row> rows, ExpressionMap expressionMap )
+        private void ConvertRows(
+            IEnumerable<Row> rows,
+            out Dictionary<ArticulationId, Articulation> articulations,
+            out List<SoundSlot> soundSlots )
         {
             var idGenerator = new ArticulationIdGenerator();
+
+            articulations = new Dictionary<ArticulationId, Articulation>();
+            soundSlots    = new List<SoundSlot>();
 
             foreach( var row in rows )
             {
@@ -39,9 +54,9 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromSpreadsh
                 var articulationGroup = new ArticulationGroup( row.GroupIndex.Value );
                 var articulation = new Articulation( articulationId, articulationName, ArticulationSymbol.None, articulationType, articulationGroup );
 
-                if( !expressionMap.Articulations.ContainsKey( articulationId ) )
+                if( !articulations.ContainsKey( articulationId ) )
                 {
-                    expressionMap.Articulations.Add( articulationId, articulation );
+                    articulations.Add( articulationId, articulation );
                 }
 
                 var slotName = new SoundSlotName( row.ArticulationName.Value );
@@ -54,7 +69,7 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromSpreadsh
                 // To Midi note, CC, Program
                 ConvertOutputMappings( row, soundSlot.OutputMappings );
 
-                expressionMap.SoundSlots.Add( soundSlot );
+                soundSlots.Add( soundSlot );
             }
         }
 

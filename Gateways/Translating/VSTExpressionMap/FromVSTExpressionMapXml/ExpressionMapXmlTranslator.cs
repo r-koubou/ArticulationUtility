@@ -15,12 +15,15 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpre
     {
         public ExpressionMap Translate( RootElement source )
         {
-            var result = new ExpressionMap( new ExpressionMapName( source.StringElement.Value ) );
             var psoundSlot = PSoundSlot( source );
+            var objectElements = psoundSlot.ToList();
+
+            var name = new ExpressionMapName( source.StringElement.Value );
+            var articulations = new Dictionary<ArticulationId, Articulation>();
+            var soundSlots = new List<SoundSlot>();
 
             var idGenerator = new ArticulationIdGenerator();
 
-            var objectElements = psoundSlot.ToList();
 
             foreach( var slot in objectElements )
             {
@@ -51,7 +54,7 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpre
                     new ArticulationGroup( group )
                 );
 
-                result.Articulations.Add( id, articulation );
+                articulations.Add( id, articulation );
             }
 
             foreach( var slot in objectElements )
@@ -76,7 +79,7 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpre
                     new SoundSlotColorIndex( color ) );
 
                 var refIdPairs =
-                    result.Articulations.Where( x => x.Value.Name.Value == articulationName ).ToArray();
+                    articulations.Where( x => x.Value.Name.Value == articulationName ).ToArray();
 
                 foreach( var kvp in refIdPairs )
                 {
@@ -97,10 +100,14 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpre
                     soundSlot.OutputMappings.Add( mapping );
                 }
 
-                result.SoundSlots.Add( soundSlot );
+                soundSlots.Add( soundSlot );
             }
 
-            return result;
+            return new ExpressionMap(
+                name,
+                articulations,
+                soundSlots
+            );
         }
 
         private static string ParseArticulationName( ObjectElement uslotVisuals )

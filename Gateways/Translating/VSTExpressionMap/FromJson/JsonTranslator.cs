@@ -16,7 +16,10 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromJson
     {
         public List<ExpressionMap> Translate( JsonRoot source )
         {
-            var expressionMap = new ExpressionMap( new ExpressionMapName( source.Info.Name ) );
+            var name = new ExpressionMapName( source.Info.Name );
+            var articulations = new Dictionary<ArticulationId, Articulation>();
+            var soundSlots = new List<SoundSlot>();
+
             var idGenerator = new ArticulationIdGenerator();
 
             foreach( var obj in source.Articulations )
@@ -28,13 +31,18 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromJson
                 // SoundSlot
                 var soundSlot = ParseSoundSlot( obj, articulationId );
 
-                expressionMap.Articulations.Add( articulationId, articulation );
-                expressionMap.SoundSlots.Add( soundSlot );
+                articulations.Add( articulationId, articulation );
+                soundSlots.Add( soundSlot );
             }
 
-            var result = new List<ExpressionMap> { expressionMap };
+            // Aggregate Expressionmap
+            var expressionMap = new ExpressionMap(
+                name,
+                articulations,
+                soundSlots
+            );
 
-            return result;
+            return new List<ExpressionMap> { expressionMap };
         }
 
         private static Articulation ParseArticulation( ArticulationJson obj, ArticulationId articulationId )

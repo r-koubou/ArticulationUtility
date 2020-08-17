@@ -10,12 +10,18 @@ namespace ArticulationUtility.Entities.VSTExpressionMap.Aggregate
     public class ExpressionMap
     {
         public ExpressionMapName Name { get; }
-        public Dictionary<ArticulationId, Articulation> Articulations { get; } = new Dictionary<ArticulationId, Articulation>();
-        public List<SoundSlot> SoundSlots { get; } = new List<SoundSlot>();
+        public IReadOnlyDictionary<ArticulationId, Articulation> Articulations { get; }
+        public IReadOnlyList<SoundSlot> SoundSlots { get; }
 
-        public ExpressionMap( ExpressionMapName name )
+        public ExpressionMap(
+            ExpressionMapName name,
+            IReadOnlyDictionary<ArticulationId, Articulation> articulations,
+            IEnumerable<SoundSlot> soundSlots )
         {
-            Name = name;
+            Name          = name;
+            Articulations = new Dictionary<ArticulationId, Articulation>( articulations );
+            SoundSlots    = new List<SoundSlot>( soundSlots );
         }
+
     }
 }
