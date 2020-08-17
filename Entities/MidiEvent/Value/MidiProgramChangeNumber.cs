@@ -8,7 +8,5 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
         public MidiProgramChangeNumber( int value )
             : base( value, MinValue, MaxValue )
         {}
-
-        public override int GetHashCode() => 1757310380 * Value;
     }
 }

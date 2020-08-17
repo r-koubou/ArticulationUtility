@@ -6,12 +6,12 @@ namespace ArticulationUtility.Entities.VSTExpressionMap.Value
 {
     public class ArticulationSymbol
     {
+        public const int NoneValue = -1;
+
         public const int MinValue = 0;
         public const int MaxValue = int.MaxValue - 1;
 
-        private static readonly ArticulationSymbol _default = new ArticulationSymbol( MinValue );
-        public static ArticulationSymbol Default => _default;
-
+        public static ArticulationSymbol None => new ArticulationSymbol( MinValue );
         public int Value { get; }
 
         public ArticulationSymbol( int symbolId )

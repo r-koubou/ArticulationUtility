@@ -23,15 +23,6 @@ namespace ArticulationUtility.Entities.Testing.MidiEvents.Value
             var code2 = new MidiStatusCode( 2 );
             Assert.IsTrue( code1.Equals( new MidiStatusCode( 1 ) ) );
             Assert.IsFalse( code1.Equals( code2 ) );
-
-            // overridden operator ==, !=
-            Assert.IsTrue( code1 == new MidiStatusCode( 1 ) );
-            Assert.IsFalse( code1 == code2 );
-            Assert.IsTrue( code1 != code2 );
-
-            // overridden hashcode
-            Assert.IsTrue( code1.GetHashCode() == new MidiStatusCode( 1 ).GetHashCode() );
-            Assert.IsTrue( code1.GetHashCode() != code2.GetHashCode() );
         }
 
         [Test]

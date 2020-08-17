@@ -8,7 +8,5 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
         public MidiNoteNumber( int value )
             : base( value, MinValue, MaxValue )
         {}
-
-        public override int GetHashCode() => 316587340 * Value;
     }
 }

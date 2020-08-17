@@ -23,15 +23,6 @@ namespace ArticulationUtility.Entities.Testing.MidiEvents.Value
             var cc2 = new MidiControlChangeValue( 2 );
             Assert.IsTrue( cc1.Equals( new MidiControlChangeValue( 1 ) ) );
             Assert.IsFalse( cc1.Equals( cc2 ) );
-
-            // overridden operator ==, !=
-            Assert.IsTrue( cc1 == new MidiControlChangeValue( 1 ) );
-            Assert.IsFalse( cc1 == cc2 );
-            Assert.IsTrue( cc1 != cc2 );
-
-            // overridden hashcode
-            Assert.IsTrue( cc1.GetHashCode() == new MidiControlChangeValue( 1 ).GetHashCode() );
-            Assert.IsTrue( cc1.GetHashCode() != cc2.GetHashCode() );
         }
 
         [Test]

@@ -35,7 +35,7 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromVSTExpre
 
                 if( !TryGetIntElement( uslotVisuals, "symbol", out var articulationSymbol ) )
                 {
-                    articulationSymbol.Value = ArticulationSymbol.Default.Value;
+                    articulationSymbol.Value = ArticulationSymbol.None.Value;
                 }
 
                 var type = GetIntElement( uslotVisuals, "articulationtype" ).Value;

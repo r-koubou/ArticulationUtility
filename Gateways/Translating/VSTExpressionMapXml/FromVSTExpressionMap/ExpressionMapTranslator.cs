@@ -21,6 +21,7 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMapXml.FromVSTEx
                 var slotVisual = USlotVisuals.New(
                     articulation.Name.Value,
                     articulation.Name.Value,
+                    articulation.Symbol.Value,
                     (int)articulation.Type,
                     articulation.Group.Value
                 );
@@ -54,6 +55,7 @@ namespace ArticulationUtility.Gateways.Translating.VSTExpressionMapXml.FromVSTEx
                     var slotVisual = USlotVisuals.New(
                         articulation.Name.Value,
                         articulation.Name.Value,
+                        articulation.Symbol.Value,
                         (int)articulation.Type,
                         articulation.Group.Value
                     );

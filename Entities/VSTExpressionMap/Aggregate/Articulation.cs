@@ -14,10 +14,11 @@ namespace ArticulationUtility.Entities.VSTExpressionMap.Aggregate
 
         public Articulation( ArticulationId id, ArticulationName name, ArticulationSymbol symbol, ArticulationType type, ArticulationGroup group )
         {
-            Id    = id ?? throw new ArgumentNullException( $"{nameof( id )}" );
-            Name  = name ?? throw new ArgumentNullException( $"{nameof( name )}" );
-            Type  = type;
-            Group = group ?? throw new ArgumentNullException( $"{nameof( group )}" );
+            Id     = id ?? throw new ArgumentNullException( $"{nameof( id )}" );
+            Name   = name ?? throw new ArgumentNullException( $"{nameof( name )}" );
+            Symbol = symbol;
+            Type   = type;
+            Group  = group ?? throw new ArgumentNullException( $"{nameof( group )}" );
         }
     }
 }

@@ -8,7 +8,5 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
         public MidiLeastSignificantByte( int value )
             : base( value, MinValue, MaxValue )
         {}
-
-        public override int GetHashCode() => 787987416 * Value;
     }
 }
