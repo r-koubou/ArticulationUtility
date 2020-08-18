@@ -6,8 +6,8 @@ namespace ArticulationUtility.Entities.StudioOneKeySwitch.Aggregate
 {
     public class KeySwitchElement
     {
-        public KeySwitchName Name { get; set; }
-        public KeySwitchPitch KeySwitchPitch { get; set; }
+        public KeySwitchName Name { get; }
+        public KeySwitchPitch KeySwitchPitch { get; }
 
         public KeySwitchElement( KeySwitchName name, KeySwitchPitch pitch )
         {

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 using ArticulationUtility.Entities.StudioOneKeySwitch.Aggregate;
 using ArticulationUtility.Entities.StudioOneKeySwitch.Value;
 
@@ -11,9 +13,16 @@ namespace ArticulationUtility.Entities.Testing.StudioOneKeySwitch.Aggregate
         [Test]
         public void SetupKeySwitchTest()
         {
-            var keySwitch = new KeySwitch( new KeySwitchListName( "Test" ) );
-            keySwitch.KeySwitchList.Add(
-                new KeySwitchElement( new KeySwitchName( "Hoge" ), new KeySwitchPitch( 0 ) )
+            var keySwitchList = new List<KeySwitchElement>
+            {
+                new KeySwitchElement(
+                    new KeySwitchName( "Hoge" ),
+                    new KeySwitchPitch( 0 ) )
+            };
+
+            var keySwitch = new KeySwitch(
+                new KeySwitchListName( "Test" ),
+                keySwitchList
             );
         }
     }

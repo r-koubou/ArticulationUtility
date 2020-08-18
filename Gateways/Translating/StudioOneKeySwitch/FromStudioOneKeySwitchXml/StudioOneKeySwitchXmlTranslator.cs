@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+
 using ArticulationUtility.Entities.StudioOneKeySwitch.Aggregate;
 using ArticulationUtility.Entities.StudioOneKeySwitch.Value;
 using ArticulationUtility.UseCases.Values.StudioOneKeySwitchXml;
@@ -8,11 +11,11 @@ namespace ArticulationUtility.Gateways.Translating.StudioOneKeySwitch.FromStudio
     {
         public KeySwitch Translate( RootElement source )
         {
-            var result = new KeySwitch( new KeySwitchListName( source.Name ) );
+            var keySwitchList = new List<KeySwitchElement>();
 
             foreach( var attribute in source.Attributes )
             {
-                result.KeySwitchList.Add(
+                keySwitchList.Add(
                     new KeySwitchElement(
                         new KeySwitchName( attribute.Name ),
                         new KeySwitchPitch( int.Parse( attribute.Pitch ) )
@@ -20,7 +23,10 @@ namespace ArticulationUtility.Gateways.Translating.StudioOneKeySwitch.FromStudio
                 );
             }
 
-            return result;
+            return new KeySwitch(
+                new KeySwitchListName( source.Name ),
+                keySwitchList
+            );
         }
     }
 }
