@@ -17,18 +17,19 @@ namespace ArticulationUtility.Gateways.Translating.StudioOneKeySwitch.FromSpread
 
             foreach( var worksheet in workbook.Worksheets )
             {
+                ConvertRows( worksheet.Rows, out var keySwitchList );
+
                 var name = new KeySwitchListName( worksheet.OutputNameCell.Value );
-                var keySwitch = new KeySwitch( name );
-
-                ConvertRows( worksheet.Rows, keySwitch );
-
+                var keySwitch = new KeySwitch( name, keySwitchList );
                 result.Add( keySwitch );
             }
             return result;
         }
 
-        private void ConvertRows( IEnumerable<Row> rows, KeySwitch keySwitch )
+        private void ConvertRows( IEnumerable<Row> rows, out List<KeySwitchElement> keySwitchList )
         {
+            keySwitchList = new List<KeySwitchElement>();
+
             foreach( var row in rows )
             {
                 var name = new KeySwitchName( row.ArticulationName.Value );
@@ -40,7 +41,7 @@ namespace ArticulationUtility.Gateways.Translating.StudioOneKeySwitch.FromSpread
                         name,
                         new KeySwitchPitch( midi.DataByte1.Value )
                     );
-                    keySwitch.KeySwitchList.Add( element );
+                    keySwitchList.Add( element );
                 }
             }
         }

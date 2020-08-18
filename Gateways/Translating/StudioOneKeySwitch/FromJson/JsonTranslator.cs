@@ -13,18 +13,23 @@ namespace ArticulationUtility.Gateways.Translating.StudioOneKeySwitch.FromJson
     {
         public List<KeySwitch> Translate( JsonRoot source )
         {
-            var keySwitch = new KeySwitch( new KeySwitchListName( source.Info.Name ) );
+            var keySwitchList = new List<KeySwitchElement>();
 
             foreach( var obj in source.Articulations )
             {
                 // A Key switch
                 if( ParseArticulation( obj, out var element ) )
                 {
-                    keySwitch.KeySwitchList.Add( element );
+                    keySwitchList.Add( element );
                 }
             }
 
-            return new List<KeySwitch> { keySwitch };
+            return new List<KeySwitch>
+            {
+                new KeySwitch(
+                    new KeySwitchListName( source.Info.Name ),
+                    keySwitchList )
+            };
         }
 
         private static bool ParseArticulation( ArticulationJson obj, out KeySwitchElement target )

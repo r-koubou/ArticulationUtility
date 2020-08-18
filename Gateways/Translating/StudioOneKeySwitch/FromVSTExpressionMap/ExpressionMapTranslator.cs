@@ -15,8 +15,7 @@ namespace ArticulationUtility.Gateways.Translating.StudioOneKeySwitch.FromVSTExp
             var expressionMapXmlTranslator = new ExpressionMapXmlTranslator();
             var vstExpressionMap = expressionMapXmlTranslator.Translate( source );
 
-            var listName = new KeySwitchListName( vstExpressionMap.Name.Value );
-            var keySwitch = new KeySwitch( listName );
+            var keySwitchList = new List<KeySwitchElement>();
 
             foreach( var slot in vstExpressionMap.SoundSlots )
             {
@@ -27,12 +26,14 @@ namespace ArticulationUtility.Gateways.Translating.StudioOneKeySwitch.FromVSTExp
                     if( midi.Status.Value == MidiStatusCode.NoteOn.Value )
                     {
                         var pitch = new KeySwitchPitch( midi.DataByte1.Value );
-                        keySwitch.KeySwitchList.Add( new KeySwitchElement( name, pitch  ) );
+                        keySwitchList.Add( new KeySwitchElement( name, pitch  ) );
                         break;
                     }
                 }
             }
 
+            var keySwitchListName = new KeySwitchListName( vstExpressionMap.Name.Value );
+            var keySwitch = new KeySwitch( keySwitchListName, keySwitchList );
             return new List<KeySwitch>{ keySwitch };
         }
     }
