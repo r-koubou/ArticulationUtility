@@ -2,12 +2,21 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <!-- Assembly / Common -->
+        <Copyright>R-Koubou</Copyright>
+        <Company>R-Koubou</Company>
+        <Product>ArticulationUtility.UseCases</Product>
         <AssemblyName>ArticulationUtility.UseCases</AssemblyName>
         <RootNamespace>ArticulationUtility.UseCases</RootNamespace>
-        <Authors>R-Koubou</Authors>
-        <AssemblyVersion></AssemblyVersion>
-        <FileVersion></FileVersion>
+        <Version>0.1.0-alpha</Version>
+        <Description>ArticulationUtility.UseCases module</Description>
         <Nullable>enable</Nullable>
+        <!-- Nuget -->
+        <Authors>R-Koubou</Authors>
+        <PackageId>ArticulationUtility.UseCases</PackageId>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/r-koubou/ArticulationUtility</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/r-koubou/ArticulationUtility</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>

@@ -2,13 +2,21 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <!-- Assembly / Common -->
+        <Copyright>R-Koubou</Copyright>
+        <Company>R-Koubou</Company>
+        <Product>ArticulationUtility.Interactors</Product>
         <AssemblyName>ArticulationUtility.Interactors</AssemblyName>
         <RootNamespace>ArticulationUtility.Interactors</RootNamespace>
-        <Authors>R-Koubou</Authors>
-        <Company>R-Koubou</Company>
-        <AssemblyVersion></AssemblyVersion>
-        <FileVersion></FileVersion>
+        <Version>0.1.0-alpha</Version>
+        <Description>ArticulationUtility.Interactors module</Description>
         <Nullable>enable</Nullable>
+        <!-- Nuget -->
+        <Authors>R-Koubou</Authors>
+        <PackageId>ArticulationUtility.Interactors</PackageId>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/r-koubou/ArticulationUtility</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/r-koubou/ArticulationUtility</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>

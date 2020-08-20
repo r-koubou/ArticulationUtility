@@ -2,11 +2,21 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <!-- Assembly / Common -->
+        <Copyright>R-Koubou</Copyright>
+        <Company>R-Koubou</Company>
+        <Product>ArticulationUtility.Presenters</Product>
         <AssemblyName>ArticulationUtility.Presenters</AssemblyName>
         <RootNamespace>ArticulationUtility.Presenters</RootNamespace>
-        <Authors>R-Koubou</Authors>
-        <Company>R-Koubou</Company>
+        <Version>0.1.0-alpha</Version>
+        <Description>ArticulationUtility.Presenters module</Description>
         <Nullable>enable</Nullable>
+        <!-- Nuget -->
+        <Authors>R-Koubou</Authors>
+        <PackageId>ArticulationUtility.Presenters</PackageId>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/r-koubou/ArticulationUtility</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/r-koubou/ArticulationUtility</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
