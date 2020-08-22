@@ -5,22 +5,28 @@
         <!-- Assembly / Common -->
         <Copyright>R-Koubou</Copyright>
         <Company>R-Koubou</Company>
-        <Product>ArticulationUtility.Controllers</Product>
-        <AssemblyName>ArticulationUtility.Controllers</AssemblyName>
-        <RootNamespace>ArticulationUtility.Controllers</RootNamespace>
+        <Product>ArticulationUtility</Product>
+        <RootNamespace>ArticulationUtility</RootNamespace>
         <Version>0.1.0-alpha</Version>
-        <Description>ArticulationUtility.Controllers module</Description>
+        <Description>A Library of Converting to VST Expression map (Cubase/Nuendo), Studio One 5 KeySwitch file.</Description>
         <Nullable>enable</Nullable>
         <!-- Nuget -->
         <Authors>R-Koubou</Authors>
-        <PackageId>ArticulationUtility.Controllers</PackageId>
+        <PackageId>ArticulationUtility</PackageId>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/r-koubou/ArticulationUtility</PackageProjectUrl>
         <RepositoryUrl>https://github.com/r-koubou/ArticulationUtility</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Controllers\Controllers.csproj" />
+      <ProjectReference Include="..\Entities\Entities.csproj" />
+      <ProjectReference Include="..\ExternalTranslators\ExternalTranslators.csproj" />
+      <ProjectReference Include="..\FileAccessors\FileAccessors.csproj" />
+      <ProjectReference Include="..\Gateways\Gateways.csproj" />
       <ProjectReference Include="..\Interactors\Interactors.csproj" />
+      <ProjectReference Include="..\Presenters\Presenters.csproj" />
+      <ProjectReference Include="..\UseCases\UseCases.csproj" />
       <ProjectReference Include="..\Utilities\Utilities.csproj" />
     </ItemGroup>
 

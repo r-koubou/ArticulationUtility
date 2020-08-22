@@ -2,12 +2,21 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <AssemblyName>ArticulationUtility.Entities</AssemblyName>
-        <RootNamespace>ArticulationUtility.Entities</RootNamespace>
+        <!-- Assembly / Common -->
+        <Copyright>R-Koubou</Copyright>
         <Company>R-Koubou</Company>
         <Product>ArticulationUtility.Entities</Product>
-        <Authors>R-Koubou</Authors>
+        <AssemblyName>ArticulationUtility.Entities</AssemblyName>
+        <RootNamespace>ArticulationUtility.Entities</RootNamespace>
+        <Version>0.1.0-alpha</Version>
+        <Description>ArticulationUtility.Entities module</Description>
         <Nullable>enable</Nullable>
+        <!-- Nuget -->
+        <Authors>R-Koubou</Authors>
+        <PackageId>ArticulationUtility.Entities</PackageId>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/r-koubou/ArticulationUtility</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/r-koubou/ArticulationUtility</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>

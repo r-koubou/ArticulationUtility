@@ -2,15 +2,21 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <Nullable>enable</Nullable>
-        <AssemblyName>ArticulationUtility.ExternalTranslators</AssemblyName>
-        <RootNamespace>ArticulationUtility.ExternalTranslators</RootNamespace>
-        <PackageId>ArticulationUtility.ExternalTranslators</PackageId>
-        <Authors>R-Koubou</Authors>
+        <!-- Assembly / Common -->
+        <Copyright>R-Koubou</Copyright>
         <Company>R-Koubou</Company>
         <Product>ArticulationUtility.ExternalTranslators</Product>
-        <AssemblyVersion></AssemblyVersion>
-        <FileVersion></FileVersion>
+        <AssemblyName>ArticulationUtility.ExternalTranslators</AssemblyName>
+        <RootNamespace>ArticulationUtility.ExternalTranslators</RootNamespace>
+        <Version>0.1.0-alpha</Version>
+        <Description>ArticulationUtility.ExternalTranslators module</Description>
+        <Nullable>enable</Nullable>
+        <!-- Nuget -->
+        <Authors>R-Koubou</Authors>
+        <PackageId>ArticulationUtility.ExternalTranslators</PackageId>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/r-koubou/ArticulationUtility</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/r-koubou/ArticulationUtility</RepositoryUrl>
     </PropertyGroup>
 
 </Project>
