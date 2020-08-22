@@ -4,7 +4,7 @@ using ArticulationUtility.Gateways;
 using ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromSpreadsheet;
 using ArticulationUtility.Gateways.Translating.VSTExpressionMapXml.FromVSTExpressionMap;
 using ArticulationUtility.UseCases.Converting;
-using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Aggregate;
+using ArticulationUtility.UseCases.Values.Spreadsheet.Aggregate;
 using ArticulationUtility.UseCases.Values.VSTExpressionMapXml;
 
 namespace ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromSpreadsheet

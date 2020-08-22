@@ -4,7 +4,7 @@ using ArticulationUtility.Gateways;
 using ArticulationUtility.Gateways.Translating.StudioOneKeySwitch.FromSpreadsheet;
 using ArticulationUtility.Gateways.Translating.StudioOneKeySwitchXml.FromStudioOneKeySwitch;
 using ArticulationUtility.UseCases.Converting;
-using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Aggregate;
+using ArticulationUtility.UseCases.Values.Spreadsheet.Aggregate;
 using ArticulationUtility.UseCases.Values.StudioOneKeySwitchXml;
 
 namespace ArticulationUtility.Interactors.Converting.StudioOneKeySwitch.FromSpreadsheet

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-using ArticulationUtility.Gateways;
-using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Aggregate;
+using ArticulationUtility.UseCases.Values.Spreadsheet.Aggregate;
 using ArticulationUtility.UseCases.Values.Spreadsheet.Value;
 using ArticulationUtility.Utilities;
 
@@ -13,9 +12,9 @@ using ExcelDataReader;
 using SourceSheet   = System.Data.DataTable;
 using SourceRows    = System.Data.DataRowCollection;
 
-namespace ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_8
+namespace ArticulationUtility.FileAccessors.Spreadsheet.Compatibility.Ver_0_7
 {
-    public class SpreadsheetFileRepository : IFileRepository<Workbook>
+    internal class SpreadsheetFileRepository : ISpreadsheetFileRepository
     {
         private class ArticulationCellGroup
         {
@@ -116,17 +115,14 @@ namespace ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap.Comp
         {
             var articulationCellGroup = new ArticulationCellGroup();
 
-            ParseSheet( context, SpreadsheetConstants.ColumnArticulationName, out var cellValue );
+            ParseSheet( context, SpreadsheetConstants.ColumnName, out var cellValue );
             articulationCellGroup.NameCell = new ArticulationNameCell( cellValue );
-
-            ParseSheet( context, SpreadsheetConstants.ColumnColor, out cellValue );
-            articulationCellGroup.ColorIndexCell = new ColorIndexCell( int.Parse( cellValue ) );
 
             ParseSheet( context, SpreadsheetConstants.ColumnArticulationType, out cellValue );
             articulationCellGroup.TypeCell = ArticulationTypeCell.Parse( cellValue );
 
-            ParseSheet( context, SpreadsheetConstants.ColumnGroup, out cellValue );
-            articulationCellGroup.GroupIndexCell = new GroupIndexCell( int.Parse( cellValue ) );
+            ParseSheet( context, SpreadsheetConstants.ColumnColor, out cellValue );
+            articulationCellGroup.ColorIndexCell = new ColorIndexCell( Int32.Parse( cellValue ) );
 
             return articulationCellGroup;
         }
@@ -142,7 +138,7 @@ namespace ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap.Comp
             //----------------------------------------------------------------------
             var notes = new List<Row.MidiNote>();
 
-            for( int i = 1; i < int.MaxValue; i++ )
+            for( int i = 1; i < Int32.MaxValue; i++ )
             {
                 if( !TryParseSheet( context, SpreadsheetConstants.ColumnMidiNote + i, out var noteNumberCell ) )
                 {
@@ -151,14 +147,14 @@ namespace ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap.Comp
 
                 ParseSheet( context, SpreadsheetConstants.ColumnMidiVelocity + i, out var velocityCell );
 
-                if( !int.TryParse( velocityCell, out var velocityValue ) )
+                if( !Int32.TryParse( velocityCell, out var velocityValue ) )
                 {
                     break;
                 }
 
                 var obj = new Row.MidiNote
                 {
-                    Note = new MidiNoteNumberCell( noteNumberCell ),
+                    Note     = new MidiNoteNumberCell( noteNumberCell ),
                     Velocity =  new MidiNoteVelocityCell( velocityValue )
                 };
 
@@ -179,7 +175,7 @@ namespace ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap.Comp
             //----------------------------------------------------------------------
             var controlChanges = new List<Row.MidiControlChange>();
 
-            for( int i = 1; i < int.MaxValue; i++ )
+            for( int i = 1; i < Int32.MaxValue; i++ )
             {
 
                 if( !TryParseSheet( context, SpreadsheetConstants.ColumnMidiCc + i, out var ccNumberCell ) )
@@ -206,31 +202,36 @@ namespace ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap.Comp
         private IEnumerable<Row.MidiProgramChange> ParseMidiProgramChanges( CellContext context )
         {
             //----------------------------------------------------------------------
-            // Program (MIDI Program Change?)
-            // * Multiple value Supported
+            // MIDI PC
+            // * Multiple MIDI Program Change Supported
             // * Column name format:
-            //   Program1 ... Program1+n
+            //   PC LSB1 ... PC LSB1+n
+            //   PC MSB1 ... PC MSB1+n (MSB not exist, MSB value will be 0 )
             //----------------------------------------------------------------------
-            var program = new List<Row.MidiProgramChange>();
+            var programChanges = new List<Row.MidiProgramChange>();
 
-            for( int i = 1; i < int.MaxValue; i++ )
+            for( int i = 1; i < Int32.MaxValue; i++ )
             {
 
-                if( !TryParseSheet( context, SpreadsheetConstants.ColumnMidiPcLsb + i, out var pcCell ) )
+                if( !TryParseSheet( context, SpreadsheetConstants.ColumnMidiPcLsb + i, out var pcLsbCell ) )
                 {
                     break;
+                }
+                if( !TryParseSheet( context, SpreadsheetConstants.ColumnMidiPcMsb + i, out var pcMsbCell ) )
+                {
+                    pcMsbCell = "0";
                 }
 
                 var obj = new Row.MidiProgramChange
                 {
-                    Channel = new MidiProgramChangeCell( MidiProgramChangeCell.MinValue ),
-                    Data    = new MidiProgramChangeCell( int.Parse( pcCell ) )
+                    Channel = new MidiProgramChangeCell( int.Parse( pcLsbCell ) ),
+                    Data    = new MidiProgramChangeCell( int.Parse( pcMsbCell ) )
                 };
 
-                program.Add( obj );
+                programChanges.Add( obj );
             }
 
-            return program;
+            return programChanges;
         }
 
         #region Core Parsers
@@ -276,16 +277,13 @@ namespace ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap.Comp
 
                     result = cell.ToString() ?? string.Empty;
 
-                    return result != null &&
-                           !string.IsNullOrEmpty( result.Trim() );
+                    return !string.IsNullOrEmpty( result.Trim() );
                 }
                 i++;
             }
             return false;
         }
-
         #endregion
-
         #endregion Load
 
         #region Save

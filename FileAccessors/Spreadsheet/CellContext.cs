@@ -2,7 +2,7 @@ using System.Data;
 
 namespace ArticulationUtility.FileAccessors.Spreadsheet
 {
-    public struct CellContext
+    internal struct CellContext
     {
         public int RowIndex;
         public DataTable Sheet;

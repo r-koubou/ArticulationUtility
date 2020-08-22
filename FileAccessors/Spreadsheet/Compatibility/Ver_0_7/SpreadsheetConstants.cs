@@ -1,13 +1,14 @@
-namespace ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_8
+namespace ArticulationUtility.FileAccessors.Spreadsheet.Compatibility.Ver_0_7
 {
-    public static  class SpreadsheetConstants
+    internal static class SpreadsheetConstants
     {
 
+        public static readonly string ColumnName = "Name";
         public static readonly string ColumnColor = "Color";
-        public static readonly string ColumnArticulationName = "Articulation Name";
+        public static readonly string ColumnArticulation = "Articulation";
         public static readonly string ColumnArticulationType = "Articulation Type";
         public static readonly string ColumnGroup = "Group";
-        public static readonly string ColumnProgramChange = "Program";
+        public static readonly string ColumnProgramChange = "Program Change";
         public static readonly string ColumnMidiNote = "MIDI Note";
         public static readonly string ColumnMidiVelocity = "Velocity";
         public static readonly string ColumnMidiCc = "CC No";
