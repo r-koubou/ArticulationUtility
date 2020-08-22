@@ -1,13 +1,17 @@
 @echo off
 
+goto :main
+
 :pack
-    echo "----------------------------------------"
-    echo "%1 (%2)"
-    echo "----------------------------------------"
+    echo ----------------------------------------
+    echo %1 (%2)
+    echo ----------------------------------------
     pushd %1
         dotnet pack --nologo -o ..\.nuget\ -c %2
     popd
     exit /b 0
+
+:main
 
 call :pack Controllers Debug
 call :pack Entities Debug
