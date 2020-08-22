@@ -1,5 +1,6 @@
 ﻿using ArticulationUtility.Controllers;
 using ArticulationUtility.FileAccessors.Spreadsheet;
+using ArticulationUtility.FileAccessors.Spreadsheet.Compatibility;
 using ArticulationUtility.FileAccessors.Tsv;
 using ArticulationUtility.Interactors.Converting.Tsv.FromSpreadsheet;
 using ArticulationUtility.UseCases.Converting;
@@ -12,7 +13,10 @@ namespace SpreadsheetToTsv
     {
         public IConvertingFileFormatController GetController( IFileConvertingRequest request )
         {
-            var (loadRepository, tsvTranslator) = SpreadsheetVersionDetector.DetectRepositoryWithTsv( request.InputFile );
+            var version = SpreadsheetVersionDetector.DetectVersion( request.InputFile );
+            var tsvTranslator = TsvTranslatorFactory.Create( version );
+
+            var loadRepository = SpreadsheetVersionDetector.CreateRepository( version );
             var saveRepository = new TsvFileRepository();
             var useCase = new ConvertingToTsvInteractor( loadRepository, saveRepository, tsvTranslator );
 

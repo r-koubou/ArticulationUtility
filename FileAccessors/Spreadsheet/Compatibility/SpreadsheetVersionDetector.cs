@@ -13,7 +13,7 @@ using ExcelDataReader;
 using Repository_Version_0_7 = ArticulationUtility.FileAccessors.Spreadsheet.Compatibility.Ver_0_7.SpreadsheetFileRepository;
 using Repository_Version_0_8 = ArticulationUtility.FileAccessors.Spreadsheet.Compatibility.Ver_0_8.SpreadsheetFileRepository;
 
-namespace ArticulationUtility.FileAccessors.Spreadsheet
+namespace ArticulationUtility.FileAccessors.Spreadsheet.Compatibility
 {
     public static class SpreadsheetVersionDetector
     {
@@ -25,7 +25,7 @@ namespace ArticulationUtility.FileAccessors.Spreadsheet
             Encoding.RegisterProvider( CodePagesEncodingProvider.Instance );
         }
 
-        private static ISpreadsheetFileRepository CreateRepository( SpreadsheetVersion version )
+        public static ISpreadsheetFileRepository CreateRepository( SpreadsheetVersion version )
         {
             switch( version )
             {
@@ -33,19 +33,6 @@ namespace ArticulationUtility.FileAccessors.Spreadsheet
                     return new Repository_Version_0_7();
                 case SpreadsheetVersion.Ver_0_8:
                     return new Repository_Version_0_8();
-                default:
-                    throw new ArgumentException( $"Spreadsheet Repository for `{version}` not found");
-            }
-        }
-
-        private static (ISpreadsheetFileRepository, ITsvTranslator<Worksheet>) CreateRepositoryWithTsv( SpreadsheetVersion version )
-        {
-            switch( version )
-            {
-                case SpreadsheetVersion.Ver_0_7:
-                    return ( new Repository_Version_0_7(), new TsvTranslator() );
-                case SpreadsheetVersion.Ver_0_8:
-                    return ( new Repository_Version_0_8(), new Compatibility.Ver_0_8.TsvTranslator() );
                 default:
                     throw new ArgumentException( $"Spreadsheet Repository for `{version}` not found");
             }
@@ -97,12 +84,6 @@ namespace ArticulationUtility.FileAccessors.Spreadsheet
         {
             var version = DetectVersion( spreadsheetFilePath );
             return CreateRepository( version );
-        }
-
-        public static (ISpreadsheetFileRepository, ITsvTranslator<Worksheet>) DetectRepositoryWithTsv( string spreadsheetFilePath )
-        {
-            var version = DetectVersion( spreadsheetFilePath );
-            return CreateRepositoryWithTsv( version );
         }
 
     }

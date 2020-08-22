@@ -1,4 +1,4 @@
-namespace ArticulationUtility.FileAccessors.Spreadsheet
+namespace ArticulationUtility.FileAccessors.Spreadsheet.Compatibility
 {
     internal static class CommonSheetConstants
     {

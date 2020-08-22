@@ -1,6 +1,7 @@
 ﻿using ArticulationUtility.Controllers;
 using ArticulationUtility.FileAccessors.Json.Articulation;
 using ArticulationUtility.FileAccessors.Spreadsheet;
+using ArticulationUtility.FileAccessors.Spreadsheet.Compatibility;
 using ArticulationUtility.Interactors.Converting.Json.FromSpreadsheet;
 using ArticulationUtility.UseCases.Converting;
 
