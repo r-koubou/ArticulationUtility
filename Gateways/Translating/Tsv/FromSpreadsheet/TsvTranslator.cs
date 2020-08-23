@@ -3,10 +3,9 @@ using System.Text;
 
 using ArticulationUtility.Entities.Tsv.Aggregate;
 using ArticulationUtility.Entities.Tsv.Value;
-using ArticulationUtility.Gateways.Translating.Tsv;
 using ArticulationUtility.UseCases.Values.Spreadsheet.Aggregate;
 
-namespace ArticulationUtility.FileAccessors.Spreadsheet
+namespace ArticulationUtility.Gateways.Translating.Tsv.FromSpreadsheet
 {
     public class TsvTranslator : ITsvTranslator<Worksheet>
     {

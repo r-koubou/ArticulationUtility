@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <Nullable>enable</Nullable>
+        <Company>R-Koubou</Company>
+        <Product>ExpressionMap To Tsv</Product>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\FileAccessors\FileAccessors.csproj" />
+        <ProjectReference Include="..\ConvertingAppLauncher\ConvertingAppLauncher.csproj" />
+    </ItemGroup>
+
+</Project>

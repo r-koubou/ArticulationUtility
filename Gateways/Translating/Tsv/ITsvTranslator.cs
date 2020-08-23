@@ -4,6 +4,6 @@ using ArticulationUtility.Entities.Tsv.Aggregate;
 
 namespace ArticulationUtility.Gateways.Translating.Tsv
 {
-    public interface ITsvTranslator<in T> : IDataTranslator<T, List<TsvData>>
+    public interface ITsvTranslator<in TSource> : IDataTranslator<TSource, List<TsvData>>
     {}
 }
