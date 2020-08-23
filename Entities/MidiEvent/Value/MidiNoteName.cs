@@ -405,6 +405,11 @@ namespace ArticulationUtility.Entities.MidiEvent.Value
 
         public string Value { get; }
 
+        public static MidiNoteName FromMidiNoteNumber( MidiNoteNumber noteNumber )
+        {
+            return new MidiNoteName( NoteNameList[ noteNumber.Value ] );
+        }
+
         public MidiNoteName( string noteName )
         {
             StringHelper.ValidateNullOrTrimEmpty( noteName );

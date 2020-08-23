@@ -55,7 +55,8 @@ namespace ArticulationUtility.FileAccessors.Spreadsheet
                 }
 
                 // Ignore sheet
-                if( s.TableName == CommonSheetConstants.DefinitionSheetName )
+                if( s.TableName == CommonSheetConstants.DefinitionSheetName ||
+                    s.TableName.Contains( CommonSheetConstants.IgnoreSheetNameRule ) )
                 {
                     continue;
                 }

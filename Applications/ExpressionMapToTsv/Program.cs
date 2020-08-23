@@ -1,20 +1,20 @@
 ﻿using ArticulationUtility.Controllers;
-using ArticulationUtility.FileAccessors.Spreadsheet;
+using ArticulationUtility.FileAccessors.VSTExpressionMapXml;
 using ArticulationUtility.FileAccessors.Tsv;
-using ArticulationUtility.Gateways.Translating.Tsv.FromSpreadsheet;
-using ArticulationUtility.Interactors.Converting.Tsv.FromSpreadsheet;
+using ArticulationUtility.Gateways.Translating.Tsv.FromVSTExpressionMap;
+using ArticulationUtility.Interactors.Converting.Tsv.FromVSTExpressionMap;
 using ArticulationUtility.UseCases.Converting;
 
 using ConvertingAppLauncher;
 
-namespace SpreadsheetToTsv
+namespace ExpressionMapToTsv
 {
     public class Program : ICliApplication
     {
         public IConvertingFileFormatController GetController( IFileConvertingRequest request )
         {
             var tsvTranslator = new TsvTranslator();
-            var loadRepository = new SpreadsheetFileRepository();
+            var loadRepository = new ExpressionMapFileRepository();
             var saveRepository = new TsvFileRepository();
             var useCase = new ConvertingToTsvInteractor( loadRepository, saveRepository, tsvTranslator );
 
