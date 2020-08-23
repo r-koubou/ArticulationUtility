@@ -1,6 +1,6 @@
-namespace ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap
+namespace ArticulationUtility.FileAccessors.Spreadsheet.Compatibility
 {
-    public static class CommonSheetConstants
+    internal static class CommonSheetConstants
     {
         // List definition sheet name
         public static readonly string DefinitionSheetName = "DO NOT MODIFY!";

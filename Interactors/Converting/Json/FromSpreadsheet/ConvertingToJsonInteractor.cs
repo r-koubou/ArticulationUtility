@@ -6,7 +6,7 @@ using ArticulationUtility.Gateways.Translating.Json.FromVSTExpressionMap;
 using ArticulationUtility.Gateways.Translating.VSTExpressionMap.FromSpreadsheet;
 using ArticulationUtility.UseCases.Converting;
 using ArticulationUtility.UseCases.Values.Json.ForArticulation;
-using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Aggregate;
+using ArticulationUtility.UseCases.Values.Spreadsheet.Aggregate;
 
 namespace ArticulationUtility.Interactors.Converting.Json.FromSpreadsheet
 {

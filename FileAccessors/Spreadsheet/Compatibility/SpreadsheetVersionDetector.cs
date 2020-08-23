@@ -3,16 +3,17 @@ using System.Data;
 using System.IO;
 using System.Text;
 
-using ArticulationUtility.Gateways;
-using ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Aggregate;
+using ArticulationUtility.FileAccessors.Spreadsheet.Compatibility.Ver_0_7;
+using ArticulationUtility.Gateways.Translating.Tsv;
+using ArticulationUtility.UseCases.Values.Spreadsheet.Aggregate;
 using ArticulationUtility.Utilities;
 
 using ExcelDataReader;
 
-using Repository_Version_0_7 = ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_7.SpreadsheetFileRepository;
-using Repository_Version_0_8 = ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap.Compatibility.Ver_0_8.SpreadsheetFileRepository;
+using Repository_Version_0_7 = ArticulationUtility.FileAccessors.Spreadsheet.Compatibility.Ver_0_7.SpreadsheetFileRepository;
+using Repository_Version_0_8 = ArticulationUtility.FileAccessors.Spreadsheet.Compatibility.Ver_0_8.SpreadsheetFileRepository;
 
-namespace ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap
+namespace ArticulationUtility.FileAccessors.Spreadsheet.Compatibility
 {
     public static class SpreadsheetVersionDetector
     {
@@ -24,7 +25,7 @@ namespace ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap
             Encoding.RegisterProvider( CodePagesEncodingProvider.Instance );
         }
 
-        public static IFileRepository<Workbook> CreateRepository( SpreadsheetVersion version )
+        public static ISpreadsheetFileRepository CreateRepository( SpreadsheetVersion version )
         {
             switch( version )
             {
@@ -79,10 +80,11 @@ namespace ArticulationUtility.FileAccessors.Spreadsheet.ForVSTExpressionMap
             }
         }
 
-        public static IFileRepository<Workbook> DetectRepository( string spreadsheetFilePath )
+        public static ISpreadsheetFileRepository DetectRepository( string spreadsheetFilePath )
         {
             var version = DetectVersion( spreadsheetFilePath );
             return CreateRepository( version );
         }
+
     }
 }

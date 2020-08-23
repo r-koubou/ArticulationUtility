@@ -1,21 +1,24 @@
 ﻿using ArticulationUtility.Controllers;
-using ArticulationUtility.FileAccessors.Json.Articulation;
 using ArticulationUtility.FileAccessors.Spreadsheet;
 using ArticulationUtility.FileAccessors.Spreadsheet.Compatibility;
-using ArticulationUtility.Interactors.Converting.Json.FromSpreadsheet;
+using ArticulationUtility.FileAccessors.Tsv;
+using ArticulationUtility.Interactors.Converting.Tsv.FromSpreadsheet;
 using ArticulationUtility.UseCases.Converting;
 
 using ConvertingAppLauncher;
 
-namespace SpreadsheetToJson
+namespace SpreadsheetToTsv
 {
     public class Program : ICliApplication
     {
         public IConvertingFileFormatController GetController( IFileConvertingRequest request )
         {
-            var loadRepository = SpreadsheetVersionDetector.DetectRepository( request.InputFile );
-            var saveRepository = new JsonFileRepository();
-            var useCase = new ConvertingToJsonInteractor( loadRepository, saveRepository );
+            var version = SpreadsheetVersionDetector.DetectVersion( request.InputFile );
+            var tsvTranslator = TsvTranslatorFactory.Create( version );
+
+            var loadRepository = SpreadsheetVersionDetector.CreateRepository( version );
+            var saveRepository = new TsvFileRepository();
+            var useCase = new ConvertingToTsvInteractor( loadRepository, saveRepository, tsvTranslator );
 
             return new ConvertingFileFormatController( useCase );
         }

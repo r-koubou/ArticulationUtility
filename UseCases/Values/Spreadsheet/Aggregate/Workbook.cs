@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ArticulationUtility.UseCases.Values.Spreadsheet.ForVSTExpressionMap.Aggregate
+namespace ArticulationUtility.UseCases.Values.Spreadsheet.Aggregate
 {
     public class Workbook
     {
