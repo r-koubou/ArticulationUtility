@@ -1,0 +1,9 @@
+<Project>
+    <PropertyGroup>
+        <ProjectName>ExpressionMapToTsv</ProjectName>
+        <ProjectFile>ExpressionMapToTsv.csproj</ProjectFile>
+    </PropertyGroup>
+
+    <Import Project="../Common.msbuild.proj" />
+
+</Project>

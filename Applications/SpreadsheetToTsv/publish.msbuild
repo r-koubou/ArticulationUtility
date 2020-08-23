@@ -1,0 +1,9 @@
+<Project>
+    <PropertyGroup>
+        <ProjectName>SpreadsheetToTsv</ProjectName>
+        <ProjectFile>SpreadsheetToTsv.csproj</ProjectFile>
+    </PropertyGroup>
+
+    <Import Project="../Common.msbuild.proj" />
+
+</Project>
