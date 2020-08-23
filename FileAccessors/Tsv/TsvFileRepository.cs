@@ -22,8 +22,7 @@ namespace ArticulationUtility.FileAccessors.Tsv
         #region Save
         public void Save( TsvData data )
         {
-            var fileName = SavePath + Suffix;
-            using var stream = File.Open( fileName, FileMode.Create, FileAccess.Write );
+            using var stream = File.Open( SavePath, FileMode.Create, FileAccess.Write );
             using var writer = new StreamWriter( stream, Encoding.UTF8 );
 
             foreach( var line in data.Rows )

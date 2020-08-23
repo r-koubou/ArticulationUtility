@@ -3,7 +3,10 @@
 
         <BashLauncherText>
 #/bin/bash
-dotnet $(ProjectName).dll $*
+pushd `dirname $0`
+    this_dir=`pwd`
+popd
+dotnet $this_dir/$(ProjectName).dll "${@/#prefix:/}"
         </BashLauncherText>
 
         <DosLauncherText>

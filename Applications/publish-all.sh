@@ -3,7 +3,7 @@
 dir_path="./*"
 dirs=`find $dir_path -maxdepth 0 -type d`
 
-this_dir=`pwd`
+this_dir=`dirname $0`
 
 if [ ! -d publish/ ] ; then
     mkdir publish/
