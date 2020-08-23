@@ -1,6 +1,5 @@
 ﻿using ArticulationUtility.Controllers;
 using ArticulationUtility.FileAccessors.Spreadsheet;
-using ArticulationUtility.FileAccessors.Spreadsheet.Compatibility;
 using ArticulationUtility.FileAccessors.StudioOneKeySwitch;
 using ArticulationUtility.Interactors.Converting.StudioOneKeySwitch.FromSpreadsheet;
 using ArticulationUtility.UseCases.Converting;
@@ -13,7 +12,7 @@ namespace SpreadsheetToStudioOneKeySwitch
     {
         public IConvertingFileFormatController GetController( IFileConvertingRequest request )
         {
-            var loadRepository = SpreadsheetVersionDetector.DetectRepository( request.InputFile );
+            var loadRepository = new SpreadsheetFileRepository();
             var saveRepository = new KeySwitchFileRepository();
             var useCase = new ConvertingToStudioOneKeySwitchFileInteractor( loadRepository, saveRepository );
 

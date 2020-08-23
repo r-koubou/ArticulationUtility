@@ -1,7 +1,6 @@
 ﻿using ArticulationUtility.Controllers;
 using ArticulationUtility.FileAccessors.Json.Articulation;
 using ArticulationUtility.FileAccessors.Spreadsheet;
-using ArticulationUtility.FileAccessors.Spreadsheet.Compatibility;
 using ArticulationUtility.Interactors.Converting.Json.FromSpreadsheet;
 using ArticulationUtility.UseCases.Converting;
 
@@ -13,7 +12,7 @@ namespace SpreadsheetToJson
     {
         public IConvertingFileFormatController GetController( IFileConvertingRequest request )
         {
-            var loadRepository = SpreadsheetVersionDetector.DetectRepository( request.InputFile );
+            var loadRepository = new SpreadsheetFileRepository();
             var saveRepository = new JsonFileRepository();
             var useCase = new ConvertingToJsonInteractor( loadRepository, saveRepository );
 

@@ -1,8 +1,8 @@
 using System.Data;
 
-namespace ArticulationUtility.FileAccessors.Spreadsheet.Compatibility
+namespace ArticulationUtility.FileAccessors.Spreadsheet
 {
-    internal struct CellContext
+    public struct CellContext
     {
         public int RowIndex;
         public DataTable Sheet;
