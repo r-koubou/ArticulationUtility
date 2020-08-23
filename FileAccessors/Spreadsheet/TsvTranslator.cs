@@ -6,9 +6,9 @@ using ArticulationUtility.Entities.Tsv.Value;
 using ArticulationUtility.Gateways.Translating.Tsv;
 using ArticulationUtility.UseCases.Values.Spreadsheet.Aggregate;
 
-namespace ArticulationUtility.FileAccessors.Spreadsheet.Compatibility.Ver_0_8
+namespace ArticulationUtility.FileAccessors.Spreadsheet
 {
-    internal class TsvTranslator : ITsvTranslator<Worksheet>
+    public class TsvTranslator : ITsvTranslator<Worksheet>
     {
         public List<TsvData> Translate( Worksheet worksheet )
         {
