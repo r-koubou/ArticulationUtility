@@ -11,11 +11,11 @@ namespace ArticulationUtility.Gateways.Translating.Tsv.FromVSTExpressionMap
 {
     public class TsvTranslator : ITsvTranslator<ExpressionMap>
     {
-        public List<TsvData> Translate( ExpressionMap worksheet )
+        public List<TsvData> Translate( ExpressionMap expressionMap )
         {
             var result = new List<TsvData>();
 
-            var lines = ToTsvTextList( worksheet );
+            var lines = ToTsvTextList( expressionMap );
             var tsvLines = new List<TsvLine>();
 
             foreach( var line in lines )
