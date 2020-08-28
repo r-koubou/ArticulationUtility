@@ -3,6 +3,7 @@ using ArticulationUtility.Controllers.Converting;
 using ArticulationUtility.FileAccessors.StudioOneKeySwitch;
 using ArticulationUtility.FileAccessors.VSTExpressionMapXml;
 using ArticulationUtility.Interactors.Converting.StudioOneKeySwitch.FromVSTExpressionMap;
+using ArticulationUtility.Presenters;
 using ArticulationUtility.UseCases.Converting;
 
 using ConvertingAppLauncher;
@@ -16,7 +17,9 @@ namespace ExpressionMapToStudioOneKeySwitch
             var loadRepository = new ExpressionMapFileRepository();
             var saveRepository = new KeySwitchFileRepository();
             var useCase = new ConvertingToStudioOneKeySwitchFileInteractor( loadRepository, saveRepository );
-            return  new ConvertingFileFormatController( useCase );
+            var presenter = new ConsoleProgressPresenter();
+
+            return new ConvertingFileFormatController( useCase, presenter );
         }
 
         public static void Main( string[] args )

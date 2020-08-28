@@ -3,6 +3,7 @@ using ArticulationUtility.Controllers.Converting;
 using ArticulationUtility.FileAccessors.Spreadsheet;
 using ArticulationUtility.FileAccessors.StudioOneKeySwitch;
 using ArticulationUtility.Interactors.Converting.StudioOneKeySwitch.FromSpreadsheet;
+using ArticulationUtility.Presenters;
 using ArticulationUtility.UseCases.Converting;
 
 using ConvertingAppLauncher;
@@ -16,8 +17,9 @@ namespace SpreadsheetToStudioOneKeySwitch
             var loadRepository = new SpreadsheetFileRepository();
             var saveRepository = new KeySwitchFileRepository();
             var useCase = new ConvertingToStudioOneKeySwitchFileInteractor( loadRepository, saveRepository );
+            var presenter = new ConsoleProgressPresenter();
 
-            return new ConvertingFileFormatController( useCase );
+            return new ConvertingFileFormatController( useCase, presenter );
         }
 
         public static void Main( string[] args )

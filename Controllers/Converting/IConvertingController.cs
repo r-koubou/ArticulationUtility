@@ -1,7 +1,10 @@
+using ArticulationUtility.UseCases.Converting;
+
 namespace ArticulationUtility.Controllers.Converting
 {
-    public interface IConvertingController<in TRequest>
+    public interface IConvertingController<TRequest>
     {
-        void Convert( TRequest request );
+        public IConvertingProgressPresenter<TRequest> Presenter { get; }
+        public void Convert( TRequest request );
     }
 }
