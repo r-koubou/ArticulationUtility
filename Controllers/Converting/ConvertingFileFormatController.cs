@@ -2,7 +2,7 @@ using System;
 
 using ArticulationUtility.UseCases.Converting;
 
-namespace ArticulationUtility.Controllers
+namespace ArticulationUtility.Controllers.Converting
 {
     public class ConvertingFileFormatController : IConvertingFileFormatController
     {

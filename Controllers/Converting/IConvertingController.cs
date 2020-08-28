@@ -1,4 +1,4 @@
-namespace ArticulationUtility.Controllers
+namespace ArticulationUtility.Controllers.Converting
 {
     public interface IConvertingController<in TRequest>
     {
