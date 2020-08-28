@@ -4,22 +4,11 @@ using ArticulationUtility.UseCases.Converting;
 
 namespace ArticulationUtility.Presenters
 {
-    public class ConsoleProgressPresenter : IConvertingProgressPresenter<string>
+    public class ConsoleProgressPresenter : IConvertingProgressPresenter<IFileConvertingRequest>
     {
-
-        public void StartConverting( string message )
+        public void Progress( IFileConvertingRequest message )
         {
-            Console.WriteLine( message );
-        }
-
-        public void EndConverting( string message )
-        {
-            Console.WriteLine( message );
-        }
-
-        public void Progress( string message )
-        {
-            Console.WriteLine( message );
+            Console.WriteLine( $"Converting: {message.InputFile}" );
         }
     }
 }

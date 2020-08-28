@@ -1,6 +1,6 @@
 using ArticulationUtility.UseCases.Converting;
 
-namespace ArticulationUtility.Controllers
+namespace ArticulationUtility.Controllers.Converting
 {
     public interface IConvertingFileFormatController
         : IConvertingController<IFileConvertingRequest>

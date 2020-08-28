@@ -1,8 +1,10 @@
 ﻿using ArticulationUtility.Controllers;
+using ArticulationUtility.Controllers.Converting;
 using ArticulationUtility.FileAccessors.Spreadsheet;
 using ArticulationUtility.FileAccessors.Tsv;
 using ArticulationUtility.Gateways.Translating.Tsv.FromSpreadsheet;
 using ArticulationUtility.Interactors.Converting.Tsv.FromSpreadsheet;
+using ArticulationUtility.Presenters;
 using ArticulationUtility.UseCases.Converting;
 
 using ConvertingAppLauncher;
@@ -17,8 +19,9 @@ namespace SpreadsheetToTsv
             var loadRepository = new SpreadsheetFileRepository();
             var saveRepository = new TsvFileRepository();
             var useCase = new ConvertingToTsvInteractor( loadRepository, saveRepository, tsvTranslator );
+            var presenter = new ConsoleProgressPresenter();
 
-            return new ConvertingFileFormatController( useCase );
+            return new ConvertingFileFormatController( useCase, presenter );
         }
 
         public static void Main( string[] args )
