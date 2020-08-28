@@ -13,11 +13,16 @@ namespace ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromSpread
     {
         public IFileRepository<Workbook> SourceRepository { get; }
         public IFileRepository<RootElement> TargetRepository { get; }
+        public ITextPresenter Presenter { get; }
 
-        public ConvertingToExpressionMapFileInteractor( IFileRepository<Workbook> sourceRepository, IFileRepository<RootElement> targetRepository )
+        public ConvertingToExpressionMapFileInteractor(
+            IFileRepository<Workbook> sourceRepository,
+            IFileRepository<RootElement> targetRepository,
+            ITextPresenter presenter )
         {
             SourceRepository = sourceRepository;
             TargetRepository = targetRepository;
+            Presenter        = presenter;
         }
 
         public void Convert( IFileConvertingRequest request )
@@ -34,6 +39,8 @@ namespace ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromSpread
             {
                 foreach( var xml in expressionMapAdapter.Translate( expressionMap ) )
                 {
+                    Presenter.Progress( expressionMap.Name.Value );
+
                     TargetRepository.SavePath = Path.Combine(
                         request.OutputDirectory,
                         expressionMap.Name.Value + TargetRepository.Suffix

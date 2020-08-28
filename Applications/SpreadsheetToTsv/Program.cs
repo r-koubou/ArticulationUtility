@@ -15,13 +15,13 @@ namespace SpreadsheetToTsv
     {
         public IConvertingFileFormatController GetController( IFileConvertingRequest request )
         {
+            var presenter = new ConsoleTextPresenter();
             var tsvTranslator = new TsvTranslator();
             var loadRepository = new SpreadsheetFileRepository();
             var saveRepository = new TsvFileRepository();
-            var useCase = new ConvertingToTsvInteractor( loadRepository, saveRepository, tsvTranslator );
-            var presenter = new ConsoleProgressPresenter();
+            var useCase = new ConvertingToTsvInteractor( loadRepository, saveRepository, tsvTranslator, presenter );
 
-            return new ConvertingFileFormatController( useCase, presenter );
+            return new ConvertingFileFormatController( useCase );
         }
 
         public static void Main( string[] args )

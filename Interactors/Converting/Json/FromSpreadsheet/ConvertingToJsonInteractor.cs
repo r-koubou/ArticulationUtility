@@ -10,25 +10,29 @@ using ArticulationUtility.UseCases.Values.Spreadsheet.Aggregate;
 
 namespace ArticulationUtility.Interactors.Converting.Json.FromSpreadsheet
 {
-    public class ConvertingToJsonInteractor : IFileConvertingUseCase
+    public class ConvertingToJsonInteractor : IFileConvertingInteractor<Workbook, JsonRoot>
     {
-        private IFileRepository<Workbook> LoadRepository { get; }
+        public IFileRepository<Workbook> SourceRepository { get; }
 
-        private IFileRepository<JsonRoot> SaveRepository { get; }
+        public IFileRepository<JsonRoot> TargetRepository { get; }
+
+        public ITextPresenter Presenter { get; }
 
         public ConvertingToJsonInteractor(
             IFileRepository<Workbook> loadRepository,
-            IFileRepository<JsonRoot> saveRepository )
+            IFileRepository<JsonRoot> saveRepository,
+            ITextPresenter presenter )
         {
-            LoadRepository = loadRepository ?? throw new ArgumentNullException( nameof( loadRepository ) );
-            SaveRepository = saveRepository ?? throw new ArgumentNullException( nameof( saveRepository ) );
+            SourceRepository = loadRepository ?? throw new ArgumentNullException( nameof( loadRepository ) );
+            TargetRepository = saveRepository ?? throw new ArgumentNullException( nameof( saveRepository ) );
+            Presenter        = presenter ?? throw new ArgumentNullException( nameof( presenter ) );
         }
 
         public void Convert( IFileConvertingRequest request )
         {
-            LoadRepository.LoadPath = request.InputFile;
+            SourceRepository.LoadPath = request.InputFile;
 
-            var workbook = LoadRepository.Load();
+            var workbook = SourceRepository.Load();
             var toExpressionMapAdaptor = new WorkbookTranslator();
             var toJsonAdaptor = new ExpressionMapTranslator();
 
@@ -37,13 +41,16 @@ namespace ArticulationUtility.Interactors.Converting.Json.FromSpreadsheet
             foreach( var expressionMap in expressionMaps )
             {
                 var json = toJsonAdaptor.Translate( expressionMap );
+
+                Presenter.Progress( json.Info.Name );
+
                 json.Info.Description = "Converted from spreadsheet";
 
-                SaveRepository.SavePath = Path.Combine(
+                TargetRepository.SavePath = Path.Combine(
                     request.OutputDirectory,
-                    json.Info.Name + SaveRepository.Suffix
+                    json.Info.Name + TargetRepository.Suffix
                 );
-                SaveRepository.Save( json );
+                TargetRepository.Save( json );
             }
         }
     }

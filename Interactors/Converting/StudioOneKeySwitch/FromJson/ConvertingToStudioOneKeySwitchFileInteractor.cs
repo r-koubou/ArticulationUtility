@@ -15,12 +15,16 @@ namespace ArticulationUtility.Interactors.Converting.StudioOneKeySwitch.FromJson
 
         public IFileRepository<RootElement> TargetRepository { get; }
 
+        public ITextPresenter Presenter { get; }
+
         public ConvertingToStudioOneKeySwitchFileInteractor(
             IFileRepository<JsonRoot> loadRepository,
-            IFileRepository<RootElement> saveRepository )
+            IFileRepository<RootElement> saveRepository,
+            ITextPresenter presenter )
         {
             SourceRepository = loadRepository;
             TargetRepository = saveRepository;
+            Presenter        = presenter;
         }
 
         public void Convert( IFileConvertingRequest request )
@@ -35,6 +39,8 @@ namespace ArticulationUtility.Interactors.Converting.StudioOneKeySwitch.FromJson
             {
                 foreach( var xml in keySwitchTranslator.Translate( keySwitch ) )
                 {
+                    Presenter.Progress( keySwitch.Name.Value );
+
                     TargetRepository.SavePath = Path.Combine(
                         request.OutputDirectory,
                         keySwitch.Name.Value + TargetRepository.Suffix

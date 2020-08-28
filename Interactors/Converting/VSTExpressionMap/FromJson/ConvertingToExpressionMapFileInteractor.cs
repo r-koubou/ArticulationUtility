@@ -15,12 +15,16 @@ namespace ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromJson
 
         public IFileRepository<RootElement> TargetRepository { get; }
 
+        public ITextPresenter Presenter { get; }
+
         public ConvertingToExpressionMapFileInteractor(
             IFileRepository<JsonRoot> loadRepository,
-            IFileRepository<RootElement> saveRepository )
+            IFileRepository<RootElement> saveRepository,
+            ITextPresenter presenter )
         {
             SourceRepository = loadRepository;
             TargetRepository = saveRepository;
+            Presenter        = presenter;
         }
 
         public void Convert( IFileConvertingRequest request )
@@ -35,6 +39,8 @@ namespace ArticulationUtility.Interactors.Converting.VSTExpressionMap.FromJson
             {
                 foreach( var xml in expressionMapAdapter.Translate( expressionMap ) )
                 {
+                    Presenter.Progress( expressionMap.Name.Value );
+
                     TargetRepository.SavePath = Path.Combine(
                         request.OutputDirectory,
                         expressionMap.Name.Value + TargetRepository.Suffix

@@ -14,12 +14,12 @@ namespace SpreadsheetToJson
     {
         public IConvertingFileFormatController GetController( IFileConvertingRequest request )
         {
+            var presenter = new ConsoleTextPresenter();
             var loadRepository = new SpreadsheetFileRepository();
             var saveRepository = new JsonFileRepository();
-            var useCase = new ConvertingToJsonInteractor( loadRepository, saveRepository );
-            var presenter = new ConsoleProgressPresenter();
+            var useCase = new ConvertingToJsonInteractor( loadRepository, saveRepository, presenter );
 
-            return new ConvertingFileFormatController( useCase, presenter );
+            return new ConvertingFileFormatController( useCase );
         }
 
         public static void Main( string[] args )

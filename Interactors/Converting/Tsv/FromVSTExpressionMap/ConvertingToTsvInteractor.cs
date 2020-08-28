@@ -10,29 +10,33 @@ using ArticulationUtility.UseCases.Values.VSTExpressionMapXml;
 
 namespace ArticulationUtility.Interactors.Converting.Tsv.FromVSTExpressionMap
 {
-    public class ConvertingToTsvInteractor : IFileConvertingUseCase
+    public class ConvertingToTsvInteractor : IFileConvertingInteractor<RootElement, TsvData>
     {
-        private IFileRepository<RootElement> LoadRepository { get; }
+        public IFileRepository<RootElement> SourceRepository { get; }
 
-        private IFileRepository<TsvData> SaveRepository { get; }
+        public IFileRepository<TsvData> TargetRepository { get; }
+
+        public ITextPresenter Presenter { get; }
 
         private ITsvTranslator<ExpressionMap> TsvTranslator { get; }
 
         public ConvertingToTsvInteractor(
             IFileRepository<RootElement> loadRepository,
             IFileRepository<TsvData> saveRepository,
-            ITsvTranslator<ExpressionMap> tsvTranslator )
+            ITsvTranslator<ExpressionMap> tsvTranslator,
+            ITextPresenter presenter )
         {
-            LoadRepository = loadRepository;
-            SaveRepository = saveRepository;
-            TsvTranslator  = tsvTranslator;
+            SourceRepository = loadRepository;
+            TargetRepository = saveRepository;
+            TsvTranslator    = tsvTranslator;
+            Presenter        = presenter;
         }
 
         public void Convert( IFileConvertingRequest request )
         {
-            LoadRepository.LoadPath = request.InputFile;
+            SourceRepository.LoadPath = request.InputFile;
 
-            var rootElement = LoadRepository.Load();
+            var rootElement = SourceRepository.Load();
             var expressionMapXmlTranslator = new ExpressionMapXmlTranslator();
             var expressionMap = expressionMapXmlTranslator.Translate( rootElement );
 
@@ -41,11 +45,13 @@ namespace ArticulationUtility.Interactors.Converting.Tsv.FromVSTExpressionMap
             var i = 0;
             foreach( var tsv in tsvList )
             {
-                SaveRepository.SavePath = Path.Combine(
+                Presenter.Progress( expressionMap.Name.Value );
+
+                TargetRepository.SavePath = Path.Combine(
                     request.OutputDirectory,
-                    expressionMap.Name.Value + ( i > 0 ? $"_{i}" : string.Empty ) + SaveRepository.Suffix
+                    expressionMap.Name.Value + ( i > 0 ? $"_{i}" : string.Empty ) + TargetRepository.Suffix
                 );
-                SaveRepository.Save( tsv );
+                TargetRepository.Save( tsv );
                 i++;
             }
         }
