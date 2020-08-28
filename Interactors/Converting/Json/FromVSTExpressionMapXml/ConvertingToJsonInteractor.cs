@@ -10,16 +10,20 @@ using ArticulationUtility.UseCases.Values.VSTExpressionMapXml;
 
 namespace ArticulationUtility.Interactors.Converting.Json.FromVSTExpressionMapXml
 {
-    public class ConvertingToJsonInteractor : IFileConvertingUseCase
+    public class ConvertingToJsonInteractor : IFileConvertingInteractor<RootElement, JsonRoot>
     {
-        private IFileRepository<RootElement> LoadRepository { get; }
-        private IFileRepository<JsonRoot> SaveRepository { get; }
+        public IFileRepository<RootElement> SourceRepository { get; }
+        public IFileRepository<JsonRoot> TargetRepository { get; }
+        public ITextPresenter Presenter { get; }
+
         public ConvertingToJsonInteractor(
             IFileRepository<RootElement> loadRepository,
-            IFileRepository<JsonRoot> saveRepository )
+            IFileRepository<JsonRoot> saveRepository,
+            ITextPresenter presenter )
         {
-            LoadRepository = loadRepository ?? throw new ArgumentNullException( nameof( loadRepository ) );
-            SaveRepository = saveRepository ?? throw new ArgumentNullException( nameof( saveRepository ) );
+            SourceRepository = loadRepository ?? throw new ArgumentNullException( nameof( loadRepository ) );
+            TargetRepository = saveRepository ?? throw new ArgumentNullException( nameof( saveRepository ) );
+            Presenter        = presenter ?? throw new ArgumentNullException( nameof( presenter ) );
         }
 
         public void Convert( IFileConvertingRequest request )
@@ -27,19 +31,21 @@ namespace ArticulationUtility.Interactors.Converting.Json.FromVSTExpressionMapXm
             var expressionMapAdapter = new ExpressionMapXmlTranslator();
             var jsonAdapter = new ExpressionMapTranslator();
 
-            LoadRepository.LoadPath = request.InputFile;
-            var xml = LoadRepository.Load();
+            SourceRepository.LoadPath = request.InputFile;
+            var xml = SourceRepository.Load();
             xml.StringElement.Value = Path.GetFileNameWithoutExtension( request.InputFile );
 
             var expressionMap = expressionMapAdapter.Translate( xml );
 
+            Presenter.Progress( expressionMap.Name.Value );
+
             var json = jsonAdapter.Translate( expressionMap );
             json.Info.Description = "Converted from expressionmap";
-            SaveRepository.SavePath = Path.Combine(
+            TargetRepository.SavePath = Path.Combine(
                 request.OutputDirectory,
-                Path.GetFileNameWithoutExtension( request.InputFile ) + SaveRepository.Suffix
+                Path.GetFileNameWithoutExtension( request.InputFile ) + TargetRepository.Suffix
             );
-            SaveRepository.Save( json );
+            TargetRepository.Save( json );
         }
     }
 }

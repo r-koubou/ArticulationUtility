@@ -7,5 +7,6 @@ namespace ArticulationUtility.Interactors.Converting
     {
         public IFileRepository<TSource> SourceRepository { get; }
         public IFileRepository<TTarget> TargetRepository { get; }
+        public ITextPresenter Presenter { get; }
     }
 }

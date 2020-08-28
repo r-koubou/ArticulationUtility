@@ -13,11 +13,16 @@ namespace ArticulationUtility.Interactors.Converting.StudioOneKeySwitch.FromSpre
     {
         public IFileRepository<Workbook> SourceRepository { get; }
         public IFileRepository<RootElement> TargetRepository { get; }
+        public ITextPresenter Presenter { get; }
 
-        public ConvertingToStudioOneKeySwitchFileInteractor( IFileRepository<Workbook> sourceRepository, IFileRepository<RootElement> targetRepository )
+        public ConvertingToStudioOneKeySwitchFileInteractor(
+            IFileRepository<Workbook> sourceRepository,
+            IFileRepository<RootElement> targetRepository,
+            ITextPresenter presenter )
         {
             SourceRepository = sourceRepository;
             TargetRepository = targetRepository;
+            Presenter        = presenter;
         }
 
         public void Convert( IFileConvertingRequest request )
@@ -34,6 +39,8 @@ namespace ArticulationUtility.Interactors.Converting.StudioOneKeySwitch.FromSpre
             {
                 foreach( var xml in keySwitchTranslator.Translate( expressionMap ) )
                 {
+                    Presenter.Progress( expressionMap.Name.Value );
+
                     TargetRepository.SavePath = Path.Combine(
                         request.OutputDirectory,
                         expressionMap.Name.Value + TargetRepository.Suffix

@@ -8,29 +8,33 @@ using ArticulationUtility.UseCases.Values.Spreadsheet.Aggregate;
 
 namespace ArticulationUtility.Interactors.Converting.Tsv.FromSpreadsheet
 {
-    public class ConvertingToTsvInteractor : IFileConvertingUseCase
+    public class ConvertingToTsvInteractor : IFileConvertingInteractor<Workbook, TsvData>
     {
-        private IFileRepository<Workbook> LoadRepository { get; }
+        public IFileRepository<Workbook> SourceRepository { get; }
 
-        private IFileRepository<TsvData> SaveRepository { get; }
+        public IFileRepository<TsvData> TargetRepository { get; }
+
+        public ITextPresenter Presenter { get; }
 
         private ITsvTranslator<Worksheet> TsvTranslator { get; }
 
         public ConvertingToTsvInteractor(
             IFileRepository<Workbook> loadRepository,
             IFileRepository<TsvData> saveRepository,
-            ITsvTranslator<Worksheet> tsvTranslator )
+            ITsvTranslator<Worksheet> tsvTranslator,
+            ITextPresenter presenter )
         {
-            LoadRepository = loadRepository;
-            SaveRepository = saveRepository;
-            TsvTranslator  = tsvTranslator;
+            SourceRepository = loadRepository;
+            TargetRepository = saveRepository;
+            TsvTranslator    = tsvTranslator;
+            Presenter        = presenter;
         }
 
         public void Convert( IFileConvertingRequest request )
         {
-            LoadRepository.LoadPath = request.InputFile;
+            SourceRepository.LoadPath = request.InputFile;
 
-            var workbook = LoadRepository.Load();
+            var workbook = SourceRepository.Load();
 
             foreach( var sheet in workbook.Worksheets )
             {
@@ -38,11 +42,13 @@ namespace ArticulationUtility.Interactors.Converting.Tsv.FromSpreadsheet
 
                 foreach( var tsv in tsvList )
                 {
-                    SaveRepository.SavePath = Path.Combine(
+                    Presenter.Progress( sheet.Name );
+
+                    TargetRepository.SavePath = Path.Combine(
                         request.OutputDirectory,
-                        sheet.Name + SaveRepository.Suffix
+                        sheet.Name + TargetRepository.Suffix
                     );
-                    SaveRepository.Save( tsv );
+                    TargetRepository.Save( tsv );
                 }
             }
         }
